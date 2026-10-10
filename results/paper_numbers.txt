@@ -29,9 +29,11 @@ Table 4    FCN residue of k, elastic PREM [cpsd]                                
 6.3        h^L_n rotating flattened / spherical - 1, n = 3, 4, 5, near FCN   -0.24% -0.24% -0.24%   paper: 0.2 % (constant)
 6.1        weak feature in k below the tilt-over mode, at [cpsd]                          0.9978   paper: 0.998
 S3         distorted mesh with the Coriolis force: max |dh|, |dl|, |dk|                  8.1e-11   paper: 1e-10
-S3         distorted mesh with the fluid core: max |dh|, |dl|, |dk|                      1.6e-07   paper: 2e-7
+S3         distorted mesh with the fluid core, K = 4: max |dh|, |dl|, |dk|                1.6e-07   paper: 2e-7
+S3         distorted mesh with the fluid core, K = 6: max |dh|, |dl|, |dk|                5.6e-09   paper: 6e-9
+S3         distorted mesh with the fluid core, K = 8: max |dh|, |dl|, |dk|                2.5e-11   paper: 3e-11
 S3         diurnal convergence O1: max change K = 3 -> 8                                 3.1e-06   paper: 6e-6
-S3         diurnal convergence K1: max change K = 3 -> 8                                 5.6e-06   paper: 6e-6
+S3         diurnal convergence K1: max change K = 3 -> 8                                 5.7e-06   paper: 6e-6
 S3         halving the flattening: h(2)(f/2) / h(2)(f)                                     0.501   paper: 0.50 within 1 %
 6.3        K1 equilibrium tide at 45 deg [m]                                               0.142   paper: 0.14
 6.3        Re dh(0) = 0.005 at K1, 45 deg: amplitude / rms [mm]                      0.71 / 0.50   paper: 0.7 / 0.5

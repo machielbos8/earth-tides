@@ -282,8 +282,9 @@ def sec_mesh():
     d = diff(EarthModel('data/PREMhard.dat'), m=2, K=4, N=30, omega_f=0.0, coriolis=OMEGA_EARTH,
              omega_t=1.4053e-4)
     item('S3', 'distorted mesh with the Coriolis force: max |dh|, |dl|, |dk|', f'{d:.1e}', '1e-10')
-    d = diff(prem(), m=2, K=4, N=30, omega_f=1.4053e-4, dyn_fluid=True)
-    item('S3', 'distorted mesh with the fluid core: max |dh|, |dl|, |dk|', f'{d:.1e}', '2e-7')
+    for K, paper in ((4, '2e-7'), (6, '6e-9'), (8, '3e-11')):
+        d = diff(prem(), m=2, K=K, N=30, omega_f=1.4053e-4, dyn_fluid=True)
+        item('S3', f'distorted mesh with the fluid core, K = {K}: max |dh|, |dl|, |dk|', f'{d:.1e}', paper)
 
 
 def sec_convergence():
