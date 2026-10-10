@@ -141,7 +141,8 @@ TOL = 1e-8
 
 
 def tokens(text):
-    return TIMING.sub('', text).replace(',', ' ').replace('=', ' = ').replace('/', ' / ').split()
+    t = TIMING.sub('', text).replace(',', ' ').replace('=', ' = ').replace('/', ' / ')
+    return t.translate(str.maketrans({c: ' ' for c in '\'"{}()[]'})).split()
 
 
 def ulp(tok):
@@ -159,14 +160,26 @@ def numbers(tok):
     return [t] if NUM.match(t) else None
 
 
+# Numbers that are round-off on every platform (|x| and |y| below ROUNDOFF) count as equal.
+ROUNDOFF = 1e-12
+# Lines left out of the comparison, per output file, with the reason.
+IGNORE = {'hough1895.out': (re.compile(r'numerical mode'),
+                            'spurious eigenvalues of the discretization; how many are found depends '
+                            'on round-off (see the README of example 5)')}
+
+
 def same_number(x, y):
     fx, fy = float(x), float(y)
+    if abs(fx) < ROUNDOFF and abs(fy) < ROUNDOFF:
+        return True
     if abs(fx - fy) <= 1.01 * max(ulp(x.lstrip('+-')), ulp(y.lstrip('+-'))):
         return True
     return abs(fx - fy) <= TOL * max(abs(fy), 1.0)
 
 
-def compare_text(a, b):
+def compare_text(a, b, name=''):
+    if name in IGNORE:
+        a, b = ('\n'.join(l for l in t.splitlines() if not IGNORE[name][0].search(l)) for t in (a, b))
     ta, tb = tokens(a), tokens(b)
     if len(ta) != len(tb):
         return [f'different length ({len(ta)} vs {len(tb)} tokens)']
@@ -210,7 +223,7 @@ def compare_file(new, ref):
     if ref.suffix == '.json':
         return compare_text(new.read_text().replace('[', ' ').replace(']', ' '),
                             ref.read_text().replace('[', ' ').replace(']', ' '))
-    return compare_text(new.read_text(), ref.read_text())
+    return compare_text(new.read_text(), ref.read_text(), ref.name)
 
 
 def wpath(o, installed):
