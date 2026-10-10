@@ -112,7 +112,7 @@ If you use earth-tides in your research, please cite:
 > anelastic Earth. *Journal of Geodesy* (submitted).
 
 and the software with its version, for example: Bos, M.S. (2026). earth-tides, version 1.0.0
-(software). A DOI (Zenodo) is assigned at the first public release and given on the PyPI page;
+(software), Zenodo, doi:10.5281/zenodo.23280928;
 `earthtides.__version__` and the `metadata` of every Love-number table record the version used.
 
 ## Main features

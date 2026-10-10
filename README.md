@@ -109,6 +109,9 @@ If you use earth-tides in your research, please cite:
 > Bos, M.S. (2026). What the IERS body-tide model assumes: Love numbers of a flattened, rotating,
 > anelastic Earth. *Journal of Geodesy* (submitted).
 
+and the software: Bos, M.S. (2026). earth-tides, version 1.0.0. Zenodo.
+[doi:10.5281/zenodo.23280928](https://doi.org/10.5281/zenodo.23280928)
+
 ## License
 
 Free for academic, research, and educational use. Commercial use requires a separate license from
