@@ -1,0 +1,18 @@
+Synthetic oceans, convention H, through otl_fcn_resonance.admittance_grid
+wave   TAMP (CTE)      equilibrium ocean             lag 30 deg            lag 133 deg
+Q1      -0.050208 +1.0003+0.0000i (  +0.0) +0.8663-0.5001i ( -30.0) -0.6822-0.7316i (-133.0)
+O1      -0.262232 +1.0003+0.0000i (  +0.0) +0.8663-0.5001i ( -30.0) -0.6822-0.7316i (-133.0)
+P1      -0.121995 +1.0001+0.0000i (  +0.0) +0.8661-0.5000i ( -30.0) -0.6821-0.7314i (-133.0)
+K1      +0.368645 +0.9998+0.0000i (  +0.0) +0.8659-0.4999i ( -30.0) -0.6819-0.7312i (-133.0)
+
+Synthetic oceans, convention S, through otl_fcn_resonance.admittance_grid
+wave   TAMP (CTE)      equilibrium ocean             lag 30 deg            lag 133 deg
+Q1      -0.050208 -1.0003-0.0000i (-180.0) -0.8663+0.5001i (+150.0) +0.6822+0.7316i ( +47.0)
+O1      -0.262232 -1.0003-0.0000i (-180.0) -0.8663+0.5001i (+150.0) +0.6822+0.7316i ( +47.0)
+P1      -0.121995 -1.0001-0.0000i (-180.0) -0.8661+0.5000i (+150.0) +0.6821+0.7314i ( +47.0)
+K1      +0.368645 +0.9998+0.0000i (  +0.0) +0.8659-0.4999i ( -30.0) -0.6819-0.7312i (-133.0)
+
+FES2022b (results/otl_fcn_resonance.txt) read in either convention: phase [deg] per line
+  convention H: Q1  -136.2   O1  -137.2   P1  -134.4   K1  -133.0
+  convention S: Q1   +43.8   O1   +42.8   P1   +45.6   K1  -133.0
+IERS f_FCN f_OD:       Q1   -41.2   O1   -42.8   P1   -47.2   K1   -47.6

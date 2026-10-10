@@ -54,12 +54,10 @@ def out(s=''):
     lines.append(s)
 
 
-def admittance(wave, amp_tamura):
-    """Degree-2, order-1 admittance of the ocean tide of one wave (complex)."""
-    sys.path.insert(0, 'scripts')
-    from station_error_budget import read_grid
-    amp, lat, lon = read_grid(GRIDS / ('amp.' + wave))
-    pha, _, _ = read_grid(GRIDS / ('pha.' + wave))
+def admittance_grid(amp, pha, lat, lon, amp_tamura):
+    """Degree-2, order-1 admittance (ocean / equilibrium) of an ocean tide given as grids of
+    amplitude and Greenwich phase lag [deg] (row = latitude [rad], column = longitude [rad]), in
+    the convention of the ocean tide models and of BLQ files: height = Re[amp exp(-i pha) ...]."""
     ocean = (amp < 999.0) & (amp > 0.0)
     Z = np.where(ocean, amp * np.exp(-1j * np.radians(np.where(ocean, pha, 0.0))), 0.0)
     f, w = np.sin(2 * lat), np.cos(lat)
@@ -67,6 +65,15 @@ def admittance(wave, amp_tamura):
     den = (f**2 * w).sum()
     H = amp_tamura * etide.CV * etide.RE / (etide.GE / etide.RE**2)   # equilibrium tide, same pattern
     return num / den / H
+
+
+def admittance(wave, amp_tamura):
+    """Degree-2, order-1 admittance of the ocean tide of one wave (complex)."""
+    sys.path.insert(0, 'scripts')
+    from station_error_budget import read_grid
+    amp, lat, lon = read_grid(GRIDS / ('amp.' + wave))
+    pha, _, _ = read_grid(GRIDS / ('pha.' + wave))
+    return admittance_grid(amp, pha, lat, lon, amp_tamura)
 
 
 def h_load(md, geo, f_cpd):
