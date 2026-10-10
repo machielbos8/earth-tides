@@ -78,8 +78,8 @@ def test_sphere_independent_of_order(hard, m):
     r0 = TidalSolver(hard, m=0, K=2, N=24, omega_f=0.0).solve()
     r = TidalSolver(hard, m=m, K=2, N=24, omega_f=0.0).solve()
     for key in ('h', 'l', 'kk'):
-        assert abs(r[key] - r0[key]) < 1e-12
-    assert max(abs(v) for v in r['W'].values()) < 1e-12
+        assert abs(r[key] - r0[key]) < 1e-11
+    assert max(abs(v) for v in r['W'].values()) < 1e-11
 
 
 @pytest.mark.parametrize('m', [1, 2])

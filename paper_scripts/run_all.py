@@ -168,9 +168,25 @@ IGNORE = {'hough1895.out': (re.compile(r'numerical mode'),
                             'on round-off (see the README of example 5)')}
 
 
+# Files whose numbers vary between platforms by more than the printed precision: a function
+# (reference value) -> allowed absolute difference, with the reason.
+def _hough_tol(y):
+    """Example 5: the FCN of Hough's Earth is the root of a nearly singular system and varies by
+    ~1e-7 in frequency between BLAS builds; periods (1 / (f - 1), > 10) then vary by ~1e-4
+    relative and the relative differences (< 0.5) by ~1e-4."""
+    y = abs(y)
+    return 1e-3 * y if y >= 10 else (3e-7 if y >= 0.5 else 2e-4)
+
+
+FILE_TOL = {'hough1895.out': _hough_tol}
+_FT = None
+
+
 def same_number(x, y):
     fx, fy = float(x), float(y)
     if abs(fx) < ROUNDOFF and abs(fy) < ROUNDOFF:
+        return True
+    if _FT and abs(fx - fy) <= _FT(fy):
         return True
     if abs(fx - fy) <= 1.01 * max(ulp(x.lstrip('+-')), ulp(y.lstrip('+-'))):
         return True
@@ -178,6 +194,8 @@ def same_number(x, y):
 
 
 def compare_text(a, b, name=''):
+    global _FT
+    _FT = FILE_TOL.get(name)
     if name in IGNORE:
         a, b = ('\n'.join(l for l in t.splitlines() if not IGNORE[name][0].search(l)) for t in (a, b))
     ta, tb = tokens(a), tokens(b)
