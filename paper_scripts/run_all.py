@@ -180,7 +180,14 @@ def _hough_tol(y):
     return 1e-3 * y if y >= 10 else (3e-7 if y >= 0.5 else 2e-4)
 
 
-FILE_TOL = {'hough1895.out': _hough_tol}
+def _numbers_tol(y):
+    """paper_numbers.txt: the diagnostics below 1e-5 (convergence, round-off of the mesh tests)
+    vary between platforms by up to 10 per cent of their value; the paper quotes them to one
+    digit. K1, at the tilt-over mode, is the most sensitive."""
+    return 0.1 * abs(y) if abs(y) < 1e-5 else 0.0
+
+
+FILE_TOL = {'hough1895.out': _hough_tol, 'paper_numbers.txt': _numbers_tol}
 _FT = None
 
 
@@ -216,7 +223,9 @@ def compare_text(a, b, name=''):
 
 # Arrays of the figure data compared with an absolute tolerance (convergence errors at round-off)
 # or only away from the equator (l_N divides by dY/dphi, which vanishes there; the figure masks it).
-NPZ_ATOL = {'f2_err': 1e-10, 'f3_err': 1e-10}
+# figdata_fcn: the sweep crosses the tilt-over mode and the free core nutation, where the solution
+# varies by ~1e-7 between platforms; f2_err: round-off floor of the distorted-mesh test (~1e-8).
+NPZ_ATOL = {'f2_err': 1e-7, 'f3_err': 1e-10, 'h0': 1e-7, 'k0': 1e-7, 'l1': 1e-7}
 
 
 def compare_file(new, ref):
