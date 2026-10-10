@@ -1,0 +1,9 @@
+K1/O1 gravimetric ratio at 50 N, anelastic hydrostatic models
+model                     delta O1  delta K1     K1/O1  change of K1/O1  change of O1
+PREM                       1.15446   1.13476  0.982938         +0.0000 %      +0.0000 %
+mantle mu x1.02            1.15322   1.13335  0.982767         -0.0174 %      -0.1070 %
+mantle mu x0.98            1.15573   1.13621  0.983116         +0.0181 %      +0.1099 %
+upper mantle mu x1.02      1.15460   1.13484  0.982891         -0.0048 %      +0.0122 %
+lower mantle mu x1.02      1.15308   1.13327  0.982815         -0.0126 %      -0.1191 %
+mantle rho x1.01           1.15631   1.13676  0.983098         +0.0163 %      +0.1601 %
+STW105                     1.15452   1.13475  0.982876         -0.0063 %      +0.0055 %

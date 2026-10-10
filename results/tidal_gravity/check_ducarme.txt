@@ -1,0 +1,19 @@
+rho [%] = observed K1/O1 over theoretical K1/O1, minus 1 (in-phase amplitude factors)
+predicted: +0.064 (our admittance), -0.064 (empirical IERS admittance)
+station      paper  K1/O1 obs     ours  DDW99/NH  MAT01/NH
+Membach      2009    0.984475   +0.150    +0.164    +0.102
+Strasbourg   2009    0.984233   +0.124    +0.139    +0.077
+Bad Homburg  2009    0.983976   +0.099    +0.113    +0.051
+Moxa         2009    0.984321   +0.134    +0.148    +0.086
+Medicina     2009    0.983925   +0.092    +0.108    +0.046
+Wettzell     2009    0.984267   +0.128    +0.143    +0.081
+Vienna       2009    0.984205   +0.122    +0.136    +0.074
+Pecny        2009    0.984659   +0.168    +0.183    +0.120
+Pecny        2014    0.984208   +0.122    +0.137    +0.074
+Vienna       2014    0.984133   +0.114    +0.129    +0.067
+Conrad       2014    0.984143   +0.115    +0.130    +0.068
+Strasbourg   2014    0.984121   +0.113    +0.128    +0.066
+
+ours      mean +0.123 %  sd 0.021  se 0.006   distance to our sign +10.0 se, to IERS sign +31.5 se
+DDW99/NH  mean +0.138 %  sd 0.020  se 0.006   distance to our sign +12.6 se, to IERS sign +34.4 se
+MAT01/NH  mean +0.076 %  sd 0.020  se 0.006   distance to our sign +2.0 se, to IERS sign +23.8 se

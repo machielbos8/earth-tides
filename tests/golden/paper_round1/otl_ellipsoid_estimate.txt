@@ -1,0 +1,11 @@
+M2 vertical ocean tide loading, GOT4.10c, PREM: standard spherical OTL and the corrections for the flattened rotating Earth [mm]
+station         lat     OTL  d1 weight   d2 dist   d3 rest    total  total/OTL
+Brest          48.4   38.39      0.046     0.040     0.019    0.025  -5.91e-04
+Onsala         57.4    3.61      0.008     0.008     0.011    0.013  -3.44e-03
+Wettzell       49.1    5.17      0.011     0.009     0.015    0.018  -3.38e-03
+Bermuda        32.4   18.20      0.047     0.006     0.019    0.061  -2.88e-03
+Kourou          5.2   26.65      0.108     0.038     0.038    0.184  -6.91e-03
+Hobart        -42.8    9.58      0.019     0.002     0.013    0.026  -5.90e-04
+Fairbanks      65.0    9.13      0.010     0.012     0.008    0.009  +9.63e-04
+Ny-Alesund     78.9    8.41      0.008     0.033     0.005    0.036  +4.15e-03
+Amplitudes of complex sums; total/OTL = in-phase part of the total correction relative to OTL.

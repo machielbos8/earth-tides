@@ -1,0 +1,6 @@
+PREMhard 12 dh=+9.25e-06 dl=+1.08e-06 dk=+5.23e-06
+PREMhard 16 dh=+3.08e-06 dl=+1.42e-06 dk=+2.30e-06
+PREMhard 20 dh=+3.00e-06 dl=+1.42e-06 dk=+2.27e-06
+PREMhard 24 dh=+3.00e-06 dl=+1.42e-06 dk=+2.27e-06
+PREMhard 30 dh=+3.00e-06 dl=+1.42e-06 dk=+2.27e-06
+PREMhard 40 dh=+3.00e-06 dl=+1.42e-06 dk=+2.27e-06

@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "earth-tides"
+version = "1.0.0"
+description = "Solid Earth tides: Love numbers of a rotating, flattened, anelastic Earth by spectral Galerkin-collocation, and station displacements"
+readme = "README_PyPI.md"
+requires-python = ">=3.10"
+authors = [{ name = "Machiel S. Bos", email = "machiel.bos@teromovigo.com" }]
+license = { file = "LICENSE" }
+dependencies = ["numpy", "scipy"]
+
+[project.optional-dependencies]
+test = ["pytest"]
+figures = ["matplotlib"]
+
+[project.urls]
+Homepage = "https://teromovigo.com"
+
+[project.scripts]
+etide = "earthtides.etide:main"
+earthtides-love = "earthtides.love:main"
+earthtides-examples = "earthtides.earthtides_examples:main"
+
+[tool.setuptools.package-data]
+earthtides = ["data/*.dat", "data/*.json", "data/*.txt", "docs/*.pdf", "examples/README.md",
+               "examples/*/*.py", "examples/*/*.md", "examples/*/*.dat", "examples/*/*.out"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

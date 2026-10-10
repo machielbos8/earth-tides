@@ -1,0 +1,6 @@
+sphere m=0: dh=+0.0e+00 dl=+0.0e+00 dk=+0.0e+00  W={}  alpha=0
+bump   m=0: dh=+2.2e-10 dl=+3.4e-10 dk=-3.2e-11  maxW=0.0e+00  max other U=3.8e-08
+sphere m=1: dh=+1.2e-14 dl=-2.1e-15 dk=-8.9e-15  W={1: '7.9e-16', 3: '5.6e-17'}  alpha=[(1.9529172857670247e-21+0j)]
+bump   m=1: dh=-8.8e-10 dl=-1.2e-10 dk=-4.7e-10  maxW=3.3e-09  max other U=2.0e-09
+sphere m=2: dh=+2.0e-15 dl=-2.6e-15 dk=-1.3e-14  W={3: '9.3e-18', 5: '-3.4e-18'}  alpha=0
+bump   m=2: dh=-6.1e-12 dl=-3.2e-13 dk=-2.8e-12  maxW=3.8e-11  max other U=1.5e-09

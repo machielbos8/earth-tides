@@ -1,0 +1,27 @@
+Model PREMs: a = 6371000 m, g = 9.820002, static, no Coriolis
+Hydrostatic surface flattening 1/299.90, m = 1/289.87
+
+sphere:     h2 = 0.60315235  l2 = 0.08386300  k2 = 0.29794433
+
+Convergence (ellipsoid, scale = 1):
+  K   N           U0           U2           U4           V2           V4          k0          k2          k4
+  3  24 -8.63776e-05 0.60305786 -2.53072e-04 0.08353429 +2.33736e-05 +1.97e-11 0.29728042 -1.17e-03   (1.8 s)
+  4  24 -8.63776e-05 0.60305786 -2.53074e-04 0.08353429 +2.33729e-05 +1.97e-11 0.29728042 -1.17e-03   (2.0 s)
+  4  30 -8.63774e-05 0.60305786 -2.53074e-04 0.08353429 +2.33729e-05 +1.08e-13 0.29728042 -1.17e-03   (2.2 s)
+  5  30 -8.63774e-05 0.60305786 -2.53074e-04 0.08353429 +2.33729e-05 +1.08e-13 0.29728042 -1.17e-03   (2.6 s)
+  6  36 -8.63774e-05 0.60305786 -2.53074e-04 0.08353429 +2.33729e-05 +8.82e-16 0.29728042 -1.17e-03   (4.0 s)
+
+Ellipsoid minus sphere (degree-2 terms):
+  dU2 = -9.449e-05   dV2 = -3.287e-04   dk2 = -6.639e-04
+
+IERS-style latitude dependence  h(phi) = h0 + h2 P2(sin phi), same for l
+  sphere   : h0 = 0.603152  h2 = -0.000000   l0 = 0.083863  l2 = -0.000000
+  ellipsoid: h0 = 0.600515  h2 = -0.000462   l0 = 0.083151  l2 = +0.000091
+  max misfit of the 2-parameter form: h 1.3e-05, l 4.8e-08
+  IERS Conventions (2010) values for comparison: h2 = -0.0006, l2 = +0.0002
+
+Linearity in the flattening (K=5, N=30):
+  scale 0.25: h2/scale = -0.000466  l2/scale = +0.000091  dk2/scale = -0.000667  U0/scale = -0.000087
+  scale 0.50: h2/scale = -0.000465  l2/scale = +0.000091  dk2/scale = -0.000666  U0/scale = -0.000087
+  scale 1.00: h2/scale = -0.000462  l2/scale = +0.000091  dk2/scale = -0.000664  U0/scale = -0.000086
+  scale 2.00: h2/scale = -0.000457  l2/scale = +0.000090  dk2/scale = -0.000660  U0/scale = -0.000085

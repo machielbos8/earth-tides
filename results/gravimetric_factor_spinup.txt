@@ -1,0 +1,35 @@
+Diurnal gravimetric factors (ICET), anelastic hydrostatic PREM; K1 = mean of sigma 1 -+ 2e-4
+
+x = 0.0: surface flattening 1/299.9
+  O1: delta0 1.15441-0.00042i  delta+ +0.00008
+  K1: delta0 1.13474-0.00053i  delta+ +0.00004
+  K1 load resonance dh' -0.1283  dk' -0.0650  ocean term (our sign) +0.00073+0.00078i
+  Membach     O1 1.15446  K1 1.13476  K1/O1 0.982937  rho_pred ours +0.064 %  IERS sign -0.064 %
+  Strasbourg  O1 1.15445  K1 1.13476  K1/O1 0.982942  rho_pred ours +0.064 %  IERS sign -0.064 %
+  Wettzell    O1 1.15445  K1 1.13476  K1/O1 0.982940  rho_pred ours +0.064 %  IERS sign -0.064 %
+  Vienna      O1 1.15445  K1 1.13476  K1/O1 0.982943  rho_pred ours +0.064 %  IERS sign -0.064 %
+  Medicina    O1 1.15443  K1 1.13475  K1/O1 0.982952  rho_pred ours +0.064 %  IERS sign -0.064 %
+  Brussels    O1 1.15446  K1 1.13476  K1/O1 0.982936  rho_pred ours +0.064 %  IERS sign -0.064 %
+  Metsahovi   O1 1.15451  K1 1.13479  K1/O1 0.982914  rho_pred ours +0.064 %  IERS sign -0.064 %
+  Bad Homburg O1 1.15446  K1 1.13476  K1/O1 0.982938  rho_pred ours +0.064 %  IERS sign -0.064 %
+  Moxa        O1 1.15446  K1 1.13476  K1/O1 0.982937  rho_pred ours +0.064 %  IERS sign -0.064 %
+  Pecny       O1 1.15446  K1 1.13476  K1/O1 0.982938  rho_pred ours +0.064 %  IERS sign -0.064 %
+  Conrad      O1 1.15445  K1 1.13475  K1/O1 0.982943  rho_pred ours +0.064 %  IERS sign -0.064 %
+
+x = 0.0327: surface flattening 1/281.2
+  O1: delta0 1.15417-0.00042i  delta+ +0.00008
+  K1: delta0 1.13459-0.00052i  delta+ +0.00004
+  K1 load resonance dh' -0.1279  dk' -0.0649  ocean term (our sign) +0.00073+0.00077i
+  Membach     O1 1.15423  K1 1.13462  K1/O1 0.983004  rho_pred ours +0.064 %  IERS sign -0.064 %
+  Strasbourg  O1 1.15422  K1 1.13461  K1/O1 0.983009  rho_pred ours +0.064 %  IERS sign -0.064 %
+  Wettzell    O1 1.15422  K1 1.13461  K1/O1 0.983008  rho_pred ours +0.064 %  IERS sign -0.064 %
+  Vienna      O1 1.15422  K1 1.13461  K1/O1 0.983010  rho_pred ours +0.064 %  IERS sign -0.064 %
+  Medicina    O1 1.15420  K1 1.13460  K1/O1 0.983020  rho_pred ours +0.064 %  IERS sign -0.064 %
+  Brussels    O1 1.15424  K1 1.13462  K1/O1 0.983003  rho_pred ours +0.064 %  IERS sign -0.064 %
+  Metsahovi   O1 1.15429  K1 1.13464  K1/O1 0.982980  rho_pred ours +0.064 %  IERS sign -0.064 %
+  Bad Homburg O1 1.15423  K1 1.13462  K1/O1 0.983005  rho_pred ours +0.064 %  IERS sign -0.064 %
+  Moxa        O1 1.15423  K1 1.13462  K1/O1 0.983004  rho_pred ours +0.064 %  IERS sign -0.064 %
+  Pecny       O1 1.15423  K1 1.13461  K1/O1 0.983006  rho_pred ours +0.064 %  IERS sign -0.064 %
+  Conrad      O1 1.15422  K1 1.13461  K1/O1 0.983011  rho_pred ours +0.064 %  IERS sign -0.064 %
+
+Membach K1/O1: FCN at 460 sd 0.982937, at 431 sd 0.983004: change +0.007 %

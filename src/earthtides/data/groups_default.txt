@@ -1,0 +1,26 @@
+# Default wave groups of earthtides-love (tools/design_groups.py): limits in cycles
+# per day; designed from the per-wave admittance of PREM (earth-tides) and of the IERS
+# model, sum of the error bounds 0.103 mm (budget 0.15 mm); main wave in
+# the comment. Columns: f1 f2 name
+ 0.000000000  0.002664232 L01     # main wave 0.000147 cpd, 7 waves
+ 0.002664233  0.005475688 L02     # main wave 0.002738 cpd, 9 waves
+ 0.005475689  0.031361190 L03     # main wave 0.005476 cpd, 18 waves
+ 0.031361191  0.067652837 L04     # main wave 0.036292 cpd, 45 waves
+ 0.067652838  0.109257942 L05     # main wave 0.073202 cpd, 56 waves
+ 0.109257943  0.501369000 L06     # main wave 0.109494 cpd, 75 waves
+ 0.501370000  0.929315066 D01     # main wave 0.893244 cpd, 123 waves
+ 0.929315067  0.966372715 D02     # main wave 0.929536 cpd, 46 waves
+ 0.966372716  0.994450765 D03     # main wave 0.966446 cpd, 21 waves
+ 0.994450766  0.997188544 D04     # main wave 0.994524 cpd, 5 waves
+ 0.997188545  1.000000000 D05     # main wave 0.997262 cpd, 7 waves
+ 1.000000001  1.002517269 D06     # main wave 1.000000 cpd, 5 waves
+ 1.002517270  1.002664363 D07     # main wave 1.002591 cpd, 1 waves
+ 1.002664364  1.002811587 D08     # main wave 1.002738 cpd, 2 waves
+ 1.002811588  1.005402141 D09     # main wave 1.002885 cpd, 5 waves
+ 1.005402142  1.006608801 D10     # main wave 1.005476 cpd, 3 waves
+ 1.006608802  1.033333097 D11     # main wave 1.008214 cpd, 17 waves
+ 1.033333098  1.075704205 D12     # main wave 1.039030 cpd, 45 waves
+ 1.075704206  1.470243000 D13     # main wave 1.075940 cpd, 65 waves
+ 1.470244000  1.999926453 S01     # main wave 1.932274 cpd, 187 waves
+ 1.999926454  2.451943000 S02     # main wave 2.000000 cpd, 94 waves
+ 2.451944000  7.000000000 HIGH    # degrees 3 and 4 only (spherical values), no solve

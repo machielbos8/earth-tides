@@ -1,0 +1,6 @@
+M2, PREM elastic; reference (sphere, no rotation): U22 = 3.861868e+06, U42 = 6.2e-10
+case                          dS22/S22_0 [%]   S42/S22_0 [%]
+ellipticity only                     +0.2842         -0.0201
+rotation only                        -0.4297         -0.0001
+rotation + ellipticity               -0.1477         -0.0202
+Lau et al. 2015 (both)                 +0.05           -0.01

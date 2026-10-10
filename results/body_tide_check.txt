@@ -1,0 +1,45 @@
+Body tide 2026, hourly, 8760 epochs; columns radial, south, west: rms/max in mm (means removed)
+
+ONSA (lat +57.395, lon +11.926)
+  IERS degree 2, nominal (rms/max)      88.402/289.820 18.690/52.822 27.110/75.467
+  synthesis - IERS nominal degree 2      0.061/ 0.295  0.016/ 0.071  0.014/ 0.080   mean +67.56 -22.99 +0.00 (permanent tide)
+  permanent tide (IERS formula)  radial -67.54  south +22.98 mm
+  IERS degree 3                          0.528/ 1.030  0.084/ 0.241  0.077/ 0.192
+  IERS l1, out-of-phase, step 2          8.660/14.504  0.640/ 1.757  0.681/ 1.788
+  HARDISP(nominal BLQ) - synthesis       0.050/ 0.125  0.019/ 0.051  0.023/ 0.067
+  PREM degree 2 (rms/max)               82.756/278.003 19.347/54.658 27.995/77.613
+  HARDISP(PREM BLQ) - PREM exact         0.839/ 2.004  0.025/ 0.074  0.051/ 0.127
+  PREM - IERS (degree 2 + IERS deg. 3)  0.766/ 2.234  0.121/ 0.390  0.342/ 0.910
+
+KOKB (lat +22.126, lon -159.665)
+  IERS degree 2, nominal (rms/max)      117.407/341.508 21.301/61.110 31.363/74.958
+  synthesis - IERS nominal degree 2      0.062/ 0.284  0.015/ 0.084  0.015/ 0.055   mean -34.95 -17.50 -0.00 (permanent tide)
+  permanent tide (IERS formula)  radial +34.95  south +17.50 mm
+  IERS degree 3                          0.739/ 2.268  0.069/ 0.218  0.100/ 0.240
+  IERS l1, out-of-phase, step 2          6.615/11.532  0.510/ 1.233  0.316/ 0.913
+  HARDISP(nominal BLQ) - synthesis       0.088/ 0.221  0.016/ 0.051  0.026/ 0.065
+  PREM degree 2 (rms/max)               115.511/333.337 21.883/62.538 31.988/76.430
+  HARDISP(PREM BLQ) - PREM exact         0.638/ 1.549  0.047/ 0.127  0.026/ 0.072
+  PREM - IERS (degree 2 + IERS deg. 3)  0.864/ 2.465  0.225/ 0.585  0.505/ 1.348
+
+NKLG (lat +0.354, lon +9.672)
+  IERS degree 2, nominal (rms/max)      117.003/281.158 24.509/62.542 32.325/70.427
+  synthesis - IERS nominal degree 2      0.064/ 0.253  0.014/ 0.084  0.015/ 0.050   mean -60.34 -0.31 +0.00 (permanent tide)
+  permanent tide (IERS formula)  radial +60.33  south +0.31 mm
+  IERS degree 3                          0.720/ 1.982  0.084/ 0.240  0.104/ 0.211
+  IERS l1, out-of-phase, step 2          0.456/ 1.293  0.560/ 1.074  0.267/ 0.585
+  HARDISP(nominal BLQ) - synthesis       0.060/ 0.154  0.017/ 0.055  0.017/ 0.044
+  PREM degree 2 (rms/max)               117.784/283.473 25.219/64.050 32.881/71.689
+  HARDISP(PREM BLQ) - PREM exact         0.029/ 0.088  0.064/ 0.157  0.014/ 0.032
+  PREM - IERS (degree 2 + IERS deg. 3)  0.775/ 1.986  0.304/ 0.735  0.555/ 1.232
+
+HOB2 (lat -42.805, lon +147.439)
+  IERS degree 2, nominal (rms/max)      108.112/352.044 17.275/47.251 29.051/78.419
+  synthesis - IERS nominal degree 2      0.059/ 0.305  0.016/ 0.067  0.015/ 0.070   mean +22.63 +25.14 +0.00 (permanent tide)
+  permanent tide (IERS formula)  radial -22.62  south -25.14 mm
+  IERS degree 3                          0.629/ 1.841  0.075/ 0.222  0.089/ 0.237
+  IERS l1, out-of-phase, step 2          9.480/15.956  0.522/ 1.476  0.517/ 1.423
+  HARDISP(nominal BLQ) - synthesis       0.067/ 0.185  0.013/ 0.039  0.020/ 0.058
+  PREM degree 2 (rms/max)               102.742/339.181 17.759/48.658 29.825/80.442
+  HARDISP(PREM BLQ) - PREM exact         0.917/ 2.192  0.015/ 0.047  0.044/ 0.116
+  PREM - IERS (degree 2 + IERS deg. 3)  0.894/ 2.594  0.078/ 0.220  0.408/ 1.159

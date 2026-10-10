@@ -1,0 +1,9 @@
+sigma 0.92700  d0 1.15282  d+ +0.000082  (inertia part d0 +0.04620 d+ +0.000000)  resonant d+/d0 +nan  DDW d0 1.15279 d+ +0.00004
+sigma 0.96000  d0 1.15252  d+ +0.000081  (inertia part d0 +0.08454 d+ +0.000000)  resonant d+/d0 +0.0029
+sigma 0.99454  d0 1.14794  d+ +0.000071  (inertia part d0 +0.61406 d+ +0.000000)  resonant d+/d0 +0.0022  DDW d0 1.14777 d+ -0.00013
+sigma 0.99980  d0 1.13465  d+ +0.000043  (inertia part d0 +16.24515 d+ +0.000000)  resonant d+/d0 +0.0021
+sigma 1.00020  d0 1.13086  d+ +0.000035  (inertia part d0 -16.09490 d+ +0.000000)  resonant d+/d0 +0.0021
+sigma 1.00150  d0 1.08781  d+ -0.000056  (inertia part d0 -1.91847 d+ -0.000001)  resonant d+/d0 +0.0021
+sigma 1.00273  d0 1.23713  d+ +0.000259  (inertia part d0 -1.48777 d+ +0.000002)  resonant d+/d0 +0.0021  DDW d0 1.23735 d+ +0.00273
+sigma 1.00546  d0 1.16761  d+ +0.000112  (inertia part d0 -0.64298 d+ +0.000001)  resonant d+/d0 +0.0021  DDW d0 1.16775 d+ +0.00051
+sigma 1.07300  d0 1.15478  d+ +0.000087  (inertia part d0 -0.04670 d+ +0.000001)  resonant d+/d0 +0.0027

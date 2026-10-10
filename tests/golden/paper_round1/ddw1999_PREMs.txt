@@ -1,0 +1,29 @@
+PREMs, elastic, hydrostatic ellipsoid, Coriolis + inertia in solids, vs DDW1999 Table 11
+Tisserand: rigid rotation of every region removed; Wahr frame: solid regions rotate freely,
+rigid rotation removed from the surface displacement only (Wahr 1981 eqs. 4.3, 4.6)
+
+---- zonal (m = 0) ----
+             Tisserand  Wahr frame     DDW1999     diff(W)   IERS 2010
+  h0           0.60053     0.59994     0.59892    +0.00102
+  h2          -0.00049    -0.00049    -0.00047    -0.00002     -0.0006
+  hp           0.00001     0.00008     0.00014    -0.00006      0.0001
+  l0           0.08315     0.08304     0.08304    +0.00000
+  l2           0.00009     0.00009     0.00008    +0.00001      0.0002
+
+---- O1 (m = 1) ----
+             Tisserand  Wahr frame     DDW1999     diff(W)   IERS 2010
+  h0           0.60099     0.59318     0.59553    -0.00235
+  h2          -0.00049    -0.00059    -0.00048    -0.00011     -0.0006
+  l0           0.08326     0.08316     0.08298    +0.00018
+  l1           0.00048     0.00048     0.00070    -0.00022      0.0012
+  l2           0.00009     0.00008     0.00008    -0.00000      0.0002
+  lp          -0.00030     0.00005     0.00020    -0.00015     -0.0002
+
+---- M2 (m = 2) ----
+             Tisserand  Wahr frame     DDW1999     diff(W)   IERS 2010
+  h0           0.60247     0.60247     0.60175    +0.00072
+  h2          -0.00049    -0.00049    -0.00047    -0.00002     -0.0006
+  l0           0.08361     0.08361     0.08359    +0.00002
+  l1           0.00099     0.00099     0.00100    -0.00001      0.0024
+  l2           0.00009     0.00009     0.00008    +0.00001      0.0002
+

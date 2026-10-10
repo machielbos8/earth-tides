@@ -1,0 +1,12 @@
+Greff-Lefftz et al. (2005): homogeneous, incompressible (lambda = 1e5 mu), mu_bar = 3.15591, 1/alpha = 232.1, static, m = 2
+  sphere: h2 = 0.601554 (0.601553)  l2 = 0.180466 (0.180466)  k2 = 0.360932 (0.360932)
+                          no centrifugal  with centrifugal  Greff et al.
+  h2+ho (normal)               +0.603145         +0.603979     +0.603140
+  h+                           -0.000334         -0.000334     -0.000332
+  l2+lo (tangential)           +0.181548         +0.181799     +0.181544
+  l+                           -0.000064         -0.000064     -0.000064
+  l* (toroidal)                -0.000226         -0.000226     -0.000224
+  k2+ko (geoid)                +0.363826         +0.364328     +0.363824
+  k+ (geoid)                   -0.000633         -0.000634     -0.000633
+  "no centrifugal": reference gravity in the perturbation equations purely gravitational,
+  which reproduces their formulation; "with": centrifugal force on the displaced parcel included.

@@ -1,0 +1,1 @@
+sigma_FCN=1.0021741 cpsd  period=460.0 sidereal days (anelastic)

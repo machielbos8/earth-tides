@@ -1,0 +1,11 @@
+Hough's Earth (Maclaurin spheroid, rigid shell, fluid core): FCN in cycles per sidereal day
+   Omega      1/f  K    predicted       solver   P pred   P solv  rel diff
+   2.0xE    57.60  6   1.01840613   1.01418782    54.33    70.48  -2.3e-01   numerical mode (see README)
+   2.0xE    57.60  6   1.01840613   1.01838988    54.33    54.38  -8.8e-04   FCN
+   2.0xE    57.60  6   1.01840613   1.02117181    54.33    47.23  +1.5e-01   numerical mode (see README)
+   1.0xE   231.07  6   1.00455866   1.00455771   219.36   219.41  -2.1e-04   FCN
+   1.0xE   231.07  6   1.00455866   1.00532043   219.36   187.95  +1.7e-01   numerical mode (see README)
+   1.0xE   231.07  8   1.00455866   1.00455759   219.36   219.41  -2.3e-04   FCN
+   1.0xE   231.07  8   1.00455866   1.00533081   219.36   187.59  +1.7e-01   numerical mode (see README)
+   0.5xE   924.94  6   1.00113702   1.00113720   879.49   879.35  +1.6e-04   FCN
+without reference potential (no centrifugal pre-stress), Omega_E: -2.5e-02

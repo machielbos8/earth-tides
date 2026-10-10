@@ -1,0 +1,39 @@
+section    quantity                                                                  this script   value in the paper
+2.4        ocean -> rock (2600 kg/m3, top 15 km layer): change of h2                    +5.3e-04   paper: +5e-4
+2.4        transversely isotropic PREM: change of h2                                not computed   paper: -3e-4 (astyanax, Bos & Scherneck 2013)
+3.4        unknown coefficients, PREM, K = 5, N = 30 (m = 2)                                7200   paper: about 7000
+3.5        consistent minus level-surface reference potential, Mf: max change                1.6e-06   paper: about 2e-6
+3.5        consistent minus level-surface reference potential, M2: max change                2.1e-06   paper: about 2e-6
+3.7        misfit of the IERS parametrization, Mf (relative)                             1.5e-06   paper: < 1.5e-6 (Mf, M2); <= 1.3e-5 (diurnal)
+3.7        misfit of the IERS parametrization, O1 (relative)                             3.6e-06   paper: < 1.5e-6 (Mf, M2); <= 1.3e-5 (diurnal)
+3.7        misfit of the IERS parametrization, K1 (relative)                             1.3e-05   paper: < 1.5e-6 (Mf, M2); <= 1.3e-5 (diurnal)
+3.7        misfit of the IERS parametrization, M2 (relative)                             9.8e-07   paper: < 1.5e-6 (Mf, M2); <= 1.3e-5 (diurnal)
+5.2        Coriolis part of l(1) at the M2 frequency, m = 1 / m = 2            0.00033 / 0.00033   paper: 0.00033 (M2), 0.00016 (O1); barely depends on m
+5.2        Coriolis part of l(1) at the O1 frequency, m = 1 / m = 2            0.00016 / 0.00016   paper: 0.00033 (M2), 0.00016 (O1); barely depends on m
+6.1        dynamical ellipticity of the fluid core e_f                                   1/392.5   paper: 1/392.5
+6.1        A_m / A                                                                         0.886   paper: 0.886
+6.1        Hough's formula: period A_m/(A e_f) [sidereal days]                               348   paper: 348
+6.1        FCN, mantle and inner core stiffened 1e4 times [sidereal days]                  356.5   paper: 356.5
+6.1        FCN, elastic hydrostatic PREM [sidereal days]                                   457.2   paper: 457.2
+S3         compliance beta = e_f - (sigma_FCN - 1) A_m / A                              6.09e-04   paper: 6.1e-4
+S3/S4      FCN, anelastic PREM spun 0.00 % faster [days of that Earth]    460.0 (Omega^2: 460.0)   paper: 460.0
+S3/S4      FCN, anelastic PREM spun 2.00 % faster [days of that Earth]    442.1 (Omega^2: 442.1)   paper: 442.1
+S3/S4      FCN, anelastic PREM spun 2.50 % faster [days of that Earth]    437.8 (Omega^2: 437.8)   paper: 437.8
+S3/S4      FCN, anelastic PREM spun 3.27 % faster [days of that Earth]    431.3 (Omega^2: 431.3)   paper: 431.3
+Table 4    FCN residue of h^L, elastic PREM [cpsd]                                     2.777e-04   paper: 2.78e-4
+Table 4    FCN residue of k^L, elastic PREM [cpsd]                                     1.395e-04   paper: 1.39e-4
+Table 4    FCN residue of h(0), elastic PREM [cpsd]                                    1.825e-04   paper: 1.83e-4
+Table 4    FCN residue of k, elastic PREM [cpsd]                                       9.213e-05   paper: 0.92e-4
+6.3        h^L_n rotating flattened / spherical - 1, n = 3, 4, 5, O1        -0.24% -0.24% -0.24%   paper: 0.2 % (constant)
+6.3        h^L_n rotating flattened / spherical - 1, n = 3, 4, 5, K1        -0.24% -0.22% -0.23%   paper: 0.2 % (constant)
+6.3        h^L_n rotating flattened / spherical - 1, n = 3, 4, 5, near FCN   -0.24% -0.24% -0.24%   paper: 0.2 % (constant)
+6.1        weak feature in k below the tilt-over mode, at [cpsd]                          0.9978   paper: 0.998
+S3         distorted mesh with the Coriolis force: max |dh|, |dl|, |dk|                  8.1e-11   paper: 1e-10
+S3         distorted mesh with the fluid core: max |dh|, |dl|, |dk|                      1.6e-07   paper: 2e-7
+S3         diurnal convergence O1: max change K = 3 -> 8                                 3.1e-06   paper: 6e-6
+S3         diurnal convergence K1: max change K = 3 -> 8                                 5.6e-06   paper: 6e-6
+S3         halving the flattening: h(2)(f/2) / h(2)(f)                                     0.501   paper: 0.50 within 1 %
+6.3        K1 equilibrium tide at 45 deg [m]                                               0.142   paper: 0.14
+6.3        Re dh(0) = 0.005 at K1, 45 deg: amplitude / rms [mm]                      0.71 / 0.50   paper: 0.7 / 0.5
+8.3        normalization 0.45 % of the degree-2 tide (88-117 mm rms) [mm]              0.40-0.53   paper: 0.4-0.5
+8.3        centrifugal reference, dh(0) = 8e-4 of h(0) = 0.6 (88-117 mm rms) [mm]              0.12-0.16   paper: 0.12-0.16

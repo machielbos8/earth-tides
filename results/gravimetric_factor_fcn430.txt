@@ -1,0 +1,28 @@
+Diurnal gravimetric factors, anelastic hydrostatic PREM, FCN moved to the IERS frequency
+our FCN 1.0021741 cpsd (460.0 sd); IERS 1.0023181 (431.4 sd)
+
+fit quality (rms misfit of the resonance formula):
+  dh' 3.1e-04   dk' 1.5e-04   FCN residues: dh' +2.839e-04  dk' +1.432e-04
+  delta (Membach) 1.4e-04; FCN residue +4.405e-05, FICN -3.991e-07
+
+station      delta O1 (430)        delta K1 (own FCN)  delta K1 (430)       K1 ocean term (our sign)
+Membach      1.15450-0.00041i   1.13494            1.13620-0.00050i   +0.00068+0.00072i
+Strasbourg   1.15449-0.00041i   1.13494            1.13620-0.00050i   +0.00068+0.00072i
+Wettzell     1.15449-0.00041i   1.13494            1.13620-0.00050i   +0.00068+0.00072i
+Vienna       1.15449-0.00041i   1.13494            1.13620-0.00050i   +0.00068+0.00072i
+Medicina     1.15447-0.00041i   1.13493            1.13618-0.00050i   +0.00068+0.00072i
+Brussels     1.15450-0.00041i   1.13494            1.13620-0.00050i   +0.00068+0.00072i
+Metsahovi    1.15456-0.00041i   1.13497            1.13623-0.00050i   +0.00068+0.00072i
+equator+45   1.15447-0.00041i   1.13493            1.13619-0.00050i   +0.00068+0.00072i
+K1 load resonance (FCN at IERS frequency): dh' -0.1190  dk' -0.0604
+
+rho = [dc(K1)/dc(O1)]/[theory K1/O1] - 1 in per cent (in-phase parts), theory = this paper with FCN at 431 sd, no ocean resonance;
+predicted rho: our sign / IERS sign of the in-phase ocean term
+station     O1 from        FES2022b   GOT5.5   TPXO10   pred ours pred IERS
+Membach     Ducarme 2012    +0.038   +0.031   -0.004      +0.060    -0.060
+Strasbourg  BB03            +0.015   +0.014   -0.015      +0.060    -0.060
+Wettzell    BB03            +0.131   +0.132   +0.110      +0.060    -0.060
+Vienna      BB03            +0.019   +0.021   +0.002      +0.060    -0.060
+Medicina    BB03            -0.037   -0.034   -0.060      +0.060    -0.060
+Brussels    BB03            -0.234   -0.244   -0.289      +0.060    -0.060
+Metsahovi   BB03            -0.063   -0.064   -0.065      +0.060    -0.060

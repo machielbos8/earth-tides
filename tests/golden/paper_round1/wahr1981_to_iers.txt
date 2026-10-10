@@ -1,0 +1,25 @@
+Wahr (1981b) Table 5 (neutral 1066A) displacement scalars in the IERS (TN36) form, surface frame
+O1: h0 +0.60300  h2 +0.00060  l0 +0.08411  l2 +0.00022  l1 +0.00036  lp -0.00014   (relative misfit 5.7e-10)
+     rounding sd: h0 0.00000  h2 0.00000  l0 0.00001  l2 0.00014  l1 0.00009  lp 0.00003
+     ours (PREM): surface frame: l0 0.08305, l2 0.00009, l1 0.00048, lp +0.00005; mantle frame lp -0.00030
+     DDW (PREM):  l0 0.08298, l2 0.00008, l1 0.00070, lp +0.00020
+     IERS:        l1 0.0012, lp -0.0002 (elastic part)
+M2: h0 +0.60900  h2 +0.00061  l0 +0.08482  l2 +0.00050  l1 +0.00085   (relative misfit 1.3e-10)
+     rounding sd: h0 0.00000  h2 0.00000  l0 0.00008  l2 0.00020  l1 0.00018
+     ours (PREM): l0 0.08361, l2 0.00009, l1 0.00099
+     DDW (PREM):  l0 0.08359, l2 0.00008, l1 0.00100
+     IERS:        l1 0.0024
+
+Our PREM solution (surface frame) refitted on Wahr's footing (mean sphere r0 = a) and as computed:
+O1 ours, mean sphere: h0 +0.59626  h2 -0.00111  l0 +0.07121  l2 -0.00105  l1 -0.02319  lp -0.00567
+O1 ours, surface    : h0 +0.59626  h2 -0.00050  l0 +0.08305  l2 +0.00009  l1 +0.00048  lp +0.00005
+O1 check (iers_fit, surface): h0 +0.59626  h2 -0.00050  l0 +0.08305  l2 +0.00009  l1 +0.00048  lp +0.00005
+M2 ours, mean sphere: h0 +0.60244  h2 -0.00110  l0 +0.08361  l2 -0.00106  l1 +0.00099
+M2 ours, surface    : h0 +0.60244  h2 -0.00049  l0 +0.08361  l2 +0.00009  l1 +0.00099
+M2 check (iers_fit, surface): h0 +0.60244  h2 -0.00049  l0 +0.08361  l2 +0.00009  l1 +0.00099
+
+Our PREM fields fitted with Wahr's own basis (4.9f), at the deformed surface, surface frame:
+O1 ours:  h0 +3815690.8529  y -0.0008  l0 +531838.2275  z +0.0041  lplus -0.0005  wplus +0.0015
+O1 Wahr:  h0 +0.6030  y +0.0010  l0 +0.0841  z +0.0140  lplus -0.0020  wplus +0.0000
+M2 ours:  h0 +3855265.3872  y -0.0008  l0 +4804790743.8053  z +6.9992  lplus -0.8659  wplus -1.3227
+M2 Wahr:  h0 +0.6090  y +0.0010  l0 +0.0852  z +0.0140  lplus -0.0010  wplus +0.0010

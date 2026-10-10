@@ -1,0 +1,10 @@
+rho [%] = [dc(K1)/dc(O1)] / [theory K1/O1] - 1;  predicted +0.065 (our sign), -0.065 (IERS sign)
+theory: DDW99 NH (first three columns) and this paper, FCN at 431 sd (last three)
+station     O1 from       FES2022b    GOT5.5    TPXO10  FES2022b    GOT5.5    TPXO10   K1 corr. phase
+Brussels    BB03            -0.100    -0.110    -0.155    -0.119    -0.128    -0.174   -0.019 deg
+Membach     Ducarme 2012    +0.171    +0.165    +0.130    +0.154    +0.147    +0.112   +0.037 deg
+Metsahovi   BB03            +0.106    +0.105    +0.103    +0.052    +0.051    +0.050   +0.002 deg
+Strasbourg  BB03            +0.141    +0.140    +0.111    +0.131    +0.130    +0.101   +0.038 deg
+Wettzell    BB03 lower      +0.259    +0.260    +0.238    +0.247    +0.248    +0.226   +0.026 deg
+Medicina    BB03            +0.073    +0.076    +0.049    +0.079    +0.082    +0.056   +0.051 deg
+Vienna      BB03            +0.143    +0.146    +0.127    +0.135    +0.138    +0.118   +0.045 deg

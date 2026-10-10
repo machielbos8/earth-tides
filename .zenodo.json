@@ -1,0 +1,25 @@
+{
+  "title": "earth-tides 1.0.0: software, scripts and results for \"What the IERS body-tide model assumes: Love numbers of a flattened, rotating, anelastic Earth\"",
+  "upload_type": "software",
+  "version": "1.0.0",
+  "creators": [
+    {
+      "name": "Bos, Machiel S.",
+      "affiliation": "TeroMovigo - Earth Innovation Lda",
+      "orcid": "0000-0002-1946-8637"
+    }
+  ],
+  "description": "<p>The Python package earth-tides computes the Love numbers of a flattened, rotating, anelastic Earth with a spectral Galerkin-collocation method, and the body-tide displacement of a station (program etide). This archive contains the package, the scripts that produce every table, figure and number of the paper, the stored results and the figures. paper_scripts/run_all.py reruns the scripts and compares their output with the stored results; README.md lists which script produces which result.</p>",
+  "keywords": [
+    "solid Earth tide",
+    "Love numbers",
+    "free core nutation",
+    "ocean tide loading",
+    "IERS Conventions",
+    "anelasticity",
+    "spectral methods"
+  ],
+  "license": "other-open",
+  "notes": "Source-available licence: free for academic, research and other non-commercial use; see LICENSE.",
+  "related_identifiers": []
+}

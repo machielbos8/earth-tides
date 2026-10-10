@@ -1,0 +1,17 @@
+Loaded elliptical drum: -lap u = load, u = 0 on x^2 + y^2/(1-f)^2 = 1; Chebyshev collocation in s,
+Galerkin projection on cos 2k theta; max relative error against the exact solution
+
+uniform load:
+       f       K=1       K=2       K=3       K=4       K=6       K=8   first-order theory
+  0.0033   1.2e-14   7.0e-15   1.0e-14   7.0e-15   1.2e-14   7.0e-15     1.1e-05
+  0.1000   1.3e-14   3.5e-15   9.2e-15   9.2e-15   7.9e-15   8.0e-15     1.0e-02
+  0.3000   1.4e-14   1.2e-14   3.8e-14   3.7e-14   3.7e-14   3.7e-14     9.6e-02
+
+quadrupole load:
+       f       K=1       K=2       K=3       K=4       K=6       K=8   first-order theory
+  0.0033   9.9e-01   1.7e-03   2.8e-06   4.6e-09   1.8e-14   3.7e-15     5.0e-05
+  0.1000   8.1e-01   4.4e-02   2.3e-03   1.2e-04   3.4e-07   9.3e-10     4.2e-02
+  0.3000   6.1e-01   1.2e-01   2.1e-02   3.7e-03   1.1e-04   3.5e-06     3.6e-01
+
+quadrupole load, f = 0.1, K = 4: amplitude of each harmonic (max over s)
+   cos 0t: 3.97e-03  cos 2t: 1.70e-02  cos 4t: 8.94e-04  cos 6t: 4.70e-05
