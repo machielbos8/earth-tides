@@ -49,7 +49,7 @@ distributed; these files are inputs of the gravity jobs. The control files are s
 | Sect. 5.2, Coriolis part of l(1) | `coriolis`, `paper_numbers` | `scripts/run_coriolis.py` | `results/coriolis_PREMs.txt` |
 | Sect. 6.1, FCN period, Hough's formula, compliance | `fcn_period`, `ex5`, `paper_numbers` | `scripts/fcn_period.py`, `scripts/paper_numbers.py` | `results/paper_numbers.txt` |
 | Table 4, FCN residues (this paper) | `paper_numbers` | `scripts/paper_numbers.py` | `results/paper_numbers.txt` |
-| Sects 6.2-6.3, Tables 5-6, load resonance and ocean admittance | `otl_fcn_resonance`, `iers_admittance`, `check_chao1996` | `scripts/otl_fcn_resonance.py`, `scripts/check_iers_admittance.py`, `scripts/check_chao1996.py` | `results/otl_fcn_resonance.txt` |
+| Sects 6.2-6.3, 8.2, Tables 5-6, load resonance, ocean admittance, IERS tables 6.5a/7.2/7.3a | `otl_fcn_resonance`, `iers_admittance`, `check_chao1996`, `check_iers_tables` | `scripts/otl_fcn_resonance.py`, `scripts/check_iers_admittance.py`, `scripts/check_chao1996.py`, `scripts/check_iers_tables.py` | `results/otl_fcn_resonance.txt` |
 | Sect. 6.4, tidal gravity | `scan_delta_plus`, `gravimetric_spinup`, `gravimetric_fcn430`, `k1o1_sensitivity`, `ducarme`, `tidal_gravity_k1` | `scripts/gravimetric_factor_*.py`, `scripts/check_tidal_gravity_*.py` | `results/gravimetric_factor_*.txt`, `results/stdout/scan_delta_plus.txt`, `results/tidal_gravity/` |
 | Sect. 7, Love table of PREM | `love_table` | `earthtides-love` (`src/earthtides/love.py`) | `src/earthtides/data/love_PREM.json` |
 | Sect. 7.1, PREM - IERS per station and line | `prem_iers_harmonics` | `scripts/prem_iers_harmonics.py` | `results/prem_iers_harmonics.txt` |

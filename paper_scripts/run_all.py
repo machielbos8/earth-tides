@@ -84,6 +84,8 @@ JOBS = [
      None, 'Sect. 8.3, Table S3: effect of the conventions'),
     ('check_chao1996', 'quick', ['scripts/check_chao1996.py'], ['stdout:check_chao1996'], None,
      'Table 5, Sect. 8.2: admittance from the angular momenta of Chao et al. (1996)'),
+    ('check_iers_tables', 'quick', ['scripts/check_iers_tables.py'], ['stdout:check_iers_tables'], None,
+     'Sect. 8.2: IERS Tables 6.5a, 7.2, 7.3a reproduced only with the empirical admittance'),
     ('ducarme', 'quick', ['scripts/check_tidal_gravity_ducarme.py'],
      ['results/tidal_gravity/check_ducarme.txt'], None, 'Sect. 6.4: K1/O1 ratios of Ducarme et al.'),
     ('tidal_gravity_k1', 'quick', ['scripts/check_tidal_gravity_k1.py'],
@@ -368,6 +370,11 @@ def main():
                         ref = ROOT / wpath(o, True)
                 if name == 'love_table':
                     ref = ROOT / 'src' / 'earthtides' / 'data' / 'love_PREM.json'
+                    if a.installed or not ref.exists():  # the table shipped with the package
+                        q = subprocess.run([PY, '-c', 'import earthtides, os; print(os.path.dirname('
+                                            'earthtides.__file__))'], cwd=work, env=env,
+                                           capture_output=True, text=True)
+                        ref = Path(q.stdout.strip()) / 'data' / 'love_PREM.json'
                 if not ref.exists():
                     diffs.append(f'no stored reference {ref.relative_to(ROOT)}')
                     continue
