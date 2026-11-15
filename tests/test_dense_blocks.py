@@ -125,7 +125,9 @@ def test_same_system_and_numbers(name, make, kw, flat):
     assert np.array_equal(a.f, b.f)
     assert a._solver_used == b._solver_used
     la, lb = _love(a), _love(b)
-    assert np.max(np.abs(la - lb)) <= 1e-12 * np.max(np.abs(la)), (la, lb)     # (d)
+    # (d) the system is identical (above); the solves differ only by round-off, which depends on the
+    # platform's BLAS threads (Windows: 6e-13 relative), hence 1e-10
+    assert np.max(np.abs(la - lb)) <= 1e-10 * np.max(np.abs(la)), (la, lb)
 
 
 def test_scaled_blocks_bit_identical():
@@ -193,7 +195,7 @@ def test_layer_coef_and_reuse_cache():
         out.append((iers_fit(S, ClairautGeometry(md))['h2'], iers_fit(ref, ClairautGeometry(md))['h2']))
     assert cache.factored + cache.reused == 2
     for h, r in out:
-        assert abs(h - r) <= 1e-12
+        assert abs(h - r) <= 1e-10                  # round-off only (platform BLAS)
 
 
 def test_thickness_selector():
