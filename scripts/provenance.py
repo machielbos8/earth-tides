@@ -40,7 +40,10 @@ import hashlib
 import json
 import os
 import platform
-import resource
+try:
+    import resource               # POSIX: peak memory of the run
+except ImportError:               # Windows: not recorded
+    resource = None
 import shlex
 import subprocess
 import sys
@@ -70,6 +73,8 @@ def _rel(path):
 
 
 def _peak_rss_mb():
+    if resource is None:
+        return None, None
     k = 1.0 if sys.platform == 'darwin' else 1024.0          # macOS: bytes, Linux: kB
     s = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * k / 2**20
     c = resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss * k / 2**20

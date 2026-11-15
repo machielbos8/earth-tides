@@ -39,6 +39,8 @@ first-order theories.
 * Solvers for large angular resolution: dense layer blocks, banded coupling between degrees
   (`band=`), a direct layer-by-layer solver (`linear_solver='layers'`) and a pressure unknown in the
   fluid for thin Ekman layers.
+* `paper_scripts/run_all.py`: the jobs of the PEPI paper (`--paper v3`, default), per-job environments,
+  `--report-only` for platforms other than the reference machine.
 * Examples ex7 (the non-hydrostatic Earth), ex8 (towards the viscous limit) and ex9 (level against
   first-order figure).
 

@@ -27,6 +27,12 @@ et al. 1999, the exact spheroid, the Hough and bump tests, the tests of the invi
 first-order figure, as the paper does. The `heavy` jobs need up to 24 GB and 16 cores for hours (they were
 run on a 28 GB Linux machine); their stored results are the reference.
 
+The stored results were computed on macOS with Apple's Accelerate library. On other platforms and BLAS
+libraries the last printed digits can differ (up to a few 1e-6 in the Love numbers of the non-hydrostatic
+runs, below the precision quoted in the paper), and the comparison reports them as `DIFF`. The release
+workflow runs the quick jobs on Linux, macOS and Windows with `--report-only`: differences are listed, and only
+a script that fails stops the release.
+
 A few numbers rest on external programs or data: the IERS routine DEHANTTIDEINEL (`--external`,
 `--iers DIR`, see `tools/iers/`) for "earth-tides reproduces the l(1) terms of DEHANTTIDEINEL to 1e-3 mm",
 and the spherical transversely isotropic Love numbers of Bos & Scherneck (2013) for the anisotropy numbers of

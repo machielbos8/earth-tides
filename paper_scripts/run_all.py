@@ -43,6 +43,7 @@ Other options
   --keep DIR  keep the outputs in DIR (default: a temporary directory that is removed)
   --installed use the installed package (pip install earth-tides) instead of src/
   --update    copy the new outputs over the stored results (to refresh them after a code change)
+  --report-only  differences are reported, not fatal (CI on platforms other than the reference machine)
   --paper v2  the jobs of the PEPI paper (main_v2, supplement_v2); --heavy adds the runs that need a
               large machine (28 GB), whose stored results carry their run id in results/*.meta.json
 Usage: python paper_scripts/run_all.py [--paper v2] [--quick|--full|--external|--heavy] [--only NAME ...]
@@ -667,6 +668,9 @@ def main():
     g.add_argument('--external', action='store_const', dest='level', const='external')
     g.add_argument('--heavy', action='store_const', dest='level', const='heavy',
                    help='v2: also the jobs that need a large machine (hours, up to 24 GB)')
+    p.add_argument('--report-only', action='store_true',
+                   help='differences (DIFF) are reported but do not fail the run; only scripts that crash do '
+                        '(continuous integration on platforms other than the reference machine)')
     p.add_argument('--paper', choices=('v1', 'v2', 'v3'), default='v3',
                    help='v3: the PEPI paper as submitted (main_v3, supplement_v3; default); v2: its earlier '
                         'version; v1: the J Geod paper it grew from')
@@ -787,7 +791,11 @@ def main():
           f'{sum(1 for r in report if r[1] == "ill")} ill-posed by design), {time.time() - t_all:.0f} s')
     if a.keep:
         print(f'outputs kept in {work}')
-    sys.exit(0 if all(r[1] in ('ok', 'skip', 'ill') for r in report) else 1)
+    accept = ('ok', 'skip', 'ill') + (('DIFF',) if a.report_only else ())
+    if a.report_only and any(r[1] == 'DIFF' for r in report):
+        print('--report-only: differences from the stored results are reported, not fatal (other platforms and '
+              'BLAS libraries change the last digits; the exact reproduction is checked on the reference machine)')
+    sys.exit(0 if all(r[1] in accept for r in report) else 1)
 
 
 def compare_love(new, ref):
