@@ -553,7 +553,7 @@ def test_love_setup_file_nonhydrostatic(tmp_path):
     S, r = love.solve_wave(opts, 1, 0.92954)
     assert S.nonhydro is love._model(opts)[2].state
     p = love.parameters(S, r, opts)
-    assert abs(t['entries'][0]['h0'] - p['h0']) < 1e-12
+    assert abs(t['entries'][0]['h0'] - p['h0']) < 1e-10      # round-off differs between platforms (1.3e-12 on Ubuntu, Python 3.14)
     with pytest.raises(ValueError):
         love.Options(nonhydrostatic={'targets': {'J2': 1e-5}}, flattening=False)
 

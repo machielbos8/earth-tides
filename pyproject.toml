@@ -11,7 +11,7 @@ requires-python = ">=3.10"
 authors = [{ name = "Machiel S. Bos", email = "machiel.bos@teromovigo.com" }]
 license = "LicenseRef-earth-tides"
 license-files = ["LICENSE"]
-dependencies = ["numpy", "scipy"]
+dependencies = ["numpy", "scipy", "tomli; python_version < '3.11'"]
 
 [project.optional-dependencies]
 test = ["pytest"]

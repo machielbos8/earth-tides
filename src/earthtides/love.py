@@ -555,7 +555,10 @@ RUN_KEYS = ('groups', 'all_waves', 'freq', 'order', 'output', 'jobs')
 
 def read_setup(path):
     """Options and the [run] table from a TOML set-up file (TEMPLATE)."""
-    import tomllib
+    try:
+        import tomllib                 # Python 3.11+
+    except ImportError:
+        import tomli as tomllib        # Python 3.10
     with open(path, 'rb') as fp:
         d = tomllib.load(fp)
     run = d.pop('run', {})
