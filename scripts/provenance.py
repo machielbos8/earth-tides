@@ -69,7 +69,10 @@ def _git(*args):
 
 
 def _rel(path):
-    return os.path.relpath(os.path.abspath(path), ROOT)
+    try:
+        return os.path.relpath(os.path.abspath(path), ROOT)
+    except ValueError:                # Windows: path and repository on different drives
+        return os.path.abspath(path)
 
 
 def _peak_rss_mb():
