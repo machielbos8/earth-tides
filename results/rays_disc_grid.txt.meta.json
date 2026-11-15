@@ -1,0 +1,62 @@
+{
+ "id": "20261110T153955-rays_disc_grid-0801",
+ "status": "ok",
+ "purpose": "no-wave regions (discriminant < 0) of the core (PREM) on a quarter of the meridional plane",
+ "script": "scripts/rays_disc_grid.py",
+ "command": "python scripts/rays_disc_grid.py",
+ "params": {
+  "freqs": [
+   0.9175,
+   1.927
+  ],
+  "core": "PREM"
+ },
+ "git": {
+  "commit": "6436a50647e3d84cdc40697e29e03e77fcddbde6",
+  "dirty": [
+   "paper/make_figures.py",
+   "paper_pepi/figures/figS_nonhydro_state_viscous.pdf",
+   "paper_pepi/figures/fig_am_sweep.pdf",
+   "paper_pepi/figures/fig_fcn_ef.pdf",
+   "paper_pepi/figures/fig_grid.pdf",
+   "paper_pepi/figures/fig_nonhydro_state.pdf",
+   "paper_pepi/main_v2.tex",
+   "paper_pepi/make_figures.py",
+   "paper_pepi/references.bib",
+   "paper_pepi/supplement_v2.pdf",
+   "paper_pepi/supplement_v2.tex",
+   "results/LEDGER.jsonl",
+   "results/fig_nonhydro_data.txt.meta.json",
+   "scripts/rays_disc_grid.py"
+  ],
+  "script_untracked": false,
+  "script_dirty": true,
+  "script_sha256": "a5d9f284c9d41bd82856abcf69fc744523682d58a174452b0068799aa809e735"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/rays_disc_grid.npz",
+   "sha256": "90870fe76b927427f878f5a410f0d118a72d09dfcd28ff154a0bceb22535f7a3"
+  },
+  {
+   "path": "results/rays_disc_grid.txt",
+   "sha256": "2430d68c0aaa50100d749fffc0aac481ea1fa124727007f52a9170c31b106ae7"
+  }
+ ],
+ "start": "2026-11-10T15:39:55",
+ "end": "2026-11-10T15:39:56",
+ "wall_s": 0.5,
+ "peak_rss_mb": {
+  "self": 57.6,
+  "children_max": 11.0
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

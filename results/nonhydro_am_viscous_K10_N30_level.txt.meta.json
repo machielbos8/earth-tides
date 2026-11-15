@@ -1,0 +1,126 @@
+{
+ "id": "20261114T141725-nonhydro_am_viscous-3428",
+ "status": "ok",
+ "purpose": "task C: angular-momentum balance, non-hydrostatic PREM, viscous core, routes A and B",
+ "script": "scripts/nonhydro_am_viscous.py",
+ "command": "python scripts/nonhydro_am_viscous.py 10 30 1 0.5",
+ "params": {
+  "K": 10,
+  "N": 30,
+  "fluid_N": null,
+  "deltas": [
+   1000.0,
+   500.0
+  ],
+  "lines": [
+   [
+    "O1",
+    0.927
+   ],
+   [
+    "P1",
+    0.99455
+   ],
+   [
+    "psi1",
+    1.00546
+   ],
+   [
+    "OO1",
+    1.07546
+   ],
+   [
+    "s1.0016",
+    1.0016
+   ],
+   [
+    "s1.0030",
+    1.003
+   ]
+  ],
+  "cases": [],
+  "core_dp": "static",
+  "cmb": [
+   0,
+   225,
+   450,
+   500
+  ],
+  "_results": {
+   "max_AM_hydrostatic_d1km": 2.0419062138708196e-06,
+   "max_AM_0_m_A_d1km": 0.0008601227643066109,
+   "max_AM_0_m_B_d1km": 4.037831497046954e-06,
+   "max_AM_225_m_A_d1km": 0.004989999578240165,
+   "max_AM_225_m_B_d1km": 2.749400980697657e-06,
+   "max_AM_450_m_A_d1km": 0.010599866498252194,
+   "max_AM_450_m_B_d1km": 5.251806789123745e-05,
+   "max_AM_500_m_A_d1km": 0.011842584608275778,
+   "max_AM_500_m_B_d1km": 7.511711666358604e-05,
+   "max_AM_hydrostatic_d0.5km": 8.764686553581138e-07,
+   "max_AM_0_m_A_d0.5km": 0.0009489119948290837,
+   "max_AM_0_m_B_d0.5km": 4.474414584221559e-06,
+   "max_AM_225_m_A_d0.5km": 0.005860844906496026,
+   "max_AM_225_m_B_d0.5km": 3.900812192650529e-06,
+   "max_AM_450_m_A_d0.5km": 0.012613761884623185,
+   "max_AM_450_m_B_d0.5km": 4.9931828411671136e-05,
+   "max_AM_500_m_A_d0.5km": 0.014156803595673458,
+   "max_AM_500_m_B_d0.5km": 7.178234608210247e-05
+  }
+ },
+ "git": {
+  "commit": "17ac09a4fb8e191ef96a4498d771b95d06c88c57",
+  "dirty": [
+   "paper_pepi/figures/fig_core_ekman.pdf",
+   "paper_pepi/figures/fig_core_sweep.pdf",
+   "paper_pepi/main_v2.tex",
+   "paper_pepi/main_v2_2col.pdf",
+   "paper_pepi/make_fig_core.py",
+   "paper_pepi/make_table4.py",
+   "paper_pepi/references.bib",
+   "paper_pepi/supplement_v2.pdf",
+   "paper_pepi/supplement_v2.tex",
+   "paper_pepi/table4.tex",
+   "paper_pepi/tableS_viscous.tex",
+   "results/LEDGER.jsonl",
+   "results/convention_table.txt.meta.json",
+   "results/nonhydro_diurnal.txt.meta.json",
+   "results/paper1_table4.txt",
+   "results/paper1_table4.txt.meta.json",
+   "results/regen/table4.tex",
+   "results/regen/table4.tex.meta.json",
+   "results/regen/tableS_viscous.tex.meta.json"
+  ],
+  "script_untracked": false,
+  "script_dirty": false,
+  "script_sha256": "73a2767c5dba11fe50221a47292a959790ddbc82fae7400445e41517bd0652c6"
+ },
+ "env": {
+  "EARTHTIDES_FIGURE": "level",
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  },
+  {
+   "path": "data/PREMs.dat",
+   "sha256": "e9fcce04a0de9f094a983ff8a3aa40d971eba71aeb93968bbb4f65a705ddb952"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/nonhydro_am_viscous_K10_N30_level.txt",
+   "sha256": "00e3dbe6608368007dc9c1c581fa30650a1b1dcab28a178f5440a86c32271d83"
+  }
+ ],
+ "start": "2026-11-14T14:17:25",
+ "end": "2026-11-14T14:26:14",
+ "wall_s": 528.4,
+ "peak_rss_mb": {
+  "self": 1964.7,
+  "children_max": 11.1
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

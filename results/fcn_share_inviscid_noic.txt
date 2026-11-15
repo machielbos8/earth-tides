@@ -1,0 +1,8 @@
+PREM without inner core, inviscid slipping core; one-pole fit (fcn_resonance_noic.fit) over 31 frequencies; resonant parts relative to that of h0
+core K   N   FCN sd        h2        l0        l1        l2        k0  max |resid| h0
+     4  24    456.1  +0.00395  -0.03143  +0.00187  -0.00098  +0.50242  4.6e-08
+     6  30    456.1  +0.00395  -0.03143  +0.00187  -0.00098  +0.50242  1.3e-08
+    10  30    456.1  +0.00395  -0.03143  +0.00187  -0.00098  +0.50242  2.3e-07
+    10  44    456.1  +0.00395  -0.03143  +0.00187  -0.00098  +0.50242  1.2e-07
+
+viscous limit (fcn_resonance_noic_K12.txt): h2 +0.00152 l0 -0.03142 l1 +0.00158 l2 -0.00018 k0 +0.50223; with the inner core: viscous +0.0015, inviscid +0.0040 (h2)

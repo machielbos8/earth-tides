@@ -1,0 +1,41 @@
+{
+ "id": "20261104T191045-core_flow_attractor_control-2475",
+ "status": "ok",
+ "purpose": "rotated-loop control from saved core_flow_attractor maps",
+ "script": "scripts/core_flow_attractor_control.py",
+ "command": "python scripts/core_flow_attractor_control.py scan",
+ "params": {
+  "tag": "scan"
+ },
+ "git": {
+  "commit": "adc5b5d87c84f613eea28a0b8812e064d43fa086",
+  "dirty": [],
+  "script_untracked": true,
+  "script_dirty": false,
+  "script_sha256": "7eed0533da8697ed3b8ecca784067a6657dfaeff15068ee513ae806bb25e80c7"
+ },
+ "env": {
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [
+  {
+   "path": "results/core_flow_attractor_scan.npz",
+   "sha256": "0e0f4650d974c0b65f2d736166e053c6a5b719f612cb81dd56fafc35f768f5ce"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/core_flow_attractor_scan_control.txt",
+   "sha256": "0d69a9003f9ed24bedfe5a5c7445d9f3fb4923570621b92cae436bffcca46905"
+  }
+ ],
+ "start": "2026-11-04T19:10:45",
+ "end": "2026-11-04T19:10:53",
+ "wall_s": 7.9,
+ "peak_rss_mb": {
+  "self": 86.1,
+  "children_max": 20.8
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

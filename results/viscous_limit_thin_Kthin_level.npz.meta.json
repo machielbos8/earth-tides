@@ -1,0 +1,77 @@
+{
+ "id": "20261114T235610-viscous_limit_thin-1853",
+ "status": "ok",
+ "purpose": "viscous limit near the FCN with thinner Ekman layers and the pressure unknown",
+ "script": "scripts/viscous_limit_thin.py",
+ "command": "python scripts/viscous_limit_thin.py --K 72,96 --deltas 1000,750,500,350,250,175 --no-fp --band 12 --N-wall 36 --workers 3 --max-gb 24 --tag Kthin",
+ "params": {
+  "K": [
+   72,
+   96
+  ],
+  "deltas": [
+   1000.0,
+   750.0,
+   500.0,
+   350.0,
+   250.0,
+   175.0
+  ],
+  "N_wall": 36,
+  "workers": 3,
+  "check_fp": false,
+  "argv": [
+   "--K",
+   "72,96",
+   "--deltas",
+   "1000,750,500,350,250,175",
+   "--no-fp",
+   "--band",
+   "12",
+   "--N-wall",
+   "36",
+   "--workers",
+   "3",
+   "--max-gb",
+   "24",
+   "--tag",
+   "Kthin"
+  ],
+  "figure": "level"
+ },
+ "git": {
+  "commit": "e60ae5edce64c7e77949782e419388e33f801f09",
+  "dirty": [],
+  "script_untracked": false,
+  "script_dirty": false,
+  "script_sha256": "04b9539d67c7e79596d789331172242256669bb6ad06d7f0b82deaa7c01d6775"
+ },
+ "env": {
+  "EARTHTIDES_FIGURE": "level"
+ },
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/viscous_limit_thin_Kthin_level.npz",
+   "sha256": "4992069b781712be61aa34a65b83d6f0d4f6ab6a39d983ab1221e6a0c2cc95fb"
+  },
+  {
+   "path": "results/viscous_limit_thin_Kthin_level.txt",
+   "sha256": "228a7d3b32468f809a71a4e4f7d3ab7f81267213bb9f3c81c41f816f0218379a"
+  }
+ ],
+ "start": "2026-11-14T23:56:10",
+ "end": "2026-11-15T00:51:08",
+ "wall_s": 3298.0,
+ "peak_rss_mb": {
+  "self": 79.0,
+  "children_max": 75.2
+ },
+ "host": "Linux (28 GB)",
+ "python": "3.14.4"
+}

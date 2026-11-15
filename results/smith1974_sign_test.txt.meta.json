@@ -1,0 +1,74 @@
+{
+ "id": "20261108T104701-smith1974_sign_test-1050",
+ "status": "ok",
+ "purpose": "Smith (1974) eq. 5.26 radial rho2 term: printed vs corrected vs dropped, two-layer body",
+ "script": "scripts/smith1974_sign_test.py",
+ "command": "python scripts/smith1974_sign_test.py",
+ "params": {
+  "signs": [
+   [
+    "printed +",
+    1.0
+   ],
+   [
+    "corrected -",
+    -1.0
+   ],
+   [
+    "dropped 0",
+    0.0
+   ]
+  ],
+  "spins": [
+   1.0,
+   0.3,
+   0.1
+  ],
+  "tides": [
+   [
+    "O1",
+    1,
+    0.927
+   ],
+   [
+    "M2",
+    2,
+    1.9271500792294145
+   ]
+  ]
+ },
+ "git": {
+  "commit": "a39a9fd48df2e09d05e3043fa54122c82b0bea9c",
+  "dirty": [
+   "paper_pepi/main_v2.tex",
+   "paper_pepi/main_v2_2col.pdf",
+   "paper_pepi/supplement_v2.pdf",
+   "src/earthtides/smith1974.py"
+  ],
+  "script_untracked": true,
+  "script_dirty": false,
+  "script_sha256": "39a93c09bbb8d2106c7fdc7f93eba57d3165cefe868e66dcd702c4f17538017c"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "data/TWOLAYER.dat",
+   "sha256": "7fdf31428d364c8f66c81231d2136295f15572d7c78b12d8752855fade57c602"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/smith1974_sign_test.txt",
+   "sha256": "fd645ad2a4fe7a96f873d70dc5c2bacc9819c35b71ea4cd02afd8b9748f7ef19"
+  }
+ ],
+ "start": "2026-11-08T10:47:01",
+ "end": "2026-11-08T11:12:34",
+ "wall_s": 1533.5,
+ "peak_rss_mb": {
+  "self": 158.2,
+  "children_max": 11.8
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

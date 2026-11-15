@@ -5,7 +5,7 @@
 # (Love 1911; Pekeris & Jarosch 1958; Dahlen & Tromp 1998, Sect. 8.7; Bos &
 # Scherneck 2013, Appendix 2).
 #
-# This file is part of earth-tides 1.0.
+# This file is part of earth-tides 1.1.
 #
 # earth-tides is distributed under a source-available license.
 # It may be used free of charge for academic, research, and other

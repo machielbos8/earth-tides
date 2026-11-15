@@ -2,7 +2,7 @@
 #
 # Fit of a computed surface displacement to the IERS 2010 model.
 #
-# This file is part of earth-tides 1.0.
+# This file is part of earth-tides 1.1.
 #
 # earth-tides is distributed under a source-available license.
 # It may be used free of charge for academic, research, and other
@@ -36,8 +36,8 @@ def iers_fit(S, geom):
     """
     md = S.model
     a = md.a
-    e, _, _ = geom.eps(md.n_layers - 1, np.array([a]))
-    norm = (a * (1 + e[0] / 3.0))**4 / a**3
+    from .geometry import equatorial_radius
+    norm = equatorial_radius(geom, md)**4 / a**3
     th = np.linspace(0.03, np.pi - 0.03, 600)
     ur, ut, up = (v / norm for v in S.surface_field(th))
     return iers_fit_fields(S.m, th, ur, ut, up)

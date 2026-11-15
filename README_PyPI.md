@@ -1,8 +1,8 @@
 # earth-tides
 
 earth-tides computes solid Earth tides: the Love numbers of a rotating, flattened, layered,
-anelastic and self-gravitating Earth, and the tidal displacement of a station that follows from
-them. The Love numbers are computed directly on the flattened Earth by a spectral method
+anelastic and self-gravitating Earth, hydrostatic or non-hydrostatic, with an inviscid or a viscous
+liquid core, and the tidal displacement of a station that follows from them. The Love numbers are computed directly on the flattened Earth by a spectral method
 (Chebyshev collocation in radius, Galerkin projection along the level surfaces), without
 generalized spherical harmonics or hand-derived perturbation theory. The package is pure Python
 (NumPy and SciPy).
@@ -27,12 +27,12 @@ Nothing works until this step has completed successfully.
 earthtides-examples
 ```
 
-This copies five worked examples and the PDF user manual into a new directory
+This copies the worked examples and the PDF user manual into a new directory
 `earthtides-examples` in your current location (give a different name as argument if you prefer,
 e.g. `earthtides-examples my_dir`). If the command is not found, step 1 did not finish
 successfully: read its error messages.
 
-Open `earthtides_manual_v1.0.pdf` first. It explains the conventions of tidal Love numbers, how
+Open `earthtides_manual_v1.1.pdf` first. It explains the conventions of tidal Love numbers, how
 the solver works, the two programs and every example.
 
 **Step 3: compute something.** The body tide at Onsala for one day, hourly, with the Love numbers
@@ -65,6 +65,7 @@ python swing.py
 | ex3 | Homogeneous spheres: exact Bessel solution (Bos & Scherneck 2013) | 2 s |
 | ex4 | Love numbers of a flattened homogeneous Earth (Greff-Lefftz et al. 2005) | 6 min |
 | ex5 | Free core nutation of a rigid shell with a fluid core (Hough 1895) | 20 s |
+| ex6 | Ekman damping of the free core nutation: a viscous, no-slip core (Greenspan 1968) | 10 min |
 
 ## Programs
 
@@ -81,12 +82,12 @@ All print their options with `--help`.
 ```python
 from earthtides.model import EarthModel
 from earthtides.love import model_path
-from earthtides.geometry import ClairautGeometry, OMEGA_EARTH
+from earthtides.geometry import figure, OMEGA_EARTH
 from earthtides.solver import TidalSolver
 from earthtides.iers import iers_fit
 
 md = EarthModel(str(model_path('PREM')))   # PREM with a fluid outer core
-g = ClairautGeometry(md)                     # hydrostatic flattening (Clairaut)
+g = figure(md, 'level')                      # level surfaces of the reference potential
 S = TidalSolver(md, g, m=2, K=5, N=30, omega_f=0.0, coriolis=OMEGA_EARTH,
                 omega_t=1.4053e-4, omega_rot=OMEGA_EARTH,
                 dyn_fluid=True, consistent_reference=True)   # M2
@@ -97,19 +98,20 @@ print(iers_fit(S, g))     # h0 = 0.60243, h2 = -0.00049, l0 = 0.08361, l1 = 0.00
 ## Verification
 
 Every part of the method is checked against a known answer: homogeneous spheres (exact Bessel
-solution), a spherical Earth on a distorted mesh (round-off), an exact homogeneous spheroid
-(round-off), the analytical flattened Earth of Greff-Lefftz et al. (2005) (5e-6), Hough's free
-core nutation (2e-4), and elastic hydrostatic PREM against Dehant, Defraigne & Wahr (1999)
-(1e-5 at M2). `etide` reproduces the IERS routine DEHANTTIDEINEL to 0.1 mm rms.
+solution), a spherical Earth on a distorted mesh (round-off), an exact homogeneous spheroid, at
+rest and rotating (round-off), the analytical flattened Earth of Greff-Lefftz et al. (2005)
+(5e-6), Hough's free core nutation (2e-4) and its Ekman damping, the first-order equations of
+Smith (1974), the conservation of angular momentum (5e-9 of the tidal torque on the level
+figure), and elastic hydrostatic PREM against Dehant, Defraigne & Wahr (1999) (1e-5 at M2). `etide` reproduces the IERS routine DEHANTTIDEINEL to 0.1 mm rms.
 
 ## Reference
 
 If you use earth-tides in your research, please cite:
 
-> Bos, M.S. (2026). What the IERS body-tide model assumes: Love numbers of a flattened, rotating,
-> anelastic Earth. *Journal of Geodesy* (submitted).
+> Bos, M.S. (2026). Body tides of a flattened, rotating, non-hydrostatic Earth:
+> a transparent numerical model. *Physics of the Earth and Planetary Interiors* (submitted).
 
-and the software: Bos, M.S. (2026). earth-tides, version 1.0.0. Zenodo.
+and the software: Bos, M.S. (2026). earth-tides, version 1.1.0. Zenodo.
 [doi:10.5281/zenodo.23280928](https://doi.org/10.5281/zenodo.23280928)
 
 ## License

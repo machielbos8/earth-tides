@@ -1,0 +1,22 @@
+(a) PREM (data/PREM.dat: ocean merged with the crust), m = 0.00345039 (ours at Omega_Earth: 0.00344987)
+                                             f2          f4           J2          J4
+    level figure                  -2.228967e-03   4.469e-06   1.0721e-03   -2.95e-06   (f6 -9.7e-09, mean radius 6370993.7 m)
+    Chambat et al. (2010)         -2.228947e-03   4.445e-06   1.0721e-03            
+    Denis (1989)                  -2.228946e-03   4.465e-06
+    first-order map               -2.223323e-03   0.000e+00
+    iterations 17, max height left 1.1e-04 m
+
+(b), (c) at Omega_Earth: surface f2, f4, f6, f8 and core-mantle boundary f2, f4; change from the default
+    default (2-6, K 4, M 10)     -2.228631e-03  4.467481e-06 -9.694450e-09  1.084710e-11  | -1.701280e-03  2.305785e-06
+    degrees 2-8, K 5             -2.228631e-03  4.467481e-06 -9.694472e-09  2.215868e-11  | -1.701280e-03  2.305785e-06
+      change (m of radius)           -1.92e-04      6.66e-07     -1.41e-07      7.21e-05  |     -1.42e-04      3.71e-07   (24 it., left 1.0e-06 m, outside 2.0e-07 m)
+    M 14                         -2.228631e-03  4.467481e-06 -9.694450e-09  1.084710e-11  | -1.701280e-03  2.305785e-06
+      change (m of radius)            3.29e-10     -3.93e-10      2.84e-10      0.00e+00  |      8.63e-10     -2.08e-09   (17 it., left 1.1e-04 m, outside 8.4e-05 m)
+    degrees 2-8, K 5, M 14       -2.228631e-03  4.467481e-06 -9.694472e-09  2.215884e-11  | -1.701280e-03  2.305785e-06
+      change (m of radius)           -1.90e-04      6.59e-07     -1.42e-07      7.21e-05  |     -1.41e-04      3.65e-07   (23 it., left 1.9e-06 m, outside 4.5e-07 m)
+
+(d) FCN (days of that Earth) x (1 + x)^2, elastic PREM, slipping core, K 4, N 24
+    spin-up x     first-order        level
+          0.00 %      457.332      456.238
+          2.00 %      457.349      456.210
+          3.27 %      457.360      456.192

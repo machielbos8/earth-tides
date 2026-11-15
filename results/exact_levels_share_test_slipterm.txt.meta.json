@@ -1,0 +1,119 @@
+{
+ "id": "20261114T073158-exact_levels_share_test-0513",
+ "status": "ok",
+ "purpose": "viscous limit vs slipping core: PREM without inner core with exact ellipsoidal level surfaces",
+ "script": "scripts/exact_levels_share_test.py",
+ "command": "python scripts/exact_levels_share_test.py 4 --variants clairaut,exact_levels --deltas none --slip-term",
+ "params": {
+  "variants": [
+   "clairaut",
+   "exact_levels"
+  ],
+  "deltas": [],
+  "Kv": 48,
+  "inviscid": [
+   [
+    6,
+    30
+   ],
+   [
+    10,
+    30
+   ]
+  ],
+  "sweep": [
+   0.9,
+   0.927,
+   0.96,
+   0.98,
+   0.99454,
+   0.9965,
+   0.9972,
+   0.9978,
+   0.9984,
+   0.999,
+   0.9995,
+   1.0005,
+   1.0008,
+   1.001,
+   1.0012,
+   1.0015,
+   1.0016,
+   1.0018,
+   1.0019,
+   1.002,
+   1.00205,
+   1.0023,
+   1.00245,
+   1.0026,
+   1.00273,
+   1.003,
+   1.0035,
+   1.004,
+   1.00546,
+   1.02,
+   1.073
+  ],
+  "slip_term": true,
+  "geometry_check": {
+   "R_s": 5.779487999291177e-12,
+   "R_ss": 6.50936078786339e-07,
+   "R_t": 7.642098050079464e-12,
+   "R_tt": 6.175618918044468e-07,
+   "R_st": 2.7510321116497663e-07
+  }
+ },
+ "git": {
+  "commit": "9c3ef7cfdcb21d73a200f48738181bbb54ed7028",
+  "dirty": [
+   "docs/lab_notes/earthtides_lab_notes.md",
+   "paper_pepi/figures/fig_core_ekman.pdf",
+   "paper_pepi/figures/fig_core_sweep.pdf",
+   "paper_pepi/main_v2.tex",
+   "paper_pepi/main_v2_2col.pdf",
+   "paper_pepi/make_fig_core.py",
+   "paper_pepi/make_table4.py",
+   "paper_pepi/references.bib",
+   "paper_pepi/supplement_v2.pdf",
+   "paper_pepi/supplement_v2.tex",
+   "results/LEDGER.jsonl",
+   "results/paper1_table4.txt.meta.json",
+   "results/regen/table4.tex",
+   "results/regen/table4.tex.meta.json",
+   "results/regen/tableS_viscous.tex.meta.json",
+   "scripts/exact_levels_share_test.py",
+   "scripts/hough_share_test.py"
+  ],
+  "script_untracked": false,
+  "script_dirty": true,
+  "script_sha256": "c82520ddb19b71ba6959ad8e8dec0f4f2ff2faf2baf72c4aefaa239439d72930"
+ },
+ "env": {
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [
+  {
+   "path": "data/PREM_noIC.dat",
+   "sha256": "9aef983ff12f2022d96aa8d04fed2992f9bae481d52aeef5dea40935339bd4e4"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/exact_levels_share_test_slipterm.txt",
+   "sha256": "409543d8239143306725f0b87756688a433277cfeb7d5dfaf1b46d55c4c028c5"
+  },
+  {
+   "path": "results/exact_levels_share_test_slipterm.npz",
+   "sha256": "0141c76c8e122d6441571e9fcdbf921a5ba46d8588aee063fcf18ab22f0204a8"
+  }
+ ],
+ "start": "2026-11-14T07:31:58",
+ "end": "2026-11-14T07:32:20",
+ "wall_s": 22.6,
+ "peak_rss_mb": {
+  "self": 153.7,
+  "children_max": 353.2
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

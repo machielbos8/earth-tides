@@ -1,0 +1,36 @@
+{
+ "id": "20261108T113906-check_angular_momentum-4634",
+ "status": "ok",
+ "purpose": "stdout of scripts/check_angular_momentum.py",
+ "script": "scripts/check_angular_momentum.py",
+ "command": "python scripts/traced.py check_angular_momentum -- scripts/check_angular_momentum.py",
+ "params": {
+  "args": []
+ },
+ "git": {
+  "commit": "409375872a14decf4c3ac36035927796fc73c1b3",
+  "dirty": [
+   "results/LEDGER.jsonl"
+  ],
+  "script_untracked": false,
+  "script_dirty": false,
+  "script_sha256": "272d1c8adb817b300d719d462130dc7c15a32f7fce877fd9fbdab5f9bc948d57"
+ },
+ "env": {},
+ "inputs": [],
+ "outputs": [
+  {
+   "path": "results/stdout/check_angular_momentum.txt",
+   "sha256": "df669150004fe051791b2039aa2f013f6373e9edf28a429263f1187102e9a5a9"
+  }
+ ],
+ "start": "2026-11-08T11:39:06",
+ "end": "2026-11-08T11:39:10",
+ "wall_s": 3.2,
+ "peak_rss_mb": {
+  "self": 19.7,
+  "children_max": 297.6
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

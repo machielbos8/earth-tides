@@ -1,0 +1,7 @@
+O1, elastic PREM, level figure;                       h0        h2        l0        l1        l2
+viscous core, delta   1000 m     0.596232 -0.000493  0.083043  0.000478  0.000091
+viscous core, delta    500 m     0.596229 -0.000493  0.083043  0.000478  0.000091
+viscous core, delta    250 m     0.596228 -0.000492  0.083043  0.000478  0.000091
+viscous core, delta -> 0        0.596226 -0.000492  0.083043  0.000478  0.000091
+inviscid core, slipping         0.596230 -0.000495  0.083043  0.000477  0.000092
+difference (limit - slipping)   -3.4e-06  +2.8e-06  +9.4e-08  +3.7e-07  -9.3e-07

@@ -1,0 +1,6 @@
+Three shells (LM, transition zone, shallow UM), targets J2 1.14e-5, CMB 450 m, surface +100 m
+(sigmas 1e-7, 50 m, 250 m; prior 0.5 % on the relative load). Exact fit, then regularised.
+Measured on the level figure (FlatSupport, elastic), hydrostatic e_f 0.0025506
+support            fit     a_LM        a_TZ        a_UM        J2         CMB [m]  surface [m]  e_f [%]
+elastic            exact   -6.182e-03  +1.745e-01  -9.663e-02  1.140e-05      450        100    5.87
+elastic            reg.    +7.840e-04  -7.356e-04  -1.583e-03  1.140e-05      443        297    4.42

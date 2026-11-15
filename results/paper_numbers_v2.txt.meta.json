@@ -1,0 +1,70 @@
+{
+ "id": "20261115T114843-paper_numbers_v2-9075",
+ "status": "ok",
+ "purpose": "numbers in the text of P1 v2 not printed by other scripts",
+ "script": "scripts/paper_numbers_v2.py",
+ "command": "python scripts/paper_numbers_v2.py",
+ "params": {
+  "sections": [
+   "analytic",
+   "gravity",
+   "refpot",
+   "angmom",
+   "l1mm",
+   "voigt",
+   "rock",
+   "poisson",
+   "rosat",
+   "latmm",
+   "nutation",
+   "nhamp"
+  ]
+ },
+ "git": {
+  "commit": "a9b26714b37783c0acd4ec6aa048f604c12a842a",
+  "dirty": [
+   "scripts/paper_numbers_v2.py"
+  ],
+  "script_untracked": false,
+  "script_dirty": true,
+  "script_sha256": "4713f4da3d5980e81c198797d5fa5dcd5f707af662d5da31e918e711f56af189"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  },
+  {
+   "path": "data/HOMOG.dat",
+   "sha256": "dfade3d720558e19e04679a9a9fbedbd2a3a86ed9c5c9a076524608166d457e3"
+  },
+  {
+   "path": "data/iers/tab5.3a.txt",
+   "sha256": "6da73bfe10873ac815520d00fffd67114d647a34afebc5946cfc275e73693f32"
+  },
+  {
+   "path": "data/iers/tab5.3b.txt",
+   "sha256": "f0dff02c78809b629cc64e2a9fbeffaea5ae20f67e1a62a0ed966f8624807557"
+  },
+  {
+   "path": "results/frame_size.txt",
+   "sha256": "165ea6c892cf66c63cdc87311e9f31bac0a986ade02fe3aeb4ed08a2f7191e27"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/paper_numbers_v2.txt",
+   "sha256": "4a45d3af9662099dab6918dad89e80204be730930b3a856f5532377ff9ae67b4"
+  }
+ ],
+ "start": "2026-11-15T11:48:43",
+ "end": "2026-11-15T11:49:18",
+ "wall_s": 35.5,
+ "peak_rss_mb": {
+  "self": 2275.4,
+  "children_max": 8.9
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

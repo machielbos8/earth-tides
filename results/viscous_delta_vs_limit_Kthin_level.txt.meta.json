@@ -1,0 +1,73 @@
+{
+ "id": "20261115T070534-viscous_delta_vs_limit-1532",
+ "status": "ok",
+ "purpose": "Love numbers at finite delta vs delta -> 0 (core K 72, results/viscous_limit_thin_Kthin_level.npz)",
+ "script": "scripts/viscous_delta_vs_limit.py",
+ "command": "python scripts/viscous_delta_vs_limit.py --thin Kthin",
+ "params": {
+  "K_core": 72,
+  "window": [
+   500.0,
+   350.0,
+   250.0
+  ]
+ },
+ "git": {
+  "commit": "a67b967d16a3d11289e87bf8a8e9c992778269bf",
+  "dirty": [
+   "docs/lab_notes/earthtides_lab_notes.md",
+   "docs/level_figure_conversion.md",
+   "paper_pepi/figures/figS_nonhydro_state_viscous.pdf",
+   "paper_pepi/figures/fig_am_sweep.pdf",
+   "paper_pepi/figures/fig_core_ekman.pdf",
+   "paper_pepi/figures/fig_core_sweep.pdf",
+   "paper_pepi/figures/fig_fcn_ef.pdf",
+   "paper_pepi/figures/fig_nonhydro_state.pdf",
+   "paper_pepi/main_v2.tex",
+   "paper_pepi/main_v2_2col.pdf",
+   "paper_pepi/make_table4.py",
+   "paper_pepi/references.bib",
+   "paper_pepi/supplement_v2.pdf",
+   "paper_pepi/supplement_v2.tex",
+   "paper_pepi/table4.tex",
+   "paper_pepi/tableS_viscous.tex",
+   "results/LEDGER.jsonl",
+   "results/convention_table.txt.meta.json",
+   "results/nonhydro_diurnal.txt.meta.json",
+   "results/paper1_table4.txt",
+   "results/paper1_table4.txt.meta.json",
+   "results/regen/table4.tex",
+   "results/regen/table4.tex.meta.json",
+   "results/regen/tableS_viscous.tex.meta.json",
+   "scripts/nonhydro_support.py",
+   "scripts/viscous_delta_vs_limit.py"
+  ],
+  "script_untracked": false,
+  "script_dirty": true,
+  "script_sha256": "0cb648bceee6317889018ea74129d13a86c9de7cd2d95040af220dfac371d992"
+ },
+ "env": {
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [
+  {
+   "path": "results/viscous_limit_thin_Kthin_level.npz",
+   "sha256": "4992069b781712be61aa34a65b83d6f0d4f6ab6a39d983ab1221e6a0c2cc95fb"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/viscous_delta_vs_limit_Kthin_level.txt",
+   "sha256": "4960b3ed97dc33a286ccfb08a0dda9c5e18ec87ffc800564c893f2b9d5180821"
+  }
+ ],
+ "start": "2026-11-15T07:05:34",
+ "end": "2026-11-15T07:05:34",
+ "wall_s": 0.1,
+ "peak_rss_mb": {
+  "self": 73.2,
+  "children_max": 11.1
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

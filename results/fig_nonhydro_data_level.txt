@@ -1,0 +1,7 @@
+elastic support: excess eq-minus-polar radius of the level surface at the top of the core -303 m; deviatoric stress just above the CMB 26.6 MPa (largest in that layer 26.6 MPa); surface topography 304 m
+viscous support: excess eq-minus-polar radius of the level surface at the top of the core +16 m; deviatoric stress just above the CMB 3.3 MPa (largest in that layer 3.3 MPa); surface topography 3591 m
+FCN (sidereal days): CMB m, e_f excess %, formula (A/A_m)(e_f - beta), slipping core stress / geometry, viscous core stress / geometry (mean of the extrapolations)
+    0  -0.05   456.5   456.5   456.4   456.5   456.4
+  225   2.22   443.3   443.4   442.4   443.4   442.4
+  450   4.49   430.8   430.9   429.1   430.9   429.1
+  500   4.99   428.1   428.3   426.3   428.2   426.3

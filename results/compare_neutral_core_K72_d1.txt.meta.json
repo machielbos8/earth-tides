@@ -1,0 +1,49 @@
+{
+ "id": "20261103T015152-compare_neutral_core-0683",
+ "status": "ok",
+ "purpose": "viscous core K72 delta 1 km: PREM against a neutral core",
+ "script": "scripts/compare_neutral_core.py",
+ "command": "python scripts/compare_neutral_core.py",
+ "params": {
+  "fit": "cubic"
+ },
+ "git": {
+  "commit": "5b8bf4d890a5d18a220b5ce439e2ce61cb34c540",
+  "dirty": [
+   "docs/lab_notes/earthtides_lab_notes.md",
+   "paper_pepi/main_v2.tex",
+   "paper_pepi/main_v2_2col.pdf",
+   "paper_pepi/references.bib",
+   "paper_pepi/supplement_v2.pdf"
+  ],
+  "script_untracked": true,
+  "script_dirty": false,
+  "script_sha256": "ec471ac61519c8750cb82b5a0933d66f56d4fcd7aceb297c57a1bf9747cc8b9d"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "results/convergence_viscous_coreK72_N30_d1_s0.0005_b12.txt",
+   "sha256": "450d56c9b9d216db7d65c583ee1b94fea857af36db988cd068cfe1bc4527488b"
+  },
+  {
+   "path": "results/convergence_viscous_coreK72_N30_d1_s0.0005_b12_neutral.txt",
+   "sha256": "b85ad526b3669131fe0a8315698cd57a1ff1a09dd7111a79f8f212f42b85d7ff"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/compare_neutral_core_K72_d1.txt",
+   "sha256": "d32c9ac3411a5deeec042be204113c225d3d8c3b1ab9ba5521c881f1035ad759"
+  }
+ ],
+ "start": "2026-11-03T01:51:52",
+ "end": "2026-11-03T01:51:52",
+ "wall_s": 0.0,
+ "peak_rss_mb": {
+  "self": 32.0,
+  "children_max": 9.7
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

@@ -2,7 +2,7 @@
 #
 # Tidal gravimetric factor of a TidalSolver solution.
 #
-# This file is part of earth-tides 1.0.
+# This file is part of earth-tides 1.1.
 #
 # earth-tides is distributed under a source-available license.
 # It may be used free of charge for academic, research, and other
@@ -60,8 +60,8 @@ def surface_gravity(S, inertia=True):
         B = B - vals[('W', n)] * ys
         C = C + vals[('W', n)] * ybar(n, m, th, 1)[1]
     # potential of the deformation, exterior series, and the tidal potential
-    p1r = sum(-(n + 1) / r * cext[n] * (a / r)**(n + 1) * ybar(n, m, th, 0)[0] for n in S.deg)
-    p1t = sum(cext[n] * (a / r)**(n + 1) * ybar(n, m, th, 1)[1] / r for n in S.deg)
+    p1r = sum(-(n + 1) / r * cext[n] * (a / r)**(n + 1) * ybar(n, m, th, 0)[0] for n in S.degP)
+    p1t = sum(cext[n] * (a / r)**(n + 1) * ybar(n, m, th, 1)[1] / r for n in S.degP)
     Yf = ybar(nf, m, th, 1)
     pTr = -ga * nf * (r / a)**(nf - 1) * Yf[0]
     pTt = -ga * (r / a)**(nf - 1) * Yf[1]
@@ -78,7 +78,7 @@ def surface_gravity(S, inertia=True):
     Htt = ph0['tt'] / r**2 + ph0['r'] / r
     # the jump of the Hessian is across the surface itself: geometric normal (the plumb line differs
     # by O(f^2), which matters for the large tangential displacement of a rigid tilt)
-    jump = 4 * np.pi * S.G * md.rho[i](a)
+    jump = 4 * np.pi * S.G * np.broadcast_to(p.rho, p.r.shape)[0]   # total density (non-hydrostatic too)
     sr, st = (v[0] for v in S.normal(p))
     Hrr, Hrt, Htt = Hrr - jump * sr * sr, Hrt - jump * sr * st, Htt - jump * st * st
     free_air = nr * (Hrr * A + Hrt * B) + nt * (Hrt * A + Htt * B)

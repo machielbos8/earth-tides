@@ -561,6 +561,79 @@ def hough_figure():
     fig.savefig(HERE / 'figures' / 'ex5_hough.png', dpi=200)
 
 
+def tiltover_figure():
+    """The free tilt-over mode: a rigid tilt of the whole Earth, fixed in space. (a) side view;
+    (b) seen from space over one sidereal day: the tilt stays, the Earth turns; (c) seen from the
+    Earth: the displaced pole circles westward (retrograde) once per sidereal day, the frequency
+    -1 cycle per sidereal day of the mode in the terrestrial frame."""
+    from matplotlib.patches import Ellipse, FancyArrowPatch, Circle, Arc
+    plt = _plt()
+    fig = plt.figure(figsize=(7.2, 4.8))
+    gs = fig.add_gridspec(2, 5, width_ratios=[1.55, 1, 1, 1, 1], wspace=0.08, hspace=0.55,
+                          left=0.02, right=0.99, top=0.86, bottom=0.08)
+    # (a) side view ---------------------------------------------------------------------
+    ax = fig.add_subplot(gs[:, 0])
+    alpha = np.radians(14.0)                                   # exaggerated tilt
+    ax.add_patch(Ellipse((0, 0), 2.0, 1.8, angle=0, fill=False, ec='#B0B0B0', lw=1.0, ls='--'))
+    ax.plot([0, 0], [-1.25, 1.25], color='#B0B0B0', lw=0.9, ls='--')
+    ax.add_patch(Ellipse((0, 0), 2.0, 1.8, angle=np.degrees(alpha), fill=True, fc='#EAF2F8',
+                         ec=OI_BLUE, lw=1.4))
+    tx, ty = -np.sin(alpha), np.cos(alpha)
+    ax.plot([-1.3 * tx, 1.3 * tx], [-1.3 * ty, 1.3 * ty], color=OI_BLUE, lw=1.4)
+    ax.add_patch(Arc((0, 0), 2.3, 2.3, theta1=90, theta2=90 + np.degrees(alpha), color=DARK, lw=0.8))
+    ax.text(-0.17, 1.22, r'$\alpha$', fontsize=9, color=DARK)
+    ax.text(0.05, 1.32, 'before', fontsize=7.5, color='#808080')
+    ax.text(-1.05, 1.02, 'rotation and\nfigure axis', fontsize=7.5, color=OI_BLUE, ha='center')
+    ax.text(0, -1.55, 'whole Earth tilted rigidly\nby a fixed angle in space\n'
+            r'($\alpha$ and flattening exaggerated)', fontsize=7.5, ha='center', va='top', color=DARK)
+    ax.set_xlim(-1.5, 1.5)
+    ax.set_ylim(-2.15, 1.65)
+    ax.set_aspect('equal')
+    ax.axis('off')
+    ax.set_title('(a) side view', fontsize=9, loc='left')
+    # (b), (c) top views ------------------------------------------------------------------
+    r_pole = 0.42                                               # exaggerated pole displacement
+    for row, (frame, title) in enumerate(((
+            'space', '(b) seen from space: the tilt stays fixed, the Earth turns eastward'),
+            ('earth', '(c) seen from the Earth: the displaced pole circles westward once per sidereal day'))):
+        for col, k in enumerate(range(4)):
+            ax = fig.add_subplot(gs[row, col + 1])
+            wt = k * np.pi / 2                                  # Omega t
+            ax.add_patch(Circle((0, 0), 1.0, fc='#F4F4F4', ec=DARK, lw=0.9))
+            if frame == 'space':
+                mer, pol = np.pi / 2 + wt, 0.0                  # meridian turns, tilt fixed
+            else:
+                mer, pol = np.pi / 2, -wt                       # meridian fixed, pole retrograde
+                ax.add_patch(Circle((0, 0), r_pole, fill=False, ec=OI_BLUE, lw=0.6, ls=':'))
+            ax.plot([0, np.cos(mer)], [0, np.sin(mer)], color=OI_ORANGE, lw=1.6)
+            ax.plot(np.cos(mer), np.sin(mer), 'o', color=OI_ORANGE, ms=4)
+            ax.add_patch(FancyArrowPatch((0, 0), (r_pole * np.cos(pol), r_pole * np.sin(pol)),
+                                         arrowstyle='-|>', mutation_scale=8, color=OI_BLUE, lw=1.4))
+            ax.plot(0, 0, '+', color=DARK, ms=5, mew=0.8)
+            if frame == 'space':
+                ax.add_patch(FancyArrowPatch((0.86 * np.cos(mer + 0.35), 0.86 * np.sin(mer + 0.35)),
+                                             (0.86 * np.cos(mer + 0.95), 0.86 * np.sin(mer + 0.95)),
+                                             connectionstyle='arc3,rad=0.3', arrowstyle='-|>',
+                                             mutation_scale=7, color=OI_ORANGE, lw=0.8))
+            else:
+                ax.add_patch(FancyArrowPatch((r_pole * 1.35 * np.cos(pol - 0.2), r_pole * 1.35 * np.sin(pol - 0.2)),
+                                             (r_pole * 1.35 * np.cos(pol - 0.9), r_pole * 1.35 * np.sin(pol - 0.9)),
+                                             connectionstyle='arc3,rad=-0.3', arrowstyle='-|>',
+                                             mutation_scale=7, color=OI_BLUE, lw=0.8))
+            ax.set_xlim(-1.12, 1.12)
+            ax.set_ylim(-1.12, 1.12)
+            ax.set_aspect('equal')
+            ax.axis('off')
+            if row == 0:
+                ax.text(0, 1.2, ['$t=0$', '$t=T/4$', '$t=T/2$', '$t=3T/4$'][k], ha='center', fontsize=8.5)
+            if col == 0:
+                ax.text(-1.15, 1.62 if row == 0 else 1.3, title, fontsize=8.3, ha='left', va='bottom',
+                        transform=ax.transData, clip_on=False)
+    fig.text(0.31, 0.01, 'Top views from above the north pole. Orange: a meridian with a station; blue: the\n'
+             'displacement of the pole (exaggerated); $T$: one sidereal day.', fontsize=7.5, color=DARK)
+    fig.savefig(HERE / 'figures' / 'tiltover.png', dpi=200)
+
+
 if __name__ == '__main__':
     cheb_tutorial_figure()
     galerkin_tutorial_figure()
@@ -572,3 +645,4 @@ if __name__ == '__main__':
     drum_figure()
     modela_figure()
     hough_figure()
+    tiltover_figure()

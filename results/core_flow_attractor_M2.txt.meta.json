@@ -1,0 +1,58 @@
+{
+ "id": "20261110T154656-core_flow_attractor-9036",
+ "status": "ok",
+ "purpose": "solver core flow (degrees >= NCUT) on the ray attractor loop, delta -> 0 at rising K and radial split",
+ "script": "scripts/core_flow_attractor.py",
+ "command": "python scripts/core_flow_attractor.py 1.92700:PREM:0.25:168:16:15 1.92700:PREM:1:96:8 --band 8 --solid-P 0 --max-gb 24 --full-maps --tag M2",
+ "params": {
+  "cases": [
+   "1.927:PREM:0.25:168:16:15",
+   "1.927:PREM:1.0:96:8:30"
+  ],
+  "ncut": 20,
+  "dist": 0.015,
+  "nref": 2000,
+  "wall": 20000.0,
+  "band": 8,
+  "solid_P": 0,
+  "workers": 1,
+  "max_gb": 24.0,
+  "full_maps": true,
+  "sphere": false
+ },
+ "git": {
+  "commit": "6cfcc75547cd609e1cbeda8cdcb3462a8353864a",
+  "dirty": [],
+  "script_untracked": false,
+  "script_dirty": false,
+  "script_sha256": "3d4385404763700956345804aa7fd31d8387bf625130757920d493e7fc1e076f"
+ },
+ "env": {
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/core_flow_attractor_M2.npz",
+   "sha256": "021d9a88c147a68b0291c40e61db2d57e044698ad609880b1a7bfe2a1539a720"
+  },
+  {
+   "path": "results/core_flow_attractor_M2.txt",
+   "sha256": "7a6e4d28e0db0dff9df433063f275dae7f61e1b06a7e57619972b81daa0c2b70"
+  }
+ ],
+ "start": "2026-11-10T15:46:56",
+ "end": "2026-11-10T16:05:09",
+ "wall_s": 1092.6,
+ "peak_rss_mb": {
+  "self": 124.5,
+  "children_max": 61.0
+ },
+ "host": "Linux (28 GB)",
+ "python": "3.14.4"
+}

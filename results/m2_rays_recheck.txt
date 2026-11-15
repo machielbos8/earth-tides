@@ -1,0 +1,8 @@
+ray of core_flow_attractor.loop, 2000 reflections; growth of log|k| per reflection
+core        sigma    growth  halving    p
+PREM      1.93227  +0.00504    137.4 None
+PREM      1.92700  -0.00019      inf None
+layered   1.93227  +0.07507      9.2   14
+layered   1.92700  -0.01958      inf None
+neutral   1.93227  +0.00116    596.6 None
+neutral   1.92700  +0.00336    206.2 None

@@ -1,0 +1,59 @@
+{
+ "id": "20261114T122530-validate_level_figure-9919",
+ "status": "ok",
+ "purpose": "validation of the level figure: published second-order figure of PREM, degrees, nodes, Omega^2",
+ "script": "scripts/validate_level_figure.py",
+ "command": "python scripts/validate_level_figure.py",
+ "params": {
+  "m_denis": 0.00345039
+ },
+ "git": {
+  "commit": "239fe7cb6e628b42677a1149b63f0bba2a2a2127",
+  "dirty": [
+   "paper_pepi/figures/fig_core_ekman.pdf",
+   "paper_pepi/figures/fig_core_sweep.pdf",
+   "paper_pepi/main_v2.tex",
+   "paper_pepi/main_v2_2col.pdf",
+   "paper_pepi/make_fig_core.py",
+   "paper_pepi/make_table4.py",
+   "paper_pepi/references.bib",
+   "paper_pepi/supplement_v2.pdf",
+   "paper_pepi/supplement_v2.tex",
+   "paper_pepi/table4.tex",
+   "paper_pepi/tableS_viscous.tex",
+   "results/paper1_table4.txt",
+   "results/paper1_table4.txt.meta.json",
+   "results/regen/table4.tex",
+   "results/regen/table4.tex.meta.json",
+   "results/regen/tableS_viscous.tex.meta.json",
+   "src/earthtides/geometry.py",
+   "src/earthtides/iers.py",
+   "src/earthtides/love.py"
+  ],
+  "script_untracked": true,
+  "script_dirty": false,
+  "script_sha256": "efd98918a5fcc0c951a53df2b148a2b89147f311889748076fcaef5d7436dd14"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/validate_level_figure.txt",
+   "sha256": "381e01b8897191d6c48b65a96be398fca1193223868ea499474e6b4b0e35b5e2"
+  }
+ ],
+ "start": "2026-11-14T12:25:30",
+ "end": "2026-11-14T12:26:10",
+ "wall_s": 40.3,
+ "peak_rss_mb": {
+  "self": 251.0,
+  "children_max": 11.1
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

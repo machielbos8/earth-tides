@@ -1,0 +1,98 @@
+{
+ "id": "20261110T210353-rays_hamiltonian-5652",
+ "status": "ok",
+ "purpose": "rays of Fig. 3 with PREM buoyancy N^2(r), Hamiltonian ray tracing: bending and focusing",
+ "script": "scripts/rays_hamiltonian.py",
+ "command": "python scripts/rays_hamiltonian.py 1e-3 4",
+ "params": {
+  "H": 0.001,
+  "eta": 0.3510057471264368,
+  "fig_freqs": [
+   0.907,
+   1.927
+  ],
+  "scan": [
+   0.88,
+   0.8825,
+   0.885,
+   0.8875,
+   0.89,
+   0.8925,
+   0.895,
+   0.8975,
+   0.9,
+   0.9025,
+   0.905,
+   0.9075,
+   0.91,
+   0.9125,
+   0.915,
+   0.9175,
+   0.92,
+   0.9225,
+   0.925,
+   0.9275,
+   0.93,
+   0.9325,
+   0.935,
+   0.9375,
+   0.94,
+   0.9425,
+   0.945,
+   0.9475,
+   0.95
+  ],
+  "nref": 2000,
+  "nfig": 6000,
+  "p0": [
+   0.62,
+   0.15
+  ],
+  "d0": [
+   0.5,
+   -0.8
+  ],
+  "omega": 7.292115e-05
+ },
+ "git": {
+  "commit": "f1bb9b7bb8b85f5f705d0dab613d95bcf512425b",
+  "dirty": [
+   "results/LEDGER.jsonl",
+   "results/check_ekman_resolution.txt",
+   "results/convergence_deflated.txt",
+   "results/convergence_nocor_core.txt",
+   "results/stdout/b2_wahr_h0.txt",
+   "scripts/b2_hough_coll.py",
+   "scripts/convergence_deflated.py"
+  ],
+  "script_untracked": false,
+  "script_dirty": false,
+  "script_sha256": "397c0340bd482c076a4acb283bc496f57e3dfd907ad59f487dd75cb4937db70b"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/rays_hamiltonian_h0.001.pdf",
+   "sha256": "117927657db705f70da5ead8cc0ae6162a846a9c4e181fde6ac2318cb2d79635"
+  },
+  {
+   "path": "results/rays_hamiltonian_h0.001.txt",
+   "sha256": "c36af8181d74365e1ca3a08a9555c6b27a4f7ec0ea32c86820307a59b45ee5eb"
+  }
+ ],
+ "start": "2026-11-10T21:03:53",
+ "end": "2026-11-10T21:33:41",
+ "wall_s": 1788.6,
+ "peak_rss_mb": {
+  "self": 165.5,
+  "children_max": 94.8
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

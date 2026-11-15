@@ -1,0 +1,18 @@
+Ours - Dehant et al. (1999), elastic hydrostatic PREM (1e-5):   dh0     dl0      dk
+  M2                                                           +68.5    +1.9   +41.8
+  O1                                                           +72.5    +6.6   +49.2
+  OO1                                                          +69.0    +8.4   +45.5
+
+Change at M2 when one thing is changed (1e-5):                     dh0     dl0      dk   dl0/dh0  dk/dh0
+  DDW - ours (to be explained)                                     -68.5    -1.9   -41.8    +0.028  +0.610
+  no centrifugal term in the reference gravity                     -80.4   -13.1   -42.2    +0.163  +0.525
+  reference gravity x (1 + 1e-3)                                   -40.7    -6.4   -22.2    +0.158  +0.546
+  top 15 km rock (2600), 15-24.4 km rho 2394: mass kept             +0.2    +0.3    -0.0    +1.445  -0.130
+  top 15 km rock (2600): mass +0.04 per cent                       +58.7   +14.4   +28.2    +0.244  +0.481
+  shear modulus of the top 15 km x 0.9                              -3.7    -0.6    +0.8    +0.175  -0.209
+  bulk modulus of the top 15 km x 0.9                               +8.1    -1.0    +0.4    -0.129  +0.052
+  remainder after removing the centrifugal term                    +12.0   +11.2    +0.4
+
+Millimetres (largest over latitude; radial from dh0, horizontal from dl0):
+  M2: offset ours - DDW  radial 0.167 mm, horizontal 0.010 mm;  remainder radial 0.029 mm, horizontal 0.054 mm
+  O1: offset ours - DDW  radial 0.073 mm, horizontal 0.019 mm

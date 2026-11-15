@@ -1,0 +1,47 @@
+{
+ "id": "20261101T113148-convergence_viscous_coreK-7394",
+ "status": "ok",
+ "purpose": "core-K sweep, core K 24 N 30, delta 0 km, step 0.0005 cpsd",
+ "script": "scripts/convergence_viscous_coreK.py",
+ "command": "python scripts/convergence_viscous_coreK.py 24 30 0 3 0.0005",
+ "params": {
+  "K_core": 24,
+  "N_core": 30,
+  "delta_km": 0.0,
+  "step": 0.0005,
+  "workers": 3
+ },
+ "git": {
+  "commit": "8cc9b4a30c23534f0651ab62a4bfae41eb8d10b3",
+  "dirty": [
+   "scripts/convergence_viscous_coreK.py"
+  ],
+  "script_untracked": false,
+  "script_dirty": true,
+  "script_sha256": "6b66a3be147eef01f367d381c53c99e8efe4cbb5ec29e05e3b5aa245e921af72"
+ },
+ "env": {
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/convergence_viscous_coreK24_N30_d0_s0.0005.txt",
+   "sha256": "e472459603defab594b98ec927c96ced5714a4aecd6115f34e0fc57d643607cf"
+  }
+ ],
+ "start": "2026-11-01T11:31:48",
+ "end": "2026-11-01T11:36:33",
+ "wall_s": 285.6,
+ "peak_rss_mb": {
+  "self": 55.0,
+  "children_max": 1941.6
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

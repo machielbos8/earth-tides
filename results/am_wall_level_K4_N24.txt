@@ -1,0 +1,51 @@
+hydrostatic elastic PREM, slipping core, K 4, N 24; residual of the angular-momentum balance relative to the tidal torque
+  level geometry, iteration 0: max |h| 3.73e+00 m, not in degrees 2-6: 3.76e-03 m
+  level geometry, iteration 1: max |h| 1.69e+00 m, not in degrees 2-6: 1.81e-03 m
+  level geometry, iteration 2: max |h| 1.01e+00 m, not in degrees 2-6: 9.33e-04 m
+  level geometry, iteration 3: max |h| 5.54e-01 m, not in degrees 2-6: 5.10e-04 m
+  level geometry, iteration 4: max |h| 2.91e-01 m, not in degrees 2-6: 3.00e-04 m
+  level geometry, iteration 5: max |h| 1.51e-01 m, not in degrees 2-6: 1.94e-04 m
+  level geometry, iteration 6: max |h| 7.74e-02 m, not in degrees 2-6: 1.40e-04 m
+  level geometry, iteration 7: max |h| 3.96e-02 m, not in degrees 2-6: 1.13e-04 m
+  level geometry, iteration 8: max |h| 2.02e-02 m, not in degrees 2-6: 9.88e-05 m
+  level geometry, iteration 9: max |h| 1.03e-02 m, not in degrees 2-6: 9.16e-05 m
+  level geometry, iteration 10: max |h| 5.21e-03 m, not in degrees 2-6: 8.80e-05 m
+  level geometry, iteration 11: max |h| 2.62e-03 m, not in degrees 2-6: 8.62e-05 m
+  level geometry, iteration 12: max |h| 1.30e-03 m, not in degrees 2-6: 8.52e-05 m
+  level geometry, iteration 13: max |h| 6.32e-04 m, not in degrees 2-6: 8.47e-05 m
+  level geometry, iteration 14: max |h| 3.21e-04 m, not in degrees 2-6: 8.45e-05 m
+  level geometry, iteration 15: max |h| 1.77e-04 m, not in degrees 2-6: 8.43e-05 m
+  level geometry, iteration 16: max |h| 1.05e-04 m, not in degrees 2-6: 8.43e-05 m
+
+== first-order map
+  wall (km)   peak-to-peak of the wall (m)   height above its level surface: peak-to-peak, P2, P4, P6 (m)
+     1221.5                         2942        2.469    +0.940    -2.289    +0.001
+     3480.0                         8817        7.201    +3.469    -5.912    +0.001
+  wave     AM off     AM on       d h0       d h2     h0 (on)     h2 (on)
+  O1     8.48e-04  8.45e-04  -5.62e-06  +6.87e-06  +0.5962546  -0.0004942
+  P1     8.45e-04  8.17e-04  -5.08e-05  +5.99e-05  +0.5751818  -0.0005270
+  psi1   9.31e-04  1.31e-03  +3.67e-04  -8.40e-04  +0.9355404  -0.0000000
+  phi1   8.56e-04  8.91e-04  +5.86e-05  -7.48e-05  +0.6291792  -0.0004452
+  OO1    8.52e-04  8.54e-04  +3.11e-06  -5.15e-06  +0.6016099  -0.0004788
+
+== exact ellipses
+  wall (km)   peak-to-peak of the wall (m)   height above its level surface: peak-to-peak, P2, P4, P6 (m)
+     1221.5                         2944        0.716    +0.481    -0.004    +0.000
+     3480.0                         8825        2.186    +1.510    -0.111    +0.000
+  wave     AM off     AM on       d h0       d h2     h0 (on)     h2 (on)
+  O1     2.47e-04  2.46e-04  -2.04e-06  +1.20e-07  +0.5962421  -0.0004947
+  P1     2.49e-04  2.37e-04  -1.84e-05  +1.10e-06  +0.5751148  -0.0005271
+  psi1   2.14e-04  3.81e-04  +1.10e-04  -1.54e-05  +0.9387041  -0.0000042
+  phi1   2.44e-04  2.59e-04  +2.10e-05  -1.35e-06  +0.6292840  -0.0004464
+  OO1    2.47e-04  2.48e-04  +1.37e-06  +1.15e-08  +0.6016131  -0.0004793
+
+== level surfaces (level_geometry.py)
+  wall (km)   peak-to-peak of the wall (m)   height above its level surface: peak-to-peak, P2, P4, P6 (m)
+     1221.5                         2946        0.000    +0.000    -0.000    -0.000
+     3480.0                         8831        0.000    +0.000    -0.000    -0.000
+  wave     AM off     AM on       d h0       d h2     h0 (on)     h2 (on)
+  O1     5.48e-09  5.42e-09  -9.39e-11  +5.39e-13  +0.5962379  -0.0004950
+  P1     5.59e-09  5.05e-09  -8.46e-10  +1.87e-12  +0.5750909  -0.0005274
+  psi1   9.61e-10  8.68e-09  +4.92e-09  -2.33e-11  +0.9402552  -0.0000022
+  phi1   5.13e-09  5.80e-09  +9.65e-10  -1.07e-12  +0.6293281  -0.0004466
+  OO1    5.45e-09  5.50e-09  +6.38e-11  +1.97e-12  +0.6016150  -0.0004796

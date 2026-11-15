@@ -1,15 +1,16 @@
 [build-system]
-requires = ["setuptools>=61", "wheel"]
+requires = ["setuptools>=77", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "earth-tides"
-version = "1.0.0"
-description = "Solid Earth tides: Love numbers of a rotating, flattened, anelastic Earth by spectral Galerkin-collocation, and station displacements"
+version = "1.1.0"
+description = "Solid Earth tides: Love numbers of a rotating, flattened, anelastic, non-hydrostatic Earth by spectral Galerkin-collocation, and station displacements"
 readme = "README_PyPI.md"
 requires-python = ">=3.10"
 authors = [{ name = "Machiel S. Bos", email = "machiel.bos@teromovigo.com" }]
-license = { file = "LICENSE" }
+license = "LicenseRef-earth-tides"
+license-files = ["LICENSE"]
 dependencies = ["numpy", "scipy"]
 
 [project.optional-dependencies]

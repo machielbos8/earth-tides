@@ -1,0 +1,34 @@
+{
+ "id": "20261108T112730-b2_profile-4123",
+ "status": "ok",
+ "purpose": "stdout of scripts/b2_profile.py",
+ "script": "scripts/b2_profile.py",
+ "command": "python scripts/traced.py b2_profile -- scripts/b2_profile.py",
+ "params": {
+  "args": []
+ },
+ "git": {
+  "commit": "2f0824cf4318cda448c96f46c271243d7f749650",
+  "dirty": [],
+  "script_untracked": false,
+  "script_dirty": false,
+  "script_sha256": "d550718daad1d41efe55a3282733237e90afed475f6d2e54636be22c2070a614"
+ },
+ "env": {},
+ "inputs": [],
+ "outputs": [
+  {
+   "path": "results/stdout/b2_profile.txt",
+   "sha256": "c06eec380b69b86f0ffd9f7bd82dcb22ccad145ee1c0e65b4b533af6e92ba536"
+  }
+ ],
+ "start": "2026-11-08T11:27:30",
+ "end": "2026-11-08T11:27:30",
+ "wall_s": 0.4,
+ "peak_rss_mb": {
+  "self": 19.7,
+  "children_max": 151.3
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

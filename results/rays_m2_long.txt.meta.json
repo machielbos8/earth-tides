@@ -1,0 +1,90 @@
+{
+ "id": "20261110T154432-rays_m2_long-1456",
+ "status": "ok",
+ "purpose": "long trace of the M2 ray, PREM N^2 and N = 0: is there an attractor?",
+ "script": "scripts/rays_m2_long.py",
+ "command": "python scripts/rays_m2_long.py",
+ "params": {
+  "f": 1.927,
+  "nref": 50000,
+  "window": 5000,
+  "step": 0.001,
+  "p0": [
+   0.62,
+   0.15
+  ],
+  "d0": [
+   0.5,
+   -0.8
+  ]
+ },
+ "git": {
+  "commit": "6436a50647e3d84cdc40697e29e03e77fcddbde6",
+  "dirty": [
+   "paper/make_figures.py",
+   "paper_pepi/figures/figS_nonhydro_state_viscous.pdf",
+   "paper_pepi/figures/fig_am_sweep.pdf",
+   "paper_pepi/figures/fig_fcn_ef.pdf",
+   "paper_pepi/figures/fig_grid.pdf",
+   "paper_pepi/figures/fig_nonhydro_state.pdf",
+   "paper_pepi/main_v2.tex",
+   "paper_pepi/main_v2_2col.pdf",
+   "paper_pepi/make_fig_characteristics.py",
+   "paper_pepi/make_fig_core.py",
+   "paper_pepi/make_figures.py",
+   "paper_pepi/make_table_latitude.py",
+   "paper_pepi/make_tables_viscous.py",
+   "paper_pepi/references.bib",
+   "paper_pepi/supplement_v2.pdf",
+   "paper_pepi/supplement_v2.tex",
+   "results/LEDGER.jsonl",
+   "results/fig_nonhydro_data.txt.meta.json",
+   "results/paper1_table_latitude.txt",
+   "results/paper1_table_latitude.txt.meta.json",
+   "results/paper1_tables_viscous.txt",
+   "results/paper1_tables_viscous.txt.meta.json",
+   "results/rays_disc_grid.npz",
+   "results/rays_disc_grid.npz.meta.json",
+   "results/rays_disc_grid.txt",
+   "results/rays_disc_grid.txt.meta.json",
+   "results/regen/table_ddw_viscous.tex",
+   "results/regen/table_ddw_viscous.tex.meta.json",
+   "results/regen/table_latitude.tex.meta.json",
+   "results/regen/table_latitude_viscous.tex.meta.json",
+   "scripts/b2_wahr_h0.py",
+   "scripts/compare_models.py",
+   "scripts/convention_table.py",
+   "scripts/convergence_fullsphere_core.py",
+   "scripts/radial_split_check.py",
+   "scripts/rays_buoyancy.py",
+   "scripts/rays_disc_grid.py",
+   "scripts/rays_hamiltonian.py",
+   "scripts/rays_m2_long.py"
+  ],
+  "script_untracked": false,
+  "script_dirty": true,
+  "script_sha256": "5cdcdf4ae44a37805d0fd4a4fe5a3d0c57d33f3d850facbf7b54b334c0d255ed"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/rays_m2_long.txt",
+   "sha256": "c5f90425523910ce3a2b91cc1c7fff42e128ac7994a284246d19a1517e5b1cd5"
+  }
+ ],
+ "start": "2026-11-10T15:44:32",
+ "end": "2026-11-10T17:07:28",
+ "wall_s": 4975.6,
+ "peak_rss_mb": {
+  "self": 37.2,
+  "children_max": 43.3
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

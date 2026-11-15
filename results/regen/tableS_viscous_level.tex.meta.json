@@ -1,0 +1,51 @@
+{
+ "id": "20261115T114302-make_table4-8639",
+ "status": "ok",
+ "purpose": "Table of non-hydrostatic Love numbers (P1 v2 Table S12, S8)",
+ "script": "paper_pepi/make_table4.py",
+ "command": "python paper_pepi/make_table4.py --figure level",
+ "params": {
+  "out": "results/regen"
+ },
+ "git": {
+  "commit": "074b5d2aa281eb82243b2e855f9ddecb4dd90bf3",
+  "dirty": [
+   "paper_pepi/main_v3.tex",
+   "paper_pepi/make_table4.py",
+   "paper_pepi/supplement_v3.tex"
+  ],
+  "script_untracked": false,
+  "script_dirty": true,
+  "script_sha256": "8f3c6173872a74901fd4116a2f6a51cb9a27150e8a82392f1d51400bca61f5ab"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/regen/table4_level.tex",
+   "sha256": "53bced5d35a62b6eab249ee0201a028efc30f46621a066b1e9cfce7a76526b77"
+  },
+  {
+   "path": "results/regen/tableS_viscous_level.tex",
+   "sha256": "ca3b6371a4f05cee45f79e95c7856858fd346a6ccffbff389d6f1f279b8aaac5"
+  },
+  {
+   "path": "results/paper1_table4_level.txt",
+   "sha256": "4e6fbcfaabab19ebcfe727b307e54345cc42057d301577b598951247c8fe9ae0"
+  }
+ ],
+ "start": "2026-11-15T11:43:02",
+ "end": "2026-11-15T11:44:04",
+ "wall_s": 62.0,
+ "peak_rss_mb": {
+  "self": 1058.8,
+  "children_max": 8.8
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

@@ -3,7 +3,7 @@
 # Angular-momentum balance of the whole Earth in the diurnal band: a check of the rotational
 # dynamics (inertia, Coriolis force, fluid core, flattening) of the solver.
 #
-# This file is part of earth-tides 1.0.
+# This file is part of earth-tides 1.1.
 #
 # earth-tides is distributed under a source-available license.
 # It may be used free of charge for academic, research, and other
@@ -42,16 +42,17 @@ NLAM = 24
 def fields(S):
     """Generator over layers: weights dV (s, theta), position R, theta and the complex amplitude
     functions A, B, C at the quadrature nodes."""
-    md, N, nb = S.model, S.N, S.nfld * S.N
-    xg, wg = L.leggauss(N + 6)
+    md = S.model
     for i in range(md.n_layers):
+        N = S.Nl[i]                                  # per-layer resolution (fluid_N)
+        xg, wg = L.leggauss(N + 6)
         r0, r1 = max(md.r0[i], 1.0), md.r1[i]
         s = r0 + (xg + 1) * (r1 - r0) / 2
         p = S.props(i, s)
         dV = p.r**2 / p.s_r * (wg * (r1 - r0) / 2)[:, None] * S.w[None, :]   # r^2 dr dmu (per dlambda)
         A = B = C = 0.0
         for j, (uA, uB, uC, _) in enumerate(S._fields_at(i, xg, p)):
-            c = S.coef[i * nb + j * N: i * nb + (j + 1) * N]
+            c = S.layer_coef(i, j)
             sh = (N,) + p.r.shape
             A = A + np.tensordot(c, np.broadcast_to(uA.v, sh), axes=1)
             B = B + np.tensordot(c, np.broadcast_to(uB.v, sh), axes=1)

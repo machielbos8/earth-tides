@@ -1,0 +1,64 @@
+{
+ "id": "20261114T131411-make_table_latitude-1200",
+ "status": "ok",
+ "purpose": "Table of the latitude dependence, inviscid core (P1 v2 Table S8)",
+ "script": "paper_pepi/make_table_latitude.py",
+ "command": "python paper_pepi/make_table_latitude.py --figure level",
+ "params": {
+  "out": "results/regen"
+ },
+ "git": {
+  "commit": "b23a0f226c0182cf9b8cfdf55ec9f02c07af9ba7",
+  "dirty": [
+   "paper_pepi/figures/fig_core_ekman.pdf",
+   "paper_pepi/figures/fig_core_sweep.pdf",
+   "paper_pepi/main_v2.tex",
+   "paper_pepi/main_v2_2col.pdf",
+   "paper_pepi/make_fig_core.py",
+   "paper_pepi/make_table4.py",
+   "paper_pepi/make_table_latitude.py",
+   "paper_pepi/references.bib",
+   "paper_pepi/supplement_v2.pdf",
+   "paper_pepi/supplement_v2.tex",
+   "paper_pepi/table4.tex",
+   "paper_pepi/tableS_viscous.tex",
+   "results/nonhydro_diurnal.txt.meta.json",
+   "results/paper1_table4.txt",
+   "results/paper1_table4.txt.meta.json",
+   "results/regen/table4.tex",
+   "results/regen/table4.tex.meta.json",
+   "results/regen/tableS_viscous.tex.meta.json",
+   "scripts/convention_table.py",
+   "scripts/nonhydro_stress_split.py"
+  ],
+  "script_untracked": false,
+  "script_dirty": true,
+  "script_sha256": "e4fd11a1f7c15d64098ba8983c9d6a1ac68c471f851b9a86ad643268aab2f8c8"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/regen/table_latitude_level.tex",
+   "sha256": "bde03ae03a9de3021c8adadc5108ddee7fbd7585718c548635abb4135cec8e76"
+  },
+  {
+   "path": "results/paper1_table_latitude_level.txt",
+   "sha256": "f49a2d71b8692f3092ce71778b3746f52f4ade66a19c7cf6f8754abadb57c05f"
+  }
+ ],
+ "start": "2026-11-14T13:14:11",
+ "end": "2026-11-14T13:14:22",
+ "wall_s": 10.7,
+ "peak_rss_mb": {
+  "self": 532.7,
+  "children_max": 11.1
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

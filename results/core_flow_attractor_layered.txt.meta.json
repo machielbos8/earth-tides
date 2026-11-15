@@ -1,0 +1,64 @@
+{
+ "id": "20261110T160513-core_flow_attractor-9214",
+ "status": "ok",
+ "purpose": "solver core flow (degrees >= NCUT) on the ray attractor loop, delta -> 0 at rising K and radial split",
+ "script": "scripts/core_flow_attractor.py",
+ "command": "python scripts/core_flow_attractor.py 0.9175:layered:0.25:168:16:15 1.92700:layered:0.25:168:16:15 --tag layered --band 8 --solid-P 0 --full-maps --max-gb 24 --after 2749036",
+ "params": {
+  "cases": [
+   "0.9175:layered:0.25:168:16:15",
+   "1.927:layered:0.25:168:16:15"
+  ],
+  "ncut": 20,
+  "dist": 0.015,
+  "nref": 2000,
+  "wall": 20000.0,
+  "band": 8,
+  "solid_P": 0,
+  "workers": 1,
+  "max_gb": 24.0,
+  "full_maps": true,
+  "sphere": false
+ },
+ "git": {
+  "commit": "6cfcc75547cd609e1cbeda8cdcb3462a8353864a",
+  "dirty": [
+   "results/LEDGER.jsonl",
+   "results/core_flow_attractor_M2.npz",
+   "results/core_flow_attractor_M2.npz.meta.json",
+   "results/core_flow_attractor_M2.txt",
+   "results/core_flow_attractor_M2.txt.meta.json"
+  ],
+  "script_untracked": false,
+  "script_dirty": false,
+  "script_sha256": "3d4385404763700956345804aa7fd31d8387bf625130757920d493e7fc1e076f"
+ },
+ "env": {
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/core_flow_attractor_layered.npz",
+   "sha256": "9d7d97f71fb40760ff8b6a0dc166f801b448fbb833ada29c46689eb529a39d99"
+  },
+  {
+   "path": "results/core_flow_attractor_layered.txt",
+   "sha256": "eb9fb8bf48412417d7b916b34b98668c27f35b19b57cc0344fee66696611fdc6"
+  }
+ ],
+ "start": "2026-11-10T16:05:13",
+ "end": "2026-11-10T16:22:08",
+ "wall_s": 1015.7,
+ "peak_rss_mb": {
+  "self": 156.9,
+  "children_max": 59.3
+ },
+ "host": "Linux (28 GB)",
+ "python": "3.14.4"
+}

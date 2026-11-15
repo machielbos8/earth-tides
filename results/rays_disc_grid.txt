@@ -1,0 +1,13 @@
+regions without waves (discriminant < 0), outer core PREM; radii in km; volume share on a quarter grid (weight s)
+
+0.9175 cpsd: fh^2 = 0.2105; no waves in 1.9 % of the core volume
+  equatorial plane: r 3381-3480
+  rotation axis: r 1222-1274
+  just below the CMB: colatitudes 72.4-90.0 deg
+  critical latitude arcsin(fh) = 27.3 deg
+
+1.927 cpsd: fh^2 = 0.9283; no waves in 21.4 % of the core volume
+  equatorial plane: r 3175-3480
+  rotation axis: r none
+  just below the CMB: colatitudes 20.2-90.0 deg
+  critical latitude arcsin(fh) = 74.5 deg

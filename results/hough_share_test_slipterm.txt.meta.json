@@ -1,0 +1,330 @@
+{
+ "id": "20261114T071950-hough_share_test-0013",
+ "status": "ok",
+ "purpose": "resonant shares, viscous vs inviscid core, Hough's Earth (like for like with PREM)",
+ "script": "scripts/hough_share_test.py",
+ "command": "python scripts/hough_share_test.py 4 --variants soft,bump-1,bump+1,bump+3,clairaut,cl_exacteps,ex_cleps --deltas none --slip-term --tag slipterm",
+ "params": {
+  "variants": [
+   "soft",
+   "bump-1",
+   "bump+1",
+   "bump+3",
+   "clairaut",
+   "cl_exacteps",
+   "ex_cleps"
+  ],
+  "deltas": [],
+  "slip_term": true,
+  "Kv": 48,
+  "band": 12,
+  "solver": "block",
+  "inviscid": [
+   [
+    6,
+    30
+   ],
+   [
+    10,
+    30
+   ]
+  ],
+  "models": {
+   "soft": [
+    6.0,
+    1000.0,
+    "exact",
+    5500.0,
+    5500.0
+   ],
+   "soft+comp": [
+    6.0,
+    8.0,
+    "exact",
+    5500.0,
+    5500.0
+   ],
+   "clairaut": [
+    6.0,
+    1000.0,
+    "clairaut",
+    5500.0,
+    5500.0
+   ],
+   "contrast": [
+    6.0,
+    1000.0,
+    "clairaut",
+    10635.996220095998,
+    4500.0
+   ],
+   "cl_exacteps": [
+    6.0,
+    1000.0,
+    "clairaut_exact_eps",
+    5500.0,
+    5500.0
+   ],
+   "ex_cleps": [
+    6.0,
+    1000.0,
+    "exact_clairaut_eps",
+    5500.0,
+    5500.0
+   ],
+   "bump-1": [
+    6.0,
+    1000.0,
+    [
+     "bump",
+     -1
+    ],
+    5500.0,
+    5500.0
+   ],
+   "bump+1": [
+    6.0,
+    1000.0,
+    [
+     "bump",
+     1
+    ],
+    5500.0,
+    5500.0
+   ],
+   "bump+3": [
+    6.0,
+    1000.0,
+    [
+     "bump",
+     3
+    ],
+    5500.0,
+    5500.0
+   ],
+   "bump+10": [
+    6.0,
+    1000.0,
+    [
+     "bump",
+     10
+    ],
+    5500.0,
+    5500.0
+   ],
+   "bump6+3": [
+    6.0,
+    1000.0,
+    [
+     "bump",
+     3,
+     6
+    ],
+    5500.0,
+    5500.0
+   ],
+   "bump8+3": [
+    6.0,
+    1000.0,
+    [
+     "bump",
+     3,
+     8
+    ],
+    5500.0,
+    5500.0
+   ],
+   "bump-1+comp": [
+    6.0,
+    8.0,
+    [
+     "bump",
+     -1
+    ],
+    5500.0,
+    5500.0
+   ],
+   "bump+1+comp": [
+    6.0,
+    8.0,
+    [
+     "bump",
+     1
+    ],
+    5500.0,
+    5500.0
+   ],
+   "bump+3+comp": [
+    6.0,
+    8.0,
+    [
+     "bump",
+     3
+    ],
+    5500.0,
+    5500.0
+   ],
+   "soft+vp16": [
+    6.0,
+    16.0,
+    "exact",
+    5500.0,
+    5500.0
+   ],
+   "soft+vp32": [
+    6.0,
+    32.0,
+    "exact",
+    5500.0,
+    5500.0
+   ],
+   "bump+3+vp16": [
+    6.0,
+    16.0,
+    [
+     "bump",
+     3
+    ],
+    5500.0,
+    5500.0
+   ],
+   "bump+3+vp32": [
+    6.0,
+    32.0,
+    [
+     "bump",
+     3
+    ],
+    5500.0,
+    5500.0
+   ]
+  },
+  "scan": [
+   1.0005,
+   1.001,
+   1.0015,
+   1.002,
+   1.0025,
+   1.003,
+   1.0035,
+   1.004,
+   1.0045,
+   1.005,
+   1.0055,
+   1.006,
+   1.0065,
+   1.007,
+   1.0075,
+   1.008,
+   1.0085,
+   1.009,
+   1.0095,
+   1.01,
+   1.0105,
+   1.011,
+   1.0115,
+   1.012,
+   1.0125,
+   1.013,
+   1.0135,
+   1.014,
+   1.0145,
+   1.015,
+   1.0155,
+   1.016,
+   1.0165,
+   1.017,
+   1.0175,
+   1.018,
+   1.0185,
+   1.019,
+   1.0195,
+   1.02
+  ],
+  "far": [
+   0.9,
+   0.927,
+   0.96,
+   0.98,
+   0.99454,
+   0.9965,
+   0.9978,
+   0.999
+  ],
+  "offsets": [
+   -36,
+   -26,
+   -16,
+   -10,
+   -6,
+   -4,
+   -2,
+   -1,
+   1,
+   2,
+   4,
+   6,
+   9,
+   14,
+   24,
+   44,
+   74,
+   154,
+   684
+  ],
+  "fcn_scan": {
+   "soft": 1.00416,
+   "bump-1": 1.00416,
+   "bump+1": 1.00416,
+   "bump+3": 1.00416,
+   "clairaut": 1.00414,
+   "cl_exacteps": 1.00415,
+   "ex_cleps": 1.00415
+  }
+ },
+ "git": {
+  "commit": "9c3ef7cfdcb21d73a200f48738181bbb54ed7028",
+  "dirty": [
+   "docs/lab_notes/earthtides_lab_notes.md",
+   "paper_pepi/figures/fig_core_ekman.pdf",
+   "paper_pepi/figures/fig_core_sweep.pdf",
+   "paper_pepi/main_v2.tex",
+   "paper_pepi/main_v2_2col.pdf",
+   "paper_pepi/make_fig_core.py",
+   "paper_pepi/make_table4.py",
+   "paper_pepi/references.bib",
+   "paper_pepi/supplement_v2.pdf",
+   "paper_pepi/supplement_v2.tex",
+   "results/LEDGER.jsonl",
+   "results/paper1_table4.txt.meta.json",
+   "results/regen/table4.tex",
+   "results/regen/table4.tex.meta.json",
+   "results/regen/tableS_viscous.tex.meta.json",
+   "scripts/hough_share_test.py"
+  ],
+  "script_untracked": false,
+  "script_dirty": true,
+  "script_sha256": "d910a19f33324ce951fa68516a58275797bfa505d7d338c23ca52d0ab5b77c1e"
+ },
+ "env": {},
+ "inputs": [],
+ "outputs": [
+  {
+   "path": "results/hough_share_test_slipterm.txt",
+   "sha256": "e2c5f1681257df25a160897e78d086c5278d41f14136d9f6d3684f95cf6ceead"
+  },
+  {
+   "path": "results/hough_share_test_slipterm.npz",
+   "sha256": "374a7399108dc52748f9d48b3730eb2abffd0c7aa156b56e78aa628a2ea3350a"
+  }
+ ],
+ "start": "2026-11-14T07:19:50",
+ "end": "2026-11-14T07:20:27",
+ "wall_s": 36.8,
+ "peak_rss_mb": {
+  "self": 74.0,
+  "children_max": 201.2
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

@@ -2,7 +2,7 @@
 #
 # Reference potential consistent with the model's own density.
 #
-# This file is part of earth-tides 1.0.
+# This file is part of earth-tides 1.1.
 #
 # earth-tides is distributed under a source-available license.
 # It may be used free of charge for academic, research, and other
@@ -39,7 +39,8 @@ from .model import G
 
 
 class ReferencePotential:
-    def __init__(self, model, geometry, omega_rot, K=4, N=24, n_theta=40):
+    def __init__(self, model, geometry, omega_rot, K=4, N=24, n_theta=40, drho=None):
+        # drho(i, s2, th, mp) -> (value, ...): density beyond rho0(s) on the mapped grid (nonhydro)
         from .basis import cheb_basis, ybar
         from numpy.polynomial import legendre as L
         self.model, self.geom, self.Om = model, geometry, omega_rot
@@ -84,6 +85,10 @@ class ReferencePotential:
                 for k in range(N - 2):
                     H[row0 + K * (1 + k): row0 + K * (2 + k), col(i, j):col(i, j) + N] = Q[:, k, :].T
             src = 4 * np.pi * G * md.rho[i](s)[:, None] * np.ones_like(th)[None, :]
+            if drho is not None:
+                d = drho(i, s[:, None], th[None, :], mp)
+                if d is not None:
+                    src = src + 4 * np.pi * G * d[0]
             Qs = src @ test.T
             for k in range(N - 2):
                 f[row0 + K * (1 + k): row0 + K * (2 + k)] = Qs[k]

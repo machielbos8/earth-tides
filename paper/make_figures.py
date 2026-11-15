@@ -115,8 +115,10 @@ def fig1(d):
     fig.savefig(FIG / 'fig1_levels.pdf')
 
 
-def fig_grid(d):
-    """(a) level-surface coordinates with the angular nodes; (b) zoom on one layer."""
+def fig_grid(d, quarter=False, out=None):
+    """(a) level-surface coordinates with the angular nodes; (b) zoom on one layer. quarter: (a) draws the
+    quarter of the meridional plane that the solver computes (one order m, one parity) in full and the rest
+    faint, with the angular nodes in that quarter only (P1 v2)."""
     from matplotlib.patches import FancyArrowPatch, Rectangle
     s_all, e_all = d['f1_s'], d['f1_eps']
     ex = 40.0                                       # exaggeration of the flattening
@@ -126,13 +128,22 @@ def fig_grid(d):
                                    gridspec_kw=dict(width_ratios=[1, 1.15]))
     th = np.linspace(0, 2 * np.pi, 400)
     interfaces = (1221.5, 3480, 5701, 6371)
+    q = np.cos(th) >= 0 if quarter else np.ones(th.size, bool)
+    q &= np.sin(th) >= 0 if quarter else True
     for s_km in interfaces + (2500, 4500, 5300, 6050):
         bold = s_km in interfaces
         R = Rof(s_km, th)
-        ax1.plot(R * np.sin(th), R * np.cos(th), color=INK if bold else C1, lw=0.9 if bold else 0.5)
-    # colatitude nodes: rays theta = const (Gauss-Legendre nodes, 8 shown)
+        x, z = R * np.sin(th), R * np.cos(th)
+        ax1.plot(np.where(q, x, np.nan), np.where(q, z, np.nan), color=INK if bold else C1,
+                 lw=0.9 if bold else 0.5)
+        if quarter:
+            ax1.plot(np.where(q, np.nan, x), np.where(q, np.nan, z), color=MUTED, lw=0.4, alpha=0.5)
+    if quarter:                                     # rotation axis and equator: the edges of the quarter
+        ax1.plot([0, 0], [0, 6371 * 1.04], color=INK, lw=0.5, ls='--')
+        ax1.plot([0, Rof(6371, np.pi / 2) * 1.04], [0, 0], color=INK, lw=0.5, ls='--')
+    # colatitude nodes: rays theta = const (Gauss-Legendre nodes, 8 shown; quarter: the 4 in the north)
     xg, _ = np.polynomial.legendre.leggauss(8)
-    for t in np.arccos(xg):
+    for t in np.arccos(xg[xg > 0] if quarter else xg):
         rr = np.linspace(0, 6371, 50)
         R = np.array([Rof(r_, t) for r_ in rr])
         ax1.plot(R * np.sin(t), R * np.cos(t), color=MUTED, lw=0.4, ls=':')
@@ -180,7 +191,7 @@ def fig_grid(d):
                  '$\\phi_1$ matched to the outside', xy=(deg(tl), r_k[-1]),
                  xytext=(xr, r_k[-1] + 40), fontsize=6.5, color=C2, va='center',
                  arrowprops=dict(arrowstyle='-', lw=0.5, color=C2))
-    ax2.annotate('interior nodes: equations\n(3)--(4), projected with\neq. (12)',
+    ax2.annotate('interior nodes: equations\n(2)\u2013(3), projected with\neq. (11)',
                  xy=(deg(tl), r_k[4]), xytext=(xr, r_k[4]), fontsize=6.5, color=C1, va='center',
                  arrowprops=dict(arrowstyle='-', lw=0.5, color=C1))
     ax2.annotate('interface: $\\mathbf{u}$, $\\hat{\\mathbf{n}}\\cdot\\boldsymbol{\\tau}$, $\\phi_1$\n'
@@ -204,7 +215,7 @@ def fig_grid(d):
         ax2.spines[sp_].set_visible(False)
     ax2.set_title('(b) one layer, $N=9$ Chebyshev nodes per ray', loc='left', fontsize=8)
     fig.tight_layout()
-    fig.savefig(FIG / 'fig_grid.pdf')
+    fig.savefig(out or FIG / 'fig_grid.pdf')
 
 
 def fig_parcel(d):
@@ -456,36 +467,37 @@ def fig_budget():
 
 
 def fig_stations():
-    """Box plots of the hourly radial differences in 2025 per station and source of uncertainty
-    (results/station_error_budget.npz from scripts/station_error_budget.py): box 25-75 per cent,
-    line the median, whiskers 1-99 per cent."""
+    """Box plots of the hourly radial differences in 2026 per station (results/station_error_budget.npz
+    from scripts/station_error_budget.py): the anelasticity between 1 s and 200 s, and the complete
+    difference between our model (PREM plus our resonant ocean-loading correction) and the IERS model.
+    The other two sources of that script are in Online Resource 1. Box 25-75 per cent, line the
+    median, whiskers 1-99 per cent."""
     r = np.load(ROOT / 'results' / 'station_error_budget.npz')
     st, kinds, pct = list(r['stations']), list(r['kinds']), r['pct']
     lat = r['lat']
-    cols = (C1, C2, C3)
+    show = (('anelasticity', C1, 'anelasticity (1–200 s band)'),
+            ('model - IERS', C2, 'this paper minus IERS model'))
     fig, ax = plt.subplots(figsize=(W2COL, 2.6))
-    w = 0.22
+    w = 0.32
     for i in range(len(st)):
-        for j in range(len(kinds)):
-            x = i + (j - 1) * (w + 0.04)
-            p1, q1, med, q3, p99 = pct[i, j]
-            ax.add_patch(plt.Rectangle((x - w / 2, q1), w, max(q3 - q1, 1e-3), fc=cols[j],
-                                       ec=cols[j], alpha=0.35, lw=0.8))
-            ax.plot([x - w / 2, x + w / 2], [med, med], color=cols[j], lw=1.2)
-            ax.plot([x, x], [p1, q1], color=cols[j], lw=0.8)
-            ax.plot([x, x], [q3, p99], color=cols[j], lw=0.8)
-            ax.plot([x - w / 4, x + w / 4], [p1, p1], color=cols[j], lw=0.8)
-            ax.plot([x - w / 4, x + w / 4], [p99, p99], color=cols[j], lw=0.8)
+        for j, (kind, col, _) in enumerate(show):
+            x = i + (j - 0.5) * (w + 0.06)
+            p1, q1, med, q3, p99 = pct[i, kinds.index(kind)]
+            ax.add_patch(plt.Rectangle((x - w / 2, q1), w, max(q3 - q1, 1e-3), fc=col, ec=col,
+                                       alpha=0.35, lw=0.8))
+            ax.plot([x - w / 2, x + w / 2], [med, med], color=col, lw=1.2)
+            ax.plot([x, x], [p1, q1], color=col, lw=0.8)
+            ax.plot([x, x], [q3, p99], color=col, lw=0.8)
+            ax.plot([x - w / 4, x + w / 4], [p1, p1], color=col, lw=0.8)
+            ax.plot([x - w / 4, x + w / 4], [p99, p99], color=col, lw=0.8)
     ax.axhline(0, color='0.6', lw=0.5, zorder=0)
     ax.set_xticks(range(len(st)))
     ax.set_xticklabels([f'{s}\n{l:+.0f}°' for s, l in zip(st, lat)])
     ax.set_xlim(-0.6, len(st) - 0.4)
     ax.set_ylabel('radial difference (mm)')
-    labels = ('anelasticity (1–200 s band)', 'ocean model (resonant OTL term)',
-              'sign (resonant OTL term)')
     from matplotlib.patches import Patch
-    ax.legend([Patch(fc=c, ec=c, alpha=0.5) for c in cols], labels, loc='upper center',
-              ncol=3, fontsize=7, frameon=False, bbox_to_anchor=(0.5, 1.13))
+    ax.legend([Patch(fc=c, ec=c, alpha=0.5) for _, c, _ in show], [lab for _, _, lab in show],
+              loc='upper center', ncol=2, fontsize=7, frameon=False, bbox_to_anchor=(0.5, 1.13))
     fig.tight_layout()
     fig.savefig(FIG / 'fig_stations.pdf')
 

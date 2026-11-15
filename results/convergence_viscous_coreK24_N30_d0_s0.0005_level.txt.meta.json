@@ -1,0 +1,73 @@
+{
+ "id": "20261114T135812-convergence_viscous_coreK-2573",
+ "status": "ok",
+ "purpose": "core-K sweep, core K 24 N 30, delta 0 km, step 0.0005 cpsd",
+ "script": "scripts/convergence_viscous_coreK.py",
+ "command": "python scripts/convergence_viscous_coreK.py 24 30 0 3 0.0005 --figure level",
+ "params": {
+  "K_core": 24,
+  "N_core": 30,
+  "delta_km": 0.0,
+  "step": 0.0005,
+  "workers": 3,
+  "band": null,
+  "window": null,
+  "figure": "level",
+  "neutral": false,
+  "split": 1,
+  "interior_N": null,
+  "solid_P": null
+ },
+ "git": {
+  "commit": "d04b6c33a746c67ef1316b4ea0a94e83fc64c7d7",
+  "dirty": [
+   "paper_pepi/figures/fig_core_ekman.pdf",
+   "paper_pepi/figures/fig_core_sweep.pdf",
+   "paper_pepi/main_v2.tex",
+   "paper_pepi/main_v2_2col.pdf",
+   "paper_pepi/make_fig_core.py",
+   "paper_pepi/make_table4.py",
+   "paper_pepi/references.bib",
+   "paper_pepi/supplement_v2.pdf",
+   "paper_pepi/supplement_v2.tex",
+   "paper_pepi/table4.tex",
+   "paper_pepi/tableS_viscous.tex",
+   "results/LEDGER.jsonl",
+   "results/convention_table.txt.meta.json",
+   "results/nonhydro_diurnal.txt.meta.json",
+   "results/paper1_table4.txt",
+   "results/paper1_table4.txt.meta.json",
+   "results/regen/table4.tex",
+   "results/regen/table4.tex.meta.json",
+   "results/regen/tableS_viscous.tex.meta.json",
+   "scripts/convergence_viscous_coreK.py"
+  ],
+  "script_untracked": false,
+  "script_dirty": true,
+  "script_sha256": "0ea6341a2918158e8058c8c5b9ac66926fe5e076ff0109f2a928e53c79baa8e0"
+ },
+ "env": {
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/convergence_viscous_coreK24_N30_d0_s0.0005_level.txt",
+   "sha256": "47ba6d54d8baa32696de2773083ca70717c316fdfb2634c2435595b6c323b5af"
+  }
+ ],
+ "start": "2026-11-14T13:58:12",
+ "end": "2026-11-14T14:05:04",
+ "wall_s": 411.6,
+ "peak_rss_mb": {
+  "self": 55.8,
+  "children_max": 659.6
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

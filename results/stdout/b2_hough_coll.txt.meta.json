@@ -1,0 +1,36 @@
+{
+ "id": "20261108T112857-b2_hough_coll-4282",
+ "status": "ok",
+ "purpose": "stdout of scripts/b2_hough_coll.py",
+ "script": "scripts/b2_hough_coll.py",
+ "command": "python scripts/traced.py b2_hough_coll -- scripts/b2_hough_coll.py",
+ "params": {
+  "args": []
+ },
+ "git": {
+  "commit": "409375872a14decf4c3ac36035927796fc73c1b3",
+  "dirty": [
+   "results/LEDGER.jsonl"
+  ],
+  "script_untracked": false,
+  "script_dirty": false,
+  "script_sha256": "d776b1ba0d9a3dad76cc40c4c35b2ba416589d049d03cad431a9b7dcb71e06c9"
+ },
+ "env": {},
+ "inputs": [],
+ "outputs": [
+  {
+   "path": "results/stdout/b2_hough_coll.txt",
+   "sha256": "fbc0d1d0c7b0c054c699da0ab01e0b024d77f07f41e32b80ef15c982d0b2086d"
+  }
+ ],
+ "start": "2026-11-08T11:28:57",
+ "end": "2026-11-08T11:29:00",
+ "wall_s": 3.4,
+ "peak_rss_mb": {
+  "self": 19.7,
+  "children_max": 211.8
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

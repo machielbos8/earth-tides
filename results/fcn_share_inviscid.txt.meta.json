@@ -1,0 +1,47 @@
+{
+ "id": "20261111T053917-fcn_share_inviscid-1616",
+ "status": "ok",
+ "purpose": "inviscid FCN resonance strengths, core K 6 (Sect. 5.3)",
+ "script": "scripts/fcn_share_inviscid.py",
+ "command": "python scripts/fcn_share_inviscid.py",
+ "params": {
+  "argv": []
+ },
+ "git": {
+  "commit": "4faf9c47a5fa091911447556811a04b1fd6dbe6d",
+  "dirty": [
+   "results/LEDGER.jsonl",
+   "results/stdout/b2_wahr_h0.txt",
+   "results/stdout/b2_wahr_h0.txt.meta.json"
+  ],
+  "script_untracked": false,
+  "script_dirty": false,
+  "script_sha256": "7aed2dcd34d806c96e6d5c629e0de92eaafff5c73a27304c6c8724284245b76d"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/fcn_share_inviscid.txt",
+   "sha256": "82f20aaf199406503a0214547f2c8114e7428fd2cbb797004a74a1c762b5fe60"
+  },
+  {
+   "path": "results/fcn_share_inviscid.npz",
+   "sha256": "9e6d6078d9154cab40f345ddc344489f0b52d49e5702158490392a13fa703a78"
+  }
+ ],
+ "start": "2026-11-11T05:39:17",
+ "end": "2026-11-11T05:39:25",
+ "wall_s": 7.6,
+ "peak_rss_mb": {
+  "self": 72.2,
+  "children_max": 859.3
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

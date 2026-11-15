@@ -1,0 +1,45 @@
+{
+ "id": "20261110T210339-convergence_nocoriolis_core-5573",
+ "status": "ok",
+ "purpose": "inviscid core without the Coriolis force in the core (S9)",
+ "script": "scripts/convergence_nocoriolis_core.py",
+ "command": "python scripts/convergence_nocoriolis_core.py",
+ "params": {
+  "argv": []
+ },
+ "git": {
+  "commit": "f1bb9b7bb8b85f5f705d0dab613d95bcf512425b",
+  "dirty": [
+   "results/LEDGER.jsonl",
+   "results/convergence_deflated.txt",
+   "results/stdout/b2_wahr_h0.txt",
+   "scripts/b2_hough_coll.py",
+   "scripts/convergence_deflated.py"
+  ],
+  "script_untracked": false,
+  "script_dirty": false,
+  "script_sha256": "626c96ba7fc2b3bf79b097a0cd83ffd3b8a92b01a630de8e347a1c8af0c81fdf"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/convergence_nocor_core.txt",
+   "sha256": "0021975811eac460b7ce08c166a4dec34f4000dc2674b2b36af46a398eddf648"
+  }
+ ],
+ "start": "2026-11-10T21:03:39",
+ "end": "2026-11-10T21:03:42",
+ "wall_s": 2.9,
+ "peak_rss_mb": {
+  "self": 55.3,
+  "children_max": 514.8
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

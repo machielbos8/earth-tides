@@ -1,0 +1,125 @@
+{
+ "id": "20261114T122655-love_level_figure-9957",
+ "status": "ok",
+ "purpose": "Love numbers of elastic hydrostatic PREM: first-order figure against true level surfaces",
+ "script": "scripts/love_level_figure.py",
+ "command": "python scripts/love_level_figure.py",
+ "params": {
+  "K": 6,
+  "N": 30,
+  "waves": [
+   [
+    "Mf",
+    0,
+    [
+     0.073
+    ]
+   ],
+   [
+    "O1",
+    1,
+    [
+     0.927
+    ]
+   ],
+   [
+    "P1",
+    1,
+    [
+     0.99454
+    ]
+   ],
+   [
+    "K1",
+    1,
+    [
+     0.99999,
+     1.00001
+    ]
+   ],
+   [
+    "psi1",
+    1,
+    [
+     1.00273
+    ]
+   ],
+   [
+    "phi1",
+    1,
+    [
+     1.00548
+    ]
+   ],
+   [
+    "OO1",
+    1,
+    [
+     1.073
+    ]
+   ],
+   [
+    "M2",
+    2,
+    [
+     1.927
+    ]
+   ]
+  ]
+ },
+ "git": {
+  "commit": "239fe7cb6e628b42677a1149b63f0bba2a2a2127",
+  "dirty": [
+   "paper_pepi/figures/fig_core_ekman.pdf",
+   "paper_pepi/figures/fig_core_sweep.pdf",
+   "paper_pepi/main_v2.tex",
+   "paper_pepi/main_v2_2col.pdf",
+   "paper_pepi/make_fig_core.py",
+   "paper_pepi/make_table4.py",
+   "paper_pepi/references.bib",
+   "paper_pepi/supplement_v2.pdf",
+   "paper_pepi/supplement_v2.tex",
+   "paper_pepi/table4.tex",
+   "paper_pepi/tableS_viscous.tex",
+   "results/LEDGER.jsonl",
+   "results/paper1_table4.txt",
+   "results/paper1_table4.txt.meta.json",
+   "results/regen/table4.tex",
+   "results/regen/table4.tex.meta.json",
+   "results/regen/tableS_viscous.tex.meta.json",
+   "scripts/fcn_resonance_extrapolation_v3.py",
+   "scripts/love_level_figure.py",
+   "src/earthtides/geometry.py",
+   "src/earthtides/iers.py",
+   "src/earthtides/love.py",
+   "tests/test_level_geometry.py"
+  ],
+  "script_untracked": false,
+  "script_dirty": true,
+  "script_sha256": "7330e362d8d59408ac4e25664ba1981d128c983951fbc678eff60972c0417353"
+ },
+ "env": {
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/love_level_figure.txt",
+   "sha256": "83cde664ecdbc02970c653a330279c306f0831c041b6b06be38d5ec3ac8148a4"
+  }
+ ],
+ "start": "2026-11-14T12:26:55",
+ "end": "2026-11-14T12:27:11",
+ "wall_s": 16.0,
+ "peak_rss_mb": {
+  "self": 962.7,
+  "children_max": 11.1
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

@@ -3,7 +3,7 @@
 # Example 2: the loaded elliptical drum - Chebyshev collocation and Galerkin
 # projection together.
 #
-# This file is part of earth-tides 1.0.
+# This file is part of earth-tides 1.1.
 #
 # earth-tides is distributed under a source-available license.
 # It may be used free of charge for academic, research, and other

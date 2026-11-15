@@ -1,0 +1,38 @@
+{
+ "id": "20261108T112840-b2_ingredients-4276",
+ "status": "ok",
+ "purpose": "stdout of scripts/b2_ingredients.py",
+ "script": "scripts/b2_ingredients.py",
+ "command": "python scripts/traced.py b2_ingredients_flat -- scripts/b2_ingredients.py flat",
+ "params": {
+  "args": [
+   "flat"
+  ]
+ },
+ "git": {
+  "commit": "409375872a14decf4c3ac36035927796fc73c1b3",
+  "dirty": [
+   "results/LEDGER.jsonl"
+  ],
+  "script_untracked": false,
+  "script_dirty": false,
+  "script_sha256": "2fece6802c2903afad5f424731cf1648fd4a9caae95ef04953a35d1d39680433"
+ },
+ "env": {},
+ "inputs": [],
+ "outputs": [
+  {
+   "path": "results/stdout/b2_ingredients_flat.txt",
+   "sha256": "375b45a6ccc5bdac608e6285d9a0ec5d835c520061fc99d47dbbc887080cf1a0"
+  }
+ ],
+ "start": "2026-11-08T11:28:40",
+ "end": "2026-11-08T11:28:56",
+ "wall_s": 16.6,
+ "peak_rss_mb": {
+  "self": 19.7,
+  "children_max": 1391.2
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

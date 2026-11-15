@@ -1,0 +1,7 @@
+non-hydrostatic, CMB excess 450 m (e_f +4.50 %), route A, viscous core, K 12, N 30, core dp static, elastic
+  delta  1.00 km: FCN  414.24 sd (1.0024140), Im +8.44e-04 cpsd | pole-fit misfit 8e-06 | {'block'} residual 3e-10 |  19.8 s
+  delta  0.75 km: FCN  417.80 sd (1.0023935), Im +6.32e-04 cpsd | pole-fit misfit 1e-05 | {'block'} residual 3e-10 |  16.5 s
+  delta  0.50 km: FCN  421.46 sd (1.0023727), Im +4.21e-04 cpsd | pole-fit misfit 1e-05 | {'block'} residual 2e-10 |  16.8 s
+  delta  0.35 km: FCN  423.71 sd (1.0023601), Im +2.94e-04 cpsd | pole-fit misfit 1e-05 | {'block'} residual 2e-10 |  16.6 s
+  delta -> 0, degree 1 from [np.float64(0.35), np.float64(0.5)] km: FCN  428.97 sd
+  delta -> 0, degree 2 from [np.float64(0.35), np.float64(0.5), np.float64(0.75)] km: FCN  429.12 sd

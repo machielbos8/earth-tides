@@ -1,68 +1,54 @@
-# Reproducing the paper
+# Reproducing the PEPI paper
 
 Scripts and stored results for
 
-> Bos, M. S., *What the IERS body-tide model assumes: Love numbers of a flattened, rotating,
-> anelastic Earth*, Journal of Geodesy (submitted), and its Online Resource 1.
+> Bos, M. S., *Body tides of a flattened, rotating, non-hydrostatic Earth: a transparent numerical model*
+> (Physics of the Earth and Planetary Interiors, submitted) and its Supplementary Material.
 
-Everything in the paper was computed with the Python package `earthtides` in `src/` (Python ≥ 3.10,
-NumPy, SciPy; Matplotlib for the figures). The scripts that produce the tables, figures and numbers
-are in `scripts/`, the figure script in `paper/make_figures.py`, and their outputs, as used in the
-paper, in `results/`.
+Every stored result carries its provenance in `results/<file>.meta.json` and one line in
+`results/LEDGER.jsonl` (script and its sha256, commit, command line, environment, inputs, wall time, peak
+memory, host).
 
 ## Running
 
 ```
-pip install numpy scipy matplotlib sympy  # netCDF4 and skyfield only for --external
-python paper_scripts/run_all.py --list    # the jobs and what they produce
-python paper_scripts/run_all.py           # quick: ~3 minutes
-python paper_scripts/run_all.py --full    # everything that needs only this package: ~1.5 hours
-python paper_scripts/run_all.py --external --grids DIR --iers DIR
+python paper_scripts/run_all.py --list          # the jobs and what they produce
+python paper_scripts/run_all.py                 # quick: numbers, tables and figures (about 20 minutes)
+python paper_scripts/run_all.py --full          # + everything a laptop can do (a few hours)
+python paper_scripts/run_all.py --heavy         # + the runs that need a large machine
+python paper_scripts/run_all.py --installed     # with the installed package (pip install earth-tides)
 ```
 
-Each job runs in a temporary copy of this directory, so `results/` is never overwritten; its
-outputs are compared with the stored ones number by number (a printed number may differ by one unit
-in its last digit) and reported as `ok` or `DIFF`. `--keep DIR` keeps the new outputs.
+Each job runs in a temporary copy of the tree, so `results/` is never overwritten, and its outputs are
+compared with the stored ones number by number (`ok` or `DIFF`). `--keep DIR` keeps the new outputs,
+`--update` copies them over the stored ones. The paper uses the level figure; the jobs that need it set
+`EARTHTIDES_FIGURE=level` themselves. The jobs that compare with first-order theories (Smith 1974, Dehant
+et al. 1999, the exact spheroid, the Hough and bump tests, the tests of the inviscid shell) use the
+first-order figure, as the paper does. The `heavy` jobs need up to 24 GB and 16 cores for hours (they were
+run on a 28 GB Linux machine); their stored results are the reference.
 
-**External inputs** (`--external`), not distributed here:
-
-| input | used for | obtain from |
-|---|---|---|
-| ocean tide grids FES2014b, FES2022b (amp./pha. per wave, GMT netCDF) | Tables 5-7, Fig. 5 | AVISO, https://www.aviso.altimetry.fr |
-| GOT5.5 | Table 7, Fig. 5 | NASA GSFC, https://earth.gsfc.nasa.gov/geo/data/ocean-tide-models |
-| TPXO10-atlas v2 | Table 7, Fig. 5 | https://www.tpxo.net |
-| DEHANTTIDEINEL (IERS Conventions, chapter 7, revision 2016-12-19), compiled in variants by `tools/iers/make_variants.py` | Sect. 7, Table S1 | https://iers-conventions.obspm.fr |
-| fes2004.dat, the FES2004 coefficients of the IERS Conventions (Sect. 6.3) | Table 5 | https://iers-conventions.obspm.fr |
-| JPL ephemeris DE421 (`de421.bsp`) and the Python package skyfield | Sect. 7, Table S1 | https://ssd.jpl.nasa.gov/planets/eph_export.html |
-
-The ocean tide loading at the superconducting-gravimeter stations
-(`results/tidal_gravity/CARGA_*.csv`, Sect. 6.4) was computed with the program CARGA, which is not
-distributed; these files are inputs of the gravity jobs. The control files are stored next to them.
+A few numbers rest on external programs or data: the IERS routine DEHANTTIDEINEL (`--external`,
+`--iers DIR`, see `tools/iers/`) for "earth-tides reproduces the l(1) terms of DEHANTTIDEINEL to 1e-3 mm",
+and the spherical transversely isotropic Love numbers of Bos & Scherneck (2013) for the anisotropy numbers of
+Sect. S11 (`scripts/anisotropy_budget.py` reads them).
 
 ## Where each result comes from
 
-| paper | job (`run_all.py`) | script | stored output |
-|---|---|---|---|
-| Table 1, verification | `check_hard`, `check_m`, `check_bump`, `exact_spheroid`, `ex3`, `ex4`, `ex5`, `angular_momentum`, `paper_numbers` (mesh, FCN spin-up) | `scripts/check_*.py`, `src/earthtides/examples/ex3-ex5` | `results/stdout/`, `results/exact_spheroid.txt`, `results/paper_numbers.txt` |
-| Table 2, comparison with Dehant et al. (1999); Fig. 4 | `diurnal` | `scripts/run_diurnal.py` | `results/diurnal_PREM.txt`, `results/figdata_fcn.npz` |
-| Table 3, anelastic increase; Sect. 5.3 | `anelastic`, `compare_models`, `displacement_budget` (PREM at 200 s) | `scripts/run_anelastic.py`, `scripts/compare_models.py` | `results/anelastic_PREMs.txt`, `results/compare_models.txt`, `results/love_PREM_T0_200s.json` |
-| Sect. 5.2, Coriolis part of l(1) | `coriolis`, `paper_numbers` | `scripts/run_coriolis.py` | `results/coriolis_PREMs.txt` |
-| Sect. 6.1, FCN period, Hough's formula, compliance | `fcn_period`, `ex5`, `paper_numbers` | `scripts/fcn_period.py`, `scripts/paper_numbers.py` | `results/paper_numbers.txt` |
-| Table 4, FCN residues (this paper) | `paper_numbers` | `scripts/paper_numbers.py` | `results/paper_numbers.txt` |
-| Sects 6.2-6.3, 8.2, Tables 5-6, load resonance, ocean admittance, IERS tables 6.5a/7.2/7.3a | `otl_fcn_resonance`, `iers_admittance`, `check_chao1996`, `check_iers_tables`, `admittance_convention` | `scripts/otl_fcn_resonance.py`, `scripts/check_iers_admittance.py`, `scripts/check_chao1996.py`, `scripts/check_iers_tables.py`, `scripts/check_admittance_convention.py` | `results/otl_fcn_resonance.txt` |
-| Sect. 6.4, tidal gravity | `scan_delta_plus`, `gravimetric_spinup`, `gravimetric_fcn430`, `k1o1_sensitivity`, `ducarme`, `tidal_gravity_k1` | `scripts/gravimetric_factor_*.py`, `scripts/check_tidal_gravity_*.py` | `results/gravimetric_factor_*.txt`, `results/stdout/scan_delta_plus.txt`, `results/tidal_gravity/` |
-| Sect. 7, Love table of PREM | `love_table` | `earthtides-love` (`src/earthtides/love.py`) | `src/earthtides/data/love_PREM.json` |
-| Sect. 7.1, PREM - IERS per station and line | `prem_iers_harmonics` | `scripts/prem_iers_harmonics.py` | `results/prem_iers_harmonics.txt` |
-| Sect. 7.2, Fig. 5, Table 7, uncertainty at nine stations | `station_error_budget` | `scripts/station_error_budget.py` | `results/station_error_budget.txt`, `.npz` |
-| Sect. 8.3, Table S3, conventions | `convention_table` | `scripts/convention_table.py` | `results/convention_table.txt` |
-| Table S1, etide vs the IERS routine (S6) | `etide_vs_iers`, `body_tide_check` (after `station_admittance`) | `scripts/etide_vs_iers.py`, `scripts/body_tide_check.py` | `results/etide_vs_iers.txt`, `results/body_tide_check.txt` |
-| Table S2, Fig. S3, budget per station and line (S7) | `displacement_budget`, `figures` | `scripts/displacement_budget.py`, `paper/make_figures.py` | `results/displacement_budget.txt` |
-| Figs 1-5, S1-S3 | `figures` (stored data), `figure_data` (recomputed) | `paper/make_figures.py` | `paper/figures/`, `results/figdata*.npz` |
-| other numbers in the text | `paper_numbers` | `scripts/paper_numbers.py` | `results/paper_numbers.txt` |
+| paper | jobs |
+|---|---|
+| numbers in the text not printed by another script (Ekman thicknesses, cot factor, Coriolis ratio, Voigt, ocean to rock, angular momentum at other spins, millimetres of the IERS latitude terms, Poisson jumps, resonance strength against Rosat et al. 2009) | `paper_numbers_v2` |
+| Sect. 3.4, the level figure; Sect. 4 | `validate_level_figure`, `love_level_figure`, `am_wall_level`, `fcn_level_figure`, `angular_momentum`, `fcn_period` |
+| Sect. 4, Table S15 (verification) | `check_hard`, `check_m`, `check_bump`, `exact_spheroid`, `rotating_spheroid`, `smith1974`, `ex3`-`ex6`, `quadrature_nodes`, `figS_level` (convergence) |
+| S1-S2 (parametrization, conventions; Table S1) | `convention_table`, `frame_size` |
+| S3 (comparison with Dehant et al. 1999 and the IERS Conventions; Tables S2-S4, Figs S1-S2) | `tables_viscous`, `table_anelastic`, `fig_ddw_iers`, `fig_dispersion`, `ddw_fingerprint`, `ddw_reprojection`, `ddw_wplus`, `l1_frame_sensitivity`, `wplus_spindown`, `compare_ddw1999`, `ddw_lowK`, `gravimetric_fcn430` |
+| S4 (the sign in Smith's equations; Table S5) | `smith1974`, `smith1974_sign` |
+| Sect. 5.1, Fig. 2 (the free core nutation, FICN) | `fig_fcn`, `fcn_level_figure` |
+| Sect. 5.2, Figs 3-5 (beams, attractors, layered core) and their supplement figures | `figures_v2`, `fig_rays_buoyancy`, `fig_layered_core`, `fig_attractor3d`, `figS_core_flow_rays`, `figS_sphere_flat`, `rays_disc`, `rays_disc_layered`, `rays_hamiltonian`, `m2_rays_recheck`, `rays_m2_long`, `core_buoyancy`, `neutral_core`; maps: `attractor_*` (heavy) |
+| Sect. 5.3, Figs 6-7, S5 (viscous core, slip term, the limit delta -> 0) | `fig_core`, `sweep_K8/16/24`, `core_sweep_offset`, `viscous_gap`, `slip_vs_viscous`, `slip_nonlevel_waves`, `hough_share_slipterm`, `exact_levels_share`, `delta_vs_limit`, `delta_fit_forms`, `ekman_profile`, `ekman_resolution`, `sublayer_N_prem`, `fcn_share_inviscid`; heavy: `viscous_limit_Kthin`, `viscous_limit_Kladder`, `fcn_extrapolation`, `sweep_K96`, `sweep_K168_*`, `fcn_noic_*` |
+| S6 (the inviscid core: Table S8) | `b2_profile`, `b2_split`, `b2_wahr_h0`, `b2_ingredients_sphere`, `b2_ingredients_flat`, `b2_hough_coll`, `conv_deflated`, `conv_inviscid_lowK`, `conv_nocoriolis` |
+| Sect. 6, Figs 8-10, S7 (non-hydrostatic Earth; Tables 1, S9-S13) | `nonhydro_figures`, `table_nonhydro_love`, `nonhydro_support`, `stress_split*`, `nonhydro_diurnal`, `nonhydro_am_sweep`, `nonhydro_am_viscous`, `nonhydro_fcn_viscous_*`, `core_rigidity`, `am_floor` |
+| S11 (the Earth model) | `anisotropy_budget` |
+| examples 7-9 | `ex7`, `ex8`, `ex9` |
 
-`results/paper_numbers.txt` lists each number with the value printed in the paper next to it.
-
-**Not reproduced here:** the change of h2 for the transversely isotropic version of PREM (Sect. 2.4)
-was computed with the anisotropic code of Bos & Scherneck (2013). Values taken from the literature
-(the IERS column of Table 3, the Sasao & Wahr and IERS columns of Table 4, the observed FCN periods,
-the observed gravimetric factors) are quoted, not computed.
+`run_all.py --paper v2` and `--paper v1` hold the job lists of the earlier versions of the paper; their
+scripts are not all part of this release.

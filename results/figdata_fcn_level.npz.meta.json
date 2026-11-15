@@ -1,0 +1,60 @@
+{
+ "id": "20261115T073450-make_fig_fcn-3078",
+ "status": "ok",
+ "purpose": "Fig. 2 of P1: h0 and k through the diurnal band (level figure, slipping core K 4 N 24)",
+ "script": "paper_pepi/make_fig_fcn.py",
+ "command": "python paper_pepi/make_fig_fcn.py 4",
+ "params": {
+  "figure": "level",
+  "n": 199,
+  "fine_step": 2.5e-05,
+  "K": 4,
+  "N": 24
+ },
+ "git": {
+  "commit": "76d9e4873560f08acafbcb53c1e82611d6daeacf",
+  "dirty": [
+   "paper_pepi/figures/fig_core_ekman.pdf",
+   "paper_pepi/figures/fig_core_sweep.pdf",
+   "paper_pepi/make_fig_core.py",
+   "results/LEDGER.jsonl",
+   "results/nonhydro_am_sweep_450m_level.npz",
+   "results/nonhydro_am_sweep_450m_level.npz.meta.json",
+   "results/nonhydro_am_sweep_450m_level.txt",
+   "results/nonhydro_am_sweep_450m_level.txt.meta.json",
+   "scripts/nonhydro_am_sweep.py"
+  ],
+  "script_untracked": true,
+  "script_dirty": false,
+  "script_sha256": "f40199eb9fd1595da34cf094b70814e7316697e60c0fb841b7de1c1e582187ab"
+ },
+ "env": {
+  "EARTHTIDES_FIGURE": "level",
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/figdata_fcn_level.npz",
+   "sha256": "1e3117d491721d8f3de1a3900987a697d5e4a02eaef364e7790fb931b68d6e64"
+  },
+  {
+   "path": "paper_pepi/figures/fig_fcn.pdf",
+   "sha256": "e8dc3164543a43c5888f0ebfc6a0b122dd0083aaaed73958cfacf662267eada7"
+  }
+ ],
+ "start": "2026-11-15T07:34:50",
+ "end": "2026-11-15T07:35:15",
+ "wall_s": 24.5,
+ "peak_rss_mb": {
+  "self": 119.6,
+  "children_max": 209.0
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

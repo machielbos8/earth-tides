@@ -3,7 +3,7 @@
 # earthtides-examples: copy the worked examples and the PDF user manual into a new directory, so
 # that a new user has something to run and to read right after installation.
 #
-# This file is part of earth-tides 1.0.
+# This file is part of earth-tides 1.1.
 #
 # earth-tides is distributed under a source-available license.
 # It may be used free of charge for academic, research, and other
@@ -25,6 +25,10 @@ EXAMPLES = (
     ('ex3', 'Homogeneous spheres: exact Bessel solution (Bos & Scherneck 2013)'),
     ('ex4', 'Love numbers of a flattened homogeneous Earth (Greff-Lefftz et al. 2005)'),
     ('ex5', 'Free core nutation of a rigid shell with a fluid core (Hough 1895)'),
+    ('ex6', 'Ekman damping of the free core nutation: a viscous, no-slip core (Greenspan 1968)'),
+    ('ex7', 'A non-hydrostatic Earth: mantle loads, their supporting stress and the free core nutation'),
+    ('ex8', 'The viscous core and the limit of vanishing viscosity'),
+    ('ex9', 'The level figure against the first-order figure'),
 )
 
 

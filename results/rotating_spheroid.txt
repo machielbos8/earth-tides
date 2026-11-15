@@ -1,0 +1,26 @@
+Homogeneous non-gravitating rotating spheroid (lambda = mu = 1e11 Pa, rho = 5500 kg/m3):
+ratios of the terms of Dehant et al. (1999, eq. 20), solver / series solution
+
+flattening 0.00000
+  O1  inertia only      w+/l0 solver -9.386798e-12  series -9.349709e-12  rel. diff 0e+00   l+, h+, l0: 4e-13   (series residual 9e-15)
+  O1  inertia+Coriolis  w+/l0 solver +3.121854e-04  series +3.121854e-04  rel. diff 2e-08   l+, h+, l0: 2e-12   (series residual 1e-14)
+  OO1 inertia only      w+/l0 solver -9.386705e-12  series -9.370316e-12  rel. diff 0e+00   l+, h+, l0: 4e-14   (series residual 6e-15)
+  OO1 inertia+Coriolis  w+/l0 solver +3.615233e-04  series +3.615233e-04  rel. diff 3e-08   l+, h+, l0: 2e-12   (series residual 1e-14)
+  M2  inertia only      w+/l0 solver -1.026586e-11  series -1.043424e-11  rel. diff 0e+00   l+, h+, l0: 6e-13   (series residual 3e-14)
+  M2  inertia+Coriolis  w+/l0 solver +5.153772e-04  series +5.153772e-04  rel. diff 4e-10   l+, h+, l0: 7e-13   (series residual 8e-14)
+
+flattening 0.00335
+  O1  inertia only      w+/l0 solver +2.661908e-04  series +2.661908e-04  rel. diff 8e-10   l+, h+, l0: 7e-10   (series residual 6e-15)
+  O1  inertia+Coriolis  w+/l0 solver +5.771744e-04  series +5.771743e-04  rel. diff 1e-08   l+, h+, l0: 8e-10   (series residual 3e-14)
+  OO1 inertia only      w+/l0 solver +2.664521e-04  series +2.664521e-04  rel. diff 5e-08   l+, h+, l0: 1e-09   (series residual 6e-15)
+  OO1 inertia+Coriolis  w+/l0 solver +6.265839e-04  series +6.265840e-04  rel. diff 4e-08   l+, h+, l0: 1e-09   (series residual 1e-14)
+  M2  inertia only      w+/l0 solver +4.299633e-04  series +4.299633e-04  rel. diff 1e-10   l+, h+, l0: 9e-11   (series residual 3e-14)
+  M2  inertia+Coriolis  w+/l0 solver +9.429843e-04  series +9.429843e-04  rel. diff 7e-11   l+, h+, l0: 2e-10   (series residual 8e-14)
+
+flattening 0.03333
+  O1  inertia only      w+/l0 solver +2.544569e-03  series +2.544569e-03  rel. diff 1e-08   l+, h+, l0: 4e-11   (series residual 2e-14)
+  O1  inertia+Coriolis  w+/l0 solver +2.844858e-03  series +2.844858e-03  rel. diff 3e-09   l+, h+, l0: 6e-10   (series residual 5e-13)
+  OO1 inertia only      w+/l0 solver +2.547078e-03  series +2.547078e-03  rel. diff 6e-10   l+, h+, l0: 9e-11   (series residual 1e-14)
+  OO1 inertia+Coriolis  w+/l0 solver +2.894828e-03  series +2.894828e-03  rel. diff 1e-08   l+, h+, l0: 2e-10   (series residual 8e-14)
+  M2  inertia only      w+/l0 solver +4.464132e-03  series +4.464132e-03  rel. diff 2e-11   l+, h+, l0: 1e-11   (series residual 3e-14)
+  M2  inertia+Coriolis  w+/l0 solver +4.955619e-03  series +4.955619e-03  rel. diff 1e-11   l+, h+, l0: 3e-11   (series residual 9e-14)

@@ -1,0 +1,7 @@
+PREM without inner core, level surfaces exact ellipses of the Clairaut flattening eps(s) (exact_levels) or the first-order map (clairaut); one-pole fit (fcn_resonance_noic.fit); resonant parts relative to that of h0
+eps at the CMB 2.556871e-03: (12/35) eps^2 R = 7.8 m
+variant          core   K   N   FCN sd       Q        h2        l0        l1        l2        k0  max |resid| h0
+clairaut     inviscid   6  30    456.2 113224387022670080  +0.00144  -0.03143  +0.00157  -0.00016  +0.50221  1.5e-08
+clairaut     inviscid  10  30    456.2 14022857131279674  +0.00144  -0.03143  +0.00157  -0.00016  +0.50221  9.8e-08
+exact_levels inviscid   6  30    455.5 188699659988035264  +0.00142  -0.03143  +0.00156  -0.00015  +0.50222  1.4e-08
+exact_levels inviscid  10  30    455.5 13993963965438480  +0.00142  -0.03143  +0.00156  -0.00015  +0.50222  1.2e-07

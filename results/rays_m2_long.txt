@@ -1,0 +1,23 @@
+M2 (1.927 cpsd), Hamiltonian rays as Fig. 4b, 50000 wall reflections; per window of 5000: growth of log|k| per reflection (> 0: focusing), distinct CMB colatitudes (0.1 deg) in its last 200
+PREM N^2: 50000 reflections, W err 1.2e-09, smallest discriminant -0.000
+  reflections      0-  5000: growth +0.00029, distinct CMB points   90
+  reflections   5000- 10000: growth -0.00001, distinct CMB points   89
+  reflections  10000- 15000: growth -0.00025, distinct CMB points   95
+  reflections  15000- 20000: growth -0.00053, distinct CMB points   91
+  reflections  20000- 25000: growth +0.00069, distinct CMB points   72
+  reflections  25000- 30000: growth +0.00011, distinct CMB points   71
+  reflections  30000- 35000: growth -0.00011, distinct CMB points   90
+  reflections  35000- 40000: growth -0.00045, distinct CMB points   88
+  reflections  40000- 45000: growth +0.00129, distinct CMB points  100
+  reflections  45000- 50000: growth +0.00007, distinct CMB points   93
+N = 0: 50000 reflections, W err 2.2e-16, smallest discriminant +0.067
+  reflections      0-  5000: growth +0.00002, distinct CMB points  162
+  reflections   5000- 10000: growth +0.00035, distinct CMB points  162
+  reflections  10000- 15000: growth +0.00004, distinct CMB points  163
+  reflections  15000- 20000: growth -0.00012, distinct CMB points  163
+  reflections  20000- 25000: growth +0.00007, distinct CMB points  163
+  reflections  25000- 30000: growth -0.00016, distinct CMB points  162
+  reflections  30000- 35000: growth -0.00066, distinct CMB points  160
+  reflections  35000- 40000: growth +0.00102, distinct CMB points  161
+  reflections  40000- 45000: growth +0.00013, distinct CMB points  163
+  reflections  45000- 50000: growth +0.00004, distinct CMB points  163

@@ -1,0 +1,68 @@
+{
+ "id": "20261114T151912-fcn_resonance_extrapolation_v3-5601",
+ "status": "ok",
+ "purpose": "viscous limit of the Love numbers near the FCN: poles and residues extrapolated to delta -> 0",
+ "script": "scripts/fcn_resonance_extrapolation_v3.py",
+ "command": "python scripts/fcn_resonance_extrapolation_v3.py 12 3 --figure level --fresh",
+ "params": {
+  "K": 12,
+  "figure": "level",
+  "fresh": true,
+  "nproc": 3
+ },
+ "git": {
+  "commit": "33ec7d4f22f746a35372f391cf6754cc82b1113d",
+  "dirty": [
+   "paper_pepi/figures/fig_core_ekman.pdf",
+   "paper_pepi/figures/fig_core_sweep.pdf",
+   "paper_pepi/main_v2.tex",
+   "paper_pepi/main_v2_2col.pdf",
+   "paper_pepi/make_fig_core.py",
+   "paper_pepi/make_table4.py",
+   "paper_pepi/references.bib",
+   "paper_pepi/supplement_v2.pdf",
+   "paper_pepi/supplement_v2.tex",
+   "paper_pepi/table4.tex",
+   "paper_pepi/tableS_viscous.tex",
+   "results/convention_table.txt.meta.json",
+   "results/nonhydro_diurnal.txt.meta.json",
+   "results/paper1_table4.txt",
+   "results/paper1_table4.txt.meta.json",
+   "results/regen/table4.tex",
+   "results/regen/table4.tex.meta.json",
+   "results/regen/tableS_viscous.tex.meta.json",
+   "scripts/fcn_resonance_extrapolation_v3.py"
+  ],
+  "script_untracked": false,
+  "script_dirty": true,
+  "script_sha256": "f4a7c92789f7f098df57e175f71333726fdaba5653392855e4e1950c4e244c8f"
+ },
+ "env": {
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/fcn_resonance_extrapolation_v3_K12_level.npz",
+   "sha256": "8e59f7dbec3fa5925faaf1e3d893df64f75b5a239dad6120108bac9ab3f1ea0b"
+  },
+  {
+   "path": "results/fcn_resonance_extrapolation_v3_K12_level.txt",
+   "sha256": "e16ae6d82a100226481338ce22c0da67fe344c46bcce52d150e2735a994d6f63"
+  }
+ ],
+ "start": "2026-11-14T15:19:12",
+ "end": "2026-11-14T15:19:13",
+ "wall_s": 0.2,
+ "peak_rss_mb": {
+  "self": 85.5,
+  "children_max": 769.6
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

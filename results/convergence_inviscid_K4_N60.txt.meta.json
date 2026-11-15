@@ -1,0 +1,62 @@
+{
+ "id": "20261110T214506-convergence_inviscid_lowK-6561",
+ "status": "ok",
+ "purpose": "inviscid core at low K: radial resolution (S11)",
+ "script": "scripts/convergence_inviscid_lowK.py",
+ "command": "python scripts/convergence_inviscid_lowK.py 4 60 2",
+ "params": {
+  "argv": [
+   "4",
+   "60",
+   "2"
+  ]
+ },
+ "git": {
+  "commit": "f1bb9b7bb8b85f5f705d0dab613d95bcf512425b",
+  "dirty": [
+   "paper_pepi/supplement_v2.tex",
+   "results/LEDGER.jsonl",
+   "results/check_ekman_resolution.txt",
+   "results/convergence_deflated.txt",
+   "results/convergence_nocor_core.txt",
+   "results/ddw_lowK_table.txt",
+   "results/nonhydro_am_viscous_K10_N30.txt",
+   "results/nonhydro_am_viscous_K10_N30.txt.meta.json",
+   "results/nonhydro_anelastic.txt",
+   "results/rays_hamiltonian_h0.001.pdf",
+   "results/rays_hamiltonian_h0.001.pdf.meta.json",
+   "results/rays_hamiltonian_h0.001.txt",
+   "results/rays_hamiltonian_h0.001.txt.meta.json",
+   "results/stdout/b2_wahr_h0.txt",
+   "scripts/b2_hough_coll.py",
+   "scripts/convergence_deflated.py"
+  ],
+  "script_untracked": false,
+  "script_dirty": false,
+  "script_sha256": "03adc57811902b871a4314a8ef93ac17df72242adffe3013d6a4654c251095f0"
+ },
+ "env": {
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/convergence_inviscid_K4_N60.txt",
+   "sha256": "e9b5db474fe2646d99e56494b560534ed0f775482c7382ff237457587d6cfdf3"
+  }
+ ],
+ "start": "2026-11-10T21:45:06",
+ "end": "2026-11-10T21:45:29",
+ "wall_s": 23.0,
+ "peak_rss_mb": {
+  "self": 54.9,
+  "children_max": 322.7
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

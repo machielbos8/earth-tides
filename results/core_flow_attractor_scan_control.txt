@@ -1,0 +1,11 @@
+results/core_flow_attractor_scan.npz: E/A within 0.0075 r_cmb of the loop and its mirror, without the walls, own loop and turned by +-20 deg (saved maps, every second point)
+                              case    own turned
+          PREM_0.9175_d0.25_K96_S8   1.47   1.04
+           PREM_0.9175_d0.5_K96_S8   1.50   1.02
+             PREM_0.9175_d1_K96_S8   1.36   0.95
+       neutral_0.9075_d0.25_K96_S8   1.20   1.02
+        neutral_0.9075_d0.5_K96_S8   1.21   1.01
+          neutral_0.9075_d1_K96_S8   1.28   1.01
+       neutral_0.9125_d0.25_K96_S8   1.07   1.00
+        neutral_0.9125_d0.5_K96_S8   1.07   1.00
+          neutral_0.9125_d1_K96_S8   1.07   0.99

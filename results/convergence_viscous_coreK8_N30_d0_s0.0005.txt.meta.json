@@ -1,0 +1,65 @@
+{
+ "id": "20261114T105558-convergence_viscous_coreK-5207",
+ "status": "ok",
+ "purpose": "core-K sweep, core K 8 N 30, delta 0 km, step 0.0005 cpsd",
+ "script": "scripts/convergence_viscous_coreK.py",
+ "command": "python scripts/convergence_viscous_coreK.py 8 30 0 3 0.0005",
+ "params": {
+  "K_core": 8,
+  "N_core": 30,
+  "delta_km": 0.0,
+  "step": 0.0005,
+  "workers": 3,
+  "band": null,
+  "window": null,
+  "neutral": false,
+  "split": 1,
+  "interior_N": null,
+  "solid_P": null
+ },
+ "git": {
+  "commit": "c167fe9a5b2cf212b74c5748fed08ec5368dc3de",
+  "dirty": [
+   "paper_pepi/figures/fig_core_ekman.pdf",
+   "paper_pepi/figures/fig_core_sweep.pdf",
+   "paper_pepi/main_v2.tex",
+   "paper_pepi/main_v2_2col.pdf",
+   "paper_pepi/make_fig_core.py",
+   "paper_pepi/make_table4.py",
+   "paper_pepi/references.bib",
+   "paper_pepi/supplement_v2.pdf",
+   "paper_pepi/supplement_v2.tex",
+   "results/paper1_table4.txt.meta.json",
+   "results/regen/table4.tex",
+   "results/regen/table4.tex.meta.json",
+   "results/regen/tableS_viscous.tex.meta.json"
+  ],
+  "script_untracked": false,
+  "script_dirty": false,
+  "script_sha256": "d486a2cc2bd184a2ecc3c27d7f29b9a9c2861682e3a9757c12d9bd82f7a4ff93"
+ },
+ "env": {
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/convergence_viscous_coreK8_N30_d0_s0.0005.txt",
+   "sha256": "d605d40762cbcaf3919cf2b4e6787f5b814f8a5d866c44095aa3f9a97a28ad9c"
+  }
+ ],
+ "start": "2026-11-14T10:55:58",
+ "end": "2026-11-14T10:56:59",
+ "wall_s": 60.8,
+ "peak_rss_mb": {
+  "self": 68.7,
+  "children_max": 235.6
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

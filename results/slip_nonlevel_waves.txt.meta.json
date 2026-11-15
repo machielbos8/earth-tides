@@ -1,0 +1,101 @@
+{
+ "id": "20261114T074219-slip_nonlevel_waves-1088",
+ "status": "ok",
+ "purpose": "Love numbers of the slipping core with and without the slip term for a non-level wall",
+ "script": "scripts/slip_nonlevel_waves.py",
+ "command": "python scripts/slip_nonlevel_waves.py 3 24",
+ "params": {
+  "K": 3,
+  "N": 24,
+  "waves": [
+   [
+    "Q1",
+    1,
+    0.89081
+   ],
+   [
+    "O1",
+    1,
+    0.92954
+   ],
+   [
+    "P1",
+    1,
+    0.99727
+   ],
+   [
+    "K1-",
+    1,
+    0.9999
+   ],
+   [
+    "psi1",
+    1,
+    1.00273
+   ],
+   [
+    "phi1",
+    1,
+    1.00546
+   ],
+   [
+    "OO1",
+    1,
+    1.07046
+   ],
+   [
+    "M2",
+    2,
+    1.93227
+   ]
+  ]
+ },
+ "git": {
+  "commit": "9c3ef7cfdcb21d73a200f48738181bbb54ed7028",
+  "dirty": [
+   "docs/lab_notes/earthtides_lab_notes.md",
+   "paper_pepi/figures/fig_core_ekman.pdf",
+   "paper_pepi/figures/fig_core_sweep.pdf",
+   "paper_pepi/main_v2.tex",
+   "paper_pepi/main_v2_2col.pdf",
+   "paper_pepi/make_fig_core.py",
+   "paper_pepi/make_table4.py",
+   "paper_pepi/references.bib",
+   "paper_pepi/supplement_v2.pdf",
+   "paper_pepi/supplement_v2.tex",
+   "results/LEDGER.jsonl",
+   "results/paper1_table4.txt.meta.json",
+   "results/regen/table4.tex",
+   "results/regen/table4.tex.meta.json",
+   "results/regen/tableS_viscous.tex.meta.json",
+   "scripts/exact_levels_share_test.py",
+   "scripts/hough_share_test.py",
+   "src/earthtides/solver.py"
+  ],
+  "script_untracked": true,
+  "script_dirty": false,
+  "script_sha256": "95ed5d259599783fe47a98024c0216ce1d5ecbabdb1a95fa8805b0275c102dfe"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/slip_nonlevel_waves.txt",
+   "sha256": "f585b189f9301c1c0c35b5bd20b160c18061aa3d274b72a06e92211fcf0e8c6d"
+  }
+ ],
+ "start": "2026-11-14T07:42:19",
+ "end": "2026-11-14T07:42:20",
+ "wall_s": 1.4,
+ "peak_rss_mb": {
+  "self": 55.2,
+  "children_max": 198.2
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

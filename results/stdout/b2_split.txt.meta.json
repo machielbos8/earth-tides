@@ -1,0 +1,36 @@
+{
+ "id": "20261108T112730-b2_split-4133",
+ "status": "ok",
+ "purpose": "stdout of scripts/b2_split.py",
+ "script": "scripts/b2_split.py",
+ "command": "python scripts/traced.py b2_split -- scripts/b2_split.py",
+ "params": {
+  "args": []
+ },
+ "git": {
+  "commit": "2f0824cf4318cda448c96f46c271243d7f749650",
+  "dirty": [
+   "results/LEDGER.jsonl"
+  ],
+  "script_untracked": false,
+  "script_dirty": false,
+  "script_sha256": "6c16db9bd846a44e9a20b035889b5b7d05c223f8e4da51aca3391560d3c49db8"
+ },
+ "env": {},
+ "inputs": [],
+ "outputs": [
+  {
+   "path": "results/stdout/b2_split.txt",
+   "sha256": "f226417f316b88e2e90aaa136ccc39e3ab6401364189a7531e8784af68b577d6"
+  }
+ ],
+ "start": "2026-11-08T11:27:30",
+ "end": "2026-11-08T11:28:22",
+ "wall_s": 51.9,
+ "peak_rss_mb": {
+  "self": 19.7,
+  "children_max": 1685.7
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

@@ -1,0 +1,41 @@
+{
+ "id": "20261115T115637-l1_frame_sensitivity-9634",
+ "status": "ok",
+ "purpose": "P1 review M3: diurnal l(1) against the way the rigid rotation of the mantle is removed",
+ "script": "scripts/l1_frame_sensitivity.py",
+ "command": "python scripts/l1_frame_sensitivity.py",
+ "params": {
+  "figure": "first-order",
+  "K": 4,
+  "N": 24
+ },
+ "git": {
+  "commit": "f54a655cea14d5306012ce53b7fdc9017534370e",
+  "dirty": [],
+  "script_untracked": true,
+  "script_dirty": false,
+  "script_sha256": "377b4bea85a1c567fdae97839536148025bf30e83db69ce73cfeda47d75057e8"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/l1_frame_sensitivity.txt",
+   "sha256": "c2972c1ae4048ff66e0d7c9e6a498ca43a86ba9caf8e728ab8d282c2c1fd9f29"
+  }
+ ],
+ "start": "2026-11-15T11:56:37",
+ "end": "2026-11-15T11:56:38",
+ "wall_s": 1.3,
+ "peak_rss_mb": {
+  "self": 184.1,
+  "children_max": 8.9
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

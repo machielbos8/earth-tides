@@ -1,0 +1,46 @@
+{
+ "id": "20261103T001247-core_buoyancy_profile-9058",
+ "status": "ok",
+ "purpose": "buoyancy of PREM's liquid core: N^2, g^2/c^2, Bullen parameter",
+ "script": "scripts/core_buoyancy_profile.py",
+ "command": "python scripts/core_buoyancy_profile.py",
+ "params": {
+  "omega": 7.292115e-05
+ },
+ "git": {
+  "commit": "d3926d30bd82cb079060f6ecd993bb3f2944b773",
+  "dirty": [
+   "paper_pepi/main_v2.tex",
+   "paper_pepi/main_v2_2col.pdf",
+   "paper_pepi/references.bib",
+   "paper_pepi/supplement_v2.pdf",
+   "results/LEDGER.jsonl",
+   "scripts/convergence_viscous_coreK.py"
+  ],
+  "script_untracked": true,
+  "script_dirty": false,
+  "script_sha256": "45e13860bb08f191fcb25ceea439b7c61f00b7eddc62f859ce21641b144c6253"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/core_buoyancy_profile.txt",
+   "sha256": "12289e57118eb7ce13c3d87cb250bae4e95f41e5fa85f99fdd85d27d309977b8"
+  }
+ ],
+ "start": "2026-11-03T00:12:47",
+ "end": "2026-11-03T00:12:48",
+ "wall_s": 0.0,
+ "peak_rss_mb": {
+  "self": 32.1,
+  "children_max": 9.7
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

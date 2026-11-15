@@ -1,0 +1,69 @@
+{
+ "id": "20261114T125558-nonhydro_diurnal-0830",
+ "status": "ok",
+ "purpose": "non-hydrostatic Earth in the diurnal band: routes A (DDW, slip_nonlevel off) and B (consistent)",
+ "script": "scripts/nonhydro_diurnal.py",
+ "command": "python scripts/nonhydro_diurnal.py --figure level",
+ "params": {
+  "K": 4,
+  "N": 24,
+  "cmb": [
+   0,
+   225,
+   450,
+   500
+  ],
+  "figure": "level"
+ },
+ "git": {
+  "commit": "ae44a79156f678f0417a5017d421cba214afd0a5",
+  "dirty": [
+   "paper_pepi/figures/fig_core_ekman.pdf",
+   "paper_pepi/figures/fig_core_sweep.pdf",
+   "paper_pepi/main_v2.tex",
+   "paper_pepi/main_v2_2col.pdf",
+   "paper_pepi/make_fig_core.py",
+   "paper_pepi/make_table4.py",
+   "paper_pepi/references.bib",
+   "paper_pepi/supplement_v2.pdf",
+   "paper_pepi/supplement_v2.tex",
+   "paper_pepi/table4.tex",
+   "paper_pepi/tableS_viscous.tex",
+   "results/paper1_table4.txt",
+   "results/paper1_table4.txt.meta.json",
+   "results/regen/table4.tex",
+   "results/regen/table4.tex.meta.json",
+   "results/regen/tableS_viscous.tex.meta.json",
+   "scripts/nonhydro_diurnal.py"
+  ],
+  "script_untracked": false,
+  "script_dirty": true,
+  "script_sha256": "91f2b80075476c296bb750c91bf291b778d6cb44b01da0ec0ffdc1c8eb84b781"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  },
+  {
+   "path": "data/PREMs.dat",
+   "sha256": "e9fcce04a0de9f094a983ff8a3aa40d971eba71aeb93968bbb4f65a705ddb952"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/nonhydro_diurnal_level.txt",
+   "sha256": "732ee87c6ddded8babe5d86c06fe9229e3d339a270ad0fa05c1128aa2f07a5da"
+  }
+ ],
+ "start": "2026-11-14T12:55:58",
+ "end": "2026-11-14T12:55:58",
+ "wall_s": 0.1,
+ "peak_rss_mb": {
+  "self": 768.5,
+  "children_max": 11.1
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

@@ -1,0 +1,109 @@
+{
+ "id": "20261101T073104-nonhydro_am_sweep-2839",
+ "status": "ok",
+ "purpose": "P1 v2: AM balance through the diurnal band, hydrostatic / route A / route B, 450 m",
+ "script": "scripts/nonhydro_am_sweep.py",
+ "command": "python scripts/nonhydro_am_sweep.py 450 4",
+ "params": {
+  "cmb": 450.0,
+  "sig": [
+   0.88,
+   0.885,
+   0.89,
+   0.895,
+   0.9,
+   0.905,
+   0.91,
+   0.915,
+   0.92,
+   0.925,
+   0.93,
+   0.935,
+   0.9400000000000001,
+   0.9450000000000001,
+   0.9500000000000001,
+   0.9550000000000001,
+   0.9600000000000001,
+   0.9650000000000001,
+   0.9700000000000001,
+   0.9750000000000001,
+   0.98,
+   0.9850000000000001,
+   0.99,
+   0.9950000000000001,
+   0.9996,
+   0.9998,
+   0.9999,
+   1.0001,
+   1.0002,
+   1.0004,
+   1.0016,
+   1.0018,
+   1.002,
+   1.0022,
+   1.0024,
+   1.0026,
+   1.0028,
+   1.003,
+   1.0050000000000001,
+   1.01,
+   1.0150000000000001,
+   1.02,
+   1.0250000000000001,
+   1.03,
+   1.0350000000000001,
+   1.04,
+   1.0450000000000002,
+   1.05,
+   1.0550000000000002,
+   1.06,
+   1.0650000000000002,
+   1.07,
+   1.0750000000000002,
+   1.08
+  ],
+  "K": 4,
+  "N": 24,
+  "core": "inviscid, slipping",
+  "workers": 4
+ },
+ "git": {
+  "commit": "752404b915f99ad29c317d961ced00442b82e968",
+  "dirty": [],
+  "script_untracked": true,
+  "script_dirty": false,
+  "script_sha256": "6132017562ac2a8f605ea06c9100137fc8413a7a2b0062751b73e51ec45619fd"
+ },
+ "env": {
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  },
+  {
+   "path": "data/PREMs.dat",
+   "sha256": "e9fcce04a0de9f094a983ff8a3aa40d971eba71aeb93968bbb4f65a705ddb952"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/nonhydro_am_sweep_450m.txt",
+   "sha256": "8b1e30d71612a90b56ccaaf62c1a561b46747b4ee49252a872cb2c9798ca3d79"
+  },
+  {
+   "path": "results/nonhydro_am_sweep_450m.npz",
+   "sha256": "43f97280c53011dcb3bbd3a747df1d9c5ffce07ae438a3c4967b3486a9e785b1"
+  }
+ ],
+ "start": "2026-11-01T07:31:04",
+ "end": "2026-11-01T07:32:06",
+ "wall_s": 62.0,
+ "peak_rss_mb": {
+  "self": 55.7,
+  "children_max": 506.0
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

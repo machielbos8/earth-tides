@@ -2,7 +2,7 @@
 #
 # Regression tests for the zonal solver.
 #
-# This file is part of earth-tides 1.0.
+# This file is part of earth-tides 1.1.
 #
 # earth-tides is distributed under a source-available license.
 # It may be used free of charge for academic, research, and other
@@ -395,3 +395,230 @@ def test_etide_vs_hardisp_catalog():
     d = np.column_stack([ur, -un, -ue]) - u
     d -= d.mean(0)
     assert np.abs(d).max() < 4e-4
+
+
+@pytest.mark.parametrize('m,fr', [(1, 0.92700), (2, 1.9323)])
+def test_rotating_spheroid_series(m, fr):
+    """Flattening and Coriolis parts of w+ (Dehant et al. 1999, eq. 20) on a homogeneous
+    non-gravitating spheroid: solver vs the polynomial series of exact_rotating.py."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location('crs', DATA.parent / 'scripts' / 'check_rotating_spheroid.py')
+    crs = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(crs)
+    md = EarthModel(DATA / 'HOMOG.dat')
+    P, Q, res = crs.compare(md, 1 / 30, 'x', m, fr, True)
+    assert res < 1e-11
+    for k, r in (('wp', 'l0'), ('lp', 'l0'), ('hp', 'h0'), ('l0', 'h0')):
+        assert abs(Q[k] / Q[r] / (P[k] / P[r]) - 1) < 1e-6
+
+
+def test_smith1974_layered_diurnal():
+    """Smith's (1974) equations for a smooth, flattened, rotating, non-gravitating body agree with the
+    solver for O1 to first order in the flattening (w+, the degree-3 toroidal term, included)."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location('cs', DATA.parent / 'scripts' / 'check_smith1974.py')
+    cs = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(cs)
+    md = EarthModel(DATA / 'SMOOTH.dat')
+    P = cs.smith_terms(md, 1 / 3000, 1, 0.927, True)
+    Q = cs.solver_terms(md, 1 / 3000, 1, 0.927, True)
+    for k, r, tol in (('wp', 'l0', 1e-3), ('lp', 'l0', 3e-3), ('hp', 'h0', 3e-3), ('l0', 'h0', 1e-5)):
+        assert abs(P[k] / P[r] / (Q[k] / Q[r]) - 1) < tol
+
+
+def test_smith1974_selfgravitating_diurnal():
+    """Smith's (1974) equations with self-gravitation and the hydrostatic initial state agree with the
+    solver for O1 (w+ to first order in the flattening); reference rotation 0.3 x Earth's, eps = 3.9e-4."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location('cs', DATA.parent / 'scripts' / 'check_smith1974.py')
+    cs = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(cs)
+    P, Q, eps = cs.grav_terms(EarthModel(DATA / 'HOMOG.dat'), 0.3, 1, 0.927, True)
+    for k, r, tol in (('wp', 'l0', 1e-3), ('lp', 'l0', 1e-2), ('hp', 'h0', 1e-2), ('l0', 'h0', 3e-4)):
+        assert abs(P[k] / P[r] / (Q[k] / Q[r]) - 1) < tol
+
+
+def test_smith1974_twolayer_diurnal():
+    """Smith's (1974) equations for a self-gravitating body of two welded solid layers with a density jump
+    and density gradients agree with the solver for O1 to first order (reference rotation 0.3 x Earth's);
+    needs the corrected sign of the radial rho_2 term of (5.26) (l+ is 7% off with the printed sign)."""
+    import importlib.util
+    from earthtides.geometry import ClairautGeometry
+    spec = importlib.util.spec_from_file_location('cs', DATA.parent / 'scripts' / 'check_smith1974.py')
+    cs = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(cs)
+    md = EarthModel(DATA / 'TWOLAYER.dat')
+    P, Q, eps = cs.layered_terms(md, ClairautGeometry(md), 0.3, 1, 0.927, True)
+    for k, r, tol in (('wp', 'l0', 1e-3), ('lp', 'l0', 5e-3), ('hp', 'h0', 2e-3), ('l0', 'h0', 1e-4)):
+        assert abs(P[k] / P[r] / (Q[k] / Q[r]) - 1) < tol
+
+
+def test_nonhydro_operator_gauge():
+    """The non-hydrostatic correction C(u) vanishes for tau = -q I (pressure moved into tau): the
+    assembled diurnal matrix (PREM, Clairaut, rotating, fluid core) is unchanged to round-off, while
+    a deviatoric tau changes it."""
+    from earthtides.geometry import ClairautGeometry, OMEGA_EARTH
+    from earthtides.jets import J as Jet
+    from earthtides.solver import TidalSolver
+    md = EarthModel(DATA / 'PREM.dat')
+    a, Q0 = md.a, 3e8
+
+    class Tau:
+        def __init__(self, iso):
+            self.iso = iso
+
+        def drho(self, *args):
+            return None
+
+        def tau(self, i, s2, th, mp):
+            r, c, sn = mp['R'], np.cos(th), np.sin(th)
+            f, f_t, f_tt = 1 + 0.15 * (3 * c**2 - 1), -0.9 * c * sn, -0.9 * (c**2 - sn**2)
+            x = r / a
+            q, q_r, q_t = Q0 * x**2 * f, 2 * Q0 * x / a * f, Q0 * x**2 * f_t
+            q_rr, q_rt, q_tt = 2 * Q0 / a**2 * f, 2 * Q0 * x / a * f_t, Q0 * x**2 * f_tt
+            z = Jet(0 * r)
+            if not self.iso:
+                return dict(rr=Jet(q, q_r, q_t), tt=z, pp=z, rt=z, br=Jet(q_r, q_rr, q_rt), bt=z)
+            iso = Jet(-q, -q_r, -q_t)
+            return dict(rr=iso, tt=iso, pp=iso, rt=z, br=Jet(-q_r, -q_rr, -q_rt),
+                        bt=Jet(-q_t / r, -(q_rt / r - q_t / r**2), -q_tt / r))
+
+    def H(nh):
+        S = TidalSolver(md, ClairautGeometry(md), m=1, N=16, K=3, coriolis=OMEGA_EARTH,
+                        omega_t=0.93 * OMEGA_EARTH, consistent_reference=True, omega_rot=OMEGA_EARTH,
+                        dyn_fluid=True, frame='mantle', nonhydro=nh)
+        S.solve()
+        H = S.H.toarray() if hasattr(S.H, 'toarray') else S.H
+        nb = S.nfld * S.N               # interior collocation rows only (the boundary rows carry
+        rows = [i * nb + k for i in range(md.n_layers)        # the traction P1(tau).n, which is not
+                for k in range(S.nfld, nb - S.nfld)]          # a gauge where q != 0)
+        return H[rows]
+
+    H0, Hg, Hd = H(None), H(Tau(True)), H(Tau(False))
+    scale = np.abs(H0).max(axis=1)
+    assert (np.abs(Hg - H0).max(axis=1) / scale).max() < 1e-12
+    assert (np.abs(Hd - H0).max(axis=1) / scale).max() > 1e-6
+
+
+def test_nonhydro_zero_load_is_hydrostatic():
+    """The full non-hydrostatic machinery (FlatMap geometry, extra density in props and refpot, tau,
+    slip terms) with zero load reproduces the hydrostatic diurnal run exactly."""
+    from earthtides.nonhydro import FlatSupport, FlatState, FlatMap
+    from earthtides.solver import TidalSolver
+    md = EarthModel(DATA / 'PREM.dat')
+    base = ClairautGeometry(md)
+    S = FlatSupport(md, EarthModel(DATA / 'PREMs.dat'), [(3480e3, 5701e3), (5701e3, 6346.6e3)], base, OMEGA_EARTH)
+    st = FlatState(S, [0.0, 0.0], base, OMEGA_EARTH)
+    out = []
+    for geo, nh in ((base, None), (FlatMap(base, st), st)):
+        T = TidalSolver(md, geo, m=1, K=3, N=16, omega_f=0.0, coriolis=OMEGA_EARTH,
+                        omega_t=0.927 * OMEGA_EARTH, omega_rot=OMEGA_EARTH, wahr_frame=True,
+                        dyn_fluid=True, consistent_reference=True, frame='mantle', nonhydro=nh)
+        out.append(T.solve())
+    for k in ('h', 'l', 'kk'):
+        assert out[0][k] == out[1][k]
+
+
+def test_flat_support_three_targets():
+    """Three load shells fitted to J2, CMB and surface on the supported state on the level figure (Table S9 of
+    the PEPI paper): the exact fit reaches the targets; the regularised fit (prior 0.5 %) keeps the loads below
+    0.2 % and reaches J2, CMB 443 m and surface 297 m."""
+    from earthtides.geometry import figure
+    from earthtides.nonhydro import FlatSupport
+    md, mds = EarthModel(DATA / 'PREM.dat'), EarthModel(DATA / 'PREMs.dat')
+    shells = [(3480e3, 5701e3), (5701e3, 5971e3), (5971e3, 6346.6e3)]
+    S = FlatSupport(md, mds, shells, figure(md, 'level'), OMEGA_EARTH)
+    target = {'J2': 1.14e-5, 'cmb': 450.0, 'surface': 100.0}
+    r = S.response(S.fit(target))
+    assert abs(r['J2'] - 1.14e-5) < 1e-9 and abs(r['cmb'] - 450.0) < 0.5 and abs(r['surface'] - 100.0) < 0.5
+    a = S.fit(target, {'J2': 0.1e-6, 'cmb': 50.0, 'surface': 250.0}, 5e-3)
+    r = S.response(a)
+    assert max(abs(x) for x in a) < 2e-3
+    assert abs(r['J2'] - 1.14e-5) < 1e-8 and abs(r['cmb'] - 443.0) < 1.0 and abs(r['surface'] - 297.0) < 2.0
+
+def test_love_setup_file_nonhydrostatic(tmp_path):
+    """A TOML set-up file with a [nonhydrostatic] table: the fit reaches its targets, the table
+    records them, and the result equals a direct TidalSolver run on the same state."""
+    from earthtides import love
+    f = tmp_path / 'run.toml'
+    f.write_text('model = "PREM"\nanelastic = false\n[nonhydrostatic]\n'
+                 'targets = {J2 = 1.14e-5, cmb = 450.0}\n[run]\nfreq = [0.92954]\norder = 1\n')
+    opts, run = love.read_setup(f)
+    assert run['freq'] == [0.92954] and opts.nonhydrostatic['targets']['cmb'] == 450.0
+    out = tmp_path / 'love.json'
+    love.main(['--setup', str(f), '--jobs', '1', '-o', str(out)])
+    t = love.read(out)
+    meta = t['metadata']['nonhydrostatic']['response']
+    assert abs(meta['cmb'] - 450.0) < 1e-6 and abs(meta['J2'] / 1.14e-5 - 1) < 1e-9
+    S, r = love.solve_wave(opts, 1, 0.92954)
+    assert S.nonhydro is love._model(opts)[2].state
+    p = love.parameters(S, r, opts)
+    assert abs(t['entries'][0]['h0'] - p['h0']) < 1e-12
+    with pytest.raises(ValueError):
+        love.Options(nonhydrostatic={'targets': {'J2': 1e-5}}, flattening=False)
+
+
+def test_nonhydro_flat_state_consistent():
+    """Non-hydrostatic final state supported on the flattened rotating background (nonhydro.FlatState):
+    the angular-momentum balance dH/dt + Omega x H = N holds as well as for the hydrostatic model
+    (O1, psi1), and the FCN moves as (A/A_m)(e_f - beta) predicts for 450 m of excess CMB flattening."""
+    import importlib.util
+    from earthtides.nonhydro import FlatSupport, FlatState, FlatMap
+    from earthtides.solver import TidalSolver
+    spec = importlib.util.spec_from_file_location('cam', DATA.parent / 'scripts' / 'check_angular_momentum.py')
+    cam = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(cam)
+    md = EarthModel(DATA / 'PREM.dat')
+    base = ClairautGeometry(md)
+    S = FlatSupport(md, EarthModel(DATA / 'PREMs.dat'), [(3480e3, 5701e3), (5701e3, 6346.6e3)], base,
+                    OMEGA_EARTH)
+    st = FlatState(S, S.fit({'J2': 1.14e-5, 'cmb': 450.0}), base, OMEGA_EARTH)
+    geo = FlatMap(base, st)
+
+    def run(sig):
+        T = TidalSolver(md, geo, m=1, K=4, N=24, omega_f=0.0, coriolis=OMEGA_EARTH,
+                        omega_t=sig * OMEGA_EARTH, omega_rot=OMEGA_EARTH, wahr_frame=True,
+                        dyn_fluid=True, consistent_reference=True, frame='mantle', nonhydro=st)
+        T.solve()
+        return T
+    for sig in (0.927, 1.00546):
+        T = run(sig)
+        Hc, Nc, lhs = cam.balance(T, sig * OMEGA_EARTH)
+        assert np.linalg.norm(lhs - Nc) / np.linalg.norm(Nc) < 2e-3
+    x = np.array([1.0012, 1.0016, 1.0030, 1.0036])
+    k = np.array([run(s).results()['kk'] for s in x]).real
+    c = np.linalg.lstsq(np.column_stack([k, x, -np.ones_like(x)]), k * x, rcond=None)[0][0]
+    assert abs(1 / (c - 1) - 431.6) < 2.0
+
+
+def test_nonhydro_viscous_support():
+    """Viscous end member (mantle mu = s eta_rel, map interpolated between anchors): the
+    angular-momentum balance holds (O1, psi1) and the FCN follows (A/A_m)(e_f - beta)."""
+    import importlib.util
+    from earthtides.nonhydro import NonHydrostatic
+    from earthtides.solver import TidalSolver
+    spec = importlib.util.spec_from_file_location('cam', DATA.parent / 'scripts' / 'check_angular_momentum.py')
+    cam = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(cam)
+    md = EarthModel(DATA / 'PREM.dat')
+    base = ClairautGeometry(md)
+    nh = NonHydrostatic(md, dict(support='viscous', targets={'J2': 1.14e-5, 'cmb': 450.0}), base,
+                        OMEGA_EARTH, EarthModel(DATA / 'PREMs.dat'))
+    assert nh.state.anchors[0] == 3480e3 and len(nh.state.anchors) == 5
+
+    def run(sig):
+        T = TidalSolver(md, nh.geometry, m=1, K=4, N=24, omega_f=0.0, coriolis=OMEGA_EARTH,
+                        omega_t=sig * OMEGA_EARTH, omega_rot=OMEGA_EARTH, wahr_frame=True,
+                        dyn_fluid=True, consistent_reference=True, frame='mantle', nonhydro=nh.state)
+        T.solve()
+        return T
+    for sig in (0.927, 1.00546):
+        T = run(sig)
+        Hc, Nc, lhs = cam.balance(T, sig * OMEGA_EARTH)
+        assert np.linalg.norm(lhs - Nc) / np.linalg.norm(Nc) < 3e-3
+    x = np.array([1.0012, 1.0016, 1.0030, 1.0036])
+    k = np.array([run(s).results()['kk'] for s in x]).real
+    c = np.linalg.lstsq(np.column_stack([k, x, -np.ones_like(x)]), k * x, rcond=None)[0][0]
+    assert abs(1 / (c - 1) - 430.3) < 2.0
+
+

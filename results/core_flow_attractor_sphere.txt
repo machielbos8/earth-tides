@@ -1,0 +1,4 @@
+flow of degrees >= 20 near the attractor loop (last p segments of 2000 reflections) and its mirror in the equator (asym: median distance of the mirror from the loop, r_cmb); shares E (energy) and A (area) within 0.015 and 0.0075 r_cmb; int = without 20 km next to the walls; rot = E2int/A on the loop turned by +-20 deg about the centre (control); core K / N 30, band 8, solid_P 0, no flattening (sphere); S = core interior split, N its sub-layers
+      f    core delta    K   S   N  growth   p   asym     E1     A1  E1int  A1int     E2     A2  E2int  A2int E1int/A E2int/A     rot             h2    GB      s
+ 0.9175    PREM  0.25  168  16  15 +0.4402  10  0.000  0.712  0.312  0.735  0.312  0.535  0.163  0.551  0.164    2.35    3.37    1.05  -0.0000009788  18.0    494
+ 1.9270    PREM  0.25  168  16  15 +0.0020   0  0.026  0.907  0.652  0.908  0.662  0.778  0.453  0.775  0.461    1.37    1.68    1.21  -0.0000024794  18.0    421

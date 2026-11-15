@@ -1,0 +1,87 @@
+{
+ "id": "20261115T073109-nonhydro_stress_split-2870",
+ "status": "ok",
+ "purpose": "deviatoric stress split into tau and slip terms, 0 m, inviscid slipping core",
+ "script": "scripts/nonhydro_stress_split.py",
+ "command": "python scripts/nonhydro_stress_split.py 0 3 --figure level",
+ "params": {
+  "cmb": 0.0,
+  "waves": [
+   [
+    "Mf",
+    0,
+    0.073
+   ],
+   [
+    "O1",
+    1,
+    0.927
+   ],
+   [
+    "P1",
+    1,
+    0.99454
+   ],
+   [
+    "K1",
+    1,
+    1.0
+   ],
+   [
+    "psi1",
+    1,
+    1.00273
+   ],
+   [
+    "OO1",
+    1,
+    1.073
+   ],
+   [
+    "M2",
+    2,
+    1.927
+   ]
+  ],
+  "am_sig": [
+   0.927,
+   0.99454,
+   1.00273,
+   1.073
+  ],
+  "figure": "level"
+ },
+ "git": {
+  "commit": "76d9e4873560f08acafbcb53c1e82611d6daeacf",
+  "dirty": [],
+  "script_untracked": false,
+  "script_dirty": false,
+  "script_sha256": "f3a0d3d7c37690e16be3780b3de4ba76fcfacb0aa5c8bf45f6ba7b29ab60932d"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  },
+  {
+   "path": "data/PREMs.dat",
+   "sha256": "e9fcce04a0de9f094a983ff8a3aa40d971eba71aeb93968bbb4f65a705ddb952"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/nonhydro_stress_split_0m_level.txt",
+   "sha256": "f76024f47f9e9271fe25b57088c288e0d7a34105e1e5a08d4740caed925faaab"
+  }
+ ],
+ "start": "2026-11-15T07:31:09",
+ "end": "2026-11-15T07:31:42",
+ "wall_s": 32.8,
+ "peak_rss_mb": {
+  "self": 206.2,
+  "children_max": 574.3
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

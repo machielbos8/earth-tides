@@ -3,7 +3,7 @@
 # Golden-value cases: the numbers the package must keep reproducing through
 # the restructure.
 #
-# This file is part of earth-tides 1.0.
+# This file is part of earth-tides 1.1.
 #
 # earth-tides is distributed under a source-available license.
 # It may be used free of charge for academic, research, and other
@@ -83,9 +83,15 @@ def _flattened(tide, anelastic=False, model='PREM.dat'):
     m, fr = TIDES[tide]
     w = fr * OMEGA
     md = md0.anelastic(w) if anelastic else md0
+    # slip_nonlevel (default True since 2026-11-14: the slip condition for a wall off its level surface) changes
+    # the slipping core of these cases on purpose (O1: h0 5.6e-6, h2 6.9e-6, u_r 9e-6 of its scale; M2: 1e-7;
+    # known answers in tests/test_slip_nonlevel.py). The golden values are those of the earlier condition, kept
+    # to show that nothing else changed; the code of the older tags does not know the option.
+    import inspect
+    kw = {'slip_nonlevel': False} if 'slip_nonlevel' in inspect.signature(TidalSolver.__init__).parameters else {}
     S = TidalSolver(md, geo, m=m, K=4, N=24, omega_f=0.0, coriolis=OMEGA, omega_t=w,
                     omega_rot=OMEGA, wahr_frame=(m != 2), dyn_fluid=True,
-                    consistent_reference=True, frame='mantle')
+                    consistent_reference=True, frame='mantle', **kw)
     r = S.solve()
     f = iers_fit(S, geo)
     out = {k: f[k] for k in ('h0', 'h2', 'l0', 'l1', 'l2', 'lp', 'hp') if k in f}

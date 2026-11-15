@@ -1,0 +1,9 @@
+Hough model: layers 2 [(0, 3480), (3480, 6371)]
+sphere wahr m=2 1.9275: N16: h 0.0000377 spread 1e-18 | N24: h 0.0000377 spread 7e-18 | N32: h 0.0000377 spread 4e-18 | N44: h 0.0000377 spread 2e-17 | N60: h 0.0000377 spread 3e-17
+sphere wahr m=1 0.927: N16: h 0.0000377 spread 1e-18 | N24: h 0.0000377 spread 6e-18 | N32: h 0.0000377 spread 3e-18 | N44: h 0.0000377 spread 3e-17 | N60: h 0.0000377 spread 3e-17
+sphere K2   m=2 1.9275: N16: h 0.0000377 spread 1e-18 | N24: h 0.0000377 spread 4e-18 | N32: h 0.0000377 spread 4e-18 | N44: h 0.0000377 spread 7e-17 | N60: h 0.0000377 spread 3e-17
+sphere K2   m=1 0.927: N16: h 0.0000377 spread 5e-18 | N24: h 0.0000377 spread 6e-18 | N32: h 0.0000377 spread 1e-17 | N44: h 0.0000377 spread 8e-17 | N60: h 0.0000377 spread 8e-17
+flat   wahr m=2 1.9275: N16: h 0.0000377 spread 3e-15 | N24: h 0.0000377 spread 2e-14 | N32: h 0.0000377 spread 9e-14 | N44: h 0.0000377 spread 5e-13 | N60: h 0.0000377 spread 3e-12
+flat   wahr m=1 0.927: N16: h 0.0000359 spread 8e-12 | N24: h 0.0000359 spread 2e-10 | N32: h 0.0000359 spread 3e-11 | N44: h 0.0000359 spread 1e-08 | N60: h 0.0000359 spread 9e-08
+flat   K2   m=2 1.9275: N16: h 0.0000377 spread 6e-18 | N24: h 0.0000377 spread 1e-16 | N32: h 0.0000377 spread 5e-16 | N44: h 0.0000377 spread 8e-15 | N60: h 0.0000377 spread 7e-15
+flat   K2   m=1 0.927: N16: h 0.0000373 spread 9e-14 | N24: h 0.0000373 spread 8e-14 | N32: h 0.0000373 spread 8e-14 | N44: h 0.0000373 spread 1e-14 | N60: h 0.0000373 spread 4e-14

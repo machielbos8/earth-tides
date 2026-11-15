@@ -1,0 +1,67 @@
+{
+ "id": "20261115T133051-nonhydro_core_rigidity-5120",
+ "status": "ok",
+ "purpose": "weak-solid core rigidity of the static support: sensitivity of the non-hydrostatic state",
+ "script": "scripts/nonhydro_core_rigidity.py",
+ "command": "python scripts/nonhydro_core_rigidity.py",
+ "params": {
+  "vs": [
+   1.0,
+   0.3,
+   3.0,
+   10.0
+  ],
+  "J2": 1.14e-05,
+  "e_f": 9.73e-05
+ },
+ "git": {
+  "commit": "67085940f1f4cb0a8bbce5e8fa78033d501c93be",
+  "dirty": [
+   "docs/lab_notes/earthtides_lab_notes.md",
+   "paper_pepi/main_v3_2col.pdf",
+   "paper_pepi/supplement_v3.pdf",
+   "paper_pepi/supplement_v3.tex",
+   "paper_scripts/run_all.py",
+   "results/LEDGER.jsonl",
+   "results/ddw_fingerprint.txt",
+   "results/ddw_wplus.txt",
+   "results/delta_fit_forms.txt",
+   "results/delta_fit_forms.txt.meta.json",
+   "results/frame_size.txt",
+   "results/quadrature_nodes_test.txt",
+   "results/quadrature_nodes_test.txt.meta.json",
+   "scripts/delta_fit_forms.py",
+   "tools/make_zenodo_archive.py",
+   "tools/sync_release.py"
+  ],
+  "script_untracked": false,
+  "script_dirty": false,
+  "script_sha256": "766e4d445e42d79b80b926c1afc389cba86cd7108f63206ad65d7cc8263688b5"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "data/PREMs.dat",
+   "sha256": "e9fcce04a0de9f094a983ff8a3aa40d971eba71aeb93968bbb4f65a705ddb952"
+  },
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/nonhydro_core_rigidity.txt",
+   "sha256": "9d2c9b399966fd670acbcda5f82cc83a812128ed76d30ddfa78982624d1872e2"
+  }
+ ],
+ "start": "2026-11-15T13:30:51",
+ "end": "2026-11-15T13:32:10",
+ "wall_s": 78.6,
+ "peak_rss_mb": {
+  "self": 1538.8,
+  "children_max": 10.2
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

@@ -1,0 +1,61 @@
+{
+ "id": "20261104T175812-core_flow_attractor-5872",
+ "status": "ok",
+ "purpose": "solver core flow (degrees >= NCUT) on the ray attractor loop, delta -> 0 at rising K and radial split",
+ "script": "scripts/core_flow_attractor.py",
+ "command": "python scripts/core_flow_attractor.py 0.9175:PREM:1:96:8 0.9175:PREM:0.5:96:8 0.9175:PREM:0.25:96:8 0.9075:neutral:1:96:8 0.9075:neutral:0.5:96:8 0.9075:neutral:0.25:96:8 0.9125:neutral:1:96:8 0.9125:neutral:0.5:96:8 0.9125:neutral:0.25:96:8 --tag scan",
+ "params": {
+  "cases": [
+   "0.9175:PREM:1.0:96:8",
+   "0.9175:PREM:0.5:96:8",
+   "0.9175:PREM:0.25:96:8",
+   "0.9075:neutral:1.0:96:8",
+   "0.9075:neutral:0.5:96:8",
+   "0.9075:neutral:0.25:96:8",
+   "0.9125:neutral:1.0:96:8",
+   "0.9125:neutral:0.5:96:8",
+   "0.9125:neutral:0.25:96:8"
+  ],
+  "ncut": 20,
+  "dist": 0.015,
+  "nref": 2000,
+  "wall": 20000.0,
+  "band": 12,
+  "workers": 1
+ },
+ "git": {
+  "commit": "a1f145eaa57c5102d0bab803edeb01807b7d49b4",
+  "dirty": [],
+  "script_untracked": false,
+  "script_dirty": false,
+  "script_sha256": "b0d96af27e06a41d0fa4803592f87cc9692177de99466be77bfc6504ba1fba77"
+ },
+ "env": {
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/core_flow_attractor_scan.npz",
+   "sha256": "0e0f4650d974c0b65f2d736166e053c6a5b719f612cb81dd56fafc35f768f5ce"
+  },
+  {
+   "path": "results/core_flow_attractor_scan.txt",
+   "sha256": "086a6b9d54514fae4de9a3ea0b2fa32f0a39be797909d3e9f73daf5ce664cde2"
+  }
+ ],
+ "start": "2026-11-04T17:58:12",
+ "end": "2026-11-04T18:44:53",
+ "wall_s": 2800.8,
+ "peak_rss_mb": {
+  "self": 107.0,
+  "children_max": 59.0
+ },
+ "host": "Linux (28 GB)",
+ "python": "3.14.4"
+}

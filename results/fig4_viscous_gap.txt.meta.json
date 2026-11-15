@@ -1,0 +1,63 @@
+{
+ "id": "20261103T073326-fig4_viscous_gap-5098",
+ "status": "ok",
+ "purpose": "viscous - inviscid h2 gap of Fig. 4 at O1, 0.95 cpsd and around M2",
+ "script": "scripts/fig4_viscous_gap.py",
+ "command": "python scripts/fig4_viscous_gap.py",
+ "params": {},
+ "git": {
+  "commit": "5b8bf4d890a5d18a220b5ce439e2ce61cb34c540",
+  "dirty": [
+   "docs/lab_notes/earthtides_lab_notes.md",
+   "paper_pepi/figures/fig_core_ekman.pdf",
+   "paper_pepi/figures/fig_core_sweep.pdf",
+   "paper_pepi/main_v2.tex",
+   "paper_pepi/main_v2_2col.pdf",
+   "paper_pepi/make_fig_core.py",
+   "paper_pepi/references.bib",
+   "paper_pepi/supplement_v2.pdf",
+   "results/LEDGER.jsonl"
+  ],
+  "script_untracked": true,
+  "script_dirty": false,
+  "script_sha256": "6a1b305122a0ee83d430d8e616c78bd3be90d1791b1f202f53cb48431af14974"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "results/convergence_viscous_coreK8_N30_d0_s0.0005.txt",
+   "sha256": "829c979c79692e098d5740ea9bd0128fb824024666027059945f80cc2101ea02"
+  },
+  {
+   "path": "results/convergence_viscous_coreK16_N30_d0_s0.0005.txt",
+   "sha256": "e4d8374571dd98aa95965ed693c2587d6dd8388b620e6b46c5e0baf3bb2e62c1"
+  },
+  {
+   "path": "results/convergence_viscous_coreK24_N30_d0_s0.0005.txt",
+   "sha256": "e472459603defab594b98ec927c96ced5714a4aecd6115f34e0fc57d643607cf"
+  },
+  {
+   "path": "results/convergence_viscous_coreK24_N30_d4_s0.0005.txt",
+   "sha256": "7ec7fb6ffa37b8bdb83c24a800d1c1a416b7a0157b60d30e8f3d7cdc8866a2fe"
+  },
+  {
+   "path": "results/convergence_viscous_coreK96_N30_d1_s0.0005_b12.txt",
+   "sha256": "a8139b80c8b9e4da19de2b239c8048f3c2e3cbaf07ab27d385bed880fde996d7"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/fig4_viscous_gap.txt",
+   "sha256": "98d3929bd0277b4e912b371faac445ab1c354ab3648695d7a6d5e45d2706bc05"
+  }
+ ],
+ "start": "2026-11-03T07:33:26",
+ "end": "2026-11-03T07:33:26",
+ "wall_s": 0.1,
+ "peak_rss_mb": {
+  "self": 33.6,
+  "children_max": 9.8
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

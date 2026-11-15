@@ -3,7 +3,7 @@
 # Paper 1: sensitivity of the IERS-form Love numbers to the conventions behind
 # them.
 #
-# This file is part of earth-tides 1.0.
+# This file is part of earth-tides 1.1.
 #
 # earth-tides is distributed under a source-available license.
 # It may be used free of charge for academic, research, and other
@@ -38,17 +38,21 @@ warnings.filterwarnings('ignore')
 import numpy as np
 
 from earthtides.model import EarthModel
-from earthtides.geometry import ClairautGeometry, OMEGA_EARTH
+from earthtides.geometry import ClairautGeometry, OMEGA_EARTH, figure
+import sys as _sys
+FIGURE = _sys.argv[_sys.argv.index('--figure') + 1] if '--figure' in _sys.argv else 'first-order'   # or 'level'
+SUF = '' if FIGURE == 'first-order' else '_' + FIGURE
 from earthtides.solver import TidalSolver, ybar, cheb_basis
 from earthtides.iers import iers_fit_fields
 
 md = EarthModel('data/PREM.dat')
-geo = ClairautGeometry(md)
-TIDES = {'O1': (1, 0.92700), 'M2': (2, 2 * 0.9661368)}
+geo = figure(md, FIGURE)
+TIDES = {'O1': (1, 0.92700), 'M2': (2, 1.92700)}
 th = np.linspace(0.03, np.pi - 0.03, 600)
 a = md.a
 iS = md.n_layers - 1
-e, de, _ = geo.eps(iS, np.array([a]))
+from earthtides.geometry import surface_eps as _seps
+e, de = (np.array([v]) for v in _seps(geo, md))            # first-order figure: eps(a) as before
 f, df = e[0], de[0]
 P2c = 0.5 * (3 * np.cos(th)**2 - 1)
 lines = []
@@ -137,4 +141,8 @@ for tide, (m, fr) in TIDES.items():
         if label == 'baseline':
             continue
         out(f'{label:26s}' + ''.join(f'{1e5 * (r[x].real - base[x].real):+10.1f}' for x in k))
-open('results/convention_table.txt', 'w').write('\n'.join(lines) + '\n')
+import sys
+sys.path.insert(0, 'scripts')
+from provenance import Run
+with Run('effect of the conventions on the Love numbers (O1, M2)', inputs=['data/PREM.dat']) as run:
+    run.write_text(f'results/convention_table{SUF}.txt', '\n'.join(lines) + '\n')

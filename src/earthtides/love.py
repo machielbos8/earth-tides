@@ -3,7 +3,7 @@
 # Love numbers of a flattened, rotating, anelastic Earth for a list of tidal
 # waves, written to a JSON table (the input of etide).
 #
-# This file is part of earth-tides 1.0.
+# This file is part of earth-tides 1.1.
 #
 # earth-tides is distributed under a source-available license.
 # It may be used free of charge for academic, research, and other
@@ -47,7 +47,12 @@ admittance of PREM and of the IERS model so that the displacement differs from t
 by less than 0.03 mm anywhere (tools/verify_groups.py); it needs 21 solves (seconds). --all-waves
 gives every wave of the catalogue its own Love number (837 solves, minutes).
 
+Set-up file: every physics option, the non-hydrostatic Earth (earthtides.nonhydro: excess J2 and CMB
+flattening from supported mantle loads) and the run can be given in one TOML file;
+earthtides-love --template prints an annotated example, earthtides-love --setup FILE runs it.
+
 Command line: earthtides-love [--groups default|eterna|eterna-split|FILE | --all-waves] -o love.json
+              earthtides-love --setup run.toml
 """
 import argparse
 import hashlib
@@ -56,7 +61,7 @@ import multiprocessing
 import os
 import time
 from concurrent.futures import ProcessPoolExecutor
-from dataclasses import asdict, dataclass, field
+from dataclasses import asdict, dataclass, field, replace
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -69,6 +74,8 @@ IERS_CONVENTIONS = dict(latitude='geocentric', direction='radial', surface='defo
                         norm='equatorial', frame='mantle')
 KEYS = ('h0', 'h2', 'l0', 'l1', 'l2', 'hp', 'lp', 'k')
 F_M2 = 1.9322736 / 1.002737909      # cycles per day, M2 (for degrees 3 and 4)
+F_TILT = 7.292115e-5 * 86400 / (2 * np.pi)    # [cpd] the tilt-over frequency, sigma = 1 (= K1)
+TILT_WINDOW = 1e-5
 IERS_PERMANENT = dict(h0=0.6078, h2=-0.0006, l0=0.0847, l2=0.0002)
 
 
@@ -79,9 +86,16 @@ class Options:
     anelastic: bool = True
     alpha: float = 0.15
     tm: float = 200.0
+    # seismic reference period of the elastic model [s]: constant Q from t0 to tm, power law beyond. t0 = tm drops
+    # the constant-Q band, the assumption behind the IERS anelastic values (Mathews et al. 1997: PREM at 1 s,
+    # power law from 200 s); default 1 s (PREM)
+    t0: float = 1.0
     dispersion: str = 'cot'
     rotation: bool = True
     flattening: bool = True
+    # figure of the flattened Earth (geometry.figure): 'first-order' (Clairaut, eq. (map) of paper 1) or
+    # 'level' (level surfaces of the reference potential: second order in the flattening and beyond)
+    figure: str = 'level'       # default since 2026-11-15; every earlier table: 'first-order'
     centrifugal: bool = True
     frame: str = 'mantle'
     latitude: str = 'geocentric'
@@ -90,17 +104,41 @@ class Options:
     norm: str = 'equatorial'
     K: int = 4
     N: int = 24
+    fluidcore_N: int = None     # Chebyshev polynomials per (weak-)fluid layer; None = N
+    fluidcore_K: int = None     # degrees of U, V, W per (weak-)fluid layer; None = K
+    # core_median: N values of the liquid core, e.g. (16, 20, 24, 30). An inviscid core in a shell has a
+    # continuous spectrum, and any truncation puts pseudo-modes at frequencies that depend on the
+    # resolution; a wave that falls on one gets a spurious value (h(2) off by up to 1e-3). Each wave is
+    # then solved once per N and every parameter is the median (real and imaginary parts separately);
+    # 'core_spread' records the largest deviation from it. None: one solve with fluidcore_N.
+    core_median: tuple = None
+    # K and N per layer from a rule set (solver.resolution_per_layer; the JSON file's content is
+    # stored, so the table's metadata reproduces it); overrides K, N, fluidcore_K, fluidcore_N
+    resolution: dict = None
     f_dyn: float = 0.005
+    # non-hydrostatic Earth (earthtides.nonhydro): None, or a table with support, shells_km,
+    # targets (J2, surface, cmb, e_f) and optionally sigma, prior; model_static: the same model with a
+    # weak-solid core for the static support ('' = PREMs for PREM)
+    nonhydrostatic: dict = None
+    model_static: str = ''
     conventions: dict = field(init=False)
 
     def __post_init__(self):
-        for key, allowed in (('dispersion', ('cot', 'astyanax')),
+        for key, allowed in (('dispersion', ('cot', 'astyanax')), ('figure', ('first-order', 'level')),
                              ('frame', ('mantle', 'surface')), ('latitude', ('geocentric', 'geodetic')),
                              ('direction', ('radial', 'normal')), ('surface', ('deformed', 'mean')),
                              ('norm', ('equatorial', 'mean'))):
             if getattr(self, key) not in allowed:
                 raise ValueError(f'{key} must be one of {allowed}')
+        if self.core_median is not None:
+            if self.resolution is not None:
+                raise ValueError('core_median sets the N of the core; it cannot be combined with resolution')
+            self.core_median = tuple(int(x) for x in self.core_median)
         self.conventions = {k: getattr(self, k) for k in IERS_CONVENTIONS}
+        if self.nonhydrostatic is not None:
+            if not (self.flattening and self.centrifugal):
+                raise ValueError('nonhydrostatic needs flattening and the centrifugal reference')
+            self.nonhydrostatic = dict(self.nonhydrostatic)
 
     def is_iers(self):
         return self.conventions == IERS_CONVENTIONS and self.centrifugal
@@ -122,30 +160,50 @@ _CACHE = {}
 
 
 def _model(opts):
+    """(model, geometry, non-hydrostatic state or None), cached per process: the non-hydrostatic
+    state is static, so one state serves every wave (and every anelastic tidal model)."""
     from .model import EarthModel
-    from .geometry import ClairautGeometry
-    key = (opts.model, opts.flattening)
+    from .geometry import figure, OMEGA_EARTH
+    nh = opts.nonhydrostatic
+    key = (opts.model, opts.flattening, opts.figure, json.dumps(nh, sort_keys=True), opts.model_static)
     if key not in _CACHE:
         md = EarthModel(str(model_path(opts.model)))
-        _CACHE[key] = (md, ClairautGeometry(md) if opts.flattening else None)
+        geo = figure(md, opts.figure) if opts.flattening else None
+        state = None
+        if nh is not None:
+            from .nonhydro import NonHydrostatic
+            name = (nh.get('model_static') or opts.model_static
+                    or ('PREMs' if Path(opts.model).stem == 'PREM' else ''))
+            if not name:
+                raise ValueError('nonhydrostatic: give model_static (the model with a weak-solid core)')
+            state = NonHydrostatic(md, nh, geo, OMEGA_EARTH, EarthModel(str(model_path(name))))
+            geo = state.geometry
+        _CACHE[key] = (md, geo, state)
     return _CACHE[key]
 
 
 def solve_wave(opts, m, f_cpd):
     """Solve the degree-2 tide of order m and frequency f_cpd [cycles per day]."""
     from .geometry import OMEGA_EARTH
-    from .solver import TidalSolver
-    md0, geo = _model(opts)
+    from .solver import TidalSolver, resolution_per_layer
+    md0, geo, nh = _model(opts)
     w = max(f_cpd, opts.f_dyn) * 2 * np.pi / 86400.0
     w_an = max(f_cpd, 1 / 6798.38) * 2 * np.pi / 86400.0
-    md = md0.anelastic(w_an, alpha=opts.alpha, Tm=opts.tm, dispersion=opts.dispersion) if opts.anelastic else md0
+    md = md0.anelastic(w_an, alpha=opts.alpha, Tm=opts.tm, T0=opts.t0, dispersion=opts.dispersion) if opts.anelastic else md0
     cen = opts.flattening and opts.centrifugal
     if opts.rotation:
         kw = dict(omega_f=0.0, coriolis=OMEGA_EARTH, omega_t=w, wahr_frame=(m != 2))
     else:
         kw = dict(omega_f=w)
-    S = TidalSolver(md, geo, m=m, K=opts.K, N=opts.N, omega_rot=OMEGA_EARTH if cen else 0.0,
-                    dyn_fluid=True, consistent_reference=cen, frame=opts.frame, **kw)
+    if opts.resolution is not None:
+        layer_K, layer_N = resolution_per_layer(md, opts.resolution)
+    else:
+        layer_K = layer_N = None
+    S = TidalSolver(md, geo, m=m, K=opts.K, N=opts.N, fluid_N=opts.fluidcore_N, fluid_K=opts.fluidcore_K,
+                    layer_K=layer_K, layer_N=layer_N,
+                    omega_rot=OMEGA_EARTH if cen else 0.0,
+                    dyn_fluid=True, consistent_reference=cen, frame=opts.frame,
+                    nonhydro=nh.state if nh is not None else None, **kw)
     r = S.solve()
     return S, r
 
@@ -155,12 +213,11 @@ def _surface_fields(S, th, deriv=False):
     from .basis import ybar, cheb_basis
     md = S.model
     iS = md.n_layers - 1
-    N, nb = S.N, S.nfld * S.N
-    Tp, T1, _ = cheb_basis(np.array([1.0]), N)
+    Tp, T1, _ = cheb_basis(np.array([1.0]), S.Nl[iS])
     sc = 2.0 / (md.r1[iS] - md.r0[iS])
     v = {}
     for j, fld in enumerate(S.fields):
-        c = S.coef[iS * nb + j * N: iS * nb + (j + 1) * N]
+        c = S.layer_coef(iS, j)
         v[fld] = (c @ T1[:, 0] * sc) if deriv else (c @ Tp[:, 0])
     m = S.m
     ur = sum(v[('U', n)] * ybar(n, m, th, 0)[0] for n in S.deg)
@@ -183,10 +240,11 @@ def parameters(S, r, opts):
     a = md.a
     th = np.linspace(0.03, np.pi - 0.03, 600)
     if opts.flattening:
-        e, de, _ = geo.eps(md.n_layers - 1, np.array([a]))
-        f, df = float(e[0]), float(de[0])
+        from .geometry import surface_eps, equatorial_radius
+        f, df = surface_eps(geo, md)
+        a_e = equatorial_radius(geo, md)
     else:
-        f, df = 0.0, 0.0
+        f, df, a_e = 0.0, 0.0, a
     raw = _surface_fields(S, th)
     body = list(S.surface_field(th))                       # rigid rotation removed (frame)
     if opts.surface == 'mean':                             # u(a) - delta / R_s d_s u (first order)
@@ -201,7 +259,7 @@ def parameters(S, r, opts):
         dd = f * np.sin(2 * th)
         ur, ut, up = body
         body = [ur - dd * ut, ut - dd * ur, up]
-    norm = (a * (1 + f / 3.0))**4 / a**3 if opts.norm == 'equatorial' else a
+    norm = a_e**4 / a**3 if opts.norm == 'equatorial' else a
     fit = iers_fit_fields(S.m, th, *(v / norm for v in body),
                           f_geodetic=f if opts.latitude == 'geodetic' else 0.0)
     out = {k: complex(fit[k]) for k in ('h0', 'h2', 'l0', 'l1', 'l2', 'hp', 'lp') if k in fit}
@@ -214,9 +272,9 @@ def parameters(S, r, opts):
 def spherical_degree(opts, n):
     """h, l of degree n (> 2) for the spherical model at the M2 frequency."""
     from .solver import TidalSolver
-    md0, _ = _model(opts)
+    md0 = _model(opts)[0]
     w = F_M2 * 2 * np.pi / 86400.0
-    md = md0.anelastic(w, alpha=opts.alpha, Tm=opts.tm, dispersion=opts.dispersion) if opts.anelastic else md0
+    md = md0.anelastic(w, alpha=opts.alpha, Tm=opts.tm, T0=opts.t0, dispersion=opts.dispersion) if opts.anelastic else md0
     S = TidalSolver(md, m=0, N=opts.N, n_force=n, degrees=([n], []), omega_f=w)
     r = S.solve()
     return {'h0': complex(r['h']), 'l0': complex(r['l']), 'k': complex(r['kk'])}
@@ -228,6 +286,24 @@ def _job(args):
         return spherical_degree(opts, n)
     if abs(f) < 1e-9:
         return {k: complex(v) for k, v in IERS_PERMANENT.items()} | {'note': 'IERS nominal (permanent tide)'}
+    if opts.core_median:
+        runs = [_job((replace(opts, fluidcore_N=int(N), core_median=None), n, m, f)) for N in opts.core_median]
+        out = {}
+        for k, v in runs[0].items():
+            if isinstance(v, complex):
+                vals = np.array([r[k] for r in runs])
+                out[k] = complex(np.median(vals.real), np.median(vals.imag))
+            else:
+                out[k] = v
+        dev = [abs(r[k] - out[k]) for r in runs for k, v in out.items() if isinstance(v, complex) and k != 'misfit']
+        out['core_spread'] = float(max(dev)) if dev else 0.0
+        return out
+    if m == 1 and abs(f / F_TILT - 1) < TILT_WINDOW:
+        # the tilt-over frequency (sigma = 1, K1): the free rigid tilt makes the system singular there,
+        # and the solution is decided by round-off; the regular part is linear across sigma = 1
+        # (the FCN is 2e-3 away), so take the mean of sigma = 1 -+ TILT_WINDOW (error ~1e-6)
+        ps = [parameters(*solve_wave(opts, m, F_TILT * (1 + d)), opts) for d in (-TILT_WINDOW, TILT_WINDOW)]
+        return {k: 0.5 * (ps[0][k] + ps[1][k]) for k in ps[0]}
     S, r = solve_wave(opts, m, f)
     return parameters(S, r, opts)
 
@@ -293,6 +369,7 @@ def metadata(opts, runtime):
                 created=datetime.now(timezone.utc).isoformat(timespec='seconds'),
                 model_file=mp.name, model_sha256=hashlib.sha256(mp.read_bytes()).hexdigest(),
                 options={k: v for k, v in asdict(opts).items() if k != 'conventions'},
+                nonhydrostatic=_model(opts)[2].summary() if opts.nonhydrostatic is not None else None,
                 conventions=opts.conventions, iers_conventions=opts.is_iers(),
                 units=dict(f_cpd='cycles per day',
                            parameters='complex [re, im]; h, l: equatorial radius; k: mean radius'),
@@ -303,8 +380,12 @@ def default_name(opts, waves='tamura'):
     """File name built from the options (the metadata, not the name, is authoritative)."""
     parts = [Path(opts.model).stem, 'anel' if opts.anelastic else 'elas',
              'rot' if opts.rotation else 'norot', 'flat' if opts.flattening else 'sph']
+    if opts.flattening and opts.figure != 'level':
+        parts.append('first' if opts.figure == 'first-order' else opts.figure)
     if not opts.centrifugal:
         parts.append('nocentr')
+    if opts.nonhydrostatic is not None:
+        parts.append('nonhydro')
     if not opts.is_iers():
         parts += [opts.frame, opts.latitude[:4], opts.direction, opts.surface, opts.norm[:4]]
     return 'love_' + '_'.join(parts + [waves]) + '.json'
@@ -408,6 +489,92 @@ def group_table(opts, groups, jobs=1, progress=True):
     return t
 
 
+# ---------------------------------------------------------------------------- set-up file
+TEMPLATE = """\
+# earth-tides set-up file (TOML), read by: earthtides-love --setup FILE
+# Every key is optional; the values below are the defaults unless marked "example".
+
+model = "PREM"              # Earth model: file or PREM, PREMs, HOMOG
+anelastic = true            # absorption-band anelasticity (Q from the model file)
+alpha = 0.15                # frequency exponent of Q beyond tm
+tm = 200.0                  # [s] end of the constant-Q band
+dispersion = "cot"          # "cot" (exact for power-law Q, IERS) or "astyanax"
+t0 = 1.0                    # reference period of the moduli [s]: 1 for PREM; 200 = the IERS assumption
+core_median = [16, 20, 24, 30]   # median over these N in the liquid core (default); [] = one solve
+rotation = true             # Coriolis force and inertia
+flattening = true           # hydrostatic flattening of the level surfaces
+figure = "level"            # "level" (level surfaces of the reference potential: second order in the
+                            # flattening and beyond) or "first-order" (Clairaut; FCN of PREM 1.1 days longer)
+centrifugal = true          # centrifugal force in the reference gravity
+K = 4                       # spheroidal degrees per field
+N = 24                      # Chebyshev polynomials per layer
+# fluidcore_N = 40          # N in the fluid core only (it alone needs it; default: N)
+# fluidcore_K = 12          # K in the fluid core only (default: K; keep K >= 6 for the diurnal band)
+# K and N per layer (overrides the four lines above): rules by depth of the layer midpoint and by
+# fluid/solid, later rules win (solver.resolution_per_layer); the same as JSON with --resolution
+# [resolution]
+# K = 6
+# N = 24
+# rules = [{depth_km = [0, 220], K = 4, N = 16}, {fluid = true, K = 12, N = 30}]
+
+# conventions of the IERS parametrization (etide needs these values)
+latitude = "geocentric"     # or "geodetic"
+direction = "radial"        # or "normal"
+surface = "deformed"        # or "mean"
+norm = "equatorial"         # or "mean"
+frame = "mantle"            # or "surface"
+
+# Non-hydrostatic Earth (example; leave the table out for a hydrostatic Earth). The excess
+# flattening is produced by zonal density loads in mantle shells, supported elastically on the
+# flattened rotating background (manual, Sect. 'A non-hydrostatic Earth'). Targets: J2 (excess J2),
+# surface and cmb (excess equatorial minus polar radius, m), e_f (excess dynamical ellipticity of
+# the fluid core). An exact fit needs as many targets as shells; with sigma and prior the fit is
+# regularised (targets weighted by sigma, loads kept small by prior, relative density).
+# [nonhydrostatic]
+# support = "elastic"       # or "viscous": instantaneous mantle flow, mu = viscosity_scale x eta,
+#                           # viscosity_scale = 2e6 (Pa), eta_lower = 50, eta_upper = 1 (relative),
+#                           # 80 km elastic lid; needs far larger loads for the same J2
+# shells_km = [[3480, 5701], [5701, 6346.6]]     # lower mantle, upper mantle (radii)
+# targets = {J2 = 1.14e-5, e_f = 1.238e-4}       # Chambat et al. 2010; FCN 431.4 sd (anelastic PREM,
+#                                                # level figure; the e_f of MHB 2002, 9.73e-5, gives 437 sd)
+# sigma = {J2 = 1e-7, e_f = 5e-6}
+# prior = 5e-3
+# model_static = "PREMs"    # the model with a weak-solid core for the static support (PREM: PREMs)
+
+# What to compute (command-line options override these)
+[run]
+groups = "default"          # one Love number per wave group: default | eterna | eterna-split | FILE
+# all_waves = true          # instead: every wave of the Tamura catalogue
+# freq = [0.92700, 1.00274] # instead: these frequencies [cpd] ...
+# order = 1                 # ... of this order m
+# output = "love.json"
+"""
+
+RUN_KEYS = ('groups', 'all_waves', 'freq', 'order', 'output', 'jobs')
+
+
+def read_setup(path):
+    """Options and the [run] table from a TOML set-up file (TEMPLATE)."""
+    import tomllib
+    with open(path, 'rb') as fp:
+        d = tomllib.load(fp)
+    run = d.pop('run', {})
+    bad = [k for k in run if k not in RUN_KEYS]
+    if bad:
+        raise ValueError(f'unknown [run] keys {bad}; allowed {RUN_KEYS}')
+    allowed = {f for f in Options.__dataclass_fields__ if f != 'conventions'}
+    bad = [k for k in d if k not in allowed]
+    if bad:
+        raise ValueError(f'unknown set-up keys {bad}; allowed {sorted(allowed)}')
+    if 'resolution' not in d and 'fluidcore_N' not in d:
+        d.setdefault('core_median', list(CORE_MEDIAN))
+    if d.get('core_median') in ([], False):
+        d['core_median'] = None
+    return Options(**d), run
+
+
+CORE_MEDIAN = (16, 20, 24, 30)     # default of earthtides-love and of its set-up files: median over these core N
+
 # ---------------------------------------------------------------------------- command line
 def main(argv=None):
     p = argparse.ArgumentParser(prog='earthtides-love', description=__doc__.split('\n\n')[0],
@@ -428,8 +595,15 @@ def main(argv=None):
     p.add_argument('--dispersion', default='cot', choices=['cot', 'astyanax'],
                    help='anelastic dispersion beyond Tm: cot(alpha pi/2) (exact for power-law Q, '
                         'IERS; default) or 2/(pi alpha) (astyanax)')
+    p.add_argument('--t0', type=float, default=1.0,
+                   help='reference period [s] of the moduli of the Earth model: constant Q from t0 to 200 s, '
+                        'power law beyond (default 1 s, PREM; 200 reproduces the dispersion assumed for the '
+                        'anelastic values of the IERS Conventions)')
     p.add_argument('--no-rotation', action='store_true', help='no Coriolis force (inertia only)')
     p.add_argument('--sphere', action='store_true', help='no flattening')
+    p.add_argument('--figure', default='level', choices=['first-order', 'level'],
+                   help='figure of the flattened Earth: first order in the flattening (Clairaut) or level '
+                        'surfaces of the reference potential (second order and beyond)')
     p.add_argument('--no-centrifugal', action='store_true', help='no centrifugal force in the reference gravity')
     p.add_argument('--frame', default='mantle', choices=['mantle', 'surface'])
     p.add_argument('--latitude', default='geocentric', choices=['geocentric', 'geodetic'])
@@ -438,13 +612,52 @@ def main(argv=None):
     p.add_argument('--norm', default='equatorial', choices=['equatorial', 'mean'])
     p.add_argument('-K', type=int, default=4, help='spheroidal degrees per field')
     p.add_argument('-N', type=int, default=24, help='Chebyshev polynomials per layer')
+    p.add_argument('--fluidcore_N', type=int, default=None,
+                   help='Chebyshev polynomials per layer in the fluid core only (default: N)')
+    p.add_argument('--fluidcore_K', type=int, default=None,
+                   help='degrees per field in the fluid core only (default: K)')
+    p.add_argument('--core-median', type=int, nargs='+', default=list(CORE_MEDIAN), metavar='N',
+                   help='solve each wave with these N in the liquid core and take the median of every '
+                        'parameter (default 16 20 24 30): rejects the pseudo-modes of an inviscid core, which '
+                        'fall on different waves at each resolution (manual, Sect. "The viscous core")')
+    p.add_argument('--single-core', action='store_true',
+                   help='one solve per wave with --fluidcore_N (or N) in the core, no median')
+    p.add_argument('--resolution', metavar='FILE', help='JSON file with K and N per layer (rules by '
+                   'depth and fluid/solid; see solver.resolution_per_layer); overrides -K -N '
+                   '--fluidcore_K --fluidcore_N')
     p.add_argument('--jobs', type=int, default=os.cpu_count() or 1)
     p.add_argument('-o', '--output', help='output file (default: built from the options)')
+    p.add_argument('--setup', metavar='FILE', help='TOML set-up file with all physics options, the '
+                   'non-hydrostatic Earth and a [run] table (see --template); the physics flags '
+                   'above are then not allowed')
+    p.add_argument('--template', action='store_true', help='print an annotated set-up file and exit')
     a = p.parse_args(argv)
-    opts = Options(model=a.model, anelastic=not a.elastic, rotation=not a.no_rotation,
-                   flattening=not a.sphere, centrifugal=not a.no_centrifugal, frame=a.frame,
-                   latitude=a.latitude, direction=a.direction, surface=a.surface, norm=a.norm,
-                   K=a.K, N=a.N, dispersion=a.dispersion)
+    if a.template:
+        print(TEMPLATE, end='')
+        return
+    if a.setup:
+        physics = ('model', 'elastic', 'dispersion', 't0', 'core_median', 'single_core', 'no_rotation', 'sphere', 'no_centrifugal', 'frame',
+                   'latitude', 'direction', 'surface', 'norm', 'K', 'N', 'fluidcore_N', 'fluidcore_K', 'resolution')
+        given = [k for k in physics if getattr(a, k) != p.get_default(k)]
+        if given:
+            p.error(f'with --setup, set {given} in the set-up file')
+        opts, run = read_setup(a.setup)
+        for k in ('groups', 'output', 'jobs'):
+            if k in run and getattr(a, k) == p.get_default(k):
+                setattr(a, k, run[k])
+        if run.get('all_waves') and not a.freq:
+            a.all_waves = True
+        if 'freq' in run and not (a.freq or a.all_waves):
+            a.freq, a.order = run['freq'], run.get('order', a.order)
+    else:
+        opts = Options(model=a.model, anelastic=not a.elastic, rotation=not a.no_rotation,
+                       flattening=not a.sphere, figure=a.figure, centrifugal=not a.no_centrifugal, frame=a.frame,
+                       latitude=a.latitude, direction=a.direction, surface=a.surface, norm=a.norm,
+                       K=a.K, N=a.N, fluidcore_N=a.fluidcore_N,
+                       fluidcore_K=a.fluidcore_K,
+                       resolution=json.load(open(a.resolution)) if a.resolution else None, dispersion=a.dispersion,
+                       t0=a.t0,
+                       core_median=None if (a.single_core or a.resolution or a.fluidcore_N) else a.core_median)
     if a.waves == 'tamura':
         a.all_waves = True
     if not (a.all_waves or a.freq):

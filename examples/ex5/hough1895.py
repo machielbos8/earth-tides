@@ -3,7 +3,7 @@
 # Free core nutation of Hough's (1895) Earth: rigid shell, homogeneous fluid
 # core.
 #
-# This file is part of earth-tides 1.0.
+# This file is part of earth-tides 1.1.
 #
 # earth-tides is distributed under a source-available license.
 # It may be used free of charge for academic, research, and other
@@ -59,13 +59,13 @@ def out(s=''):
     lines.append(s)
 
 
-def make(vs_m=1000.0, vp_c=1000.0, path=HERE / 'HOUGH.dat'):
-    """Two layers, equal density; Vs, Vp in km/s."""
+def make(vs_m=1000.0, vp_c=1000.0, path=HERE / 'HOUGH.dat', rho_c=RHO, rho_m=RHO):
+    """Two layers, equal density (rho_c, rho_m in kg/m3 override it); Vs, Vp in km/s."""
     def blk(name, core, mant):
         return (f"\n{name}\n{'-' * len(name)}\n{A:.1f}  {core:14.6f}  0.0  0.0  0.0\n"
                 f"{A - RC:.1f}  {mant:14.6f}  0.0  0.0  0.0\n")
     s = ("HOUGH\t| rigid mantle, homogeneous fluid core (Hough 1895)\n2       | Number of layers\n"
-         + blk('rho', RHO / 1e3, RHO / 1e3) + blk('Vp_h', vp_c, 2 * vs_m) + blk('Vp_v', vp_c, 2 * vs_m)
+         + blk('rho', rho_c / 1e3, rho_m / 1e3) + blk('Vp_h', vp_c, 2 * vs_m) + blk('Vp_v', vp_c, 2 * vs_m)
          + blk('Vs_h', 0.0, vs_m) + blk('Vs_v', 0.0, vs_m) + blk('eta', 1, 1)
          + f"\nQmu\n---\n{A:.1f}   600.0\n{A - RC:.1f}   600.0\n")
     Path(path).write_text(s)

@@ -1,0 +1,89 @@
+{
+ "id": "20261114T165405-nonhydro_fcn_viscous-8614",
+ "status": "ok",
+ "purpose": "task C: FCN of the non-hydrostatic PREM, viscous core (CMB 0 m, route A, core stress True, core dp static, anelastic False)",
+ "script": "scripts/nonhydro_fcn_viscous.py",
+ "command": "python scripts/nonhydro_fcn_viscous.py 0 12 30 1 0.75 0.5 0.35",
+ "params": {
+  "cmb": 0.0,
+  "K": 12,
+  "N": 30,
+  "deltas": [
+   1000.0,
+   750.0,
+   500.0,
+   350.0
+  ],
+  "route": "A",
+  "core_stress": true,
+  "core_dp": "static",
+  "anelastic": false,
+  "sigma": [
+   1.0012,
+   1.0016,
+   1.003,
+   1.0036
+  ],
+  "figure": "level"
+ },
+ "git": {
+  "commit": "54971e119bd4ad96dfa30f90999b082099a35ce7",
+  "dirty": [
+   "paper_pepi/figures/figS_nonhydro_state_viscous.pdf",
+   "paper_pepi/figures/fig_am_sweep.pdf",
+   "paper_pepi/figures/fig_core_ekman.pdf",
+   "paper_pepi/figures/fig_core_sweep.pdf",
+   "paper_pepi/figures/fig_fcn_ef.pdf",
+   "paper_pepi/figures/fig_nonhydro_state.pdf",
+   "paper_pepi/main_v2.tex",
+   "paper_pepi/main_v2_2col.pdf",
+   "paper_pepi/make_table4.py",
+   "paper_pepi/references.bib",
+   "paper_pepi/supplement_v2.pdf",
+   "paper_pepi/supplement_v2.tex",
+   "paper_pepi/table4.tex",
+   "paper_pepi/tableS_viscous.tex",
+   "results/LEDGER.jsonl",
+   "results/convention_table.txt.meta.json",
+   "results/nonhydro_diurnal.txt.meta.json",
+   "results/paper1_table4.txt",
+   "results/paper1_table4.txt.meta.json",
+   "results/regen/table4.tex",
+   "results/regen/table4.tex.meta.json",
+   "results/regen/tableS_viscous.tex.meta.json"
+  ],
+  "script_untracked": false,
+  "script_dirty": false,
+  "script_sha256": "f3ed10245a597c0da7fc19d43ea2e5279c4c0dc5ade6e00d5a48e5bd9093b059"
+ },
+ "env": {
+  "EARTHTIDES_FIGURE": "level",
+  "ROUTE": "A",
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  },
+  {
+   "path": "data/PREMs.dat",
+   "sha256": "e9fcce04a0de9f094a983ff8a3aa40d971eba71aeb93968bbb4f65a705ddb952"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/nonhydro_fcn_viscous_0m_A_K12_N30_level.txt",
+   "sha256": "4a8b51c94f384ec65f8446879fd1e8132f84f1e8a3e5d795f40a2f8e09c1bd7e"
+  }
+ ],
+ "start": "2026-11-14T16:54:05",
+ "end": "2026-11-14T16:55:18",
+ "wall_s": 73.3,
+ "peak_rss_mb": {
+  "self": 1469.2,
+  "children_max": 11.1
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

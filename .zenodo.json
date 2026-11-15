@@ -1,7 +1,7 @@
 {
-  "title": "earth-tides 1.0.0: software, scripts and results for \"What the IERS body-tide model assumes: Love numbers of a flattened, rotating, anelastic Earth\"",
+  "title": "earth-tides 1.1.0: software, scripts and results for \"Body tides of a flattened, rotating, non-hydrostatic Earth: a transparent numerical model\"",
   "upload_type": "software",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "creators": [
     {
       "name": "Bos, Machiel S.",
@@ -9,12 +9,13 @@
       "orcid": "0000-0002-1946-8637"
     }
   ],
-  "description": "<p>The Python package earth-tides computes the Love numbers of a flattened, rotating, anelastic Earth with a spectral Galerkin-collocation method, and the body-tide displacement of a station (program etide). This archive contains the package, the scripts that produce every table, figure and number of the paper, the stored results and the figures. paper_scripts/run_all.py reruns the scripts and compares their output with the stored results; README.md lists which script produces which result.</p>",
+  "description": "<p>The Python package earth-tides computes the Love numbers of a flattened, rotating, anelastic Earth, hydrostatic or non-hydrostatic, with an inviscid or a viscous liquid core, with a spectral Galerkin-collocation method in level-surface coordinates, and the body-tide displacement of a station (program etide). This archive contains the package, the scripts that produce every table, figure and number of the paper, the stored results and the figures. paper_scripts/run_all.py reruns the scripts and compares their output with the stored results; README.md lists which script produces which result.</p>",
   "keywords": [
     "solid Earth tide",
     "Love numbers",
     "free core nutation",
-    "ocean tide loading",
+    "non-hydrostatic Earth",
+    "initial stress",
     "IERS Conventions",
     "anelasticity",
     "spectral methods"

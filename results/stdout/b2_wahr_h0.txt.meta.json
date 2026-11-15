@@ -1,0 +1,36 @@
+{
+ "id": "20261111T053910-b2_wahr_h0-1611",
+ "status": "ok",
+ "purpose": "stdout of scripts/b2_wahr_h0.py",
+ "script": "scripts/b2_wahr_h0.py",
+ "command": "python scripts/traced.py b2_wahr_h0 -- scripts/b2_wahr_h0.py",
+ "params": {
+  "args": []
+ },
+ "git": {
+  "commit": "4faf9c47a5fa091911447556811a04b1fd6dbe6d",
+  "dirty": [
+   "results/stdout/b2_wahr_h0.txt"
+  ],
+  "script_untracked": false,
+  "script_dirty": false,
+  "script_sha256": "74f4d58a29e21fabb60cc8c80cf8674e3a0c8b1e840f526998da74a4addd0b05"
+ },
+ "env": {},
+ "inputs": [],
+ "outputs": [
+  {
+   "path": "results/stdout/b2_wahr_h0.txt",
+   "sha256": "2128a8bb0c0f760e99bd7877f3cf538fa51c90202360813ee699f609112d6f0d"
+  }
+ ],
+ "start": "2026-11-11T05:39:10",
+ "end": "2026-11-11T05:39:17",
+ "wall_s": 6.5,
+ "peak_rss_mb": {
+  "self": 19.8,
+  "children_max": 729.1
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

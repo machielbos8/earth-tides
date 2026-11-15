@@ -1,0 +1,53 @@
+{
+ "id": "20261105T215245-convergence_viscous_coreK-2022",
+ "status": "ok",
+ "purpose": "core-K sweep, core K 168 N 30, delta 0.5 km, step 0.0025 cpsd",
+ "script": "scripts/convergence_viscous_coreK.py",
+ "command": "python scripts/convergence_viscous_coreK.py 168 30 0.5 1 --band 8 --split 16 --interior-N 15 --solid-P 0 --after 2501930",
+ "params": {
+  "K_core": 168,
+  "N_core": 30,
+  "delta_km": 0.5,
+  "step": 0.0025,
+  "workers": 1,
+  "band": 8,
+  "window": null,
+  "neutral": false,
+  "split": 16,
+  "interior_N": 15,
+  "solid_P": 0
+ },
+ "git": {
+  "commit": "90462b697b24bd88b20ad460e1790ba6b1e82d5b",
+  "dirty": [
+   "results/LEDGER.jsonl"
+  ],
+  "script_untracked": false,
+  "script_dirty": false,
+  "script_sha256": "d486a2cc2bd184a2ecc3c27d7f29b9a9c2861682e3a9757c12d9bd82f7a4ff93"
+ },
+ "env": {
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/convergence_viscous_coreK168_N30_d0.5_b8_S16N15_sP0.txt",
+   "sha256": "a90ab015532f4bff67a5e9dbea2d35691ce0df4126a92981cbd82263de6f8ce9"
+  }
+ ],
+ "start": "2026-11-05T21:52:45",
+ "end": "2026-11-06T03:08:35",
+ "wall_s": 18949.7,
+ "peak_rss_mb": {
+  "self": 59.6,
+  "children_max": 58.7
+ },
+ "host": "Linux (28 GB)",
+ "python": "3.14.4"
+}

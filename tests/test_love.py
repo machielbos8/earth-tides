@@ -4,7 +4,7 @@
 # (elastic, hydrostatic PREM, changes in units of 1e-5, printed to 0.1); the
 # JSON round trip; etide reads a table and refuses one in other conventions.
 #
-# This file is part of earth-tides 1.0.
+# This file is part of earth-tides 1.1.
 #
 # earth-tides is distributed under a source-available license.
 # It may be used free of charge for academic, research, and other
@@ -49,26 +49,27 @@ VARIANTS = {'geodetic': dict(latitude='geodetic'), 'normal': dict(direction='nor
 
 
 def _params(m, f, **kw):
-    o = love.Options(anelastic=False, **kw)
+    o = love.Options(anelastic=False, figure='first-order', **kw)
     S, r = love.solve_wave(o, m, f)
     return S, r
 
 
 @pytest.mark.parametrize('m, f', [(1, O1), (2, M2)])
 def test_conventions_table3(m, f):
+    # the table's numbers are those of the first-order figure (the default until 2026-11-14)
     keys = KEYS[:len(BASE[m])]
     S, r = _params(m, f)
-    base = love.parameters(S, r, love.Options(anelastic=False))
+    base = love.parameters(S, r, love.Options(anelastic=False, figure='first-order'))
     assert all(abs(base[k].real - v) < 6e-6 for k, v in zip(keys, BASE[m]))
     for name, row in ROWS[m].items():
         if name in VARIANTS:
-            p = love.parameters(S, r, love.Options(anelastic=False, **VARIANTS[name]))
+            p = love.parameters(S, r, love.Options(anelastic=False, figure='first-order', **VARIANTS[name]))
         elif name == 'frame':
             S2, r2 = _params(m, f, frame='surface')
-            p = love.parameters(S2, r2, love.Options(anelastic=False, frame='surface'))
+            p = love.parameters(S2, r2, love.Options(anelastic=False, figure='first-order', frame='surface'))
         else:                                         # no centrifugal force in the reference
             S2, r2 = _params(m, f, centrifugal=False)
-            p = love.parameters(S2, r2, love.Options(anelastic=False, centrifugal=False))
+            p = love.parameters(S2, r2, love.Options(anelastic=False, figure='first-order', centrifugal=False))
         got = [1e5 * (p[k].real - base[k].real) for k in keys]
         assert np.allclose(got, row, atol=0.051), (name, np.round(got, 1), row)
 
@@ -132,3 +133,17 @@ def test_default_groups():
         a = np.column_stack(etide.displacement(mjd, lat, lon, 0.0, iers, cat=cat))
         b = np.column_stack(etide.displacement(mjd, lat, lon, 0.0, G, cat=cat))
         assert np.abs(a - b).max() < 5e-5
+
+
+def test_core_median_rejects_a_pseudo_mode():
+    """At 1.823252 cpd (m = 2) a pseudo-mode of the inviscid core with N = 24 gives h(2) = -0.0013; with
+    N = 16, 20 and 30 it is -0.00052. The median over the four resolutions rejects it and core_spread flags
+    the wave."""
+    f = 1.823252
+    single = love._job((love.Options(fluidcore_N=24), 2, 2, f))
+    med = love._job((love.Options(core_median=(16, 20, 24, 30)), 2, 2, f))
+    assert complex(single['h2']).real < -0.001
+    assert abs(complex(med['h2']).real + 0.000521) < 5e-6
+    assert med['core_spread'] > 5e-4
+    with pytest.raises(ValueError):
+        love.Options(core_median=(16, 24), resolution={'K': 4, 'N': 24, 'rules': []})

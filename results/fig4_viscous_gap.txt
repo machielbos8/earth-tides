@@ -1,0 +1,7 @@
+h2(viscous) - h2(inviscid), units 1e-6
+delta 4 km K 24, inviscid K  8: O1  +6.07, 0.95  +8.96; M2 band |d| median 0.97, 90 % 6.65
+delta 4 km K 24, inviscid K 16: O1  +5.50, 0.95  +7.80; M2 band |d| median 0.55, 90 % 2.79
+delta 4 km K 24, inviscid K 24: O1  +5.53, 0.95  +8.90; M2 band |d| median 0.66, 90 % 4.14
+delta 1 km K 96, inviscid K  8: O1  +7.99, 0.95 +10.17; M2 band |d| median 0.81, 90 % 6.36
+delta 1 km K 96, inviscid K 16: O1  +7.41, 0.95  +9.01; M2 band |d| median 0.33, 90 % 2.19
+delta 1 km K 96, inviscid K 24: O1  +7.44, 0.95 +10.11; M2 band |d| median 0.38, 90 % 3.19

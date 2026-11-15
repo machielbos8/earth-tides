@@ -1,0 +1,42 @@
+{
+ "id": "20261108T122249-check_rotating_spheroid-6527",
+ "status": "ok",
+ "purpose": "stdout of scripts/check_rotating_spheroid.py",
+ "script": "scripts/check_rotating_spheroid.py",
+ "command": "python scripts/traced.py rotating_spheroid --outputs results/rotating_spheroid.txt -- scripts/check_rotating_spheroid.py",
+ "params": {
+  "args": []
+ },
+ "git": {
+  "commit": "5b487b42f656115133e220996883b6ca79240731",
+  "dirty": [
+   "docs/lab_notes/earthtides_lab_notes.md",
+   "paper_scripts/run_all.py",
+   "scripts/paper_numbers_v2.py"
+  ],
+  "script_untracked": false,
+  "script_dirty": false,
+  "script_sha256": "1a659c642c521704df804e1f696958ca1da61d4ba07b2e2e439322f1521b757d"
+ },
+ "env": {},
+ "inputs": [],
+ "outputs": [
+  {
+   "path": "results/stdout/rotating_spheroid.txt",
+   "sha256": "f59ced46cf0d54d5b856b1d7e59ab97032bc27bf72fee1330c364ee1d516a8a0"
+  },
+  {
+   "path": "results/rotating_spheroid.txt",
+   "sha256": "f59ced46cf0d54d5b856b1d7e59ab97032bc27bf72fee1330c364ee1d516a8a0"
+  }
+ ],
+ "start": "2026-11-08T12:22:49",
+ "end": "2026-11-08T12:22:52",
+ "wall_s": 3.1,
+ "peak_rss_mb": {
+  "self": 19.8,
+  "children_max": 193.0
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

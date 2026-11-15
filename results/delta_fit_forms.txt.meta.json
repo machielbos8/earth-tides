@@ -1,0 +1,55 @@
+{
+ "id": "20261115T132127-delta_fit_forms-4615",
+ "status": "ok",
+ "purpose": "P1 review M4: form of the extrapolation delta -> 0 (quadratic vs delta^1/2, delta^2/3)",
+ "script": "scripts/delta_fit_forms.py",
+ "command": "python scripts/delta_fit_forms.py",
+ "params": {
+  "K": 72,
+  "tag": "Kthin",
+  "dmin": 250.0,
+  "forms": [
+   "quad",
+   "sqrt",
+   "2/3"
+  ]
+ },
+ "git": {
+  "commit": "67085940f1f4cb0a8bbce5e8fa78033d501c93be",
+  "dirty": [
+   "results/LEDGER.jsonl",
+   "results/delta_fit_forms.txt",
+   "results/delta_fit_forms.txt.meta.json",
+   "scripts/delta_fit_forms.py"
+  ],
+  "script_untracked": false,
+  "script_dirty": true,
+  "script_sha256": "d29dac345f7aada20e0e5ff95df02686124cf51c0a447fc411e07d01d15488e2"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "results/viscous_limit_thin_Kthin_level.txt",
+   "sha256": "228a7d3b32468f809a71a4e4f7d3ab7f81267213bb9f3c81c41f816f0218379a"
+  },
+  {
+   "path": "results/viscous_limit_thin_Kthin_level.npz",
+   "sha256": "4992069b781712be61aa34a65b83d6f0d4f6ab6a39d983ab1221e6a0c2cc95fb"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/delta_fit_forms.txt",
+   "sha256": "2303d20486f6b240a0c51a7edc19d1dc3ecc0167f4bb4089ffe8b11509e843ab"
+  }
+ ],
+ "start": "2026-11-15T13:21:27",
+ "end": "2026-11-15T13:21:27",
+ "wall_s": 0.0,
+ "peak_rss_mb": {
+  "self": 33.2,
+  "children_max": 8.9
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

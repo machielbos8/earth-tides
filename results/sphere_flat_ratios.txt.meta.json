@@ -1,0 +1,47 @@
+{
+ "id": "20261110T165221-sphere_flat_ratios-6946",
+ "status": "ok",
+ "purpose": "sphere / flattened short-wavelength energy of the core flow",
+ "script": "scripts/sphere_flat_ratios.py",
+ "command": "python scripts/sphere_flat_ratios.py",
+ "params": {},
+ "git": {
+  "commit": "73b1626534827638873120f10bcaa612e897a830",
+  "dirty": [
+   "paper_pepi/figures/figS_sphere_flat.pdf"
+  ],
+  "script_untracked": true,
+  "script_dirty": false,
+  "script_sha256": "5f873582b88c54a6fdfcedc7f3b6d0844216a595db8ee297bea8193e4f806b5a"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "results/core_flow_attractor_K168_S16N15.npz",
+   "sha256": "6ac8887d75941005a242fe7d5256472bdd1c3c9fcb7edb9b79eebea05bddd942"
+  },
+  {
+   "path": "results/core_flow_attractor_M2.npz",
+   "sha256": "021d9a88c147a68b0291c40e61db2d57e044698ad609880b1a7bfe2a1539a720"
+  },
+  {
+   "path": "results/core_flow_attractor_sphere.npz",
+   "sha256": "88b31a5351d37f69e28529b7084443bddec791d9f447b67b73f630ffbf356fc6"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/sphere_flat_ratios.txt",
+   "sha256": "07c25799eadef4ae5a24d2155c26a15d86e402d4ab78dac5a86edbcfbc9be220"
+  }
+ ],
+ "start": "2026-11-10T16:52:21",
+ "end": "2026-11-10T16:52:21",
+ "wall_s": 0.2,
+ "peak_rss_mb": {
+  "self": 83.7,
+  "children_max": 36.1
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

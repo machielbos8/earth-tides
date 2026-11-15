@@ -4,7 +4,7 @@
 # etide: solid Earth tide displacement at a station, from the Tamura (1987)
 # tidal potential.
 #
-# This file is part of earth-tides 1.0.
+# This file is part of earth-tides 1.1.
 #
 # earth-tides is distributed under a source-available license.
 # It may be used free of charge for academic, research, and other
@@ -227,8 +227,9 @@ def ddw_resonance(key, f_cpd):
 
 
 class LoveModel:
-    """Love numbers per wave: arrays h0, h2, l0, l2, l1 (complex) for the degree-2 waves and
-    h0, l0 for degrees 3 and 4.
+    """Love numbers per wave: arrays h0, h2, l0, l2, l1, hp (h'), lp (l') (complex) for the
+    degree-2 waves and h0, l0 for degrees 3 and 4. hp and lp are zero for 'iers', 'mhb' and 'ddw'
+    (DEHANTTIDEINEL leaves them out); the earthtides-love tables carry them.
 
     'iers': TN36. Semidiurnal: step-1 values h(0) = 0.6078 - 0.0022i, l(0) = 0.0847 - 0.0007i,
             h(2) = -0.0006, l(2) = 0.0002, l(1) = 0.0024. Diurnal: the resonance formula with the
@@ -249,6 +250,7 @@ class LoveModel:
         n, m, f = cat.n, cat.m, cat.f_cpd
         z = np.zeros(len(n), complex)
         self.h0, self.h2, self.l0, self.l2, self.l1 = z.copy(), z.copy(), z.copy(), z.copy(), z.copy()
+        self.hp, self.lp = z.copy(), z.copy()
         if source in ('iers', 'mhb', 'ddw'):
             d2 = n == 2
             sd, di, lp = d2 & (m == 2), d2 & (m == 1), d2 & (m == 0)
@@ -288,7 +290,7 @@ class LoveModel:
             if e is None:
                 missing += 1
                 continue
-            for key in ('h0', 'h2', 'l0', 'l2', 'l1'):
+            for key in ('h0', 'h2', 'l0', 'l2', 'l1', 'hp', 'lp'):
                 if key in e:
                     getattr(self, key)[i] = complex(*e[key])
         if missing:
@@ -332,6 +334,20 @@ def displacement(mjd, lat, lon, h=0.0, love='iers', degrees=(2, 3, 4), cat=None)
                 l1E = (L.l1[s][:, None] * E[s]).sum(0)
                 un += np.real(l1E * N1) * Wn
                 ue += np.real(l1E * E1) * Wn
+            if n == 2 and m < 2:
+                # h', l' and the zonal l(1) in the form of Online Resource 1 (Sect. S8), in which
+                # V/g = Re[A Y_m e^{i psi}] with the Schmidt functions Y_0 = P2, Y_1 = sqrt3 s c
+                c = W_functions(2, m, 0.5)[0] / {0: 1.5 * np.sin(0.5)**2 - 0.5,
+                                                 1: np.sqrt(3) * np.sin(0.5) * np.cos(0.5)}[m]
+                hpA = c * (L.hp[s][:, None] * E[s]).sum(0)
+                lpA = c * (L.lp[s][:, None] * E[s]).sum(0)
+                if m == 0:
+                    l1A = c * (L.l1[s][:, None] * E[s]).sum(0)
+                    ur += np.real(hpA) * np.sqrt(4 * np.pi / 5)
+                    ue += np.real(1j * (-3 * l1A * sp**2 * cp + np.sqrt(4 * np.pi / 5) * lpA * cp))
+                else:
+                    un += np.real(lpA) * np.sqrt(8 * np.pi / 5)
+                    ue += np.real(-1j * lpA) * np.sqrt(8 * np.pi / 5) * sp
     return ur, un, ue
 
 

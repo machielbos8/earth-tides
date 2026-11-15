@@ -1,0 +1,44 @@
+{
+ "id": "20261115T122827-nonhydro_support-1236",
+ "status": "ok",
+ "purpose": "elastic and viscous support of the mantle loads: targets (S10)",
+ "script": "scripts/nonhydro_support.py",
+ "command": "python scripts/nonhydro_support.py",
+ "params": {
+  "argv": []
+ },
+ "git": {
+  "commit": "20f60af696dcbbd5c0bdc14096f6707ac45f6d16",
+  "dirty": [
+   "paper_pepi/supplement_v3.tex",
+   "scripts/nonhydro_support.py"
+  ],
+  "script_untracked": false,
+  "script_dirty": true,
+  "script_sha256": "dd2cf4395d184096c85a854a61e267d45ae825e9194e4c4f104f18d107fa04b0"
+ },
+ "env": {
+  "EARTHTIDES_FIGURE": "level"
+ },
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/nonhydro_support_level.txt",
+   "sha256": "31b2e0082d9e18f29881c524f4c45ecb69fefb16115a4f45601d297e3355a744"
+  }
+ ],
+ "start": "2026-11-15T12:28:27",
+ "end": "2026-11-15T12:28:32",
+ "wall_s": 4.8,
+ "peak_rss_mb": {
+  "self": 234.9,
+  "children_max": 8.9
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

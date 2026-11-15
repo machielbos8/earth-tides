@@ -1,0 +1,52 @@
+Part 1: homogeneous body, Smith (1974) vs exact series (first value Smith, second exact)
+ flattening 0.000000
+  O1 no Coriolis             w+/l0 +2.295550e-15 vs -9.349709e-12 (0.0e+00)   l+/l0 -1.735e-14 vs -1.800e-11   h+/h0 -6.426e-17 vs +8.657e-16   l0/h0 0.277698 vs 0.277698
+  O1 Coriolis                w+/l0 +3.121854e-04 vs +3.121854e-04 (1.8e-07)   l+/l0 -2.392e-08 vs -2.362e-08   h+/h0 -1.048e-07 vs -1.048e-07   l0/h0 0.277693 vs 0.277693
+  M2 no Coriolis             w+/l0 -3.924469e-17 vs -1.043424e-11 (0.0e+00)   l+/l0 +2.998e-17 vs -1.141e-13   h+/h0 -7.003e-17 vs -1.715e-16   l0/h0 0.277432 vs 0.277432
+  M2 Coriolis                w+/l0 +5.153773e-04 vs +5.153772e-04 (6.9e-08)   l+/l0 -7.240e-08 vs -7.241e-08   h+/h0 -3.216e-07 vs -3.216e-07   l0/h0 0.277413 vs 0.277413
+ flattening 0.003353
+  O1 no Coriolis             w+/l0 +2.693885e-04 vs +2.661908e-04 (1.2e-02)   l+/l0 +2.892e-04 vs +2.877e-04   h+/h0 -7.227e-04 vs -7.251e-04   l0/h0 0.277543 vs 0.277541
+  O1 Coriolis                w+/l0 +5.804467e-04 vs +5.771743e-04 (5.7e-03)   l+/l0 +2.891e-04 vs +2.875e-04   h+/h0 -7.232e-04 vs -7.255e-04   l0/h0 0.277538 vs 0.277536
+  M2 no Coriolis             w+/l0 +4.281262e-04 vs +4.299633e-04 (4.3e-03)   l+/l0 +2.033e-04 vs +2.024e-04   h+/h0 -5.113e-04 vs -5.116e-04   l0/h0 0.277747 vs 0.277747
+  M2 Coriolis                w+/l0 +9.412246e-04 vs +9.429843e-04 (1.9e-03)   l+/l0 +2.029e-04 vs +2.021e-04   h+/h0 -5.126e-04 vs -5.129e-04   l0/h0 0.277728 vs 0.277728
+ flattening 0.000333
+  O1 no Coriolis             w+/l0 +2.659046e-05 vs +2.655909e-05 (1.2e-03)   l+/l0 +2.856e-05 vs +2.854e-05   h+/h0 -7.197e-05 vs -7.199e-05   l0/h0 0.277682 vs 0.277682
+  O1 Coriolis                w+/l0 +3.386644e-04 vs +3.386249e-04 (1.2e-04)   l+/l0 +2.852e-05 vs +2.851e-05   h+/h0 -7.211e-05 vs -7.213e-05   l0/h0 0.277678 vs 0.277678
+  M2 no Coriolis             w+/l0 +4.252596e-05 vs +4.254411e-05 (4.3e-04)   l+/l0 +2.023e-05 vs +2.022e-05   h+/h0 -5.086e-05 vs -5.086e-05   l0/h0 0.277463 vs 0.277463
+  M2 Coriolis                w+/l0 +5.576767e-04 vs +5.576876e-04 (2.0e-05)   l+/l0 +2.013e-05 vs +2.012e-05   h+/h0 -5.128e-05 vs -5.128e-05   l0/h0 0.277444 vs 0.277444
+
+Part 2: smooth radial profiles (data/SMOOTH.dat), Smith (1974) vs solver (first value Smith, second solver)
+ flattening 0.003353
+  O1 no Coriolis             w+/l0 +2.927255e-04 vs +2.827532e-04 (3.5e-02)   l+/l0 +2.539e-04 vs +2.508e-04   h+/h0 -6.460e-04 vs -6.478e-04   l0/h0 0.272789 vs 0.272785
+  O1 Coriolis                w+/l0 +6.223762e-04 vs +6.124973e-04 (1.6e-02)   l+/l0 +2.538e-04 vs +2.506e-04   h+/h0 -6.465e-04 vs -6.482e-04   l0/h0 0.272787 vs 0.272782
+  M2 no Coriolis             w+/l0 +4.611817e-04 vs +4.652684e-04 (8.8e-03)   l+/l0 +1.779e-04 vs +1.777e-04   h+/h0 -4.573e-04 vs -4.559e-04   l0/h0 0.272993 vs 0.272991
+  M2 Coriolis                w+/l0 +1.004880e-03 vs +1.009041e-03 (4.1e-03)   l+/l0 +1.775e-04 vs +1.773e-04   h+/h0 -4.586e-04 vs -4.572e-04   l0/h0 0.272984 vs 0.272982
+ flattening 0.000333
+  O1 no Coriolis             w+/l0 +2.867934e-05 vs +2.858153e-05 (3.4e-03)   l+/l0 +2.492e-05 vs +2.489e-05   h+/h0 -6.438e-05 vs -6.439e-05   l0/h0 0.272935 vs 0.272935
+  O1 Coriolis                w+/l0 +3.594581e-04 vs +3.593709e-04 (2.4e-04)   l+/l0 +2.489e-05 vs +2.486e-05   h+/h0 -6.451e-05 vs -6.453e-05   l0/h0 0.272933 vs 0.272932
+  M2 no Coriolis             w+/l0 +4.582408e-05 vs +4.586505e-05 (8.9e-04)   l+/l0 +1.766e-05 vs +1.766e-05   h+/h0 -4.548e-05 vs -4.547e-05   l0/h0 0.272692 vs 0.272691
+  M2 Coriolis                w+/l0 +5.918910e-04 vs +5.919427e-04 (8.7e-05)   l+/l0 +1.755e-05 vs +1.755e-05   h+/h0 -4.589e-05 vs -4.587e-05   l0/h0 0.272683 vs 0.272682
+
+Part 3: self-gravitating hydrostatic homogeneous spheroid, Smith (1974) vs solver (first value Smith)
+ reference rotation x 1.0: hydrostatic eps = 0.004324
+  O1 no Coriolis             w+/l0 +4.155214e-04 vs +4.071595e-04 (2.1e-02)   l+/l0 +4.754e-04 vs +4.733e-04   h+/h0 -1.190e-03 vs -1.183e-03   l0/h0 0.222683 vs 0.222476
+  O1 Coriolis                w+/l0 +9.264245e-04 vs +9.197053e-04 (7.3e-03)   l+/l0 +5.069e-04 vs +4.734e-04   h+/h0 -1.058e-03 vs -1.183e-03   l0/h0 0.222649 vs 0.222442
+  M2 no Coriolis             w+/l0 +6.648817e-04 vs +6.751569e-04 (1.5e-02)   l+/l0 +3.336e-04 vs +3.348e-04   h+/h0 -8.338e-04 vs -8.327e-04   l0/h0 0.222918 vs 0.222714
+  M2 Coriolis                w+/l0 +1.510405e-03 vs +1.522398e-03 (7.9e-03)   l+/l0 +3.337e-04 vs +3.350e-04   h+/h0 -8.349e-04 vs -8.338e-04   l0/h0 0.222780 vs 0.222575
+ reference rotation x 0.3: hydrostatic eps = 0.000389
+  O1 no Coriolis             w+/l0 +3.743239e-05 vs +3.736503e-05 (1.8e-03)   l+/l0 +4.258e-05 vs +4.255e-05   h+/h0 -1.065e-04 vs -1.065e-04   l0/h0 0.222542 vs 0.222524
+  O1 Coriolis                w+/l0 +5.517656e-04 vs +5.517995e-04 (6.2e-05)   l+/l0 +4.265e-05 vs +4.254e-05   h+/h0 -1.063e-04 vs -1.066e-04   l0/h0 0.222509 vs 0.222491
+  M2 no Coriolis             w+/l0 +5.999459e-05 vs +6.007781e-05 (1.4e-03)   l+/l0 +3.018e-05 vs +3.019e-05   h+/h0 -7.523e-05 vs -7.522e-05   l0/h0 0.222148 vs 0.222130
+  M2 Coriolis                w+/l0 +9.110596e-04 vs +9.112981e-04 (2.6e-04)   l+/l0 +3.013e-05 vs +3.015e-05   h+/h0 -7.566e-05 vs -7.565e-05   l0/h0 0.222010 vs 0.221992
+
+Part 4: self-gravitating two-layer body (data/TWOLAYER.dat: density jump 9.5 -> 5.0 at r = 3371 km, density gradient in both layers), Smith (1974) vs solver (first value Smith)
+ reference rotation x 1.0: Clairaut eps(a) = 0.003793
+  O1 no Coriolis             w+/l0 -4.855812e-05 vs -5.735337e-05 (1.5e-01)   l+/l0 +2.255e-04 vs +2.241e-04   h+/h0 -1.432e-03 vs -1.431e-03   l0/h0 0.332605 vs 0.332505
+  O1 Coriolis                w+/l0 +4.421866e-05 vs +5.662397e-05 (2.2e-01)   l+/l0 +2.385e-04 vs +2.241e-04   h+/h0 -1.361e-03 vs -1.431e-03   l0/h0 0.332592 vs 0.332495
+  M2 no Coriolis             w+/l0 -7.641751e-05 vs -7.161419e-05 (6.7e-02)   l+/l0 +1.582e-04 vs +1.585e-04   h+/h0 -1.010e-03 vs -1.008e-03   l0/h0 0.332812 vs 0.332715
+  M2 Coriolis                w+/l0 +1.112006e-04 vs +1.162576e-04 (4.3e-02)   l+/l0 +1.581e-04 vs +1.585e-04   h+/h0 -1.010e-03 vs -1.008e-03   l0/h0 0.332769 vs 0.332672
+ reference rotation x 0.3: Clairaut eps(a) = 0.000341
+  O1 no Coriolis             w+/l0 -4.569661e-06 vs -4.631143e-06 (1.3e-02)   l+/l0 +2.017e-05 vs +2.016e-05   h+/h0 -1.287e-04 vs -1.287e-04   l0/h0 0.332566 vs 0.332558
+  O1 Coriolis                w+/l0 +1.095267e-04 vs +1.095190e-04 (7.1e-05)   l+/l0 +2.019e-05 vs +2.015e-05   h+/h0 -1.286e-04 vs -1.287e-04   l0/h0 0.332556 vs 0.332547
+  M2 no Coriolis             w+/l0 -7.014525e-06 vs -6.975649e-06 (5.6e-03)   l+/l0 +1.427e-05 vs +1.428e-05   h+/h0 -9.101e-05 vs -9.100e-05   l0/h0 0.332487 vs 0.332478
+  M2 Coriolis                w+/l0 +1.811145e-04 vs +1.811764e-04 (3.4e-04)   l+/l0 +1.426e-05 vs +1.426e-05   h+/h0 -9.109e-05 vs -9.108e-05   l0/h0 0.332444 vs 0.332436

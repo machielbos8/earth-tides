@@ -1,0 +1,43 @@
+{
+ "id": "20261110T210327-convergence_deflated-5535",
+ "status": "ok",
+ "purpose": "inviscid core: spread between solvers after removing the near-null space (S9)",
+ "script": "scripts/convergence_deflated.py",
+ "command": "python scripts/convergence_deflated.py",
+ "params": {
+  "argv": []
+ },
+ "git": {
+  "commit": "f1bb9b7bb8b85f5f705d0dab613d95bcf512425b",
+  "dirty": [
+   "results/stdout/b2_wahr_h0.txt",
+   "scripts/b2_hough_coll.py",
+   "scripts/convergence_deflated.py"
+  ],
+  "script_untracked": false,
+  "script_dirty": true,
+  "script_sha256": "7e41a5f05ac46884a89f9f27449cb2504d49e3ebc0b1c8c2ebe2e477023174eb"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/convergence_deflated.txt",
+   "sha256": "288a417c60dc6ebc389919261fd9210eba23c0ccf721e35811ab197567dbaf69"
+  }
+ ],
+ "start": "2026-11-10T21:03:27",
+ "end": "2026-11-10T21:03:39",
+ "wall_s": 12.3,
+ "peak_rss_mb": {
+  "self": 55.1,
+  "children_max": 1688.6
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

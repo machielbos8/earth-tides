@@ -1,0 +1,114 @@
+{
+ "id": "20261115T073325-nonhydro_am_sweep-2996",
+ "status": "ok",
+ "purpose": "P1 v2: AM balance through the diurnal band, hydrostatic / routes A, B, D, 450 m",
+ "script": "scripts/nonhydro_am_sweep.py",
+ "command": "python scripts/nonhydro_am_sweep.py 450 4",
+ "params": {
+  "cmb": 450.0,
+  "sig": [
+   0.88,
+   0.885,
+   0.89,
+   0.895,
+   0.9,
+   0.905,
+   0.91,
+   0.915,
+   0.92,
+   0.925,
+   0.93,
+   0.935,
+   0.9400000000000001,
+   0.9450000000000001,
+   0.9500000000000001,
+   0.9550000000000001,
+   0.9600000000000001,
+   0.9650000000000001,
+   0.9700000000000001,
+   0.9750000000000001,
+   0.98,
+   0.9850000000000001,
+   0.99,
+   0.9950000000000001,
+   0.9996,
+   0.9998,
+   0.9999,
+   1.0001,
+   1.0002,
+   1.0004,
+   1.0016,
+   1.0018,
+   1.002,
+   1.0022,
+   1.0024,
+   1.0026,
+   1.0028,
+   1.003,
+   1.0050000000000001,
+   1.01,
+   1.0150000000000001,
+   1.02,
+   1.0250000000000001,
+   1.03,
+   1.0350000000000001,
+   1.04,
+   1.0450000000000002,
+   1.05,
+   1.0550000000000002,
+   1.06,
+   1.0650000000000002,
+   1.07,
+   1.0750000000000002,
+   1.08
+  ],
+  "K": 4,
+  "N": 24,
+  "core": "inviscid, slipping",
+  "workers": 4,
+  "figure": "level"
+ },
+ "git": {
+  "commit": "76d9e4873560f08acafbcb53c1e82611d6daeacf",
+  "dirty": [
+   "results/LEDGER.jsonl",
+   "scripts/nonhydro_am_sweep.py"
+  ],
+  "script_untracked": false,
+  "script_dirty": true,
+  "script_sha256": "cbcc94eb60fd244700985da37bc07bddcb506387a9c2fd8cdfc22fcb92334029"
+ },
+ "env": {
+  "EARTHTIDES_FIGURE": "level",
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  },
+  {
+   "path": "data/PREMs.dat",
+   "sha256": "e9fcce04a0de9f094a983ff8a3aa40d971eba71aeb93968bbb4f65a705ddb952"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/nonhydro_am_sweep_450m_level.txt",
+   "sha256": "a68822228809dc30a439d176262fef7c60df3cad3ffc05e83cbd797d4c013585"
+  },
+  {
+   "path": "results/nonhydro_am_sweep_450m_level.npz",
+   "sha256": "5335bcde3b086ec4a742588369bf41ab473c76a3e9cc6fadb23dba9f03355ab9"
+  }
+ ],
+ "start": "2026-11-15T07:33:25",
+ "end": "2026-11-15T07:34:20",
+ "wall_s": 54.8,
+ "peak_rss_mb": {
+  "self": 56.1,
+  "children_max": 540.5
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

@@ -1,0 +1,97 @@
+{
+ "id": "20261110T164625-fcn_share_inviscid_noic-3983",
+ "status": "ok",
+ "purpose": "inviscid FCN resonance shares, PREM without inner core, several core resolutions",
+ "script": "scripts/fcn_share_inviscid_noic.py",
+ "command": "python scripts/fcn_share_inviscid_noic.py 6",
+ "params": {
+  "res": [
+   [
+    4,
+    24
+   ],
+   [
+    6,
+    30
+   ],
+   [
+    10,
+    30
+   ],
+   [
+    10,
+    44
+   ]
+  ],
+  "sweep": [
+   0.9,
+   0.927,
+   0.96,
+   0.98,
+   0.99454,
+   0.9965,
+   0.9972,
+   0.9978,
+   0.9984,
+   0.999,
+   0.9995,
+   1.0005,
+   1.0008,
+   1.001,
+   1.0012,
+   1.0015,
+   1.0016,
+   1.0018,
+   1.0019,
+   1.002,
+   1.00205,
+   1.0023,
+   1.00245,
+   1.0026,
+   1.00273,
+   1.003,
+   1.0035,
+   1.004,
+   1.00546,
+   1.02,
+   1.073
+  ]
+ },
+ "git": {
+  "commit": "70d0357736451bca426525aadb0a3cb9d274a26f",
+  "dirty": [
+   "results/LEDGER.jsonl",
+   "results/core_flow_attractor_sphere.npz",
+   "results/core_flow_attractor_sphere.npz.meta.json",
+   "results/core_flow_attractor_sphere.txt",
+   "results/core_flow_attractor_sphere.txt.meta.json"
+  ],
+  "script_untracked": false,
+  "script_dirty": false,
+  "script_sha256": "54aae7054940b99d3df4d8bea587f9cc54e753bef8bed7eb55a84fa6dab1b45e"
+ },
+ "env": {
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [
+  {
+   "path": "data/PREM_noIC.dat",
+   "sha256": "9aef983ff12f2022d96aa8d04fed2992f9bae481d52aeef5dea40935339bd4e4"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/fcn_share_inviscid_noic.txt",
+   "sha256": "a4f0fc6f6c62bf788030e8262d7dbdc0684620e0ced1b4c33837c6e4b5f813b9"
+  }
+ ],
+ "start": "2026-11-10T16:46:25",
+ "end": "2026-11-10T16:46:58",
+ "wall_s": 33.0,
+ "peak_rss_mb": {
+  "self": 78.7,
+  "children_max": 74.8
+ },
+ "host": "Linux (28 GB)",
+ "python": "3.14.4"
+}

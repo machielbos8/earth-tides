@@ -1,0 +1,81 @@
+{
+ "id": "20261115T073607-make_figures-3151",
+ "status": "ok",
+ "purpose": "figures of the non-hydrostatic Earth (P1 v2 Figs 8-10, S4) and their quoted numbers",
+ "script": "paper_pepi/make_figures.py",
+ "command": "python paper_pepi/make_figures.py --replot",
+ "params": {
+  "figure": "level"
+ },
+ "git": {
+  "commit": "76d9e4873560f08acafbcb53c1e82611d6daeacf",
+  "dirty": [
+   "paper_pepi/figures/fig_core_ekman.pdf",
+   "paper_pepi/figures/fig_core_sweep.pdf",
+   "paper_pepi/figures/fig_fcn.pdf",
+   "paper_pepi/make_fig_core.py",
+   "paper_pepi/make_figures.py",
+   "results/LEDGER.jsonl",
+   "results/nonhydro_am_sweep_450m_level.npz",
+   "results/nonhydro_am_sweep_450m_level.npz.meta.json",
+   "results/nonhydro_am_sweep_450m_level.txt",
+   "results/nonhydro_am_sweep_450m_level.txt.meta.json",
+   "scripts/nonhydro_am_sweep.py"
+  ],
+  "script_untracked": false,
+  "script_dirty": true,
+  "script_sha256": "6fbd22f42a8162d7e7bb7f0b19598dda7077cd3790f434e8630a0447240cf544"
+ },
+ "env": {
+  "EARTHTIDES_FIGURE": "level"
+ },
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  },
+  {
+   "path": "data/PREMs.dat",
+   "sha256": "e9fcce04a0de9f094a983ff8a3aa40d971eba71aeb93968bbb4f65a705ddb952"
+  },
+  {
+   "path": "results/nonhydro_diurnal.txt",
+   "sha256": "bacd7d95a3b82f9ae9da38d744f64adfa52365ec89ff521b42e1e61e1236df9d"
+  },
+  {
+   "path": "results/nonhydro_am_sweep_450m.npz",
+   "sha256": "43f97280c53011dcb3bbd3a747df1d9c5ffce07ae438a3c4967b3486a9e785b1"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/fig_nonhydro_data_level.txt",
+   "sha256": "92db89a7f2e66479f34fb7c08c539c1d593f73f893dbee6a96f2f75817044926"
+  },
+  {
+   "path": "paper_pepi/figures/fig_nonhydro_state.pdf",
+   "sha256": "18c9e1617299dbb48bc26bbdcc5a1fe923bca9fbaf8135d4d787bd06243f9ff2"
+  },
+  {
+   "path": "paper_pepi/figures/figS_nonhydro_state_viscous.pdf",
+   "sha256": "0ba6d473297bbf04e6d62af945960bf0bb2a2413d29d8bd2de4978ed58d63da5"
+  },
+  {
+   "path": "paper_pepi/figures/fig_fcn_ef.pdf",
+   "sha256": "5b4ebd4c8ff90d0f3933863a09b5c5a3317ccd804ccee750c7154c86ba6cfab9"
+  },
+  {
+   "path": "paper_pepi/figures/fig_am_sweep.pdf",
+   "sha256": "37bd1907dac6e32a5fb14b651f23730f10029ded9c6d712d5bd28ec07d86432b"
+  }
+ ],
+ "start": "2026-11-15T07:36:07",
+ "end": "2026-11-15T07:36:07",
+ "wall_s": 0.4,
+ "peak_rss_mb": {
+  "self": 93.8,
+  "children_max": 8.9
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

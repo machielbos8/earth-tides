@@ -1,0 +1,7 @@
+psi1 (1.00273 cpsd), delta 1.0 km, K 12, N 30; layers (km) 1221.5-1226.5, 1226.5-1261.5, 1261.5-3440.0, 3440.0-3475.0, 3475.0-3480.0
+colatitude   30 q+: max |solver - Ekman| / |Q| (zeta < 10 delta) 0.107
+colatitude   30 q-: max |solver - Ekman| / |Q| (zeta < 10 delta) 0.035
+colatitude   45 q+: max |solver - Ekman| / |Q| (zeta < 10 delta) 0.047
+colatitude   45 q-: max |solver - Ekman| / |Q| (zeta < 10 delta) 0.046
+colatitude   80 q+: max |solver - Ekman| / |Q| (zeta < 10 delta) 0.032
+colatitude   80 q-: max |solver - Ekman| / |Q| (zeta < 10 delta) 0.033

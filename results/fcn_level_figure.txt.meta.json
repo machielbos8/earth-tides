@@ -1,0 +1,69 @@
+{
+ "id": "20261114T131625-fcn_level_figure-1296",
+ "status": "ok",
+ "purpose": "FCN of hydrostatic PREM on the first-order figure, exact ellipses and true level surfaces",
+ "script": "scripts/fcn_level_figure.py",
+ "command": "python scripts/fcn_level_figure.py",
+ "params": {
+  "K": [
+   4,
+   6
+  ],
+  "N": 24
+ },
+ "git": {
+  "commit": "b23a0f226c0182cf9b8cfdf55ec9f02c07af9ba7",
+  "dirty": [
+   "paper_pepi/figures/fig_core_ekman.pdf",
+   "paper_pepi/figures/fig_core_sweep.pdf",
+   "paper_pepi/main_v2.tex",
+   "paper_pepi/main_v2_2col.pdf",
+   "paper_pepi/make_fig_core.py",
+   "paper_pepi/make_table4.py",
+   "paper_pepi/make_table_latitude.py",
+   "paper_pepi/references.bib",
+   "paper_pepi/supplement_v2.pdf",
+   "paper_pepi/supplement_v2.tex",
+   "paper_pepi/table4.tex",
+   "paper_pepi/tableS_viscous.tex",
+   "results/LEDGER.jsonl",
+   "results/convention_table.txt.meta.json",
+   "results/nonhydro_diurnal.txt.meta.json",
+   "results/paper1_table4.txt",
+   "results/paper1_table4.txt.meta.json",
+   "results/regen/table4.tex",
+   "results/regen/table4.tex.meta.json",
+   "results/regen/tableS_viscous.tex.meta.json",
+   "scripts/convention_table.py",
+   "scripts/fcn_level_figure.py",
+   "scripts/nonhydro_stress_split.py"
+  ],
+  "script_untracked": false,
+  "script_dirty": true,
+  "script_sha256": "cf81905ab43646cefb8b15a80863997701abf56dcf1c8f16ea0dfdf944518892"
+ },
+ "env": {
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/fcn_level_figure.txt",
+   "sha256": "2d7c214c473d39c9fb006ce352da8ea25bbc9d430a6f6d1413df3413d84cb4f1"
+  }
+ ],
+ "start": "2026-11-14T13:16:25",
+ "end": "2026-11-14T13:16:46",
+ "wall_s": 21.0,
+ "peak_rss_mb": {
+  "self": 305.0,
+  "children_max": 11.1
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

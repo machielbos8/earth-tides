@@ -1,0 +1,73 @@
+{
+ "id": "20261114T140648-make_tables_viscous-3075",
+ "status": "ok",
+ "purpose": "Viscous-core DDW and latitude tables, delta -> 0 (P1 v2 Table S3)",
+ "script": "paper_pepi/make_tables_viscous.py",
+ "command": "python paper_pepi/make_tables_viscous.py",
+ "params": {
+  "out": "results/regen"
+ },
+ "git": {
+  "commit": "3b2dba816b3a15925308a3805c6be2b16ec4db8e",
+  "dirty": [
+   "paper_pepi/figures/fig_core_ekman.pdf",
+   "paper_pepi/figures/fig_core_sweep.pdf",
+   "paper_pepi/main_v2.tex",
+   "paper_pepi/main_v2_2col.pdf",
+   "paper_pepi/make_fig_core.py",
+   "paper_pepi/make_table4.py",
+   "paper_pepi/make_tables_viscous.py",
+   "paper_pepi/references.bib",
+   "paper_pepi/supplement_v2.pdf",
+   "paper_pepi/supplement_v2.tex",
+   "paper_pepi/table4.tex",
+   "paper_pepi/tableS_viscous.tex",
+   "results/LEDGER.jsonl",
+   "results/convention_table.txt.meta.json",
+   "results/nonhydro_diurnal.txt.meta.json",
+   "results/paper1_table4.txt",
+   "results/paper1_table4.txt.meta.json",
+   "results/regen/table4.tex",
+   "results/regen/table4.tex.meta.json",
+   "results/regen/tableS_viscous.tex.meta.json",
+   "scripts/nonhydro_am_sweep.py",
+   "scripts/nonhydro_am_viscous.py",
+   "scripts/nonhydro_fcn_viscous.py"
+  ],
+  "script_untracked": false,
+  "script_dirty": true,
+  "script_sha256": "c7aa6caf7daf5b50310f016cb3ef4d92270b46d9c103dc0b63b501d337b46944"
+ },
+ "env": {
+  "EARTHTIDES_FIGURE": "level"
+ },
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/regen/table_ddw_viscous_level.tex",
+   "sha256": "7c671e14c54bab4e9f875199f7df8e62052a7be6e78109cdbbc5f06f9f03ccf7"
+  },
+  {
+   "path": "results/regen/table_latitude_viscous_level.tex",
+   "sha256": "bde03ae03a9de3021c8adadc5108ddee7fbd7585718c548635abb4135cec8e76"
+  },
+  {
+   "path": "results/paper1_tables_viscous_level.txt",
+   "sha256": "37c7ea490768d4b900e175361ca734e9b24612a8095e57e295a315391f5e8f7a"
+  }
+ ],
+ "start": "2026-11-14T14:06:48",
+ "end": "2026-11-14T14:08:56",
+ "wall_s": 128.0,
+ "peak_rss_mb": {
+  "self": 55.5,
+  "children_max": 2036.3
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

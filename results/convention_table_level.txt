@@ -1,0 +1,19 @@
+Convention sensitivity of the TN36 Love numbers, PREM (fluid core, Coriolis), surface flattening 1/299.1; changes vs baseline in units of 1e-5
+
+O1:         h0        h2        l0        l2        l1        lp
+baseline (this paper)       +0.59623  -0.00050  +0.08304  +0.00009  +0.00048  -0.00030
+frame: surface                  +0.0      +0.0      +0.0      -0.0      +0.1     +35.0
+geodetic latitude             -123.5    +531.5      -3.5     +74.2     -27.7     +32.3
+normal direction               +18.1     -74.3     +16.6    +132.8     -99.6     +38.5
+normal + geodetic             -105.2    +457.2     +12.9    +207.3    -127.7     +70.7
+mean sphere                     -0.0     -60.6      +0.3    -111.8      +1.1      +0.1
+norm. at mean radius          +266.2      -0.2     +37.1      +0.0      +0.2      -0.1
+
+M2:         h0        h2        l0        l2        l1
+baseline (this paper)       +0.60243  -0.00050  +0.08361  +0.00009  +0.00099
+geodetic latitude             -124.9    +535.0     -17.3     +74.5     -56.5
+normal direction               -37.7     -75.4     +67.1    +134.3    -201.4
+normal + geodetic             -162.4    +459.9     +49.4    +207.8    -256.7
+mean sphere                     -0.0     -61.3      +0.1    -115.3      -0.1
+norm. at mean radius          +269.0      -0.2     +37.3      +0.0      +0.4
+no centrifugal ref.            -80.4      -0.3     -13.1      +0.1      -0.2

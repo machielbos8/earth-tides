@@ -1,0 +1,32 @@
+Part 1: w+ line by line (x 1e5) = geometric term + W3 at the mean radius (their Table 4);
+        "no Coriolis" = our w+ without the Coriolis force
+  O1    ours  16.28 =  13.63 +  2.65   DDW 24.0 =  13.61 + 10.39   DDW - ours +7.72   no Coriolis  11.48
+  P1    ours  15.64 =  13.05 +  2.58   DDW 24.0 =  13.03 + 10.97   DDW - ours +8.36   no Coriolis  11.48
+  K1    ours  12.75 =  11.40 +  1.36   DDW 21.0 =  11.38 +  9.62   DDW - ours +8.25   no Coriolis  11.48
+  psi1  ours  32.99 =  22.93 + 10.06   DDW 41.0 =  22.89 + 18.11   DDW - ours +8.01   no Coriolis  11.48
+  OO1   ours  17.33 =  13.78 +  3.56   DDW 26.0 =  13.76 + 12.24   DDW - ours +8.67   no Coriolis  11.48
+  M2    ours  26.68 =  21.79 +  4.89   DDW 27.0 =  21.76 +  5.24   DDW - ours +0.32   no Coriolis  18.46
+  (DDW Table 4, M2: geometric 0.00026 and W3 0.00006 in their normalization, x (5/7)^1/2 = 0.00022, 0.00005)
+
+Part 2: w+ (x 1e5) with the flattening x (0, 0.5, 1, 2) [rows] and the Coriolis force x (0, 0.5, 1, 2)
+  O1
+    f x 0.0:   -0.598    +1.941    +4.493    +9.587
+    f x 0.5:   +5.465    +8.002   +10.466   +15.610
+    f x 1.0:  +11.477   +14.020   +16.283   +21.553
+    f x 2.0:  +23.346   +25.923   +27.366   +33.246
+    at the Earth: flattening linear +12.13, squared -0.05; Coriolis linear +5.08, squared +0.01; cross -0.29; neither -0.60; total +16.28; second order -0.33
+  M2
+    f x 0.0:   -0.953    +3.244    +7.419   +15.758
+    f x 0.5:   +8.753   +12.913   +17.052   +25.402
+    f x 1.0:  +18.458   +22.580   +26.683   +34.841
+    f x 2.0:  +37.862   +41.912   +45.940   +53.939
+    at the Earth: flattening linear +19.41, squared -0.00; Coriolis linear +8.39, squared -0.02; cross -0.15; neither -0.95; total +26.68; second order -0.17
+
+Part 3: their eq. (23) with Table 14b (w+, background b0 + 54-min modes, FCN term) against ours (x 1e5)
+  O1    eq. 23  23.90  (FCN term  -0.00)   ours  16.28   offset  7.62
+  P1    eq. 23  23.51  (FCN term  -1.05)   ours  15.64   offset  7.87
+  K1    eq. 23  20.65  (FCN term  -3.96)   ours  12.75   offset  7.89
+  psi1  eq. 23  41.02  (FCN term +16.39)   ours  32.99   offset  8.03
+  OO1   eq. 23  25.56  (FCN term  +0.24)   ours  17.33   offset  8.23
+  mean offset 7.93e-5 -> horizontal displacement (pure toroidal, largest at the poles):
+    K1 alone max 0.053 mm; all lines rms 0.048 mm max, 0.025 mm at 45 deg; in phase 0.116 mm max

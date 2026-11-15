@@ -1,0 +1,59 @@
+{
+ "id": "20261110T214434-ddw_lowK_table-6517",
+ "status": "ok",
+ "purpose": "Dehant et al. comparison at low uniform K (S11 truncation)",
+ "script": "scripts/ddw_lowK_table.py",
+ "command": "python scripts/ddw_lowK_table.py 3",
+ "params": {
+  "argv": [
+   "3"
+  ]
+ },
+ "git": {
+  "commit": "f1bb9b7bb8b85f5f705d0dab613d95bcf512425b",
+  "dirty": [
+   "paper_pepi/supplement_v2.tex",
+   "results/LEDGER.jsonl",
+   "results/check_ekman_resolution.txt",
+   "results/convergence_deflated.txt",
+   "results/convergence_nocor_core.txt",
+   "results/nonhydro_am_viscous_K10_N30.txt",
+   "results/nonhydro_am_viscous_K10_N30.txt.meta.json",
+   "results/nonhydro_anelastic.txt",
+   "results/rays_hamiltonian_h0.001.pdf",
+   "results/rays_hamiltonian_h0.001.pdf.meta.json",
+   "results/rays_hamiltonian_h0.001.txt",
+   "results/rays_hamiltonian_h0.001.txt.meta.json",
+   "results/stdout/b2_wahr_h0.txt",
+   "scripts/b2_hough_coll.py",
+   "scripts/convergence_deflated.py"
+  ],
+  "script_untracked": false,
+  "script_dirty": false,
+  "script_sha256": "f041ad510b34d545283cde4601cd6a1025eaec79e3910a15256fcf4f6e67f426"
+ },
+ "env": {
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/ddw_lowK_table.txt",
+   "sha256": "641d1bc26261bdd6d43482c0f8c7efdcb8ecbdb502d484703d696d3e5b87988d"
+  }
+ ],
+ "start": "2026-11-10T21:44:34",
+ "end": "2026-11-10T21:45:06",
+ "wall_s": 31.6,
+ "peak_rss_mb": {
+  "self": 55.9,
+  "children_max": 1275.9
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

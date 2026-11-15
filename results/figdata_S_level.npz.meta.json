@@ -1,0 +1,76 @@
+{
+ "id": "20261115T070625-make_figS_level-1600",
+ "status": "ok",
+ "purpose": "supplement figures S1/S2 (convergence and latitude at M2) on the level figure",
+ "script": "paper_pepi/make_figS_level.py",
+ "command": "python paper_pepi/make_figS_level.py",
+ "params": {
+  "figure": "level"
+ },
+ "git": {
+  "commit": "a67b967d16a3d11289e87bf8a8e9c992778269bf",
+  "dirty": [
+   "docs/lab_notes/earthtides_lab_notes.md",
+   "docs/level_figure_conversion.md",
+   "paper_pepi/figures/figS_nonhydro_state_viscous.pdf",
+   "paper_pepi/figures/fig_am_sweep.pdf",
+   "paper_pepi/figures/fig_core_ekman.pdf",
+   "paper_pepi/figures/fig_core_sweep.pdf",
+   "paper_pepi/figures/fig_fcn_ef.pdf",
+   "paper_pepi/figures/fig_nonhydro_state.pdf",
+   "paper_pepi/main_v2.tex",
+   "paper_pepi/main_v2_2col.pdf",
+   "paper_pepi/make_table4.py",
+   "paper_pepi/references.bib",
+   "paper_pepi/supplement_v2.pdf",
+   "paper_pepi/supplement_v2.tex",
+   "paper_pepi/table4.tex",
+   "paper_pepi/tableS_viscous.tex",
+   "results/LEDGER.jsonl",
+   "results/convention_table.txt.meta.json",
+   "results/nonhydro_diurnal.txt.meta.json",
+   "results/paper1_table4.txt",
+   "results/paper1_table4.txt.meta.json",
+   "results/regen/table4.tex",
+   "results/regen/table4.tex.meta.json",
+   "results/regen/tableS_viscous.tex.meta.json",
+   "scripts/nonhydro_support.py",
+   "scripts/viscous_delta_vs_limit.py"
+  ],
+  "script_untracked": true,
+  "script_dirty": false,
+  "script_sha256": "25e758b8da7dd29d88e8d396459a3b9fceee1d94ffec6c8d7761452302ac9e34"
+ },
+ "env": {
+  "EARTHTIDES_FIGURE": "level"
+ },
+ "inputs": [
+  {
+   "path": "data/PREMs.dat",
+   "sha256": "e9fcce04a0de9f094a983ff8a3aa40d971eba71aeb93968bbb4f65a705ddb952"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/figdata_S_level.npz",
+   "sha256": "1efee5e8006629636703d396cd3f61103028cd829b4736353a8399b48818210d"
+  },
+  {
+   "path": "paper_pepi/figures/fig3_convergence.pdf",
+   "sha256": "20ec1ddc8ecf53d0b1454e7fcec6b448452713c559711a2b2d546ecaa94e6eae"
+  },
+  {
+   "path": "paper_pepi/figures/fig4_latitude_M2.pdf",
+   "sha256": "b7b679ea32cbe46e8e54e5572494396d6141326912beb1d025e0be75c2002ad2"
+  }
+ ],
+ "start": "2026-11-15T07:06:25",
+ "end": "2026-11-15T07:06:36",
+ "wall_s": 10.4,
+ "peak_rss_mb": {
+  "self": 627.8,
+  "children_max": 11.1
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

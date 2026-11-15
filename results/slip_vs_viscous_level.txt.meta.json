@@ -1,0 +1,75 @@
+{
+ "id": "20261115T070002-slip_vs_viscous_level-1014",
+ "status": "ok",
+ "purpose": "slipping core against the K-converged viscous limit on the level figure (table frequencies)",
+ "script": "scripts/slip_vs_viscous_level.py",
+ "command": "python scripts/slip_vs_viscous_level.py",
+ "params": {
+  "K_slip": [
+   6,
+   10
+  ],
+  "window": [
+   500.0,
+   350.0,
+   250.0
+  ],
+  "K_viscous": 72
+ },
+ "git": {
+  "commit": "a67b967d16a3d11289e87bf8a8e9c992778269bf",
+  "dirty": [
+   "docs/lab_notes/earthtides_lab_notes.md",
+   "paper_pepi/figures/figS_nonhydro_state_viscous.pdf",
+   "paper_pepi/figures/fig_am_sweep.pdf",
+   "paper_pepi/figures/fig_core_ekman.pdf",
+   "paper_pepi/figures/fig_core_sweep.pdf",
+   "paper_pepi/figures/fig_fcn_ef.pdf",
+   "paper_pepi/figures/fig_nonhydro_state.pdf",
+   "paper_pepi/main_v2.tex",
+   "paper_pepi/main_v2_2col.pdf",
+   "paper_pepi/make_table4.py",
+   "paper_pepi/references.bib",
+   "paper_pepi/supplement_v2.pdf",
+   "paper_pepi/supplement_v2.tex",
+   "paper_pepi/table4.tex",
+   "paper_pepi/tableS_viscous.tex",
+   "results/convention_table.txt.meta.json",
+   "results/nonhydro_diurnal.txt.meta.json",
+   "results/paper1_table4.txt",
+   "results/paper1_table4.txt.meta.json",
+   "results/regen/table4.tex",
+   "results/regen/table4.tex.meta.json",
+   "results/regen/tableS_viscous.tex.meta.json"
+  ],
+  "script_untracked": true,
+  "script_dirty": false,
+  "script_sha256": "069104a9913b69d01d2d1760a7c89b9f5d399a8f2b19c26c68d3b9ed1aad177a"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "results/viscous_limit_thin_Kthin_level.npz",
+   "sha256": "4992069b781712be61aa34a65b83d6f0d4f6ab6a39d983ab1221e6a0c2cc95fb"
+  },
+  {
+   "path": "results/viscous_limit_thin_Kthin_level.txt",
+   "sha256": "228a7d3b32468f809a71a4e4f7d3ab7f81267213bb9f3c81c41f816f0218379a"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/slip_vs_viscous_level.txt",
+   "sha256": "2c45ec2f020a8b7e3526f7f704fe550bb27e6c558c623f10a9b38a9a1968190a"
+  }
+ ],
+ "start": "2026-11-15T07:00:02",
+ "end": "2026-11-15T07:00:20",
+ "wall_s": 17.7,
+ "peak_rss_mb": {
+  "self": 1411.8,
+  "children_max": 11.1
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

@@ -1,0 +1,10 @@
+elastic hydrostatic PREM, slipping core with the slope term; FCN in sidereal days
+level surfaces: 17 iterations, max height left 1.1e-04 m
+figure              1/f surface    1/f CMB       K 4       K 6
+first-order map         300.230    393.028    457.33    457.33
+exact ellipses          299.896    392.695    456.62    456.62
+level surfaces          299.720    392.417    456.24    456.24
+
+mantle and inner core stiffened 1e4 times, K 4:
+first-order           356.39
+level                 355.64

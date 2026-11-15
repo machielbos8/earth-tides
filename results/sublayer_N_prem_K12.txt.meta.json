@@ -1,0 +1,69 @@
+{
+ "id": "20261114T143555-sublayer_N_prem-4381",
+ "status": "ok",
+ "purpose": "N per sub-layer of the viscous core of PREM (bulk, 40 km, 5 delta), one at a time",
+ "script": "scripts/sublayer_N_prem.py",
+ "command": "python scripts/sublayer_N_prem.py",
+ "params": {
+  "K": 12,
+  "deltas": [
+   1000.0,
+   350.0
+  ],
+  "solver": "block",
+  "band": null,
+  "freqs": [
+   0.927,
+   1.002,
+   1.00273
+  ]
+ },
+ "git": {
+  "commit": "c75e950df1bb048355d2f273ec3a8b6dd7f4899f",
+  "dirty": [
+   "paper_pepi/figures/fig_core_ekman.pdf",
+   "paper_pepi/figures/fig_core_sweep.pdf",
+   "paper_pepi/main_v2.tex",
+   "paper_pepi/main_v2_2col.pdf",
+   "paper_pepi/make_fig_core.py",
+   "paper_pepi/make_table4.py",
+   "paper_pepi/references.bib",
+   "paper_pepi/supplement_v2.pdf",
+   "paper_pepi/supplement_v2.tex",
+   "paper_pepi/table4.tex",
+   "paper_pepi/tableS_viscous.tex",
+   "results/convention_table.txt.meta.json",
+   "results/nonhydro_diurnal.txt.meta.json",
+   "results/paper1_table4.txt",
+   "results/paper1_table4.txt.meta.json",
+   "results/regen/table4.tex",
+   "results/regen/table4.tex.meta.json",
+   "results/regen/tableS_viscous.tex.meta.json"
+  ],
+  "script_untracked": true,
+  "script_dirty": false,
+  "script_sha256": "4096a27cb892fbd2bd8d74fd5b0c940b64394c4a2952b3b573d2ee208783abab"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/sublayer_N_prem_K12.txt",
+   "sha256": "d9c068e91d60b4665299a372771bebf571c1e636c82d19e0d87ec15b774b62e1"
+  }
+ ],
+ "start": "2026-11-14T14:35:55",
+ "end": "2026-11-14T14:38:25",
+ "wall_s": 149.9,
+ "peak_rss_mb": {
+  "self": 1554.4,
+  "children_max": 11.1
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

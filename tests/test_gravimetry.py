@@ -2,7 +2,7 @@
 #
 # Known-answer tests of the gravimetric factor.
 #
-# This file is part of earth-tides 1.0.
+# This file is part of earth-tides 1.1.
 #
 # earth-tides is distributed under a source-available license.
 # It may be used free of charge for academic, research, and other

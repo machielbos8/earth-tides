@@ -2,7 +2,7 @@
 #
 # __init__.
 #
-# This file is part of earth-tides 1.0.
+# This file is part of earth-tides 1.1.
 #
 # earth-tides is distributed under a source-available license.
 # It may be used free of charge for academic, research, and other
@@ -14,4 +14,4 @@
 # 5/10/2026 Machiel Bos
 #===============================================================================
 """earth-tides: solid Earth tides on a flattened, rotating, anelastic Earth."""
-__version__ = "1.0.0"
+__version__ = "1.1.0"

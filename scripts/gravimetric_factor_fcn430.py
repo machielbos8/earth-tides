@@ -3,7 +3,7 @@
 # Diurnal gravimetric factors of anelastic PREM with the free core nutation moved to the observed
 # frequency, and the tidal-gravity test of the sign of the resonant ocean-loading correction.
 #
-# This file is part of earth-tides 1.0.
+# This file is part of earth-tides 1.1.
 #
 # earth-tides is distributed under a source-available license.
 # It may be used free of charge for academic, research, and other

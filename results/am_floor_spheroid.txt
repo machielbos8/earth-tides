@@ -1,0 +1,7 @@
+homogeneous rotating elastic body (HOMOG), O1-like frequency 0.927 cycles per rotation, K 4 N 20; |dH/dt + Omega x H - N| / |N|
+scale f Clairaut f Maclaurin  first-order map  exact, f Cl.  exact, f Mac.
+ 0.25   0.001081    0.001081  2.47e-04 =0.229f 6.95e-05 =0.064f  4.49e-05
+ 0.50   0.002162    0.002162  4.95e-04 =0.229f 1.39e-04 =0.064f  4.49e-05
+ 1.00   0.004324    0.004327  9.90e-04 =0.229f 2.79e-04 =0.065f  4.48e-05
+ 2.00   0.008647    0.008662  1.98e-03 =0.229f 5.60e-04 =0.065f  4.47e-05
+exact figure (Maclaurin), scale 1, resolution: K 4 N 20 4.48e-05, K 6 N 24 4.48e-05, K 8 N 30 4.48e-05

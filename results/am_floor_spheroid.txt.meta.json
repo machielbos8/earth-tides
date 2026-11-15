@@ -1,0 +1,61 @@
+{
+ "id": "20261110T163126-am_floor_spheroid-4454",
+ "status": "ok",
+ "purpose": "angular-momentum floor on a homogeneous rotating spheroid: first-order map vs exact figure",
+ "script": "scripts/am_floor_spheroid.py",
+ "command": "python scripts/am_floor_spheroid.py",
+ "params": {
+  "scales": [
+   0.25,
+   0.5,
+   1.0,
+   2.0
+  ],
+  "sig": 0.927
+ },
+ "git": {
+  "commit": "70d0357736451bca426525aadb0a3cb9d274a26f",
+  "dirty": [
+   "paper_pepi/figures/fig_layered_core.pdf",
+   "paper_pepi/figures/fig_rays_buoyancy.pdf",
+   "paper_pepi/main_v2.tex",
+   "paper_pepi/main_v2_2col.pdf",
+   "paper_pepi/make_figS_sphere_flat.py",
+   "paper_pepi/make_fig_layered_core.py",
+   "paper_pepi/make_fig_rays_buoyancy.py",
+   "paper_pepi/supplement_v2.pdf",
+   "paper_pepi/supplement_v2.tex",
+   "results/LEDGER.jsonl",
+   "results/rays_disc_grid_layered.npz",
+   "results/rays_disc_grid_layered.npz.meta.json",
+   "results/rays_disc_grid_layered.txt",
+   "results/rays_disc_grid_layered.txt.meta.json",
+   "scripts/beam_launch_check.py"
+  ],
+  "script_untracked": true,
+  "script_dirty": false,
+  "script_sha256": "3c04af01536fcafeefc6b192a2ac6ce7db8088fe0141e4cbb61e30ef020116e5"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "data/HOMOG.dat",
+   "sha256": "dfade3d720558e19e04679a9a9fbedbd2a3a86ed9c5c9a076524608166d457e3"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/am_floor_spheroid.txt",
+   "sha256": "0b904939b53a88949f22cbff7e8fe85736c1b1e3d1c9e26e9e1d1f435f726651"
+  }
+ ],
+ "start": "2026-11-10T16:31:26",
+ "end": "2026-11-10T16:31:27",
+ "wall_s": 0.9,
+ "peak_rss_mb": {
+  "self": 297.4,
+  "children_max": 8.8
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

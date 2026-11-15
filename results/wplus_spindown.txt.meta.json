@@ -1,0 +1,47 @@
+{
+ "id": "20261115T120715-wplus_spindown-0329",
+ "status": "ok",
+ "purpose": "P1 review M3: second-order part of the diurnal w+ and l(1) of PREM (spin-down)",
+ "script": "scripts/wplus_spindown.py",
+ "command": "python scripts/wplus_spindown.py",
+ "params": {
+  "spins": [
+   1.0,
+   0.75,
+   0.5,
+   0.35,
+   0.25
+  ],
+  "K": 4,
+  "N": 24
+ },
+ "git": {
+  "commit": "99f81e4ad0ad4442e934937e91447497400bd40b",
+  "dirty": [],
+  "script_untracked": true,
+  "script_dirty": false,
+  "script_sha256": "8cdb7b60d750bc47a6fdc1d8142e70aed4c3c9983382114b5fd0163c9e1afedd"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/wplus_spindown.txt",
+   "sha256": "c1ca5d27f2a932fb2a1ae413113e1272a1ccdb2f018d81adf76460496ea53cdc"
+  }
+ ],
+ "start": "2026-11-15T12:07:15",
+ "end": "2026-11-15T12:07:19",
+ "wall_s": 4.7,
+ "peak_rss_mb": {
+  "self": 239.4,
+  "children_max": 8.9
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

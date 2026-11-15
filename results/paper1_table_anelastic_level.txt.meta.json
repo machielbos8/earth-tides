@@ -1,0 +1,53 @@
+{
+ "id": "20261115T080439-make_table_anelastic-4031",
+ "status": "ok",
+ "purpose": "anelastic non-hydrostatic Love numbers against DDW 1999 and the IERS (P1 Table S4b)",
+ "script": "paper_pepi/make_table_anelastic.py",
+ "command": "python paper_pepi/make_table_anelastic.py --figure level",
+ "params": {
+  "figure": "level",
+  "fcn": 431.4,
+  "t0": [
+   1.0,
+   200.0
+  ]
+ },
+ "git": {
+  "commit": "31f5b6f621569e8f1c3ab128bbb36d79d0005165",
+  "dirty": [
+   "paper_pepi/main_v3_2col.pdf",
+   "paper_pepi/supplement_v3.pdf",
+   "paper_pepi/supplement_v3.tex",
+   "src/earthtides/love.py"
+  ],
+  "script_untracked": true,
+  "script_dirty": false,
+  "script_sha256": "ecbfab8f1162d4b659c1ec23c6f9fb51f62b657b4e79d76d39e8bb5fe5f70a13"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/paper1_table_anelastic_level.txt",
+   "sha256": "7bf8bf80d8d8bb559a95dd5f613a7df857d7ae17701bc2de39e573e1a5b010a2"
+  },
+  {
+   "path": "paper_pepi/table_anelastic.tex",
+   "sha256": "1dd42dd59f446f3f4f1c50caba571d3df584166157da3445a1564e9222766cef"
+  }
+ ],
+ "start": "2026-11-15T08:04:39",
+ "end": "2026-11-15T08:05:34",
+ "wall_s": 54.3,
+ "peak_rss_mb": {
+  "self": 881.6,
+  "children_max": 10.2
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

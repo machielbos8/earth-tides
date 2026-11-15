@@ -1,0 +1,14 @@
+O1: h0, l0, k (DDW norm.) | solver spread (1e-9)
+   Wahr truncation, N 16 x 1: 0.596186 0.083047 0.293838 |     0.00
+   Wahr truncation, N 24 x 1: 0.596188 0.083047 0.293840 |     4.18
+   Wahr truncation, N 24 x 4: 0.596136 0.083048 0.293809 | 117314.45
+   Wahr truncation, N 44 x 1: 0.596127 0.083048 0.293801 | 12131.85
+   Wahr truncation, N 24 x 8: 0.596313 0.083047 0.293922 | 39040.14
+   our K2/N24 (determinate):      0.596244 0.083046 0.293836
+M2: h0, l0, k (DDW norm.) | solver spread (1e-9)
+   Wahr truncation, N 16 x 1: 0.602576 0.083572 0.297926 |     0.00
+   Wahr truncation, N 24 x 1: 0.602576 0.083572 0.297926 |     1.74
+   Wahr truncation, N 24 x 4: 0.602555 0.083573 0.297916 | 76563.58
+   Wahr truncation, N 44 x 1: 0.602577 0.083572 0.297927 | 72687.19
+   Wahr truncation, N 24 x 8: 0.602600 0.083572 0.297938 | 28261.49
+   our K2/N24 (determinate):      0.602435 0.083609 0.297928

@@ -1,0 +1,53 @@
+{
+ "id": "20261110T153511-m2_rays_recheck-0472",
+ "status": "ok",
+ "purpose": "M2 ray attractors at 1.93227 (solar-day value used before) and 1.92700 cpsd",
+ "script": "scripts/m2_rays_recheck.py",
+ "command": "python scripts/m2_rays_recheck.py",
+ "params": {
+  "freqs": [
+   1.93227,
+   1.9269976557752742
+  ],
+  "cores": [
+   "PREM",
+   "layered",
+   "neutral"
+  ],
+  "nref": 2000
+ },
+ "git": {
+  "commit": "6436a50647e3d84cdc40697e29e03e77fcddbde6",
+  "dirty": [
+   "paper_pepi/supplement_v2.pdf",
+   "results/LEDGER.jsonl"
+  ],
+  "script_untracked": true,
+  "script_dirty": false,
+  "script_sha256": "8faac4a1c2ec77574e8238d7b1f940403b46014d5cc1ae0be43e4a70feaa4f21"
+ },
+ "env": {
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/m2_rays_recheck.txt",
+   "sha256": "357e056a3f8a288f65c61c805996b0429adbf18312dc115d97172798d99ce1ae"
+  }
+ ],
+ "start": "2026-11-10T15:35:11",
+ "end": "2026-11-10T15:44:10",
+ "wall_s": 538.9,
+ "peak_rss_mb": {
+  "self": 100.0,
+  "children_max": 10.9
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

@@ -1,0 +1,64 @@
+{
+ "id": "20261101T124414-core_sweep_offset-8615",
+ "status": "ok",
+ "purpose": "P1 v2: inviscid-viscous h(2) offset in the Fig. 4 sweeps vs the FCN tail",
+ "script": "scripts/core_sweep_offset.py",
+ "command": "python scripts/core_sweep_offset.py",
+ "params": {
+  "share_slip": 0.004,
+  "share_visc": 0.0015,
+  "R_h0": 0.00018306,
+  "P_fcn_sd": 457.3
+ },
+ "git": {
+  "commit": "8cc9b4a30c23534f0651ab62a4bfae41eb8d10b3",
+  "dirty": [
+   "docs/lab_notes/earthtides_lab_notes.md",
+   "paper_pepi/figures/fig_core_ekman.pdf",
+   "paper_pepi/figures/fig_core_sweep.pdf",
+   "paper_pepi/main_v2.tex",
+   "paper_pepi/main_v2_2col.pdf",
+   "paper_pepi/make_fig_core.py",
+   "paper_pepi/supplement_v2.pdf",
+   "results/LEDGER.jsonl",
+   "scripts/convergence_viscous_coreK.py"
+  ],
+  "script_untracked": true,
+  "script_dirty": false,
+  "script_sha256": "31423f9b19e391134262c8522e92cd8a56d794d924d6030a1f495ba6463f09d0"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "results/convergence_viscous_coreK8_N30_d0_s0.0005.txt",
+   "sha256": "829c979c79692e098d5740ea9bd0128fb824024666027059945f80cc2101ea02"
+  },
+  {
+   "path": "results/convergence_viscous_coreK16_N30_d0_s0.0005.txt",
+   "sha256": "e4d8374571dd98aa95965ed693c2587d6dd8388b620e6b46c5e0baf3bb2e62c1"
+  },
+  {
+   "path": "results/convergence_viscous_coreK24_N30_d0_s0.0005.txt",
+   "sha256": "e472459603defab594b98ec927c96ced5714a4aecd6115f34e0fc57d643607cf"
+  },
+  {
+   "path": "results/convergence_viscous_coreK24_N30_d4_s0.0005.txt",
+   "sha256": "7ec7fb6ffa37b8bdb83c24a800d1c1a416b7a0157b60d30e8f3d7cdc8866a2fe"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/core_sweep_offset.txt",
+   "sha256": "011fea5585cb27cdf14b87f64bfaa60a1de21137bb04f686ef094c3a36c333ee"
+  }
+ ],
+ "start": "2026-11-01T12:44:14",
+ "end": "2026-11-01T12:44:14",
+ "wall_s": 0.0,
+ "peak_rss_mb": {
+  "self": 32.2,
+  "children_max": 8.7
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

@@ -7,7 +7,7 @@ script from its own directory and compare its output with the `.out` file:
     cd ex1
     python swing.py
 
-The examples form a ladder of increasing complexity; the manual (`earthtides_manual_v1.0.pdf`,
+The examples form a ladder of increasing complexity; the manual (`earthtides_manual_v1.1.pdf`,
 chapter Examples) explains each of them.
 
 | | Topic | Runtime |
@@ -17,3 +17,7 @@ chapter Examples) explains each of them.
 | ex3 | Homogeneous spheres: exact Bessel solution and a fluid-core sphere (Bos & Scherneck 2013) | 2 s |
 | ex4 | Analytical Love numbers of a flattened homogeneous Earth (Greff-Lefftz et al. 2005) | 6 min |
 | ex5 | Free core nutation of a rigid shell with a fluid core (Hough 1895) | 20 s |
+| ex6 | Ekman damping of the free core nutation: a viscous, no-slip core (Greenspan 1968) | 10 min |
+| ex7 | A non-hydrostatic Earth: mantle loads, their supporting stress and the free core nutation | 30 s |
+| ex8 | The viscous core and the limit of vanishing viscosity | 30 s |
+| ex9 | The level figure against the first-order figure | 10 s |

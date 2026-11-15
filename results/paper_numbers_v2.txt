@@ -1,0 +1,52 @@
+where        quantity                                                                      this script   value in the paper
+S2.x         Coriolis / inertial force 2 Omega / omega, O1                                        2.16   paper: about twice (diurnal), as large (semidiurnal)
+S2.x         Coriolis / inertial force 2 Omega / omega, M2                                        1.04   paper: about twice (diurnal), as large (semidiurnal)
+3.5          small-alpha 2/(pi alpha) over cot(alpha pi/2), alpha 0.15                           +1.9%   paper: 2 per cent larger
+5.3          Ekman thickness for nu = 1e-6 m2/s (molecular, Alfe 2000)                         0.117 m   paper: about 0.1 m
+5.3          Ekman thickness for nu = 10-30 m2/s (Koot 2010, ICB)                         0.37-0.64 km   paper: 0.4-0.6 km
+5.3          Ekman thickness for nu = 0.02-0.04 m2/s (Koot 2010, CMB)                          17-23 m   paper: about 20 m
+5.3          Ekman thickness for magnetic diffusivity 2 m2/s                                     166 m   paper: about 170 m
+5.3          kinematic viscosity Omega delta^2 for delta = 0.25-4 km                     4.6-1167 m2/s   paper: 5 to 1200 m2/s
+5.3          kinematic viscosity Omega delta^2 for delta = 1 km                              72.9 m2/s   paper: 70 m2/s
+5.3          Ekman spiral: overshoot of the real part, max 1 - e^-z cos z                         6.7%   paper: up to 7 per cent
+S8           centrifugal reduction of surface gravity 2/3 Omega^2 a / g                       2.30e-03   paper: 2.3e-3
+5.3          beam width E^1/4..E^1/3 r_c and degree pi r_c / width, delta 1000 m        59-15 km, 185-721   paper: 190 to 720
+5.3          beam width E^1/4..E^1/3 r_c and degree pi r_c / width, delta 250 m        29-6 km, 371-1818   paper: 370 to 1800
+5.3          beam width E^1/4..E^1/3 r_c and degree pi r_c / width, delta 20 m        8-1 km, 1310-9792   paper: 1300 to 10000
+S11          shear layers E^1/4, E^1/3 of the core radius, delta = 2 km                       83-24 km   paper: 80 to 25 km
+S11          degree that resolves them, pi r_c / width                                         131-454   paper: of order 100 to 450
+S1.1         rho g a / mu, mean density 5514, mantle mu 178 GPa                                   1.94   paper: about 2
+S1.1         radius where rho g a / mu = 1 (uniform body, ratio ~ a^2)                         4572 km   paper: about 4500 km
+S1.1         self-gravitation reduces h, rho g a / mu = 1.94 (lambda/mu 1.36)                    14.4%   paper: 14 per cent (Earth size)
+S1.1         self-gravitation reduces h, rho g a / mu = 0.30 (lambda/mu 1.36)                     2.7%   paper: less than 3 per cent below 0.3
+3.4          first-order level-surface gravity vs exact: max |diff| / g, whole Earth                  1.1e-05   paper: about 1e-5 g (of order eps^2)
+3.4          the same at the surface                                                           1.1e-05   paper: 
+3.4          eps^2 at the surface for comparison                                               1.1e-05   paper: 
+S5           angular-momentum remainder / |N| at O1, spin x 0.7                                0.254 f   paper: 0.25f; same within 2 % at 0.7, 1.3
+S5           angular-momentum remainder / |N| at O1, spin x 1                                  0.253 f   paper: 0.25f; same within 2 % at 0.7, 1.3
+S5           angular-momentum remainder / |N| at O1, spin x 1.3                                0.252 f   paper: 0.25f; same within 2 % at 0.7, 1.3
+S5           angular-momentum remainder / |N| at O1, half the hydrostatic flattening, spin x 1                 35% of N   paper: breaks the balance by 35 per cent
+S9           M2: (l1 IERS - ours) = 0.00141; max horizontal (vector)                           0.43 mm   paper: 0.43 mm
+S9           M2: max north, max east component                                           0.34, 0.26 mm   paper: 
+S9           K1: (l1 IERS - ours) = 0.00084; max horizontal (vector)                           0.34 mm   paper: 0.35 mm
+S9           K1: max north, max east component                                           0.24, 0.24 mm   paper: 
+S3           h2, Voigt average of TI PREM minus isotropic PREM (sphere, M2)                   -5.7e-06   paper: 6e-6
+S1           ocean -> rock (2600 kg/m3, top 15 km layer): change of h2, sphere                 +5.3e-04   paper: +5e-4
+S1           ocean -> rock: change of h(2), l(2), l(1) at O1 (max)                             6.2e-07   paper: less than 1e-6
+S1           ocean -> rock: change of h(2), l(2), l(1) at M2 (max)                             8.9e-07   paper: less than 1e-6
+S12          phi0 jumps, hydrostatic PREM, projected on P0-P6: phi0, flux                 1e-16, 1e-15   paper: 1e-13
+S12          phi0 jumps, hydrostatic PREM, pointwise: phi0, flux                          5e-12, 7e-11   paper: 1e-13
+S12          phi0 jumps, 450 m elastic state, projected on P0-P6: phi0, flux              3e-16, 8e-16   paper: 1e-13
+S12          phi0 jumps, 450 m elastic state, pointwise: phi0, flux                       6e-12, 9e-11   paper: 1e-13
+5.1          FCN resonance strength of the gravimetric factor (deg/h)                6.626e-04 (-0.7%)   paper: agrees to 1 % with Rosat et al. 2009 (a_R 0.667e-3)
+S3           M2: h(2) IERS - ours = -0.00011; max radial                                      0.013 mm   paper: 
+S3           M2: l(2) IERS - ours = +0.00011; max horizontal (vector)                         0.027 mm   paper: 
+S3           K1: h(2) IERS - ours = +0.00001; max radial                                      0.001 mm   paper: 
+S3           K1: l(2) IERS - ours = +0.00010; max horizontal (vector)                         0.040 mm   paper: 
+3.3          fortnightly (13.66 d) nutation (IAU 2000A), circular amplitude, at the equator          0.094" = 2.91 m   paper: O1: rotation removed 2.88 m (frame_size.txt)
+3.3          semi-annual (182.6 d) nutation (IAU 2000A), circular amplitude, at the equator         0.548" = 16.96 m   paper: P1: rotation removed 16.72 m (frame_size.txt)
+6.2          load amplitudes lower, upper mantle, e_f of MHB (383 m)               +7.23e-04 -1.22e-03   paper: 
+6.2          load amplitudes lower, upper mantle, CMB 450 m                        +8.15e-04 -1.29e-03   paper: 
+6.2          load amplitudes lower, upper mantle, CMB 500 m                        +8.85e-04 -1.35e-03   paper: 
+6.2          load amplitudes lower, upper mantle, FCN 431.4 sd (503 m)             +8.88e-04 -1.35e-03   paper: 
+6.2          largest anomaly |delta rho / rho0| of these states; mean of P2 over a sphere            0.14%; -2e-16   paper: at most 0.14 per cent; average to zero on every sphere

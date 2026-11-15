@@ -2,7 +2,7 @@
 #
 # Loading Green's functions of a flattened Earth from the load Love matrix.
 #
-# This file is part of earth-tides 1.0.
+# This file is part of earth-tides 1.1.
 #
 # earth-tides is distributed under a source-available license.
 # It may be used free of charge for academic, research, and other
@@ -15,7 +15,7 @@
 #===============================================================================
 """Loading Green's functions of a flattened Earth from the load Love matrix.
 
-The load Love matrix L_m(n, n') (scripts/load_love_table.py) gives the response of
+The load Love matrix L_m(n, n') gives the response of
 the flattened Earth to a unit surface density Ybar_n'^m cos(m lam) [kg/m^2 of the
 actual surface]. A point mass M at (theta_l, lam_l) is a surface density
 M delta / dA; its coefficients in Ybar_n'^m cos m(lam - lam_l) are

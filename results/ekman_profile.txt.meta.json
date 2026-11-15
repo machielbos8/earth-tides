@@ -1,0 +1,69 @@
+{
+ "id": "20261110T173847-ekman_profile-9077",
+ "status": "ok",
+ "purpose": "P1 v2: Ekman layer below the CMB at psi1, delta 1 km, solver vs local solution",
+ "script": "scripts/ekman_profile.py",
+ "command": "python scripts/ekman_profile.py",
+ "params": {
+  "sig": 1.00273,
+  "delta": 1000.0,
+  "K": 12,
+  "N": 30,
+  "colatitudes_deg": [
+   29.999999999999996,
+   45.0,
+   80.0
+  ]
+ },
+ "git": {
+  "commit": "d799115bc136e3ee90b2b59c043e0693fab69f57",
+  "dirty": [
+   "paper_pepi/supplement_v2.tex",
+   "paper_scripts/run_all.py",
+   "results/LEDGER.jsonl",
+   "results/convention_table.txt",
+   "scripts/check_ekman_resolution.py",
+   "scripts/compare_ddw1999.py",
+   "scripts/convention_table.py",
+   "scripts/convergence_deflated.py",
+   "scripts/convergence_inviscid_lowK.py",
+   "scripts/convergence_nocoriolis_core.py",
+   "scripts/ddw_lowK_table.py",
+   "scripts/depth_sensitivity.py",
+   "scripts/fcn_resonance_noic.py",
+   "scripts/fcn_share_inviscid.py",
+   "scripts/nonhydro_anelastic.py",
+   "scripts/nonhydro_diurnal.py",
+   "scripts/nonhydro_support.py"
+  ],
+  "script_untracked": false,
+  "script_dirty": false,
+  "script_sha256": "97877001dec2e1fcd2a3c2df028bf762062e8f7fa6df1f0cecf4a32dd3239211"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/ekman_profile.npz",
+   "sha256": "32b24a1e35d5e33b396d8789544ad0925e62c4f47dd0a380f7012e917a0264b5"
+  },
+  {
+   "path": "results/ekman_profile.txt",
+   "sha256": "d2615a6f8a9c0b2e50b207694c76ece5f133bb97f337b8570eb80785c0bfe37f"
+  }
+ ],
+ "start": "2026-11-10T17:38:47",
+ "end": "2026-11-10T17:38:50",
+ "wall_s": 3.3,
+ "peak_rss_mb": {
+  "self": 1280.0,
+  "children_max": 8.8
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

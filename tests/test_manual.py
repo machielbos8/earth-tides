@@ -3,7 +3,7 @@
 # Every Python code block of the user manual runs (in order, in one namespace), so that the
 # examples in the manual cannot go stale.
 #
-# This file is part of earth-tides 1.0.
+# This file is part of earth-tides 1.1.
 #
 # earth-tides is distributed under a source-available license.
 # It may be used free of charge for academic, research, and other
@@ -18,7 +18,7 @@ import re
 import warnings
 from pathlib import Path
 
-MANUAL = Path(__file__).resolve().parents[1] / 'docs' / 'manual' / 'earthtides_manual_v1.0.md'
+MANUAL = Path(__file__).resolve().parents[1] / 'docs' / 'manual' / 'earthtides_manual_v1.1.md'
 
 
 def test_manual_python_blocks_run():
