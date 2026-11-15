@@ -43,8 +43,11 @@ Usage: python scripts/core_flow_attractor.py CASE [CASE ...] [--workers W] [--ta
 import os
 import sys
 import time
-import resource
 import warnings
+try:
+    import resource                         # not on Windows: no memory cap, no peak RSS
+except ImportError:
+    resource = None
 from contextlib import nullcontext
 from multiprocessing import Pool
 os.environ.setdefault('VECLIB_MAXIMUM_THREADS', '1')
@@ -182,7 +185,7 @@ def rotated(seg, r, th, E):
 def case(c):
     f, core, dkm, Kc, split, Ni = c
     gb = float(os.environ.get('CORE_FLOW_MAX_GB', 0))
-    if gb and sys.platform.startswith('linux'):
+    if gb and resource is not None and sys.platform.startswith('linux'):
         resource.setrlimit(resource.RLIMIT_AS, (int(gb * 1e9), int(gb * 1e9)))
     from earthtides.iers import iers_fit
     R, seg, gr, p = loop(f, core)
@@ -193,7 +196,8 @@ def case(c):
     th = np.linspace(1e-3, np.pi - 1e-3, 8 * Kc + 1)
     r, E = cfr.flow(S, md, m, th, nr=max(120 if split > 1 else 160, 4 * Ni))
     del S
-    rss = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / (1e9 if sys.platform == 'darwin' else 1e6)
+    rss = (resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / (1e9 if sys.platform == 'darwin' else 1e6)
+           if resource is not None else float('nan'))
     return c, gr, p, asym(seg), shares(R, seg, r, th, E) + [rotated(seg, r, th, E)], h2, rss, ts, r, th, E, seg
 
 

@@ -39,7 +39,10 @@ Usage: python scripts/viscous_limit_thin.py [--K 12,16] [--deltas 1000,750,500,3
 import hashlib
 import json
 import os
-import resource
+try:
+    import resource                         # not on Windows: no peak RSS
+except ImportError:
+    resource = None
 import sys
 import time
 import warnings
@@ -90,7 +93,8 @@ def solve(job):
     fit_['k0'] = r['kk'] * (md.a / equatorial_radius(g, md)) ** 5
     L = np.array([complex(fit_[k]) for k in KEYS])
     res = float((S.__dict__.get('_block_info') or S.__dict__.get('_layer_info') or {}).get('residual') or np.nan)
-    gb = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / (1e9 if sys.platform == 'darwin' else 1e6)
+    gb = (resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / (1e9 if sys.platform == 'darwin' else 1e6)
+          if resource is not None else float('nan'))
     CACHE.mkdir(parents=True, exist_ok=True)
     f.write_text(json.dumps(dict(job=job, re=L.real.tolist(), im=L.imag.tolist(), res=res, gb=gb,
                                  sec=time.time() - t, solver=str(S._solver_used))))
