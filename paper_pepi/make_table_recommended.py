@@ -27,8 +27,10 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 
 from provenance import Run
+import earthtides
 
-TABLE = ROOT / 'src' / 'earthtides' / 'data' / 'love_PREM_allwaves.json'
+# the stored table of the package in use (the installed one under run_all.py --installed, which has no src/)
+TABLE = Path(earthtides.__file__).resolve().parent / 'data' / 'love_PREM_allwaves.json'
 OUT = ROOT / 'paper_pepi' / 'table_recommended.tex'
 # name, order m, frequency [cycles per day]
 TIDES = (('Mm', 0, 0.0362916), ('Mf', 0, 0.0732022), ('Q$_1$', 1, 0.8932441), ('O$_1$', 1, 0.9295357),
@@ -87,5 +89,5 @@ def main(run):
 
 if __name__ == '__main__':
     with Run('Supplement S1: table of the recommended Love numbers (excerpt of love_PREM_allwaves.json)',
-             inputs=[str(TABLE.relative_to(ROOT))]) as run_:
+             inputs=[str(TABLE.relative_to(ROOT)) if TABLE.is_relative_to(ROOT) else str(TABLE)]) as run_:
         main(run_)

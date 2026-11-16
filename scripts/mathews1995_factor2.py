@@ -48,7 +48,8 @@ TABLE1 = (('O1 145.555', 1, 0.92954, 0.0010), ('P1 163.555', 1, 0.99726, 0.0010)
           ('165.545', 1, 1.00259, 0.0009), ('K1 165.555', 1, 1.00274, 0.0009), ('165.565', 1, 1.00288, 0.0009),
           ('psi1 166.554', 1, 1.005475688, 0.0017), ('semidiurnal (M2)', 2, 1.93227, 0.0020))
 SIG = (1.0012, 1.0016, 1.0030, 1.0036)
-CATALOGUE = ROOT / 'src' / 'earthtides' / 'data' / 'love_PREM_allwaves.json'
+# the stored table of the package in use (the installed one under run_all.py --installed, which has no src/)
+CATALOGUE = Path(love.__file__).resolve().parent / 'data' / 'love_PREM_allwaves.json'
 ANEL = ROOT / 'results' / 'paper1_table_anelastic_level.txt'      # Table S5 data (make_table_anelastic.py)
 
 
@@ -193,6 +194,6 @@ def main(run):
 if __name__ == '__main__':
     from provenance import Run
     with Run('Review round 2 R1: Mathews 1995a eq. 6 for m = 0,1,2 and the factor 2 in l(1)',
-             inputs=['data/PREM.dat', 'src/earthtides/data/love_PREM_allwaves.json',
+             inputs=['data/PREM.dat', str(CATALOGUE.relative_to(ROOT)) if CATALOGUE.is_relative_to(ROOT) else str(CATALOGUE),
                      'results/paper1_table_anelastic_level.txt']) as run_:
         main(run_)
