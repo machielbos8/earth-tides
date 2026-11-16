@@ -1,0 +1,23 @@
+soft+vp16, delta 250 m, solver layers; FCN (inviscid scan) 1.00414 cpsd; frequencies 0.96000 0.99000 1.00314 1.00354 1.00374 1.00394 1.00444 1.00474
+far frequencies (0.96, 0.99): |dh0| <= 1e-06, |dh2|, |dl1|, |dl2| <= 1e-08; resonance (one-pole fit to all 8 frequencies): period to 0.01 sd, Q to 0.5 %, shares to 1e-05
+step  what band   N   K  mK  mN    FCN sd       Q  share h2  share l1  share l2   misfit   far dh0 dFCN cpsd  dPer sd   dQ %   dshare  verdict    residual s/solve    GB cached
+   0 start   12  30  24   6  16   240.198    2563  +0.00202  +0.00131  +0.00033  6.0e-09                                                           6.2e-10     6.1   1.1 no
+   1     N   12  40  24   6  16   240.156    2566  +0.00218  +0.00133  +0.00030  9.8e-10   7.0e-06  +7.4e-07   -0.043  +0.13  1.6e-04  KEEP N      1.5e-09    19.1   1.9 no
+   2     N   12  50  24   6  16   240.192    2567  +0.00203  +0.00131  +0.00033  1.0e-09   8.6e-06  -6.3e-07   +0.036  +0.02  1.5e-04  KEEP N      5.6e-10    32.4   2.8 no
+   3     N   12  60  24   6  16   240.194    2567  +0.00205  +0.00132  +0.00032  1.5e-09   1.2e-06  -3.9e-08   +0.002  +0.01  2.3e-05  KEEP N      1.5e-09    49.8   3.9 no
+
+final point: band 12, N 60, K 24, mantle K 6 N 16: FCN 240.194 sd, Q 2567, shares h2 +0.00205 l1 +0.00132 l2 +0.00032
+  band  ladder end (not confirmed)
+  N     ladder end (not confirmed)
+  K     ladder end (not confirmed)
+  mK    ladder end (not confirmed)
+  mN    ladder end (not confirmed)
+  Love numbers at the final point (real parts): h0, h2, l1, l2
+  0.96000  +0.75388957  -0.00093180  +0.00051142  +0.00045770
+  0.99000  +0.74705805  -0.00094543  +0.00050837  +0.00045537
+  1.00314  +0.62068938  -0.00120698  +0.00034445  +0.00041519
+  1.00354  +0.54558357  -0.00136543  +0.00024536  +0.00039201
+  1.00374  +0.47494038  -0.00151745  +0.00015194  +0.00037088
+  1.00394  +0.38913699  -0.00171510  +0.00003767  +0.00034818
+  1.00444  +1.10784803  -0.00023337  +0.00098461  +0.00057788
+  1.00474  +0.98300623  -0.00046971  +0.00082150  +0.00053319

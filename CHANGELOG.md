@@ -1,5 +1,31 @@
 # Changelog of earth-tides
 
+## 1.1.1 (2026-11, with the manual version 1.1)
+
+**Changed default: the stored Love-number tables.** `data/love_PREM.json` and `love_PREM_allwaves.json`
+(`etide --love prem`, `prem-allwaves`) now hold the recommended values of the paper: anelastic PREM on the
+level figure, made non-hydrostatic (excess J2 of Chambat et al. 2010, elastic support) so that the free core
+nutation lies at the observed 431.4 sidereal days instead of the 459 of hydrostatic PREM. This changes h0 by
+2.9e-3 at K1, 0.12 at psi1 and up to 0.25 at the small lines closest to the free core nutation;
+outside 0.99-1.02 cycles per day by at most 2.5e-4. The set-up file is
+`tools/stored_tables/love_PREM.toml`. The hydrostatic tables of 1.1.0 remain as `love_PREM_hydrostatic.json`
+and `love_PREM_allwaves_hydrostatic.json` (`--love prem-hydrostatic`, `prem-allwaves-hydrostatic`).
+`earthtides-love` itself still computes the hydrostatic Earth unless its set-up file has a
+`[nonhydrostatic]` table. `etide` still defaults to the IERS Conventions.
+
+The reproduction package of the paper is completed:
+
+* The scripts of the heavy runs of the viscous core that the Supplementary Material quotes
+  (`converge_resolution.py`, `share_vs_delta.py`, `strat_share_test.py`, `wall_fields.py`) are shipped with
+  their stored results and provenance records; they are not rerun by `run_all.py` (core degree 48 to 96).
+* Three new quick jobs from the review of the paper: `table4_spread` (Table S13 against the core resolution
+  and the linear solver), `ef_vs_cmb_fcn` (the free core nutation follows the excess dynamical ellipticity of
+  the core, not the flattening of its boundary) and `mathews1995_factor2` (the defining equation of Mathews et
+  al. 1995a against the Conventions for m = 0, 1, 2, and their l(1) against ours).
+* Windows: the paper scripts no longer need the POSIX module `resource`; a solver test allows for
+  platform round-off.
+* CI: the paper reproduction runs once, on macOS.
+
 ## 1.1.0 (2026-11, with the manual version 1.1)
 
 The release that goes with the paper "Body tides of a flattened, rotating, non-hydrostatic Earth:

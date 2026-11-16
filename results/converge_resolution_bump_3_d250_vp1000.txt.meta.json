@@ -1,0 +1,78 @@
+{
+ "id": "20261113T072405-converge_resolution-0561",
+ "status": "ok",
+ "purpose": "convergence ladder in band, N and K of the viscous core, one parameter at a time",
+ "script": "scripts/converge_resolution.py",
+ "command": "python scripts/converge_resolution.py bump+3 250 --band 12,16 --N 30,40,50,60 --K 24,36,48 --workers 4 --max-gb 24 --tag vp1000",
+ "params": {
+  "variant": "bump+3",
+  "delta": 250.0,
+  "ladders": {
+   "band": [
+    12,
+    16
+   ],
+   "N": [
+    30,
+    40,
+    50,
+    60
+   ],
+   "K": [
+    24,
+    36,
+    48
+   ],
+   "mK": [
+    6
+   ],
+   "mN": [
+    16
+   ]
+  },
+  "solver": "layers",
+  "far": [
+   0.96,
+   0.99
+  ],
+  "offsets": [
+   -0.001,
+   -0.0006,
+   -0.0004,
+   -0.0002,
+   0.0003,
+   0.0006
+  ],
+  "tol0": 1e-06,
+  "tol2": 1e-08,
+  "max_gb": 24.0
+ },
+ "git": {
+  "commit": "b3889ed1f0cbedbfbd9505aebcbb424c033d9d52",
+  "dirty": [
+   "results/LEDGER.jsonl"
+  ],
+  "script_untracked": false,
+  "script_dirty": false,
+  "script_sha256": "b4914e85bd74d97445ef6c2ddc86dfb434ada409022acd06dbaca2b008af3470"
+ },
+ "env": {
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [],
+ "outputs": [
+  {
+   "path": "results/converge_resolution_bump_3_d250_vp1000.txt",
+   "sha256": "6739b529dc087719937abc8e688914b3dcdbd8ab1cc619b478693da5dadb5943"
+  }
+ ],
+ "start": "2026-11-13T07:24:05",
+ "end": "2026-11-13T08:07:24",
+ "wall_s": 2599.5,
+ "peak_rss_mb": {
+  "self": 78.5,
+  "children_max": 74.6
+ },
+ "host": "Linux (28 GB)",
+ "python": "3.14.4"
+}

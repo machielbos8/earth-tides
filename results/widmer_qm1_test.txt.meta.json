@@ -1,0 +1,54 @@
+{
+ "id": "20261116T152154-widmer_qm1_test-7230",
+ "status": "ok",
+ "purpose": "Q model test: Tables S5/S6 with the shear Q of Widmer et al. (1991, QM1)",
+ "script": "scripts/widmer_qm1_test.py",
+ "command": "python scripts/widmer_qm1_test.py --figure level",
+ "params": {
+  "figure": "level",
+  "variants": [
+   "PREM Q",
+   "PREM Q split",
+   "QM1 t0 200 s",
+   "QM1 t0 1 s"
+  ],
+  "snap_km": 10.0,
+  "qm1_inner": 110.0
+ },
+ "git": {
+  "commit": "18da02e7bacc90e96ecd4c80d0807bf44287e762",
+  "dirty": [
+   "paper_pepi/main_v3_2col.bbl",
+   "results/LEDGER.jsonl"
+  ],
+  "script_untracked": true,
+  "script_dirty": false,
+  "script_sha256": "ca1b515df1eb8ca272fd5773b3ffccfbae5d8606748eefe824e547dc74702e7a"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  },
+  {
+   "path": "data/PREMs.dat",
+   "sha256": "e9fcce04a0de9f094a983ff8a3aa40d971eba71aeb93968bbb4f65a705ddb952"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/widmer_qm1_test.txt",
+   "sha256": "38dbb035676c1d391413071de8d670822595efc4e4ff7dcae053ff879c0af7cf"
+  }
+ ],
+ "start": "2026-11-16T15:21:54",
+ "end": "2026-11-16T15:24:20",
+ "wall_s": 146.0,
+ "peak_rss_mb": {
+  "self": 36.8,
+  "children_max": 1464.9
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

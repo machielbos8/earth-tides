@@ -44,7 +44,7 @@ import check_angular_momentum as cam
 import level_geometry as lg
 from provenance import Run
 
-WAVES = (('O1', 0.92700), ('P1', 0.99454), ('psi1', 1.00273), ('phi1', 1.00821), ('OO1', 1.07300))
+WAVES = (('O1', 0.92700), ('P1', 0.99454), ('psi1', 1.002730421), ('phi1', 1.005460985), ('OO1', 1.07300))
 
 
 def _opt(name, default):

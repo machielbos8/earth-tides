@@ -1,0 +1,12 @@
+# Set-up of the stored default tables of earth-tides (src/earthtides/data/love_PREM.json and
+# love_PREM_allwaves.json): the recommended Love numbers of Bos (PEPI): anelastic PREM on the level
+# figure, made non-hydrostatic so that the free core nutation lies at the observed 431.4 sidereal days.
+#   earthtides-love --setup tools/stored_tables/love_PREM.toml -o src/earthtides/data/love_PREM.json
+#   earthtides-love --setup tools/stored_tables/love_PREM.toml --all-waves -o src/earthtides/data/love_PREM_allwaves.json
+# The hydrostatic tables of 1.1.0 (FCN 459 sidereal days) are kept as love_PREM_hydrostatic.json and
+# love_PREM_allwaves_hydrostatic.json.
+
+[nonhydrostatic]
+support = "elastic"
+shells_km = [[3480, 5701], [5701, 6346.6]]
+targets = {J2 = 1.14e-5, e_f = 1.2382898371013948e-4}   # Chambat et al. 2010; FCN 431.4 sd (Table S4)

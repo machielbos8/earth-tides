@@ -1,0 +1,23 @@
+soft+vp32, delta 250 m, solver layers; FCN (inviscid scan) 1.00415 cpsd; frequencies 0.96000 0.99000 1.00315 1.00355 1.00375 1.00395 1.00445 1.00475
+far frequencies (0.96, 0.99): |dh0| <= 1e-06, |dh2|, |dl1|, |dl2| <= 1e-08; resonance (one-pole fit to all 8 frequencies): period to 0.01 sd, Q to 0.5 %, shares to 1e-05
+step  what band   N   K  mK  mN    FCN sd       Q  share h2  share l1  share l2   misfit   far dh0 dFCN cpsd  dPer sd   dQ %   dshare  verdict    residual s/solve    GB cached
+   0 start   12  30  24   6  16   239.566    2539  +0.00227  +0.00134  +0.00026  6.7e-08                                                           1.9e-09     6.2   1.1 no
+   1     N   12  40  24   6  16   239.636    2547  +0.00264  +0.00137  +0.00018  4.1e-09   7.0e-06  -1.2e-06   +0.070  +0.28  3.7e-04  KEEP N      8.1e-10    19.4   1.9 no
+   2     N   12  50  24   6  16   239.624    2537  +0.00233  +0.00134  +0.00026  2.0e-08   1.2e-06  +2.0e-07   -0.012  -0.36  3.2e-04  KEEP N      1.3e-09    32.8   2.8 no
+   3     N   12  60  24   6  16   239.427    2578  +0.00517  +0.00159  -0.00040  1.3e-04   1.6e-06  +3.4e-06   -0.197  +1.60  2.8e-03  KEEP N      1.3e-09    49.7   4.0 no
+
+final point: band 12, N 60, K 24, mantle K 6 N 16: FCN 239.427 sd, Q 2578, shares h2 +0.00517 l1 +0.00159 l2 -0.00040
+  band  ladder end (not confirmed)
+  N     ladder end (not confirmed)
+  K     ladder end (not confirmed)
+  mK    ladder end (not confirmed)
+  mN    ladder end (not confirmed)
+  Love numbers at the final point (real parts): h0, h2, l1, l2
+  0.96000  +0.75386769  -0.00093223  +0.00051135  +0.00045782
+  0.99000  +0.74700852  -0.00094654  +0.00050820  +0.00045562
+  1.00315  +0.62019354  -0.00124293  +0.00034056  +0.00042345
+  1.00355  +0.54519267  -0.00148237  +0.00023439  +0.00041927
+  1.00375  +0.47494411  -0.00175969  +0.00013034  +0.00042760
+  1.00395  +0.38973145  -0.00229845  -0.00001326  +0.00048449
+  1.00445  +1.11193163  +0.00117929  +0.00111533  +0.00025505
+  1.00475  +0.98295519  +0.00015534  +0.00087709  +0.00038875

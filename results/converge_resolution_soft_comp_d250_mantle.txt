@@ -1,0 +1,22 @@
+soft+comp, delta 250 m, solver layers; FCN (inviscid scan) 1.00410 cpsd; frequencies 0.96000 0.99000 1.00310 1.00350 1.00370 1.00390 1.00440 1.00470
+far frequencies (0.96, 0.99): |dh0| <= 1e-06, |dh2|, |dl1|, |dl2| <= 1e-08; resonance (one-pole fit to all 8 frequencies): period to 0.01 sd, Q to 0.5 %, shares to 1e-05
+step  what band   N   K  mK  mN    FCN sd       Q  share h2  share l1  share l2   misfit   far dh0 dFCN cpsd  dPer sd   dQ %   dshare  verdict    residual s/solve    GB cached
+   0 start   12  60  24   6  16   242.559    2709  +0.00196  +0.00130  +0.00035  1.8e-07                                                           4.0e-10    49.4   4.0 yes
+   1    mK   12  60  24  10  16   242.559    2709  +0.00196  +0.00130  +0.00035  1.8e-07   9.0e-10  +8.2e-11   -0.000  -0.00  3.0e-08  no change   3.5e-10    50.2   4.0 no
+   2    mN   12  60  24   6  24   242.559    2709  +0.00196  +0.00130  +0.00035  1.8e-07   3.3e-09  +9.9e-14   -0.000  +0.00  2.7e-10  no change   8.3e-10    48.9   4.0 no
+
+final point: band 12, N 60, K 24, mantle K 6 N 16: FCN 242.559 sd, Q 2709, shares h2 +0.00196 l1 +0.00130 l2 +0.00035
+  band  ladder end (not confirmed)
+  N     ladder end (not confirmed)
+  K     ladder end (not confirmed)
+  mK    converged
+  mN    converged
+  Love numbers at the final point (real parts): h0, h2, l1, l2
+  0.96000  +0.75395236  -0.00093287  +0.00051143  +0.00045791
+  0.99000  +0.74723595  -0.00094659  +0.00050855  +0.00045564
+  1.00310  +0.62299471  -0.00119828  +0.00034851  +0.00041418
+  1.00350  +0.54803003  -0.00129747  +0.00025540  +0.00037730
+  1.00370  +0.47578432  -0.00137910  +0.00016703  +0.00033861
+  1.00390  +0.38070209  -0.00138791  +0.00006030  +0.00026547
+  1.00440  +1.11291689  -0.00002018  +0.00100858  +0.00053581
+  1.00470  +0.98064117  -0.00042921  +0.00082162  +0.00052346

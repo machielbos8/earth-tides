@@ -1,0 +1,7 @@
+PREM without inner core, stratified (PREM), neutral (Adams-Williamson) and uniform-density core; one-pole fit (fcn_resonance_noic.fit); resonant parts relative to that of h0
+neutral core: central density 12429.6, CMB 9906.7 kg/m^3 (PREM_noIC 12581.6, 9903.4; uniform 10961.2)
+variant        core   K   N   FCN sd       Q        h2        l0        l1        l2        k0  max |resid| h0
+uniform    inviscid   6  30    442.5 -1277656892275  +0.00398  -0.03051  +0.00187  -0.00098  +0.50719  2.0e-03
+uniform    inviscid  10  30    442.5 -1277551623060  +0.00398  -0.03051  +0.00187  -0.00099  +0.50719  2.0e-03
+uniform       250 m  48  30    438.2    2578  +0.00137  -0.03045  +0.00155  -0.00013  +0.50738  1.9e-03
+uniform       125 m  48  30    440.5    5198  +0.00132  -0.03047  +0.00155  -0.00012  +0.50721  1.9e-03

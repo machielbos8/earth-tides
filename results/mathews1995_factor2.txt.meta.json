@@ -1,0 +1,39 @@
+{
+ "id": "20261116T072133-mathews1995_factor2-3826",
+ "status": "ok",
+ "purpose": "Review round 2 R1: Mathews 1995a eq. 6 for m = 0,1,2 and the factor 2 in l(1)",
+ "script": "scripts/mathews1995_factor2.py",
+ "command": "python scripts/mathews1995_factor2.py",
+ "params": {},
+ "git": {
+  "commit": "830f5068b3da53af326944fccc7b98c8bd0c21e9",
+  "dirty": [
+   "paper_pepi/main_v3_2col.bbl"
+  ],
+  "script_untracked": true,
+  "script_dirty": false,
+  "script_sha256": "6e7313d0b10dcd8190f3c9ff9347af4b1812fdcd6a6cd612643d755ce017caea"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/mathews1995_factor2.txt",
+   "sha256": "43fe9e3df583a12730e5af9021a8d83d6aedb3a08f9234a8d3f170088bf4fbcd"
+  }
+ ],
+ "start": "2026-11-16T07:21:33",
+ "end": "2026-11-16T07:21:55",
+ "wall_s": 21.6,
+ "peak_rss_mb": {
+  "self": 78.2,
+  "children_max": 515.7
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

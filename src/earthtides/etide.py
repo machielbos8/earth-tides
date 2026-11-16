@@ -31,9 +31,12 @@ for degree 2. The Love numbers come from a table per band and frequency (see Lov
           anelastic formula for the zonal waves, evaluated at the frequency of every wave, step-1
           values for the semidiurnal waves; degree 3: h3 = 0.292, l3 = 0.015; degree 4 from PREM.
   'ddw'   as 'iers', with the diurnal h(0), l(0) of Dehant, Defraigne & Wahr (1999, Table 14a).
-  'prem'  anelastic, hydrostatic PREM of earth-tides, one Love number per wave group (default
-          groups, < 0.03 mm from per wave; data/love_PREM.json); 'prem-allwaves': per wave
-          (data/love_PREM_allwaves.json).
+  'prem'  anelastic PREM of earth-tides on the level figure, made non-hydrostatic so that the
+          free core nutation lies at the observed 431.4 sidereal days (the recommended values of
+          Bos, PEPI), one Love number per wave group (default groups, < 0.03 mm from per wave;
+          data/love_PREM.json); 'prem-allwaves': per wave (data/love_PREM_allwaves.json);
+          'prem-hydrostatic', 'prem-allwaves-hydrostatic': hydrostatic PREM (free core nutation
+          at 459 sidereal days), the default tables of version 1.1.0.
   file    any Love-number table written by earthtides-love (JSON, IERS conventions only).
 
 The astronomical angles and the normalized spherical functions follow Tamura (1987) and the
@@ -240,8 +243,10 @@ class LoveModel:
             The diurnal h(0), l(0) include the resonant ocean-loading correction of Table 7.2.
     'mhb':  as 'iers', diurnal values from the resonance formula alone (Table 7.1).
     'ddw':  as 'mhb', but the real parts of the diurnal h(0), l(0) from DDW (1999).
-    'prem': the table data/love_PREM.json (earthtides-love, default wave groups);
-    'prem-allwaves': data/love_PREM_allwaves.json (earthtides-love --all-waves).
+    'prem': the table data/love_PREM.json (earthtides-love, default wave groups; free core
+            nutation at the observed 431.4 sidereal days, tools/stored_tables/love_PREM.toml);
+    'prem-allwaves': data/love_PREM_allwaves.json (earthtides-love --all-waves);
+    'prem-hydrostatic', 'prem-allwaves-hydrostatic': the same for hydrostatic PREM (459 sd).
     file:   a JSON table written by earthtides-love, in the IERS conventions, covering every wave
             of Tamura.dat (matched by degree and Doodson multipliers).
     """
@@ -272,7 +277,9 @@ class LoveModel:
             self.h0[n == 3], self.l0[n == 3] = 0.292, 0.015
             self.h0[n == 4], self.l0[n == 4] = 0.179, 0.011   # not in TN36: anelastic PREM
         else:
-            path = {'prem': 'love_PREM.json', 'prem-allwaves': 'love_PREM_allwaves.json'}.get(source)
+            path = {'prem': 'love_PREM.json', 'prem-allwaves': 'love_PREM_allwaves.json',
+                    'prem-hydrostatic': 'love_PREM_hydrostatic.json',
+                    'prem-allwaves-hydrostatic': 'love_PREM_allwaves_hydrostatic.json'}.get(source)
             self._read_json(cat, os.path.join(DATA, path) if path else source)
 
     def _read_json(self, cat, path):
@@ -364,8 +371,8 @@ def main():
     p.add_argument('--days', type=float, default=1.0, help='length [days] (default 1)')
     p.add_argument('--step', type=float, default=3600.0, help='sampling [s] (default 3600)')
     p.add_argument('--love', default='iers',
-                   help="iers (default), mhb, ddw, prem, prem-allwaves, or a JSON table of "
-                        "earthtides-love")
+                   help="iers (default), mhb, ddw, prem, prem-allwaves (FCN at the observed 431.4 sd), "
+                        "prem-hydrostatic, prem-allwaves-hydrostatic, or a JSON table of earthtides-love")
     a = p.parse_args()
     t0 = datetime.fromisoformat(a.start).replace(tzinfo=timezone.utc)
     mjd0 = (t0 - datetime(1858, 11, 17, tzinfo=timezone.utc)).total_seconds() / 86400.0

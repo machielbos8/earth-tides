@@ -1,0 +1,87 @@
+{
+ "id": "20261111T101722-share_vs_delta-2513",
+ "status": "ok",
+ "purpose": "resonant shares of the viscous core per delta and resolution (PREM_noIC)",
+ "script": "scripts/share_vs_delta.py",
+ "command": "python scripts/share_vs_delta.py 2 --model PREM_noIC --deltas 1000 --band 12 --K 96 --tag res_K96",
+ "params": {
+  "model": "PREM_noIC",
+  "deltas": [
+   1000.0
+  ],
+  "K": [
+   96
+  ],
+  "N": [
+   30
+  ],
+  "sweep": [
+   0.9,
+   0.927,
+   0.96,
+   0.98,
+   0.99454,
+   0.9965,
+   0.9972,
+   0.9978,
+   0.9984,
+   0.999,
+   0.9995,
+   1.0005,
+   1.0008,
+   1.001,
+   1.0012,
+   1.0015,
+   1.0016,
+   1.0018,
+   1.0019,
+   1.002,
+   1.00205,
+   1.0023,
+   1.00245,
+   1.0026,
+   1.00273,
+   1.003,
+   1.0035,
+   1.004,
+   1.00546,
+   1.02,
+   1.073
+  ]
+ },
+ "git": {
+  "commit": "c34c7d3b1d790893284b9b02260d270c8e6cba7b",
+  "dirty": [],
+  "script_untracked": false,
+  "script_dirty": false,
+  "script_sha256": "7b5945ef29b9e51ff8d50a2f49c19634cf72a2b66d8fd8eaeed26bbf9542e8fa"
+ },
+ "env": {
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [
+  {
+   "path": "data/PREM_noIC.dat",
+   "sha256": "9aef983ff12f2022d96aa8d04fed2992f9bae481d52aeef5dea40935339bd4e4"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/share_vs_delta_PREM_noIC_res_K96.txt",
+   "sha256": "144dfd13ab7a832bbc8bb2ef006f7550e498a36933484188659bd68990df2033"
+  },
+  {
+   "path": "results/share_vs_delta_PREM_noIC_res_K96.npz",
+   "sha256": "a4faf82725ff74a8fce5bee5617ea12ed14b4ed3a998260d343b26032d97dff6"
+  }
+ ],
+ "start": "2026-11-11T10:17:22",
+ "end": "2026-11-11T10:35:29",
+ "wall_s": 1086.9,
+ "peak_rss_mb": {
+  "self": 78.5,
+  "children_max": 74.8
+ },
+ "host": "Linux (28 GB)",
+ "python": "3.14.4"
+}

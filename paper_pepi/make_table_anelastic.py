@@ -49,7 +49,7 @@ P_OBS = 431.4
 SID = 1.002737909                               # cycles per day per cycle per sidereal day
 # (name in the table, m, frequency [cpd]) as in Table 4; cpsd in brackets: Mf 0.0730, O1 0.92700, ...
 WAVES = (('Mf', 0, 0.07320), ('O$_1$', 1, 0.92954), ('P$_1$', 1, 0.99726), ('K$_1$', 1, 1.00274),
-         (r'$\psi_1$', 1, 1.00548), (r'$\phi_1$', 1, 1.00821), ('OO$_1$', 1, 1.07594), ('M$_2$', 2, 1.93227))
+         (r'$\psi_1$', 1, 1.005475688), (r'$\phi_1$', 1, 1.008213728), ('OO$_1$', 1, 1.07594), ('M$_2$', 2, 1.93227))
 KEYS = ('h0', 'h2', 'l0', 'l1', 'l2', 'k')
 # Dehant et al. (1999), inelastic non-hydrostatic: table 11 (h0, h2, l0, l1, l2; Mf has no l1) and table 12 (k0)
 DDW = {'Mf': (0.61346, -0.00050, 0.08657, None, 0.00008, 0.30285),
@@ -62,13 +62,22 @@ DDW = {'Mf': (0.61346, -0.00050, 0.08657, None, 0.00008, 0.30285),
        'M$_2$': (0.61042, -0.00048, 0.08577, 0.00097, 0.00010, 0.30235)}
 
 
-def iers(name, m, f):
+def iers_c(name, m, f):
+    """Complex IERS values (h0, h2, l0, l1, l2, k); None where the Conventions give none."""
     if m == 1:
-        return tuple(float(etide.mhb_resonance(k, f).real) for k in ('h0', 'h2', 'l0', 'l1', 'l2')) + (None,)
+        return tuple(complex(etide.mhb_resonance(k, f)) for k in ('h0', 'h2', 'l0', 'l1', 'l2')) + (None,)
     if m == 0:
-        return (float(etide.zonal_anelastic('h0', f).real), -0.0006, float(etide.zonal_anelastic('l0', f).real),
-                None, 0.0002, None)
-    return (0.6078, -0.0006, 0.0847, 0.0024, 0.0002, None)
+        return (complex(etide.zonal_anelastic('h0', f)), -0.0006 + 0j, complex(etide.zonal_anelastic('l0', f)),
+                None, 0.0002 + 0j, None)
+    return (0.6078 - 0.0022j, -0.0006 + 0j, 0.0847 - 0.0007j, 0.0024 + 0j, 0.0002 + 0j, None)  # TN36 step 1
+
+
+def iers(name, m, f):
+    return tuple(None if v is None else float(v.real) for v in iers_c(name, m, f))
+
+
+def iers_im(name, m, f):
+    return tuple(None if v is None else float(v.imag) for v in iers_c(name, m, f))
 
 
 def state_at(t0):
@@ -85,33 +94,45 @@ def state_at(t0):
 
 
 def values(opts):
+    """{tide: (real parts, imaginary parts)} of (h0, h2, l0, l1, l2, k)."""
     out = {}
     for name, m, f in WAVES:
         p = love._job((opts, 2, m, f))
-        out[name] = tuple(float(complex(p[k]).real) if k in p and not (m == 0 and k == 'l1') else None
-                          for k in KEYS)
+        c = [complex(p[k]) if k in p and not (m == 0 and k == 'l1') else None for k in KEYS]
+        out[name] = (tuple(None if x is None else x.real for x in c), tuple(None if x is None else x.imag for x in c))
     return out
 
 
 def fmt(v):
-    return '' if v is None else (f'${v:.5f}$' if v < 0 else f'{v:.5f}')
+    if v is None:
+        return ''
+    if abs(v) < 5e-6:
+        return '0.00000'
+    return f'${v:.5f}$' if v < 0 else f'{v:.5f}'
 
 
 def main(run):
     o1, s1 = state_at(1.0)
     o2, s2 = state_at(200.0)
     V1, V2 = values(o1), values(o2)
-    rows = {name: [('this paper', V1[name]), ('IERS dispersion', V2[name]), ('DDW', DDW[name]),
+    rows = {name: [('this paper', V1[name][0]), ('IERS dispersion', V2[name][0]), ('DDW', DDW[name]),
                    ('IERS', iers(name, m, f))] for name, m, f in WAVES}
+    rows_im = {name: [('this paper', V1[name][1]), ('IERS dispersion', V2[name][1]),
+                      ('IERS', iers_im(name, m, f))] for name, m, f in WAVES}   # DDW give no imaginary parts
     lines = [f'figure {FIGURE}; FCN {P_OBS} sd target', f'this paper (t0 1 s): {s1}', f'IERS dispersion (t0 200 s): {s2}',
              '', f'{"tide":10s} {"line":16s} ' + ' '.join(f'{k:>9s}' for k in KEYS)]
     for name, _, _ in WAVES:
         for lab, v in rows[name]:
             lines.append(f'{name:10s} {lab:16s} ' + ' '.join(' ' * 9 if x is None else f'{x:9.5f}' for x in v))
+    lines += ['', 'imaginary parts (labels prefixed Im, so that parsers of the real parts skip them)']
+    for name, _, _ in WAVES:
+        for lab, v in rows_im[name]:
+            lines.append(f'{name:10s} {"Im " + lab:16s} ' + ' '.join(' ' * 9 if x is None else f'{x:9.5f}' for x in v))
     run.write_text(str(ROOT / 'results' / f'paper1_table_anelastic{SUF}.txt'), '\n'.join(lines) + '\n')
     print('\n'.join(lines))
     cap = (r'Degree-2 Love numbers of the anelastic, non-hydrostatic Earth in the definition of '
-           r'\citet{mathews1995} (real parts), each with the free core nutation at 431.4 sidereal days. This paper: '
+           r'\citet{mathews1995} (real parts; imaginary parts in Table~\ref{tab:ddw_anelastic_im}), each with the free '
+           r'core nutation at 431.4 sidereal days. This paper: '
            r'anelastic PREM of Section~\ref{M-sec:anelastic} (constant $Q_\mu$ from 1 to 200~s, $\omega^{0.15}$ '
            r'beyond) on the level figure, elastic support of the excess $J_2$ of \citet{chambat2010} and %.0f~m of '
            r'excess flattening of the core--mantle boundary (Table~\ref{tab:nonhydro_love}); IERS dispersion: the '
@@ -130,6 +151,27 @@ def main(run):
             tex.append(r'\addlinespace[2pt]')
         for j, (lab, v) in enumerate(rows[name]):
             tex.append((name if j == 0 else '') + f' & {lab} & ' + ' & '.join(fmt(x) for x in v) + r' \\')
+    tex += [r'\bottomrule', r'\end{tabular*}', r'\end{table*}', '']
+    # imaginary parts: one row per tide, h0, l0 and k side by side (latitude terms: at most 3e-5)
+    lat = max(abs(x) for name in rows_im for _, v in rows_im[name] for i, x in enumerate(v)
+              if x is not None and KEYS[i] in ('h2', 'l1', 'l2'))
+    cap_im = (r'Imaginary parts of the Love numbers of Table~\ref{tab:ddw_anelastic} (the lag of the tide behind the '
+              r'force): this paper, the same model with the dispersion of the Conventions, and the Conventions; '
+              r'\citet{dehant1999} give none, the Conventions no $k$. The latitude terms $h^{(2)}$, $l^{(1)}$, $l^{(2)}$ '
+              r'have imaginary parts of at most $%d\times10^{-5}$.' % round(lat * 1e5))
+    tex += [r'\begin{table*}', r'\caption{' + cap_im + '}', r'\label{tab:ddw_anelastic_im}',
+            r'\small\setlength{\tabcolsep}{3pt}',
+            r'\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrrrrr@{}}', r'\toprule',
+            r' & \multicolumn{3}{c}{$\mathrm{Im}\,h^{(0)}$} & \multicolumn{3}{c}{$\mathrm{Im}\,l^{(0)}$} & '
+            r'\multicolumn{2}{c}{$\mathrm{Im}\,k$} \\',
+            r'\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-9}',
+            r'tide & this paper & IERS disp. & IERS & this paper & IERS disp. & IERS & this paper & IERS disp. \\',
+            r'\midrule']
+    ih, il, ik = KEYS.index('h0'), KEYS.index('l0'), KEYS.index('k')
+    for name, _, _ in WAVES:
+        v = [r[1] for r in rows_im[name]]                  # this paper, IERS dispersion, IERS
+        cells = [v[0][ih], v[1][ih], v[2][ih], v[0][il], v[1][il], v[2][il], v[0][ik], v[1][ik]]
+        tex.append(name + ' & ' + ' & '.join(fmt(x) for x in cells) + r' \\')
     tex += [r'\bottomrule', r'\end{tabular*}', r'\end{table*}']
     run.write_text(str(ROOT / 'paper_pepi' / 'table_anelastic.tex'), '\n'.join(tex) + '\n')
 

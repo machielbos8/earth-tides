@@ -1,0 +1,76 @@
+{
+ "id": "20261113T173346-converge_resolution-8475",
+ "status": "ok",
+ "purpose": "convergence ladder in band, N and K of the viscous core, one parameter at a time",
+ "script": "scripts/converge_resolution.py",
+ "command": "python scripts/converge_resolution.py soft 250 --band 16,20 --N 40,50,60 --K 36,48 --workers 4 --max-gb 24 --fluid-pressure --tag vp1000_mixed --cache logs/converge_cache_mixed",
+ "params": {
+  "variant": "soft",
+  "delta": 250.0,
+  "ladders": {
+   "band": [
+    16,
+    20
+   ],
+   "N": [
+    40,
+    50,
+    60
+   ],
+   "K": [
+    36,
+    48
+   ],
+   "mK": [
+    6
+   ],
+   "mN": [
+    16
+   ]
+  },
+  "solver": "layers+Q",
+  "panels": "banded",
+  "cache": "logs/converge_cache_mixed",
+  "far": [
+   0.96,
+   0.99
+  ],
+  "offsets": [
+   -0.001,
+   -0.0006,
+   -0.0004,
+   -0.0002,
+   0.0003,
+   0.0006
+  ],
+  "tol0": 1e-06,
+  "tol2": 1e-08,
+  "max_gb": 24.0
+ },
+ "git": {
+  "commit": "79e2864cd5d629f5c3b8d8e4f5612d23ef9a28d8",
+  "dirty": [],
+  "script_untracked": false,
+  "script_dirty": false,
+  "script_sha256": "6c3df5065138bb255bb39c9cbb860bedbf4349dc9d731d30158aa3ff11d707e1"
+ },
+ "env": {
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [],
+ "outputs": [
+  {
+   "path": "results/converge_resolution_soft_d250_vp1000_mixed.txt",
+   "sha256": "433e7947a299625bf063685efa5ad01ba51cc3820d5df379f9a3a8a82caf1cee"
+  }
+ ],
+ "start": "2026-11-13T17:33:46",
+ "end": "2026-11-13T18:09:42",
+ "wall_s": 2155.7,
+ "peak_rss_mb": {
+  "self": 79.3,
+  "children_max": 75.7
+ },
+ "host": "Linux (28 GB)",
+ "python": "3.14.4"
+}

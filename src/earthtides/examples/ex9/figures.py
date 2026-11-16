@@ -30,7 +30,7 @@ from earthtides import love
 from earthtides.model import EarthModel
 from earthtides.geometry import figure, polar_equatorial_radius
 
-WAVES = (('O1', 1, 0.92954), ('psi1', 1, 1.00548))
+WAVES = (('O1', 1, 0.92954), ('psi1', 1, 1.005475688))
 
 
 def fcn_period(opts, sig=(1.0012, 1.0016, 1.0030, 1.0036)):

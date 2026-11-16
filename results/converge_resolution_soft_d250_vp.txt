@@ -1,0 +1,24 @@
+soft, delta 250 m, solver layers; FCN (inviscid scan) 1.00416 cpsd; frequencies 0.96000 0.99000 1.00316 1.00356 1.00376 1.00396 1.00446 1.00476
+far frequencies (0.96, 0.99): |dh0| <= 1e-06, |dh2|, |dl1|, |dl2| <= 1e-08; resonance (one-pole fit to all 8 frequencies): period to 0.01 sd, Q to 0.5 %, shares to 1e-05
+step  what band   N   K  mK  mN    FCN sd       Q  share h2  share l1  share l2   misfit   far dh0 dFCN cpsd  dPer sd   dQ %   dshare  verdict    residual s/solve    GB cached
+   0 start   12  30  24   6  16   239.387    2518  +0.00203  +0.00132  +0.00032  1.8e-07                                                           7.0e-08     6.2   1.1 no
+   1     N   12  40  24   6  16   239.377    2518  +0.00201  +0.00131  +0.00033  4.6e-07   1.1e-06  +1.8e-07   -0.010  +0.01  2.8e-05  KEEP N      1.4e-08    20.1   1.9 no
+   2     N   12  50  24   6  16   239.377    2518  +0.00201  +0.00131  +0.00033  8.5e-07   3.1e-08  -3.6e-10   +0.000  +0.00  9.1e-07  KEEP N      1.5e-07    33.7   2.8 no
+   3     N   12  60  24   6  16   239.377    2518  +0.00201  +0.00131  +0.00033  2.4e-07   4.3e-08  +3.1e-10   -0.000  -0.00  1.3e-07  no change   2.4e-07    51.1   4.0 no
+   4     N   12  60  24   6  16   239.377    2518  +0.00201  +0.00131  +0.00033  2.4e-07   4.3e-08  +3.1e-10   -0.000  -0.00  1.3e-07  no change   2.4e-07    51.1   4.0 yes
+
+final point: band 12, N 50, K 24, mantle K 6 N 16: FCN 239.377 sd, Q 2518, shares h2 +0.00201 l1 +0.00131 l2 +0.00033
+  band  ladder end (not confirmed)
+  N     converged
+  K     ladder end (not confirmed)
+  mK    ladder end (not confirmed)
+  mN    ladder end (not confirmed)
+  Love numbers at the final point (real parts): h0, h2, l1, l2
+  0.96000  +0.75385990  -0.00093072  +0.00051146  +0.00045746
+  0.99000  +0.74699051  -0.00094485  +0.00050832  +0.00045523
+  1.00316  +0.61922690  -0.00119777  +0.00034344  +0.00041243
+  1.00356  +0.54325048  -0.00134472  +0.00024437  +0.00038630
+  1.00376  +0.47242435  -0.00147778  +0.00015247  +0.00036116
+  1.00396  +0.39163247  -0.00161343  +0.00004967  +0.00032924
+  1.00446  +1.10303659  -0.00019816  +0.00098319  +0.00056606
+  1.00476  +0.98172548  -0.00046397  +0.00082099  +0.00053057

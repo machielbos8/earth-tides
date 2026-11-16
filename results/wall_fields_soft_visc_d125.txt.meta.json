@@ -1,0 +1,72 @@
+{
+ "id": "20261114T071737-wall_fields-9860",
+ "status": "ok",
+ "purpose": "fields next to the core-mantle boundary, slipping against viscous core, Hough's Earth",
+ "script": "scripts/wall_fields.py",
+ "command": "python scripts/wall_fields.py soft --kinds visc --s 0.96 --delta 125 --N 40 --below 600 --tag visc_d125",
+ "params": {
+  "variants": [
+   "soft"
+  ],
+  "s": [
+   0.96
+  ],
+  "delta": 125.0,
+  "K": 36,
+  "N": 40,
+  "band": 16,
+  "Kslip": 10,
+  "below": 600000.0,
+  "above": 200000.0,
+  "nr": 40,
+  "consistent_reference": true,
+  "slip_term": false
+ },
+ "git": {
+  "commit": "9c3ef7cfdcb21d73a200f48738181bbb54ed7028",
+  "dirty": [
+   "docs/lab_notes/earthtides_lab_notes.md",
+   "paper_pepi/figures/fig_core_ekman.pdf",
+   "paper_pepi/figures/fig_core_sweep.pdf",
+   "paper_pepi/main_v2.tex",
+   "paper_pepi/main_v2_2col.pdf",
+   "paper_pepi/make_fig_core.py",
+   "paper_pepi/make_table4.py",
+   "paper_pepi/references.bib",
+   "paper_pepi/supplement_v2.pdf",
+   "paper_pepi/supplement_v2.tex",
+   "results/LEDGER.jsonl",
+   "results/paper1_table4.txt.meta.json",
+   "results/regen/table4.tex",
+   "results/regen/table4.tex.meta.json",
+   "results/regen/tableS_viscous.tex.meta.json",
+   "scripts/hough_share_test.py"
+  ],
+  "script_untracked": true,
+  "script_dirty": false,
+  "script_sha256": "c07cbf093f7af2438aac990a8ce6e82846c20c70a3e7723b9bcf19678e24f13a"
+ },
+ "env": {
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [],
+ "outputs": [
+  {
+   "path": "results/wall_fields_soft_visc_d125.npz",
+   "sha256": "73353e8d8a422372a4d57aa5dce4d5fab3c4dbb8a8d44911e42f7f587037ac87"
+  },
+  {
+   "path": "results/wall_fields_soft_visc_d125.txt",
+   "sha256": "afb922978ece6dd090dbf09c2db88dfa0b3e92ad0da682348a00497690891b92"
+  }
+ ],
+ "start": "2026-11-14T07:17:37",
+ "end": "2026-11-14T07:17:52",
+ "wall_s": 15.0,
+ "peak_rss_mb": {
+  "self": 87.0,
+  "children_max": 6953.2
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

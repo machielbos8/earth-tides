@@ -1,0 +1,70 @@
+{
+ "id": "20261114T065824-wall_fields-9414",
+ "status": "ok",
+ "purpose": "fields next to the core-mantle boundary, slipping against viscous core, Hough's Earth",
+ "script": "scripts/wall_fields.py",
+ "command": "python scripts/wall_fields.py soft,bump+3",
+ "params": {
+  "variants": [
+   "soft",
+   "bump+3"
+  ],
+  "s": [
+   0.96,
+   1.00396
+  ],
+  "delta": 250.0,
+  "K": 36,
+  "N": 40,
+  "band": 16,
+  "Kslip": 10,
+  "below": 200000.0,
+  "above": 200000.0,
+  "nr": 40
+ },
+ "git": {
+  "commit": "9c3ef7cfdcb21d73a200f48738181bbb54ed7028",
+  "dirty": [
+   "paper_pepi/figures/fig_core_ekman.pdf",
+   "paper_pepi/figures/fig_core_sweep.pdf",
+   "paper_pepi/main_v2.tex",
+   "paper_pepi/main_v2_2col.pdf",
+   "paper_pepi/make_fig_core.py",
+   "paper_pepi/make_table4.py",
+   "paper_pepi/references.bib",
+   "paper_pepi/supplement_v2.pdf",
+   "paper_pepi/supplement_v2.tex",
+   "results/LEDGER.jsonl",
+   "results/paper1_table4.txt.meta.json",
+   "results/regen/table4.tex",
+   "results/regen/table4.tex.meta.json",
+   "results/regen/tableS_viscous.tex.meta.json"
+  ],
+  "script_untracked": true,
+  "script_dirty": false,
+  "script_sha256": "0f0b56c6f3224cf4cf3f9af5a7e6fa613658a9f8b27b1dc2de57e757e8265cae"
+ },
+ "env": {
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [],
+ "outputs": [
+  {
+   "path": "results/wall_fields_soft_bump_3.npz",
+   "sha256": "243393327cc90c4489336cf56c151c0fee11905ec6ad0ca64205ab22d88de0e0"
+  },
+  {
+   "path": "results/wall_fields_soft_bump_3.txt",
+   "sha256": "5bae50ab3d02e5b7d024eb3fb836acf99788ddd46dfac2eab54f74435f813719"
+  }
+ ],
+ "start": "2026-11-14T06:58:24",
+ "end": "2026-11-14T06:59:34",
+ "wall_s": 69.2,
+ "peak_rss_mb": {
+  "self": 84.0,
+  "children_max": 5733.5
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

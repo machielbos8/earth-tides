@@ -1,0 +1,25 @@
+bump+3, delta 31.25 m, solver layers+Q (banded panels), cache logs/converge_cache_mixed; FCN (inviscid scan) 1.00416 cpsd; frequencies 0.96000 0.99000 1.00316 1.00356 1.00376 1.00396 1.00446 1.00476
+far frequencies (0.96, 0.99): |dh0| <= 1e-06, |dh2|, |dl1|, |dl2| <= 1e-08; resonance (one-pole fit to all 8 frequencies): period to 0.01 sd, Q to 0.5 %, shares to 1e-05
+step  what band   N   K  mK  mN    FCN sd       Q  share h2  share l1  share l2   misfit   far dh0 dFCN cpsd  dPer sd   dQ %   dshare  verdict    residual s/solve    GB cached
+   0 start   16  40  36   6  16   242.190   56374  +0.00186  +0.00127  +0.00036  8.7e-08                                                           9.8e-11    26.7   4.1 no
+   1  band   20  40  36   6  16   242.190   56374  +0.00186  +0.00127  +0.00036  8.7e-08   1.4e-13  +3.8e-15   -0.000  +0.00  2.2e-14  no change   9.8e-11    60.8   4.3 no
+   2     N   16  50  36   6  16   241.063   21183  +0.00190  +0.00127  +0.00035  4.1e-07   9.1e-05  +1.9e-05   -1.126 -62.42  4.1e-05  KEEP N      6.0e-11    62.5   6.3 no
+   3     N   16  60  36   6  16   240.601   18149  +0.00193  +0.00127  +0.00034  4.1e-09   3.9e-05  +8.0e-06   -0.462 -14.32  3.6e-05  KEEP N      3.0e-11    83.3   8.8 no
+   4     N   16  80  36   6  16   240.417   19822  +0.00193  +0.00127  +0.00034  9.8e-11   1.8e-05  +3.2e-06   -0.184  +9.22  5.9e-06  KEEP N      7.5e-11   145.8  15.7 no
+   5  band   20  80  36   6  16   240.417   19822  +0.00193  +0.00127  +0.00034  1.0e-10   3.0e-13  +5.1e-15   -0.000  -0.00  1.3e-14  no change   5.8e-11   194.5  16.6 no
+
+final point: band 16, N 80, K 36, mantle K 6 N 16: FCN 240.417 sd, Q 19822, shares h2 +0.00193 l1 +0.00127 l2 +0.00034
+  band  converged
+  N     ladder end (not confirmed)
+  K     budget (K 48 needs ~28 GB > 24)
+  mK    ladder end (not confirmed)
+  mN    ladder end (not confirmed)
+  Love numbers at the final point (real parts): h0, h2, l1, l2
+  0.96000  +0.75384678  -0.00093645  +0.00051078  +0.00045671
+  0.99000  +0.74696042  -0.00095007  +0.00050791  +0.00045439
+  1.00316  +0.61136178  -0.00121140  +0.00033807  +0.00040813
+  1.00356  +0.51424081  -0.00139841  +0.00021467  +0.00037497
+  1.00376  +0.39333291  -0.00163113  +0.00006099  +0.00033366
+  1.00396  +0.03691645  -0.00231648  -0.00039203  +0.00021177
+  1.00446  +1.23955546  -0.00000019  +0.00113724  +0.00062231
+  1.00476  +0.99994266  -0.00046254  +0.00083253  +0.00054068

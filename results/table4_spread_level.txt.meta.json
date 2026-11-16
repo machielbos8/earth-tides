@@ -1,0 +1,57 @@
+{
+ "id": "20261116T112637-table4_spread-0699",
+ "status": "ok",
+ "purpose": "Review M4: spread of Table S13 over core N and linear solvers",
+ "script": "scripts/table4_spread.py",
+ "command": "python scripts/table4_spread.py --workers 5",
+ "params": {
+  "workers": 5
+ },
+ "git": {
+  "commit": "dacd7da66ea9ce19da00e57292a98ff6b45162bb",
+  "dirty": [
+   "CHANGELOG.md",
+   "paper_pepi/main_v3.tex",
+   "paper_pepi/main_v3_2col.bbl",
+   "paper_pepi/main_v3_2col.pdf",
+   "paper_pepi/supplement_v3.pdf",
+   "paper_pepi/supplement_v3.tex",
+   "paper_scripts/README.md",
+   "pyproject.toml",
+   "results/LEDGER.jsonl",
+   "results/table4_spread_level.txt",
+   "results/table4_spread_level.txt.meta.json",
+   "scripts/table4_spread.py",
+   "src/earthtides/__init__.py",
+   "tools/make_zenodo_archive.py"
+  ],
+  "script_untracked": false,
+  "script_dirty": true,
+  "script_sha256": "23823598a0e27602b16f4087107b1ace38bd7216fd8d8fff49d367ed4894a950"
+ },
+ "env": {
+  "OMP_NUM_THREADS": "1",
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/table4_spread_level.txt",
+   "sha256": "dab64711c73c60868ec33c9478341dee51ac0f1cfa35d058c69a5f17a49fc340"
+  }
+ ],
+ "start": "2026-11-16T11:26:37",
+ "end": "2026-11-16T11:30:53",
+ "wall_s": 255.5,
+ "peak_rss_mb": {
+  "self": 55.5,
+  "children_max": 581.6
+ },
+ "host": "Mac.lan",
+ "python": "3.14.6"
+}

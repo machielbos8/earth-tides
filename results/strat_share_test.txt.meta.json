@@ -1,0 +1,95 @@
+{
+ "id": "20261111T130324-strat_share_test-2769",
+ "status": "ok",
+ "purpose": "viscous limit vs slipping core: PREM without inner core, stratified vs neutral vs uniform core",
+ "script": "scripts/strat_share_test.py",
+ "command": "python scripts/strat_share_test.py 3 --variants uniform",
+ "params": {
+  "variants": [
+   "uniform"
+  ],
+  "deltas": [
+   250.0,
+   125.0
+  ],
+  "Kv": 48,
+  "inviscid": [
+   [
+    6,
+    30
+   ],
+   [
+    10,
+    30
+   ]
+  ],
+  "sweep": [
+   0.9,
+   0.927,
+   0.96,
+   0.98,
+   0.99454,
+   0.9965,
+   0.9972,
+   0.9978,
+   0.9984,
+   0.999,
+   0.9995,
+   1.0005,
+   1.0008,
+   1.001,
+   1.0012,
+   1.0015,
+   1.0016,
+   1.0018,
+   1.0019,
+   1.002,
+   1.00205,
+   1.0023,
+   1.00245,
+   1.0026,
+   1.00273,
+   1.003,
+   1.0035,
+   1.004,
+   1.00546,
+   1.02,
+   1.073
+  ]
+ },
+ "git": {
+  "commit": "155d1de45ae5df2c843a4de09968f2928f7a7484",
+  "dirty": [],
+  "script_untracked": false,
+  "script_dirty": false,
+  "script_sha256": "76cecb9eacb937da08f72987d0626fca1b2518964fc948f9f791bdc04e9e581c"
+ },
+ "env": {
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [
+  {
+   "path": "data/PREM_noIC.dat",
+   "sha256": "9aef983ff12f2022d96aa8d04fed2992f9bae481d52aeef5dea40935339bd4e4"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/strat_share_test.txt",
+   "sha256": "9195964eeab5a23e9c6492fa3e4e429da2e016f6ac9302572a435b8c39a072f6"
+  },
+  {
+   "path": "results/strat_share_test.npz",
+   "sha256": "6c0d73837dc3b282dd8d4b0246a1238246fad14cee45cdc6c17de24d2f258ec0"
+  }
+ ],
+ "start": "2026-11-11T13:03:24",
+ "end": "2026-11-11T13:12:14",
+ "wall_s": 529.4,
+ "peak_rss_mb": {
+  "self": 81.8,
+  "children_max": 77.0
+ },
+ "host": "Linux (28 GB)",
+ "python": "3.14.4"
+}

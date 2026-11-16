@@ -1,0 +1,91 @@
+{
+ "id": "20261110T234114-share_vs_delta-9203",
+ "status": "ok",
+ "purpose": "resonant shares of the viscous core per delta and resolution (PREM_noIC)",
+ "script": "scripts/share_vs_delta.py",
+ "command": "python scripts/share_vs_delta.py 3 --model PREM_noIC --deltas 250,125 --band 12 --K 48 --tag conv_K48",
+ "params": {
+  "model": "PREM_noIC",
+  "deltas": [
+   250.0,
+   125.0
+  ],
+  "K": [
+   48
+  ],
+  "N": [
+   30
+  ],
+  "sweep": [
+   0.9,
+   0.927,
+   0.96,
+   0.98,
+   0.99454,
+   0.9965,
+   0.9972,
+   0.9978,
+   0.9984,
+   0.999,
+   0.9995,
+   1.0005,
+   1.0008,
+   1.001,
+   1.0012,
+   1.0015,
+   1.0016,
+   1.0018,
+   1.0019,
+   1.002,
+   1.00205,
+   1.0023,
+   1.00245,
+   1.0026,
+   1.00273,
+   1.003,
+   1.0035,
+   1.004,
+   1.00546,
+   1.02,
+   1.073
+  ]
+ },
+ "git": {
+  "commit": "47d4ca2c863b9ae13ef0913625145b95a534b34a",
+  "dirty": [
+   "results/LEDGER.jsonl"
+  ],
+  "script_untracked": false,
+  "script_dirty": false,
+  "script_sha256": "bcd744e420e150cfe206930b752465068385f3cf490b8eba9f59f7283457c9e4"
+ },
+ "env": {
+  "EARTHTIDES_BAND_FALLBACK_MAX": "1000000000",
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [
+  {
+   "path": "data/PREM_noIC.dat",
+   "sha256": "9aef983ff12f2022d96aa8d04fed2992f9bae481d52aeef5dea40935339bd4e4"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/share_vs_delta_PREM_noIC_conv_K48.txt",
+   "sha256": "e9958d3f76322680dc83484a47fd1fc5465fa93974df605cbb7ff5d0f283117b"
+  },
+  {
+   "path": "results/share_vs_delta_PREM_noIC_conv_K48.npz",
+   "sha256": "e1f34237b7809912298cc2453f8b84813bbd5ab0dab7d689aa5fe0f5d5314962"
+  }
+ ],
+ "start": "2026-11-10T23:41:14",
+ "end": "2026-11-10T23:57:46",
+ "wall_s": 991.8,
+ "peak_rss_mb": {
+  "self": 79.1,
+  "children_max": 75.2
+ },
+ "host": "Linux (28 GB)",
+ "python": "3.14.4"
+}

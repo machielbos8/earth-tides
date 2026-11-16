@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "earth-tides"
-version = "1.1.0"
+version = "1.1.1"
 description = "Solid Earth tides: Love numbers of a rotating, flattened, anelastic, non-hydrostatic Earth by spectral Galerkin-collocation, and station displacements"
 readme = "README_PyPI.md"
 requires-python = ">=3.10"

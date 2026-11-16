@@ -1,0 +1,26 @@
+bump+10, delta 250 m, solver layers (banded panels), cache logs/converge_cache_banded; FCN (inviscid scan) 1.00416 cpsd; frequencies 0.96000 0.99000 1.00316 1.00356 1.00376 1.00396 1.00446 1.00476
+far frequencies (0.96, 0.99): |dh0| <= 1e-06, |dh2|, |dl1|, |dl2| <= 1e-08; resonance (one-pole fit to all 8 frequencies): period to 0.01 sd, Q to 0.5 %, shares to 1e-05
+step  what band   N   K  mK  mN    FCN sd       Q  share h2  share l1  share l2   misfit   far dh0 dFCN cpsd  dPer sd   dQ %   dshare  verdict    residual s/solve    GB cached
+   0 start   16  40  36   6  16   239.304    2518  +0.00172  +0.00116  +0.00037  3.0e-07                                                           1.4e-09    16.7   2.7 no
+   1  band   20  40  36   6  16   239.301    2519  +0.00172  +0.00116  +0.00037  4.7e-07   3.8e-08  +4.8e-08   -0.003  +0.00  1.1e-06  KEEP band   1.7e-09    38.3   2.8 no
+   2  band   24  40  36   6  16   239.300    2518  +0.00172  +0.00116  +0.00037  2.6e-07   1.5e-07  +2.1e-08   -0.001  -0.01  5.1e-06  KEEP band   2.5e-09    48.3   3.0 no
+   3  band   32  40  36   6  16   239.302    2519  +0.00174  +0.00116  +0.00037  3.9e-07   1.0e-06  -2.3e-08   +0.001  +0.04  2.0e-05  KEEP band   1.1e-09    62.4   3.2 no
+   4     N   32  50  36   6  16   239.297    2519  +0.00172  +0.00116  +0.00037  1.1e-06   1.1e-06  +7.5e-08   -0.004  -0.01  1.7e-05  KEEP N      2.6e-09   104.1   4.9 no
+   5     N   32  60  36   6  16   239.297    2519  +0.00172  +0.00116  +0.00037  6.3e-07   3.8e-07  +3.9e-09   -0.000  -0.00  1.1e-06  KEEP N      1.6e-09   127.3   6.9 no
+   6     K   32  60  48   6  16   239.299    2520  +0.00172  +0.00116  +0.00037  8.7e-07   8.9e-07  -3.2e-08   +0.002  +0.02  8.4e-07  KEEP K      2.0e-09   162.9  11.3 no
+
+final point: band 32, N 60, K 48, mantle K 6 N 16: FCN 239.299 sd, Q 2520, shares h2 +0.00172 l1 +0.00116 l2 +0.00037
+  band  ladder end (not confirmed)
+  N     ladder end (not confirmed)
+  K     budget (K 72 needs ~25 GB > 24)
+  mK    ladder end (not confirmed)
+  mN    ladder end (not confirmed)
+  Love numbers at the final point (real parts): h0, h2, l1, l2
+  0.96000  +0.75382250  -0.00094974  +0.00050925  +0.00045494
+  0.99000  +0.74694950  -0.00096198  +0.00050718  +0.00045238
+  1.00316  +0.61927001  -0.00117768  +0.00036224  +0.00040398
+  1.00356  +0.54344158  -0.00130252  +0.00027515  +0.00037448
+  1.00376  +0.47273485  -0.00141536  +0.00019435  +0.00034627
+  1.00396  +0.39137902  -0.00152948  +0.00010340  +0.00031066
+  1.00446  +1.10393592  -0.00031571  +0.00092785  +0.00057958
+  1.00476  +0.98228038  -0.00054689  +0.00078412  +0.00053846

@@ -1,0 +1,25 @@
+soft, delta 62.5 m, solver layers+Q (banded panels), cache logs/converge_cache_mixed; FCN (inviscid scan) 1.00416 cpsd; frequencies 0.96000 0.99000 1.00316 1.00356 1.00376 1.00396 1.00446 1.00476
+far frequencies (0.96, 0.99): |dh0| <= 1e-06, |dh2|, |dl1|, |dl2| <= 1e-08; resonance (one-pole fit to all 8 frequencies): period to 0.01 sd, Q to 0.5 %, shares to 1e-05
+step  what band   N   K  mK  mN    FCN sd       Q  share h2  share l1  share l2   misfit   far dh0 dFCN cpsd  dPer sd   dQ %   dshare  verdict    residual s/solve    GB cached
+   0 start   16  40  36   6  16   240.294   10056  +0.00200  +0.00132  +0.00033  2.6e-08                                                           8.9e-11    26.6   4.1 no
+   1  band   20  40  36   6  16   240.294   10056  +0.00200  +0.00132  +0.00033  2.7e-08   1.1e-09  +4.5e-14   -0.000  -0.00  1.1e-11  no change   1.1e-10    60.3   4.3 no
+   2     N   16  50  36   6  16   240.304   10091  +0.00201  +0.00132  +0.00033  2.9e-09   1.2e-06  -1.7e-07   +0.010  +0.35  1.2e-05  KEEP N      9.5e-11    61.6   6.2 no
+   3     N   16  60  36   6  16   240.309   10094  +0.00200  +0.00132  +0.00033  4.7e-10   5.4e-07  -9.4e-08   +0.005  +0.03  5.8e-06  KEEP N      1.2e-10    81.9   8.8 no
+   4     N   16  80  36   6  16   240.310   10090  +0.00200  +0.00132  +0.00033  3.0e-10   1.4e-07  -1.4e-08   +0.001  -0.04  1.1e-08  KEEP N      1.4e-10   144.6  15.6 no
+   5  band   20  80  36   6  16   240.310   10090  +0.00200  +0.00132  +0.00033  8.0e-10   1.5e-09  -2.5e-12   +0.000  +0.00  3.6e-11  no change   1.0e-10   193.4  16.6 no
+
+final point: band 16, N 80, K 36, mantle K 6 N 16: FCN 240.310 sd, Q 10090, shares h2 +0.00200 l1 +0.00132 l2 +0.00033
+  band  converged
+  N     ladder end (not confirmed)
+  K     budget (K 48 needs ~28 GB > 24)
+  mK    ladder end (not confirmed)
+  mN    ladder end (not confirmed)
+  Love numbers at the final point (real parts): h0, h2, l1, l2
+  0.96000  +0.75385801  -0.00093070  +0.00051145  +0.00045746
+  0.99000  +0.74697537  -0.00094484  +0.00050827  +0.00045522
+  1.00316  +0.61197313  -0.00121514  +0.00033309  +0.00041065
+  1.00356  +0.51632381  -0.00140629  +0.00020726  +0.00037901
+  1.00376  +0.39921834  -0.00164002  +0.00005318  +0.00034021
+  1.00396  +0.07394048  -0.00228737  -0.00037462  +0.00023208
+  1.00446  +1.23268863  +0.00003040  +0.00115109  +0.00061495
+  1.00476  +0.99936768  -0.00043885  +0.00084364  +0.00053837

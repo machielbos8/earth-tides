@@ -42,7 +42,7 @@ a, iS = md.a, md.n_layers - 1
 f = geo.eps(iS, np.array([a]))[0][0]
 norm_e = (a * (1 + f / 3.0))**4 / a**3
 # name: (cycles per sidereal day, cycles per solar day)
-TIDES = {'O1': (0.92700, 0.929536), 'P1': (0.99452, 0.997262), 'psi1': (1.00548, 1.005476)}
+TIDES = {'O1': (0.92700, 0.929536), 'P1': (0.99452, 0.997262), 'psi1': (1.002730421, 1.005475688)}
 
 
 def solve(fr, frame):

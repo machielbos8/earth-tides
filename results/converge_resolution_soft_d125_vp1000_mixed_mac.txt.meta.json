@@ -1,0 +1,88 @@
+{
+ "id": "20261113T173720-converge_resolution-5461",
+ "status": "ok",
+ "purpose": "convergence ladder in band, N and K of the viscous core, one parameter at a time",
+ "script": "scripts/converge_resolution.py",
+ "command": "python scripts/converge_resolution.py soft 125 --band 16 --N 40,50,60 --K 36 --workers 1 --max-gb 16 --fluid-pressure --tag vp1000_mixed_mac --cache logs/converge_cache_mixed",
+ "params": {
+  "variant": "soft",
+  "delta": 125.0,
+  "ladders": {
+   "band": [
+    16
+   ],
+   "N": [
+    40,
+    50,
+    60
+   ],
+   "K": [
+    36
+   ],
+   "mK": [
+    6
+   ],
+   "mN": [
+    16
+   ]
+  },
+  "solver": "layers+Q",
+  "panels": "banded",
+  "cache": "logs/converge_cache_mixed",
+  "far": [
+   0.96,
+   0.99
+  ],
+  "offsets": [
+   -0.001,
+   -0.0006,
+   -0.0004,
+   -0.0002,
+   0.0003,
+   0.0006
+  ],
+  "tol0": 1e-06,
+  "tol2": 1e-08,
+  "max_gb": 16.0
+ },
+ "git": {
+  "commit": "8a2fd8d62f63b4df73afc0b4bea7e5243191bea8",
+  "dirty": [
+   "paper_pepi/figures/fig_core_ekman.pdf",
+   "paper_pepi/figures/fig_core_sweep.pdf",
+   "paper_pepi/main_v2_2col.pdf",
+   "paper_pepi/make_fig_core.py",
+   "paper_pepi/make_table4.py",
+   "paper_pepi/references.bib",
+   "paper_pepi/supplement_v2.pdf",
+   "paper_pepi/supplement_v2.tex",
+   "results/LEDGER.jsonl",
+   "results/paper1_table4.txt.meta.json",
+   "results/regen/table4.tex",
+   "results/regen/table4.tex.meta.json",
+   "results/regen/tableS_viscous.tex.meta.json"
+  ],
+  "script_untracked": false,
+  "script_dirty": false,
+  "script_sha256": "6c3df5065138bb255bb39c9cbb860bedbf4349dc9d731d30158aa3ff11d707e1"
+ },
+ "env": {
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [],
+ "outputs": [
+  {
+   "path": "results/converge_resolution_soft_d125_vp1000_mixed_mac.txt",
+   "sha256": "b34e7158373b5e2de5de5a243d3eca3ef5cf5c6ed55193158cd7e59e2d9868b8"
+  }
+ ],
+ "start": "2026-11-13T17:37:20",
+ "end": "2026-11-13T17:46:08",
+ "wall_s": 528.7,
+ "peak_rss_mb": {
+  "self": 73.9,
+  "children_max": 6636.0
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

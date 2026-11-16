@@ -1,0 +1,25 @@
+bump+3, delta 62.5 m, solver layers (banded panels), cache logs/converge_cache_banded; FCN (inviscid scan) 1.00416 cpsd; frequencies 0.96000 0.99000 1.00316 1.00356 1.00376 1.00396 1.00446 1.00476
+far frequencies (0.96, 0.99): |dh0| <= 1e-06, |dh2|, |dl1|, |dl2| <= 1e-08; resonance (one-pole fit to all 8 frequencies): period to 0.01 sd, Q to 0.5 %, shares to 1e-05
+step  what band   N   K  mK  mN    FCN sd       Q  share h2  share l1  share l2   misfit   far dh0 dFCN cpsd  dPer sd   dQ %   dshare  verdict    residual s/solve    GB cached
+   0 start   16  40  36   6  16   240.272   10246  +0.00185  +0.00127  +0.00036  4.6e-07                                                           7.5e-09    17.6   2.7 no
+   1  band   20  40  36   6  16   240.275   10241  +0.00184  +0.00126  +0.00036  1.6e-04   4.5e-06  -6.0e-08   +0.003  -0.04  2.6e-06  KEEP band   8.8e-08    37.3   2.8 no
+   2     N   20  50  36   6  16   240.277   10053  +0.00188  +0.00127  +0.00035  1.1e-04   2.8e-05  -2.6e-08   +0.002  -1.84  3.7e-05  KEEP N      4.3e-06    61.1   4.3 no
+   3     N   20  60  36   6  16   240.461   11155  +0.00197  +0.00127  +0.00033  8.6e-04   1.8e-04  -3.2e-06   +0.184 +10.96  9.3e-05  KEEP N      5.1e-05    72.3   6.2 no
+   4     N   20  80  36   6  16   240.114   11177  +0.00169  +0.00125  +0.00039  3.5e-03   1.8e-04  +6.0e-06   -0.347  +0.20  2.9e-04  KEEP N      9.5e-06   130.1  10.8 no
+   5     K   20  80  48   6  16   240.676   10630  -0.00454  +0.00078  +0.00164  1.1e-02   1.3e-04  -9.7e-06   +0.562  -4.90  6.2e-03  KEEP K      1.9e-05   180.2  17.6 no
+
+final point: band 20, N 80, K 48, mantle K 6 N 16: FCN 240.676 sd, Q 10630, shares h2 -0.00454 l1 +0.00078 l2 +0.00164
+  band  ladder end (not confirmed)
+  N     ladder end (not confirmed)
+  K     budget (K 72 needs ~40 GB > 24)
+  mK    ladder end (not confirmed)
+  mN    ladder end (not confirmed)
+  Love numbers at the final point (real parts): h0, h2, l1, l2
+  0.96000  +0.75387819  -0.00094540  +0.00051015  +0.00045852
+  0.99000  +0.74704715  -0.00098244  +0.00050561  +0.00046106
+  1.00316  +0.62271987  +0.00093433  +0.00051191  -0.00001221
+  1.00356  +0.51577072  -0.00123355  +0.00022898  +0.00034267
+  1.00376  +0.41609808  -0.00032875  +0.00018588  +0.00008932
+  1.00396  +0.06248662  +0.00209580  -0.00003031  -0.00065303
+  1.00446  +1.22748996  -0.00217327  +0.00095995  +0.00104803
+  1.00476  +0.99513915  -0.00106313  +0.00078168  +0.00065765

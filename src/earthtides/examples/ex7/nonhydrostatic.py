@@ -33,7 +33,7 @@ from earthtides import love
 
 J2 = 1.14e-5                      # excess J2 (Chambat et al. 2010)
 STATES = (('hydrostatic', None), ('e_f of Mathews et al. (2002)', 9.73e-5), ('FCN as observed', 1.2383e-4))
-WAVES = (('O1', 1, 0.92954), ('psi1', 1, 1.00548), ('M2', 2, 1.93227))   # cycles per day
+WAVES = (('O1', 1, 0.92954), ('psi1', 1, 1.005475688), ('M2', 2, 1.93227))   # cycles per day
 
 
 def fcn_period(opts, sig=(1.0012, 1.0016, 1.0030, 1.0036)):

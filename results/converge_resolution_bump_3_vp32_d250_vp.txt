@@ -1,0 +1,23 @@
+bump+3+vp32, delta 250 m, solver layers; FCN (inviscid scan) 1.00415 cpsd; frequencies 0.96000 0.99000 1.00315 1.00355 1.00375 1.00395 1.00445 1.00475
+far frequencies (0.96, 0.99): |dh0| <= 1e-06, |dh2|, |dl1|, |dl2| <= 1e-08; resonance (one-pole fit to all 8 frequencies): period to 0.01 sd, Q to 0.5 %, shares to 1e-05
+step  what band   N   K  mK  mN    FCN sd       Q  share h2  share l1  share l2   misfit   far dh0 dFCN cpsd  dPer sd   dQ %   dshare  verdict    residual s/solve    GB cached
+   0 start   12  30  24   6  16   239.560    2540  +0.00206  +0.00128  +0.00030  6.0e-08                                                           9.0e-10     6.1   1.1 no
+   1     N   12  40  24   6  16   239.631    2544  +0.00240  +0.00131  +0.00023  6.4e-09   6.9e-06  -1.2e-06   +0.071  +0.17  3.4e-04  KEEP N      1.5e-09    19.0   1.9 no
+   2     N   12  50  24   6  16   239.617    2535  +0.00209  +0.00128  +0.00031  1.7e-08   1.4e-06  +2.5e-07   -0.014  -0.36  3.2e-04  KEEP N      1.1e-09    32.7   2.8 no
+   3     N   12  60  24   6  16   239.466    2595  +0.00553  +0.00159  -0.00049  1.5e-04   1.5e-06  +2.6e-06   -0.150  +2.38  3.4e-03  KEEP N      1.4e-09    50.3   4.0 no
+
+final point: band 12, N 60, K 24, mantle K 6 N 16: FCN 239.466 sd, Q 2595, shares h2 +0.00553 l1 +0.00159 l2 -0.00049
+  band  ladder end (not confirmed)
+  N     ladder end (not confirmed)
+  K     ladder end (not confirmed)
+  mK    ladder end (not confirmed)
+  mN    ladder end (not confirmed)
+  Love numbers at the final point (real parts): h0, h2, l1, l2
+  0.96000  +0.75385671  -0.00093416  +0.00051100  +0.00045616
+  0.99000  +0.74699562  -0.00094968  +0.00050802  +0.00045429
+  1.00315  +0.62018334  -0.00123131  +0.00034658  +0.00041941
+  1.00355  +0.54513884  -0.00146921  +0.00024340  +0.00041523
+  1.00375  +0.47475467  -0.00174784  +0.00014179  +0.00042413
+  1.00395  +0.38893967  -0.00228543  +0.00000092  +0.00048074
+  1.00445  +1.11151901  +0.00134128  +0.00111523  +0.00021347
+  1.00475  +0.98247631  +0.00004576  +0.00085793  +0.00041028

@@ -45,7 +45,7 @@ SUF = '' if FIGURE == 'first-order' else '_' + FIGURE
 _pos = [a for a in sys.argv[1:] if a not in ('--figure', 'level', 'first-order')]   # argv stays intact for the workers
 CMB = float(_pos[0]) if len(_pos) > 0 else 450.0
 NPROC = int(_pos[1]) if len(_pos) > 1 else 4
-WAVES = (('Mf', 0, 0.07300), ('O1', 1, 0.92700), ('P1', 1, 0.99454), ('K1', 1, 1.0), ('psi1', 1, 1.00273),
+WAVES = (('Mf', 0, 0.07300), ('O1', 1, 0.92700), ('P1', 1, 0.99454), ('K1', 1, 1.0), ('psi1', 1, 1.002730421),
          ('OO1', 1, 1.07300), ('M2', 2, 1.92700))
 AM_SIG = (0.92700, 0.99454, 1.00273, 1.07300)          # O1, P1, psi1, OO1 as nonhydro_diurnal.py
 KEYS = ('h0', 'h2', 'l0', 'l1', 'l2', 'k')          # k: degree-2 potential Love number as solved (kk)

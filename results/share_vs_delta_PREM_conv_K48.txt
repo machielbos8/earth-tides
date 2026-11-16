@@ -1,0 +1,4 @@
+PREM, viscous core: complex-pole fit at each delta (no extrapolation in delta); resonant parts relative to that of h0. Inviscid, no inner core: h2 +0.00395 l2 -0.00098 (fcn_share_inviscid_noic)
+  K   N  delta m   FCN sd       Q        h2        l0        l1        l2        k0  max |resid| h0
+ 48  30      250    453.0    2391  +0.00148  -0.03156  +0.00157  -0.00017  +0.50187  8.4e-06
+ 48  30      125    455.2    4828  +0.00140  -0.03155  +0.00156  -0.00015  +0.50190  2.0e-05

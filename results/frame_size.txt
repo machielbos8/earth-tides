@@ -2,4 +2,4 @@ Rigid rotation of the diurnal displacement, PREM; l' (TN36) and northward displa
 tide        l0     l' none   l' mantle  l' surface   removed mm  mant-surf mm  l0 north mm
 O1     0.08305   +10.96787    -0.00030    +0.00005       2875.4         0.091        16.82
 P1     0.08372  +137.03688    -0.00029    +0.00005      16716.2         0.041         7.89
-psi1   0.08124  -142.25512    -0.00031    +0.00008          6.2         0.000         0.00
+psi1   0.07237  -331.12418    -0.00040    +0.00018        955.0         0.002         0.16

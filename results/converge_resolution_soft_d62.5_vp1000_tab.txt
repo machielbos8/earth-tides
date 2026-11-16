@@ -1,0 +1,25 @@
+soft, delta 62.5 m, solver layers (banded panels), cache logs/converge_cache_banded; FCN (inviscid scan) 1.00416 cpsd; frequencies 0.96000 0.99000 1.00316 1.00356 1.00376 1.00396 1.00446 1.00476
+far frequencies (0.96, 0.99): |dh0| <= 1e-06, |dh2|, |dl1|, |dl2| <= 1e-08; resonance (one-pole fit to all 8 frequencies): period to 0.01 sd, Q to 0.5 %, shares to 1e-05
+step  what band   N   K  mK  mN    FCN sd       Q  share h2  share l1  share l2   misfit   far dh0 dFCN cpsd  dPer sd   dQ %   dshare  verdict    residual s/solve    GB cached
+   0 start   16  40  36   6  16   240.287   10250  +0.00193  +0.00131  +0.00035  4.2e-05                                                           6.1e-08    16.6   2.7 no
+   1  band   20  40  36   6  16   240.466   10417  +0.00174  +0.00130  +0.00038  4.7e-04   1.3e-06  -3.1e-06   +0.179  +1.64  1.8e-04  KEEP band   3.0e-07    37.3   2.8 no
+   2     N   20  50  36   6  16   240.135   10804  +0.00197  +0.00131  +0.00034  6.4e-03   3.5e-05  +5.7e-06   -0.331  +3.71  2.2e-04  KEEP N      7.5e-07    61.2   4.3 no
+   3     N   20  60  36   6  16   240.254   10410  +0.00187  +0.00131  +0.00036  6.2e-04   3.4e-04  -2.1e-06   +0.119  -3.65  1.0e-04  KEEP N      3.7e-07    73.2   6.2 no
+   4     N   20  80  36   6  16   244.857    5030  +0.00533  +0.00156  -0.00034  2.0e-02   3.0e-04  -7.8e-05   +4.603 -51.68  3.5e-03  KEEP N      3.8e-05   129.9  10.8 no
+   5     K   20  80  48   6  16   244.773    6151  +0.00143  +0.00128  +0.00045  4.1e-03   1.1e-03  +1.4e-06   -0.084 +22.30  3.9e-03  KEEP K      3.0e-06   180.0  17.6 no
+
+final point: band 20, N 80, K 48, mantle K 6 N 16: FCN 244.773 sd, Q 6151, shares h2 +0.00143 l1 +0.00128 l2 +0.00045
+  band  ladder end (not confirmed)
+  N     ladder end (not confirmed)
+  K     budget (K 72 needs ~40 GB > 24)
+  mK    ladder end (not confirmed)
+  mN    ladder end (not confirmed)
+  Love numbers at the final point (real parts): h0, h2, l1, l2
+  0.96000  +0.75366694  -0.00089776  +0.00051364  +0.00045051
+  0.99000  +0.74707521  -0.00069963  +0.00052667  +0.00040608
+  1.00316  +0.60964082  -0.00081413  +0.00036090  +0.00033116
+  1.00356  +0.47224640  -0.00372586  -0.00001717  +0.00081384
+  1.00376  +0.31373212  -0.00502597  -0.00030132  +0.00095227
+  1.00396  -0.10441764  -0.00452869  -0.00075215  +0.00054948
+  1.00446  +1.14114757  -0.00147071  +0.00093344  +0.00085084
+  1.00476  +0.99385324  -0.00075735  +0.00081357  +0.00059856

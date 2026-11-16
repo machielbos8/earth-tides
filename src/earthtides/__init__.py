@@ -14,4 +14,4 @@
 # 5/10/2026 Machiel Bos
 #===============================================================================
 """earth-tides: solid Earth tides on a flattened, rotating, anelastic Earth."""
-__version__ = "1.1.0"
+__version__ = "1.1.1"

@@ -1756,8 +1756,9 @@ options:
   --start START  UTC start, YYYY-MM-DD[THH:MM] (default 2026-01-01)
   --days DAYS    length [days] (default 1)
   --step STEP    sampling [s] (default 3600)
-  --love LOVE    iers (default), mhb, ddw, prem, prem-allwaves, or a JSON
-                 table of earthtides-love
+  --love LOVE    iers (default), mhb, ddw, prem, prem-allwaves (FCN at the
+                 observed 431.4 sd), prem-hydrostatic, prem-allwaves-
+                 hydrostatic, or a JSON table of earthtides-love
 ```
 
 **Input.** The latitude is geodetic (GRS80), as given by GNSS; `etide` converts it to the
@@ -1769,7 +1770,11 @@ arguments.
 **Love numbers** (`--love`): `iers`, the IERS Conventions 2010 (resonance formula and Table 7.2 in
 the diurnal band, the anelastic formula for the zonal waves); `mhb`, the resonance formula alone
 [@mathews1995]; `ddw`, diurnal values of @dehant1999; `prem` and `prem-allwaves`, anelastic PREM
-computed by earth-tides (per wave group and per wave); or a table written by `earthtides-love`.
+computed by earth-tides (per wave group and per wave) on the level figure, made non-hydrostatic so
+that the free core nutation lies at the observed 431.4 sidereal days, the recommended values of the
+paper (since version 1.1.1; set-up file `tools/stored_tables/love_PREM.toml` of the repository);
+`prem-hydrostatic` and `prem-allwaves-hydrostatic`, the same for hydrostatic PREM (free core
+nutation at 459 sidereal days, the default tables of 1.1.0); or a table written by `earthtides-love`.
 
 **Output** to the standard output: a header line and one line per epoch with the modified Julian
 date (UTC) and the displacement up, north and east in metres; "up" is along the geocentric radius,
@@ -1931,7 +1936,7 @@ print(love.parameters(S, r, opts))                         # h0 = 0.60243, h2 = 
 | object | purpose |
 |---|---|
 | `Tamura()` | the 1200 waves: `n`, `m`, `dood` (Doodson multipliers), `phase`, `A`, `dA`, `f_cpd` |
-| `LoveModel(cat, source='iers')` | Love numbers per wave from `'iers'`, `'mhb'`, `'ddw'`, `'prem'`, `'prem-allwaves'` or a JSON table |
+| `LoveModel(cat, source='iers')` | Love numbers per wave from `'iers'`, `'mhb'`, `'ddw'`, `'prem'`, `'prem-allwaves'`, `'prem-hydrostatic'`, `'prem-allwaves-hydrostatic'` or a JSON table |
 | `displacement(mjd, lat, lon, h=0.0, love='iers', degrees=(2, 3, 4))` | up, north, east displacement (m) at UTC MJD (array) for a station at geodetic latitude and east longitude (degrees) |
 | `angles(mjd, lon)` | Tamura's astronomical angles |
 | `main()` | the command `etide` |
@@ -2359,7 +2364,7 @@ studies of the Love numbers themselves:
 }
 ```
 
-**Entries of a grouped table** (`data/love_PREM.json`, 1200 entries): a zonal wave of group L03 (with
+**Entries of a grouped table** (`data/love_PREM_hydrostatic.json`, 1200 entries): a zonal wave of group L03 (with
 `hp` and `lp`), O$_1$ in group D02, and a degree-3 wave with its spherical values:
 
 ```json

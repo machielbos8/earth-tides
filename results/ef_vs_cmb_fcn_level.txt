@@ -1,0 +1,10 @@
+Elastic PREM, level figure, elastic support, slipping core K 4 N 24; FCN in sidereal days (pole fit)
+
+case  CMB (m)   Delta e_f      FCN  loads
+A       450.0  1.4960e-04   423.66  {'shells_km': [[3480, 5701], [5701, 5971], [5971, 6346.6]], 'targets': {'J2': 1.14e-05, 'cmb': 450.0, 'surface': 100.0}}
+B       450.0  1.1446e-04   430.93  {'targets': {'J2': 1.14e-05, 'cmb': 450.0}}
+C       586.7  1.4960e-04   423.71  {'targets': {'J2': 1.14e-05, 'e_f': 0.00014960353806138223}}
+R       443.1  1.1281e-04   431.27  {'shells_km': [[3480, 5701], [5701, 5971], [5971, 6346.6]], 'targets': {'J2': 1.14e-05, 'cmb': 450.0, 'surface': 100.0}, 'sigma': {'J2': 1e-07, 'cmb': 50.0, 'surface': 250.0}, 'prior': 0.005}
+
+A - C (same e_f, CMB -137 m): FCN -0.04 d
+A - B (same CMB, e_f +30.7%): FCN -7.26 d

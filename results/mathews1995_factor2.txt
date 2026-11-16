@@ -1,0 +1,48 @@
+(a) eq. (6) of Mathews et al. (1995a) against the Conventions (1996 eqs 5a-c = 2010 eqs 7.12-7.13):
+    term of eq. 6 / term of the Conventions, per order m, component and parameter
+
+    m=0 r h0  ratio            1    eq6: (3*sin(phi)**2 - 1)*cos(chi)/2   |   Conv: (3*sin(phi)**2 - 1)*cos(chi)/2
+    m=0 r h2  ratio            1    eq6: (3*sin(phi)**2 - 1)**2*cos(chi)/4   |   Conv: (3*sin(phi)**2 - 1)**2*cos(chi)/4
+    m=0 n l0  ratio            1    eq6: 3*sin(phi)*cos(chi)*cos(phi)   |   Conv: 3*sin(phi)*cos(chi)*cos(phi)
+    m=0 n l2  ratio            1    eq6: 3*(3*sin(phi)**2 - 1)*sin(phi)*cos(chi)*cos(phi)/2   |   Conv: 3*(3*sin(phi)**2 - 1)*sin(phi)*cos(chi)*cos(phi)/2
+    m=0 e l1  ratio            1    eq6: 3*sin(chi)*sin(phi)**2*cos(phi)   |   Conv: 3*sin(chi)*sin(phi)**2*cos(phi)
+    m=1 r h0  ratio            1    eq6: 3*sin(phi)*cos(chi)*cos(phi)   |   Conv: 3*sin(phi)*cos(chi)*cos(phi)
+    m=1 r h2  ratio            1    eq6: 3*(3*sin(phi)**2 - 1)*sin(phi)*cos(chi)*cos(phi)/2   |   Conv: 3*(3*sin(phi)**2 - 1)*sin(phi)*cos(chi)*cos(phi)/2
+    m=1 n l0  ratio            1    eq6: 3*cos(chi)*cos(2*phi)   |   Conv: 3*cos(chi)*cos(2*phi)
+    m=1 n l2  ratio            1    eq6: 3*(-6*sin(phi)**4 + 5*sin(phi)**2 - 1)*cos(chi)/2   |   Conv: 3*(3*sin(phi)**2 - 1)*cos(chi)*cos(2*phi)/2
+    m=1 n l1  ratio            1    eq6: -3*sin(phi)**2*cos(chi)   |   Conv: -3*sin(phi)**2*cos(chi)
+    m=1 e l0  ratio            1    eq6: -3*sin(chi)*sin(phi)   |   Conv: -3*sin(chi)*sin(phi)
+    m=1 e l2  ratio            1    eq6: 3*(1 - 3*sin(phi)**2)*sin(chi)*sin(phi)/2   |   Conv: 3*(1 - 3*sin(phi)**2)*sin(chi)*sin(phi)/2
+    m=1 e l1  ratio            1    eq6: 3*sin(chi)*sin(phi)*cos(2*phi)   |   Conv: 3*sin(chi)*sin(phi)*cos(2*phi)
+    m=2 r h0  ratio            1    eq6: 3*cos(chi)*cos(phi)**2   |   Conv: 3*cos(chi)*cos(phi)**2
+    m=2 r h2  ratio            1    eq6: 3*(3*sin(phi)**2 - 1)*cos(chi)*cos(phi)**2/2   |   Conv: 3*(3*sin(phi)**2 - 1)*cos(chi)*cos(phi)**2/2
+    m=2 n l0  ratio            1    eq6: 3*sin(chi - 2*phi)/2 - 3*sin(chi + 2*phi)/2   |   Conv: 3*sin(chi - 2*phi)/2 - 3*sin(chi + 2*phi)/2
+    m=2 n l2  ratio            1    eq6: 3*(1 - 3*sin(phi)**2)*sin(phi)*cos(chi)*cos(phi)   |   Conv: 3*(1 - 3*sin(phi)**2)*sin(phi)*cos(chi)*cos(phi)
+    m=2 n l1  ratio            1    eq6: 3*sin(chi - 2*phi)/2 - 3*sin(chi + 2*phi)/2   |   Conv: 3*sin(chi - 2*phi)/2 - 3*sin(chi + 2*phi)/2
+    m=2 e l0  ratio            1    eq6: -6*sin(chi)*cos(phi)   |   Conv: -6*sin(chi)*cos(phi)
+    m=2 e l2  ratio            1    eq6: 3*(1 - 3*sin(phi)**2)*sin(chi)*cos(phi)   |   Conv: 3*(1 - 3*sin(phi)**2)*sin(chi)*cos(phi)
+    m=2 e l1  ratio            1    eq6: -6*sin(chi)*sin(phi)**2*cos(phi)   |   Conv: -6*sin(chi)*sin(phi)**2*cos(phi)
+    m=0: ratios ['1']
+    m=1: ratios ['1']
+    m=2: ratios ['1']
+
+(b) elastic PREM, level figure, slipping core; FCN tuned to 430.0 sd: Delta e_f = 1.1890e-04, FCN 430.00 sd (hydrostatic: see last column)
+
+    line                MBS 1995a      ours   ratio   ratio range (4-decimal rounding)  ours hydr.
+    O1 145.555             0.0010  0.000476    2.10       2.00 ..  2.21               0.000477
+    P1 163.555             0.0010  0.000454    2.20       2.09 ..  2.31               0.000456
+    165.545                0.0009  0.000373    2.41       2.28 ..  2.55               0.000371
+    K1 165.555             0.0009  0.000366    2.46       2.32 ..  2.60               0.000362
+    165.565                0.0009  0.000357    2.52       2.38 ..  2.66               0.000353
+    psi1 166.554           0.0017  0.001218    1.40       1.35 ..  1.44               0.001029
+    semidiurnal (M2)       0.0020  0.000987    2.03       1.98 ..  2.08               0.000992
+
+(c) l(1) = L0 + L1 / (f_FCN - f) through the six diurnal lines (FCN of the row above):
+    ours     L0 0.000490  L1 -2.9515e-07  (fit residual max 1.0e-05)
+    MBS 1995a L0 0.001019  L1 -2.7610e-07  (fit residual max 1.6e-05)
+    ratio L0 2.08   ratio L1 0.94
+    2 L0(ours) + L1(ours) against MBS 1995a: max |diff| 5.8e-05 (rounding of their table 5e-5); 2 x ours: max |diff| 7.4e-04
+
+(d) the Conventions against our anelastic model (FCN 431.4 sd; Table S5 data), same fit:
+    ours L0 0.000516 L1 -2.9914e-07 (resid 1.3e-05);  IERS L0 0.001205 L1 -2.7084e-07 (resid 1.5e-06)
+    ratio L0 2.33   ratio L1 0.91   semidiurnal ratio (M2) 2.33

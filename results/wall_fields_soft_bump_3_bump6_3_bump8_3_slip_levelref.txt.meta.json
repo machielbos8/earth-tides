@@ -1,0 +1,74 @@
+{
+ "id": "20261114T071416-wall_fields-9736",
+ "status": "ok",
+ "purpose": "fields next to the core-mantle boundary, slipping against viscous core, Hough's Earth",
+ "script": "scripts/wall_fields.py",
+ "command": "python scripts/wall_fields.py soft,bump+3,bump6+3,bump8+3 --kinds slip --s 0.96,1.00396 --Kslip 10 --level-reference --tag slip_levelref",
+ "params": {
+  "variants": [
+   "soft",
+   "bump+3",
+   "bump6+3",
+   "bump8+3"
+  ],
+  "s": [
+   0.96,
+   1.00396
+  ],
+  "delta": 250.0,
+  "K": 36,
+  "N": 40,
+  "band": 16,
+  "Kslip": 10,
+  "below": 200000.0,
+  "above": 200000.0,
+  "nr": 40,
+  "consistent_reference": false
+ },
+ "git": {
+  "commit": "9c3ef7cfdcb21d73a200f48738181bbb54ed7028",
+  "dirty": [
+   "paper_pepi/figures/fig_core_ekman.pdf",
+   "paper_pepi/figures/fig_core_sweep.pdf",
+   "paper_pepi/main_v2.tex",
+   "paper_pepi/main_v2_2col.pdf",
+   "paper_pepi/make_fig_core.py",
+   "paper_pepi/make_table4.py",
+   "paper_pepi/references.bib",
+   "paper_pepi/supplement_v2.pdf",
+   "paper_pepi/supplement_v2.tex",
+   "results/LEDGER.jsonl",
+   "results/paper1_table4.txt.meta.json",
+   "results/regen/table4.tex",
+   "results/regen/table4.tex.meta.json",
+   "results/regen/tableS_viscous.tex.meta.json",
+   "scripts/hough_share_test.py"
+  ],
+  "script_untracked": true,
+  "script_dirty": false,
+  "script_sha256": "318185015e0af5e828b2041c58224a20faaf667bde31521fa52f40f1d80ca4dd"
+ },
+ "env": {
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [],
+ "outputs": [
+  {
+   "path": "results/wall_fields_soft_bump_3_bump6_3_bump8_3_slip_levelref.npz",
+   "sha256": "cc46b26872c5f8169c5282347cbff0fd0e55474bcbcf87da5bc621d7fe07dedb"
+  },
+  {
+   "path": "results/wall_fields_soft_bump_3_bump6_3_bump8_3_slip_levelref.txt",
+   "sha256": "2b596d93f2e77137a85c4c6513759c1a5687d9f07c54b5960e7832755e349cdc"
+  }
+ ],
+ "start": "2026-11-14T07:14:16",
+ "end": "2026-11-14T07:14:18",
+ "wall_s": 2.3,
+ "peak_rss_mb": {
+  "self": 87.0,
+  "children_max": 475.1
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}

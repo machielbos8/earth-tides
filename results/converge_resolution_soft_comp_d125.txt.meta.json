@@ -1,0 +1,75 @@
+{
+ "id": "20261113T012956-converge_resolution-5612",
+ "status": "ok",
+ "purpose": "convergence ladder in band, N and K of the viscous core, one parameter at a time",
+ "script": "scripts/converge_resolution.py",
+ "command": "python scripts/converge_resolution.py soft+comp 125 --N 30,40,50,60 --K 24,36,48,72,96 --band 12,16,20 --workers 4 --max-gb 24",
+ "params": {
+  "variant": "soft+comp",
+  "delta": 125.0,
+  "ladders": {
+   "band": [
+    12,
+    16,
+    20
+   ],
+   "N": [
+    30,
+    40,
+    50,
+    60
+   ],
+   "K": [
+    24,
+    36,
+    48,
+    72,
+    96
+   ]
+  },
+  "solver": "layers",
+  "far": [
+   0.96,
+   0.99
+  ],
+  "offsets": [
+   -0.001,
+   -0.0006,
+   -0.0004,
+   -0.0002,
+   0.0003,
+   0.0006
+  ],
+  "tol0": 1e-06,
+  "tol2": 1e-08,
+  "max_gb": 24.0
+ },
+ "git": {
+  "commit": "b2be67979b37232faf94d435c57422c8f8871098",
+  "dirty": [
+   "results/LEDGER.jsonl"
+  ],
+  "script_untracked": false,
+  "script_dirty": false,
+  "script_sha256": "b7437e515aebf9a8940a01acb651b1b6dbe9d47b59f84ed6b7c8d0be27f7a12c"
+ },
+ "env": {
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [],
+ "outputs": [
+  {
+   "path": "results/converge_resolution_soft_comp_d125.txt",
+   "sha256": "76bc2667ea0b2ee9adb4e13a9c2d7d2bdc40cb243ad2ff001aa98566889aaf22"
+  }
+ ],
+ "start": "2026-11-13T01:29:56",
+ "end": "2026-11-13T02:28:08",
+ "wall_s": 3491.3,
+ "peak_rss_mb": {
+  "self": 78.2,
+  "children_max": 74.9
+ },
+ "host": "Linux (28 GB)",
+ "python": "3.14.4"
+}

@@ -1,0 +1,41 @@
+{
+ "id": "20261116T064131-ef_vs_cmb_fcn-2683",
+ "status": "ok",
+ "purpose": "Review Table S9: FCN follows Delta e_f or the CMB flattening",
+ "script": "scripts/ef_vs_cmb_fcn.py",
+ "command": "python scripts/ef_vs_cmb_fcn.py",
+ "params": {},
+ "git": {
+  "commit": "b77994ef0824ce3cea46b665b1215d759a253b34",
+  "dirty": [
+   "paper_pepi/main_v3.tex",
+   "paper_pepi/supplement_v3.tex",
+   "results/LEDGER.jsonl"
+  ],
+  "script_untracked": true,
+  "script_dirty": false,
+  "script_sha256": "a1feb00ce328da8f4d0067c48e7f2b14fb84921143388a222ab29f86083b453c"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/ef_vs_cmb_fcn_level.txt",
+   "sha256": "cdc3512d812bd250a3af77511bbe82d4fad026c34ddcddede3fe1543c00577f8"
+  }
+ ],
+ "start": "2026-11-16T06:41:31",
+ "end": "2026-11-16T06:42:02",
+ "wall_s": 31.8,
+ "peak_rss_mb": {
+  "self": 292.0,
+  "children_max": 437.7
+ },
+ "host": "Mac",
+ "python": "3.14.6"
+}
