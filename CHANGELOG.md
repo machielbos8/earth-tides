@@ -18,10 +18,15 @@ The reproduction package of the paper is completed:
 * The scripts of the heavy runs of the viscous core that the Supplementary Material quotes
   (`converge_resolution.py`, `share_vs_delta.py`, `strat_share_test.py`, `wall_fields.py`) are shipped with
   their stored results and provenance records; they are not rerun by `run_all.py` (core degree 48 to 96).
-* Three new quick jobs from the review of the paper: `table4_spread` (Table S13 against the core resolution
-  and the linear solver), `ef_vs_cmb_fcn` (the free core nutation follows the excess dynamical ellipticity of
-  the core, not the flattening of its boundary) and `mathews1995_factor2` (the defining equation of Mathews et
-  al. 1995a against the Conventions for m = 0, 1, 2, and their l(1) against ours).
+* Five new quick jobs: `table4_spread` (Table S13 against the core resolution and the linear solver),
+  `ef_vs_cmb_fcn` (the free core nutation follows the excess dynamical ellipticity of the core, not the
+  flattening of its boundary), `mathews1995_factor2` (the defining equation of Mathews et al. 1995a against
+  the Conventions for m = 0, 1, 2, and their l(1) against ours), `table_recommended` (Table S1, the
+  recommended Love numbers, an excerpt of the stored table) and `widmer_qm1_test` (the anelastic comparison
+  with the shear Q of Widmer et al. 1991, as used by the Conventions).
+* The anelastic comparison (Table S5) has its imaginary parts in a second table (Table S6).
+* The paper scripts and examples use the exact frequencies of psi1 and phi1 (1.005475688 and 1.008213728
+  cycles per day) instead of rounded ones; at psi1, 1e-7 cycles per day moves h0 by 1e-4.
 * Windows: the paper scripts no longer need the POSIX module `resource`; a solver test allows for
   platform round-off.
 * CI: the paper reproduction runs once, on macOS.
