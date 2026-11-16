@@ -109,7 +109,7 @@ symmetric, close in spirit to this package.
 If you use earth-tides in your research, please cite:
 
 > Bos, M.S. (2026). Body tides of a flattened, rotating, non-hydrostatic Earth:
-> a transparent numerical model. *Physics of the Earth and Planetary Interiors* (submitted).
+> a transparent numerical model. In preparation for *Physics of the Earth and Planetary Interiors*.
 
 and the software with its version, for example: Bos, M.S. (2026). earth-tides, version 1.1.0
 (software), Zenodo, doi:10.5281/zenodo.23280928;

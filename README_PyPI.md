@@ -106,13 +106,14 @@ figure), and elastic hydrostatic PREM against Dehant, Defraigne & Wahr (1999) (1
 
 ## Reference
 
-If you use earth-tides in your research, please cite:
+If you use earth-tides in your research, please cite it as:
 
-> Bos, M.S. (2026). Body tides of a flattened, rotating, non-hydrostatic Earth:
-> a transparent numerical model. *Physics of the Earth and Planetary Interiors* (submitted).
+> Bos, M.S. (2026). earth-tides: Love numbers and body tides of a flattened, rotating, anelastic Earth.
+> Zenodo. [doi:10.5281/zenodo.23280927](https://doi.org/10.5281/zenodo.23280927)
 
-and the software: Bos, M.S. (2026). earth-tides, version 1.1.0. Zenodo.
-[doi:10.5281/zenodo.23280928](https://doi.org/10.5281/zenodo.23280928)
+This DOI always resolves to the latest version. The paper that describes the method,
+"Body tides of a flattened, rotating, non-hydrostatic Earth: a transparent numerical model" (Bos), is in
+preparation for *Physics of the Earth and Planetary Interiors*.
 
 ## License
 

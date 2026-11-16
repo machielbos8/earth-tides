@@ -34,7 +34,7 @@ The reproduction package of the paper is completed:
 ## 1.1.0 (2026-11, with the manual version 1.1)
 
 The release that goes with the paper "Body tides of a flattened, rotating, non-hydrostatic Earth:
-a transparent numerical model" (Bos, Physics of the Earth and Planetary Interiors, submitted).
+a transparent numerical model" (Bos, in preparation for Physics of the Earth and Planetary Interiors).
 
 **Changed default: the level figure.** The flattened Earth is now built from surfaces that are level
 surfaces of its own reference potential (`figure='level'`, `geometry.figure(model, 'level')`), to all

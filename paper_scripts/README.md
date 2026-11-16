@@ -3,7 +3,7 @@
 Scripts and stored results for
 
 > Bos, M. S., *Body tides of a flattened, rotating, non-hydrostatic Earth: a transparent numerical model*
-> (Physics of the Earth and Planetary Interiors, submitted) and its Supplementary Material.
+> (in preparation for Physics of the Earth and Planetary Interiors) and its Supplementary Material.
 
 Every stored result carries its provenance in `results/<file>.meta.json` and one line in
 `results/LEDGER.jsonl` (script and its sha256, commit, command line, environment, inputs, wall time, peak
