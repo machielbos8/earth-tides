@@ -62,10 +62,11 @@ jobs:
       - name: Unit tests
         run: python -m pytest -q -o pythonpath= tests
       # The exact reproduction is checked on the reference machine (macOS, Apple Accelerate); here the quick jobs
-      # run once per operating system and fail only if a script crashes. Other BLAS libraries change the last
-      # digits (up to a few 1e-6 in the non-hydrostatic runs), which the report lists as DIFF.
+      # run once, on macOS (the fastest runner, about 45 min; Ubuntu took 2.2 h, Windows 1.6 h), and fail only if
+      # a script crashes. Other BLAS libraries change the last digits (up to a few 1e-6 in the non-hydrostatic
+      # runs), which the report lists as DIFF. All three systems passed it for 1.1.0 (rc6).
       - name: Reproduce the paper (quick, report only)
-        if: matrix.python == '3.12'
+        if: matrix.python == '3.12' && runner.os == 'macOS'
         run: python paper_scripts/run_all.py --quick --installed --report-only
 
   publish_testpypi:
