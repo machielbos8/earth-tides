@@ -1,0 +1,12 @@
+Hough's Earth (examples/ex5), mantle Vs 6 km/s; one-pole fit (cubic + FCN + 1/(s-1)); resonant parts relative to that of h0; the sweep of each variant centred on its FCN from a coarse scan (K 6)
+  bump-1: geometry ('bump', -1), rho core 5500 mantle 5500, scan FCN 1.00416  bump+1: geometry ('bump', 1), rho core 5500 mantle 5500, scan FCN 1.00416  bump+3: geometry ('bump', 3), rho core 5500 mantle 5500, scan FCN 1.00416
+variant        core   K   N  FCN cpsd  FCN sd       Q        h2        l0        l1        l2        k0  max |resid| h0
+bump-1     inviscid   6  30  1.004156   240.6 5481495937779915  +0.01353  +0.03685  +0.00219  -0.00198  +0.54623  2.4e-07
+bump-1     inviscid  10  30  1.004156   240.6 2586103990697359  +0.01353  +0.03685  +0.00219  -0.00198  +0.54623  1.1e-07
+bump+1     inviscid   6  30  1.004156   240.6 12861707285914666  -0.00949  +0.03669  +0.00045  +0.00263  +0.54444  2.4e-07
+bump+1     inviscid  10  30  1.004156   240.6 4907415812542445568  -0.00949  +0.03669  +0.00045  +0.00263  +0.54444  1.2e-07
+bump+3     inviscid   6  30  1.004157   240.6 -8697068745922072  -0.03237  +0.03653  -0.00129  +0.00720  +0.54267  3.0e-08
+bump+3     inviscid  10  30  1.004157   240.6 504696292634017  -0.03242  +0.03653  -0.00129  +0.00721  +0.54267  2.9e-04
+bump-1        250 m  48  30  1.004177   239.4    2533  +0.00208  +0.03677  +0.00133  +0.00032  +0.54534  5.7e-05
+bump+1        250 m  48  30  1.004177   239.4    2506  +0.00202  +0.03676  +0.00130  +0.00033  +0.54533  6.3e-05
+bump+3        250 m  48  30  1.004169   239.9    1847  +0.00175  +0.03675  +0.00124  +0.00038  +0.54529  1.6e-04

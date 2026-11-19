@@ -1,0 +1,206 @@
+{
+ "id": "20261112T160234-hough_share_test-5408",
+ "status": "ok",
+ "purpose": "resonant shares, viscous vs inviscid core, Hough's Earth (like for like with PREM)",
+ "script": "scripts/hough_share_test.py",
+ "command": "python scripts/hough_share_test.py 3 --variants soft,bump+3 --deltas 250 --K 72 --tag bump_d250_K72",
+ "params": {
+  "variants": [
+   "soft",
+   "bump+3"
+  ],
+  "deltas": [
+   250.0
+  ],
+  "Kv": 72,
+  "inviscid": [
+   [
+    6,
+    30
+   ],
+   [
+    10,
+    30
+   ]
+  ],
+  "models": {
+   "soft": [
+    6.0,
+    1000.0,
+    "exact",
+    5500.0,
+    5500.0
+   ],
+   "soft+comp": [
+    6.0,
+    8.0,
+    "exact",
+    5500.0,
+    5500.0
+   ],
+   "clairaut": [
+    6.0,
+    1000.0,
+    "clairaut",
+    5500.0,
+    5500.0
+   ],
+   "contrast": [
+    6.0,
+    1000.0,
+    "clairaut",
+    10635.996220095998,
+    4500.0
+   ],
+   "cl_exacteps": [
+    6.0,
+    1000.0,
+    "clairaut_exact_eps",
+    5500.0,
+    5500.0
+   ],
+   "ex_cleps": [
+    6.0,
+    1000.0,
+    "exact_clairaut_eps",
+    5500.0,
+    5500.0
+   ],
+   "bump-1": [
+    6.0,
+    1000.0,
+    [
+     "bump",
+     -1
+    ],
+    5500.0,
+    5500.0
+   ],
+   "bump+1": [
+    6.0,
+    1000.0,
+    [
+     "bump",
+     1
+    ],
+    5500.0,
+    5500.0
+   ],
+   "bump+3": [
+    6.0,
+    1000.0,
+    [
+     "bump",
+     3
+    ],
+    5500.0,
+    5500.0
+   ]
+  },
+  "scan": [
+   1.0005,
+   1.001,
+   1.0015,
+   1.002,
+   1.0025,
+   1.003,
+   1.0035,
+   1.004,
+   1.0045,
+   1.005,
+   1.0055,
+   1.006,
+   1.0065,
+   1.007,
+   1.0075,
+   1.008,
+   1.0085,
+   1.009,
+   1.0095,
+   1.01,
+   1.0105,
+   1.011,
+   1.0115,
+   1.012,
+   1.0125,
+   1.013,
+   1.0135,
+   1.014,
+   1.0145,
+   1.015,
+   1.0155,
+   1.016,
+   1.0165,
+   1.017,
+   1.0175,
+   1.018,
+   1.0185,
+   1.019,
+   1.0195,
+   1.02
+  ],
+  "far": [
+   0.9,
+   0.927,
+   0.96,
+   0.98,
+   0.99454,
+   0.9965,
+   0.9978,
+   0.999
+  ],
+  "offsets": [
+   -36,
+   -26,
+   -16,
+   -10,
+   -6,
+   -4,
+   -2,
+   -1,
+   1,
+   2,
+   4,
+   6,
+   9,
+   14,
+   24,
+   44,
+   74,
+   154,
+   684
+  ],
+  "fcn_scan": {
+   "soft": 1.00416,
+   "bump+3": 1.00416
+  }
+ },
+ "git": {
+  "commit": "841c6a1d1a1a7eceb773370b97459306da3ae849",
+  "dirty": [],
+  "script_untracked": false,
+  "script_dirty": false,
+  "script_sha256": "7de3395cabaa72d769b1ad55222cd4ad73bd40f59e942e7b843c413e4eb9b769"
+ },
+ "env": {},
+ "inputs": [],
+ "outputs": [
+  {
+   "path": "results/hough_share_test_bump_d250_K72.txt",
+   "sha256": "c56b255ef7a05067a4e8b571c100ed657ab21fb5e4ee5ae548c43a04aadce562"
+  },
+  {
+   "path": "results/hough_share_test_bump_d250_K72.npz",
+   "sha256": "7184496e210a81c53362176ce0c752bfa05b73c0d14c859ffaf500cde9e3834d"
+  }
+ ],
+ "start": "2026-11-12T16:02:34",
+ "end": "2026-11-12T17:06:02",
+ "wall_s": 3808.2,
+ "peak_rss_mb": {
+  "self": 79.4,
+  "children_max": 75.6
+ },
+ "host": "Linux (28 GB)",
+ "python": "3.14.4"
+}
