@@ -1,5 +1,5 @@
 {
- "id": "20261114T122530-validate_level_figure-9919",
+ "id": "20261119T114659-validate_level_figure-9272",
  "status": "ok",
  "purpose": "validation of the level figure: published second-order figure of PREM, degrees, nodes, Omega^2",
  "script": "scripts/validate_level_figure.py",
@@ -8,52 +8,51 @@
   "m_denis": 0.00345039
  },
  "git": {
-  "commit": "239fe7cb6e628b42677a1149b63f0bba2a2a2127",
+  "commit": "82e5a748f182205ce8b0320fac2acd389f6d8945",
   "dirty": [
-   "paper_pepi/figures/fig_core_ekman.pdf",
-   "paper_pepi/figures/fig_core_sweep.pdf",
-   "paper_pepi/main_v2.tex",
-   "paper_pepi/main_v2_2col.pdf",
-   "paper_pepi/make_fig_core.py",
-   "paper_pepi/make_table4.py",
-   "paper_pepi/references.bib",
-   "paper_pepi/supplement_v2.pdf",
-   "paper_pepi/supplement_v2.tex",
+   "docs/TODO.md",
+   "docs/lab_notes/earthtides_lab_notes.md",
+   "docs/paper_v4_numbers_inventory.md",
+   "paper_pepi/main_v4.tex",
+   "paper_pepi/main_v4_2col.pdf",
+   "paper_pepi/supplement_v4.pdf",
+   "paper_pepi/supplement_v4.tex",
    "paper_pepi/table4.tex",
-   "paper_pepi/tableS_viscous.tex",
-   "results/paper1_table4.txt",
-   "results/paper1_table4.txt.meta.json",
-   "results/regen/table4.tex",
-   "results/regen/table4.tex.meta.json",
-   "results/regen/tableS_viscous.tex.meta.json",
-   "src/earthtides/geometry.py",
-   "src/earthtides/iers.py",
-   "src/earthtides/love.py"
+   "paper_scripts/README.md",
+   "paper_scripts/run_all.py",
+   "results/LEDGER.jsonl",
+   "results/fcn_level_figure.txt",
+   "results/fcn_level_figure.txt.meta.json",
+   "results/paper_numbers_v2.txt",
+   "results/validate_level_figure.txt",
+   "scripts/fcn_level_figure.py",
+   "scripts/paper_numbers_v2.py",
+   "scripts/validate_level_figure.py"
   ],
-  "script_untracked": true,
-  "script_dirty": false,
-  "script_sha256": "efd98918a5fcc0c951a53df2b148a2b89147f311889748076fcaef5d7436dd14"
+  "script_untracked": false,
+  "script_dirty": true,
+  "script_sha256": "53622bd1eb0940418e812e3fba35895cfb23bbd16a22b443d2b8a6b810297145"
  },
  "env": {},
  "inputs": [
   {
    "path": "data/PREM.dat",
-   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+   "sha256": "8816a5244429ba2d683440bf1a82ee7b8add42811693be5007a9b4afd298dfa0"
   }
  ],
  "outputs": [
   {
    "path": "results/validate_level_figure.txt",
-   "sha256": "381e01b8897191d6c48b65a96be398fca1193223868ea499474e6b4b0e35b5e2"
+   "sha256": "0df261322757875b757d457b819c90cf77a5025d3fe728faaf60e057b53fba3e"
   }
  ],
- "start": "2026-11-14T12:25:30",
- "end": "2026-11-14T12:26:10",
- "wall_s": 40.3,
+ "start": "2026-11-19T11:46:59",
+ "end": "2026-11-19T11:47:41",
+ "wall_s": 41.5,
  "peak_rss_mb": {
-  "self": 251.0,
-  "children_max": 11.1
+  "self": 248.5,
+  "children_max": 9.2
  },
- "host": "Mac",
+ "host": "Mac.lan",
  "python": "3.14.6"
 }

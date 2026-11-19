@@ -1,4 +1,7 @@
 where        quantity                                                                      this script   value in the paper
+5.3/S5.5     PREM: g / (Omega^2 r) at the CMB; factor 2 g / (Omega^2 r)                    577.5; 1155   paper: 577; factor about 1150
+5.3/S5.5     Hough's Earth: g / (Omega^2 r) at the CMB; factor 2 g / (Omega^2 r)               289.1; 578   paper: 289; factor about 580
+S2           flattened surface to the mean radius: 2 f a / 3 (pole), f a / 3 (equator)            14.2 / 7.1 km   paper: 14 / 7 km
 S2.x         Coriolis / inertial force 2 Omega / omega, O1                                        2.16   paper: about twice (diurnal), as large (semidiurnal)
 S2.x         Coriolis / inertial force 2 Omega / omega, M2                                        1.04   paper: about twice (diurnal), as large (semidiurnal)
 3.5          small-alpha 2/(pi alpha) over cot(alpha pi/2), alpha 0.15                           +1.9%   paper: 2 per cent larger

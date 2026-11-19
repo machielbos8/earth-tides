@@ -20,3 +20,6 @@
           0.00 %      457.332      456.238
           2.00 %      457.349      456.210
           3.27 %      457.360      456.192
+
+(e) homogeneous body (data/HOMOG.dat), Omega_Earth: flattening of the level figure against Maclaurin
+    Maclaurin 1/231.073493  level figure 1/231.073500  relative difference -3.1e-08  (21 iterations, max height left 2.5e-04 m)

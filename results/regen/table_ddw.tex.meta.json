@@ -1,0 +1,55 @@
+{
+ "id": "20261119T122844-make_table_ddw-0858",
+ "status": "ok",
+ "purpose": "Table S3 (tab:ddw) assembled from stored results",
+ "script": "paper_pepi/make_table_ddw.py",
+ "command": "python paper_pepi/make_table_ddw.py --paper",
+ "params": {
+  "paper": true
+ },
+ "git": {
+  "commit": "c9a91c130c5b011d306d56000c9703c3b1f6e576",
+  "dirty": [
+   "paper_pepi/make_tables_viscous.py",
+   "paper_scripts/run_all.py",
+   "results/LEDGER.jsonl",
+   "results/paper1_tables_viscous.txt",
+   "results/paper1_tables_viscous.txt.meta.json",
+   "results/regen/table_ddw_viscous.tex.meta.json",
+   "results/regen/table_latitude_viscous.tex.meta.json"
+  ],
+  "script_untracked": true,
+  "script_dirty": false,
+  "script_sha256": "e782d56e1a281eb4ed050347bf2e4e33cbe244bdc0b6b42fbb97451d3aeb8559"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "results/fcn_resonance_extrapolation_v3_K12.txt",
+   "sha256": "0fa33319890bb71b0c3f1686e2ca6c6ce15c1b4ff5506e4d70f34a553506a880"
+  },
+  {
+   "path": "results/paper1_tables_viscous.txt",
+   "sha256": "2bfb5efa3aa754eb60c539bc67b9ed2afe22a5ce474c658703132ea289c6187c"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/regen/table_ddw.tex",
+   "sha256": "a55f324a88f247038ddc23267cbd4a5b3d008539957aa36a7450d9524d5353b2"
+  },
+  {
+   "path": "paper_pepi/table_ddw.tex",
+   "sha256": "a55f324a88f247038ddc23267cbd4a5b3d008539957aa36a7450d9524d5353b2"
+  }
+ ],
+ "start": "2026-11-19T12:28:44",
+ "end": "2026-11-19T12:28:44",
+ "wall_s": 0.0,
+ "peak_rss_mb": {
+  "self": 20.7,
+  "children_max": 8.9
+ },
+ "host": "Mac.lan",
+ "python": "3.14.6"
+}

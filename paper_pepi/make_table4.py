@@ -124,6 +124,13 @@ def main(run):
             r += ' |' + ' '.join(f'{1e4 * (T[name][k].real - h[k].real):+6.1f}' if k in h else ' ' * 6
                                  for k, _ in KEYS)
         lines.append(r)
+    # 2026-11-19: the tuned state at full precision (the level-minus-first-order difference at the same period,
+    # scripts/figure_same_period.py, was taken from the rounded columns above)
+    lines += ['', 'FCN 431 state (real parts, 8 decimals)',
+              'wave   ' + '  '.join(f'{k:>11s}' for k, _ in KEYS)]
+    for name, _, _ in WAVES:
+        lines.append(f'{name:8s}' + ' '.join(f'{T2[name][k].real:11.8f}' if k in T2[name] else ' ' * 11
+                                            for k, _ in KEYS))
     run.write_text(str(ROOT / 'results' / f'paper1_table4{SUF}.txt'), '\n'.join(lines) + '\n')
     print('\n'.join(lines))
 

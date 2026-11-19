@@ -1,5 +1,31 @@
 # Changelog of earth-tides
 
+## 1.1.2 (2026-11, with the manual version 1.1)
+
+**Fix: PREM inner-core Q_mu.** `data/PREM.dat` and `PREMs.dat` gave the inner core Q_mu = 86.4; PREM
+(Dziewonski & Anderson 1981, Table I) has 84.6. The four stored tables (`love_PREM.json`,
+`love_PREM_allwaves.json` and their hydrostatic versions) are recomputed with the corrected model. Their
+values change by less than 2e-7 for 99 per cent of the waves; a few waves next to a pseudo-mode of the
+inviscid core (near 0.748 and 1.93 cycles per day), where the median over the core resolutions moves, by up
+to 5e-6. A new quick job, `check_prem_table1`, compares every layer of `PREM.dat` and `PREMs.dat`
+with Table I of PREM.
+
+The reproduction package follows the current version of the paper:
+
+* New quick job `displacement_scale`: the Love-number differences of the comparison tables as station
+  displacement in millimetres (the error budget, Table 2 of the paper).
+* New quick jobs for the error budget and the supplement of the current version: `figure_same_period`
+  and `stress_same_period` (level against first-order figure, and the deviatoric stress, at the same FCN
+  period), `viscous_limit_uncertainty` (the limit delta -> 0), `wall_fields_un_check` and
+  `wall_pressure_check` (the bumped wall of Hough's Earth), `fcn_share_level` and
+  `fcn_share_level_slipterm` (resonant shares on the level figure), `tables_viscous_fo` and
+  `table_nonhydro_love_fo` (first-order-figure versions of the tables). Tables S3 and S7 are now written
+  by scripts (`table_ddw`, `table_slipshare`) from stored results. One new heavy job:
+  `fcn_extrapolation_fo` (FCN resonance at delta -> 0 on the first-order figure, core K 12).
+* Fig. 4 (core sweep) shows h(0) over h(2).
+* `paper_scripts/README.md` lists the jobs under the section, figure and table numbers of the current
+  version of the paper.
+
 ## 1.1.1 (2026-11, with the manual version 1.1)
 
 **Changed default: the stored Love-number tables.** `data/love_PREM.json` and `love_PREM_allwaves.json`

@@ -1,0 +1,130 @@
+{
+ "id": "20261119T124208-make_table_slipshare-2392",
+ "status": "ok",
+ "purpose": "Table S7 (tab:slipshare) assembled from stored results",
+ "script": "paper_pepi/make_table_slipshare.py",
+ "command": "python paper_pepi/make_table_slipshare.py --paper",
+ "params": {},
+ "git": {
+  "commit": "c9a91c130c5b011d306d56000c9703c3b1f6e576",
+  "dirty": [
+   "examples/ex4/greff2005.out",
+   "examples/ex5/hough1895.out",
+   "paper_pepi/main_v4.tex",
+   "paper_pepi/main_v4_2col.pdf",
+   "paper_pepi/make_table4.py",
+   "paper_pepi/make_tables_viscous.py",
+   "paper_pepi/supplement_v4.pdf",
+   "paper_pepi/supplement_v4.tex",
+   "paper_pepi/table_ddw.tex",
+   "paper_scripts/run_all.py",
+   "results/LEDGER.jsonl",
+   "results/fig4_viscous_gap.txt",
+   "results/fig4_viscous_gap.txt.meta.json",
+   "results/paper1_table4.txt",
+   "results/paper1_table4.txt.meta.json",
+   "results/paper1_table4_level.txt",
+   "results/paper1_table4_level.txt.meta.json",
+   "results/paper1_tables_viscous.txt",
+   "results/paper1_tables_viscous.txt.meta.json",
+   "results/regen/table4.tex",
+   "results/regen/table4.tex.meta.json",
+   "results/regen/table4_level.tex.meta.json",
+   "results/regen/tableS_viscous.tex.meta.json",
+   "results/regen/tableS_viscous_level.tex.meta.json",
+   "results/regen/table_ddw_viscous.tex.meta.json",
+   "results/regen/table_latitude_viscous.tex.meta.json",
+   "scripts/fcn_share_inviscid.py",
+   "scripts/fig4_viscous_gap.py"
+  ],
+  "script_untracked": true,
+  "script_dirty": false,
+  "script_sha256": "c78ad9dc55c18a83c664944952a3795eb05e807bd8ea0f2c30afe2134df158e9"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "results/converge_resolution_bump_3_d250_vp1000_mixed.txt",
+   "sha256": "ae28fda8022639c730e37344f7307fc8dfb515d397befd64e79d2895fbeb8e78"
+  },
+  {
+   "path": "results/converge_resolution_soft_d250_vp1000_mixed.txt",
+   "sha256": "433e7947a299625bf063685efa5ad01ba51cc3820d5df379f9a3a8a82caf1cee"
+  },
+  {
+   "path": "results/exact_levels_share_test_slipterm.txt",
+   "sha256": "409543d8239143306725f0b87756688a433277cfeb7d5dfaf1b46d55c4c028c5"
+  },
+  {
+   "path": "results/exact_levels_share_test_slipterm_fullPREM.txt",
+   "sha256": "610c34fc6d71b684e4a0e617531d20a5fa979eff5fc78c7c1967a05c95650d17"
+  },
+  {
+   "path": "results/fcn_resonance_extrapolation_v3_K12.txt",
+   "sha256": "0fa33319890bb71b0c3f1686e2ca6c6ce15c1b4ff5506e4d70f34a553506a880"
+  },
+  {
+   "path": "results/fcn_resonance_extrapolation_v3_K12_level.txt",
+   "sha256": "e16ae6d82a100226481338ce22c0da67fe344c46bcce52d150e2735a994d6f63"
+  },
+  {
+   "path": "results/fcn_resonance_noic_K12.txt",
+   "sha256": "a8e9b8ac7fcc41c456af4b2920c9079324b4f341370d82eaa65d465c2198f771"
+  },
+  {
+   "path": "results/fcn_share_inviscid.txt",
+   "sha256": "82f20aaf199406503a0214547f2c8114e7428fd2cbb797004a74a1c762b5fe60"
+  },
+  {
+   "path": "results/fcn_share_inviscid_level.txt",
+   "sha256": "65bbaa2ca9213b47c3ef62d4f832a2bdd084c57d6c688e69695657ee7ab17054"
+  },
+  {
+   "path": "results/fcn_share_inviscid_noic.txt",
+   "sha256": "a4f0fc6f6c62bf788030e8262d7dbdc0684620e0ced1b4c33837c6e4b5f813b9"
+  },
+  {
+   "path": "results/fcn_share_inviscid_slipterm_level.txt",
+   "sha256": "9807b142c27ac3655d78852bc143322f7946f603eb243309dc49e5e03d8fb274"
+  },
+  {
+   "path": "results/hough_share_test.txt",
+   "sha256": "32f12095cca948a51a36b989c56c85832f315388b1cd942c3f1050dd95a954ab"
+  },
+  {
+   "path": "results/hough_share_test_bump.txt",
+   "sha256": "eefc794582e865ab7b2002ab262f469d436fb9edfb0a2bb49cdf04c5d1a9d84e"
+  },
+  {
+   "path": "results/hough_share_test_bump_d250_K72.txt",
+   "sha256": "c56b255ef7a05067a4e8b571c100ed657ab21fb5e4ee5ae548c43a04aadce562"
+  },
+  {
+   "path": "results/hough_share_test_slipterm.txt",
+   "sha256": "e2c5f1681257df25a160897e78d086c5278d41f14136d9f6d3684f95cf6ceead"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/table_slipshare.txt",
+   "sha256": "eb64e10e2538768c0798f4dcba33cc2d5993ae52d263241c6215f650d786ab96"
+  },
+  {
+   "path": "results/regen/table_slipshare.tex",
+   "sha256": "68f18bed9f48a25b349317b4caee91acec19cd8219cb53b9889d75eb79b82404"
+  },
+  {
+   "path": "paper_pepi/table_slipshare.tex",
+   "sha256": "68f18bed9f48a25b349317b4caee91acec19cd8219cb53b9889d75eb79b82404"
+  }
+ ],
+ "start": "2026-11-19T12:42:08",
+ "end": "2026-11-19T12:42:08",
+ "wall_s": 0.0,
+ "peak_rss_mb": {
+  "self": 21.1,
+  "children_max": 8.9
+ },
+ "host": "Mac.lan",
+ "python": "3.14.6"
+}

@@ -1,7 +1,7 @@
 {
-  "title": "earth-tides 1.1.1: software, scripts and results for \"Body tides of a flattened, rotating, non-hydrostatic Earth: a transparent numerical model\"",
+  "title": "earth-tides 1.1.2: software, scripts and results for \"Body tides of a flattened, rotating, non-hydrostatic Earth: a transparent numerical model\"",
   "upload_type": "software",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "creators": [
     {
       "name": "Bos, Machiel S.",

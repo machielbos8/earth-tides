@@ -29,6 +29,9 @@ R = 'results/convergence_viscous_coreK'
 # term (7d3a2f7, 2026-11-14); the paper quotes this gap ('without eq. (17) ... 7-8e-6 lower')
 INV = {K: f'{R}{K}_N30_d0_s0.0005_noslipterm.txt' for K in (8, 16, 24)}
 VIS = {'delta 4 km K 24': f'{R}24_N30_d4_s0.0005.txt', 'delta 1 km K 96': f'{R}96_N30_d1_s0.0005_b12.txt'}
+# 2026-11-19: the level figure of the paper (with the slip term; Fig. 4 caption '3e-7 in (d)')
+INV_L = {K: f'{R}{K}_N30_d0_s0.0005_level.txt' for K in (8, 16, 24)}
+VIS_L = {'level, delta 1 km K 96': f'{R}96_N30_d1_s0.0005_b12_level.txt'}
 
 
 def curve(path, m):
@@ -39,7 +42,7 @@ def curve(path, m):
 
 def main():
     with Run('viscous - inviscid h2 gap of Fig. 4 at O1, 0.95 cpsd and around M2',
-             inputs=list(INV.values()) + list(VIS.values())) as run_:
+             inputs=list(INV.values()) + list(VIS.values()) + list(INV_L.values()) + list(VIS_L.values())) as run_:
         lines = ['h2(viscous) - h2(inviscid), units 1e-6']
         for name, pv in VIS.items():
             for K, pi in INV.items():
@@ -49,6 +52,15 @@ def main():
                 lines.append(f'{name}, inviscid K {K:2d}: O1 {(v1[0.927] - i1[0.927]) * 1e6:+6.2f}, '
                              f'0.95 {(v1[0.95] - i1[0.95]) * 1e6:+6.2f}; M2 band |d| median '
                              f'{np.median(d) * 1e6:.2f}, 90 % {np.percentile(d, 90) * 1e6:.2f}')
+        lines += ['', 'level figure, inviscid with the slip term (Fig. 4), h2(viscous) - h2(inviscid), units 1e-6;',
+                  'O1 band 0.915-0.95 cpsd away from the spikes: median and 90 % of |d|']
+        for name, pv in VIS_L.items():
+            for K, pi in INV_L.items():
+                v1, i1 = curve(pv, 1), curve(pi, 1)
+                d1 = np.abs([v1[s] - i1[s] for s in v1 if s in i1 and 0.915 <= s <= 0.95])
+                lines.append(f'{name}, inviscid K {K:2d}: O1 {(v1[0.927] - i1[0.927]) * 1e6:+6.2f}, '
+                             f'0.95 {(v1[0.95] - i1[0.95]) * 1e6:+6.2f}; 0.915-0.95 |d| median '
+                             f'{np.median(d1) * 1e6:.2f}, 90 % {np.percentile(d1, 90) * 1e6:.2f}')
         txt = '\n'.join(lines)
         run_.write_text('results/fig4_viscous_gap.txt', txt + '\n')
     print(txt)

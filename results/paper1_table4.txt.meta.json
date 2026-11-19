@@ -1,0 +1,63 @@
+{
+ "id": "20261119T123101-make_table4-0982",
+ "status": "ok",
+ "purpose": "Table of non-hydrostatic Love numbers (P1 v2 Table S12, S8)",
+ "script": "paper_pepi/make_table4.py",
+ "command": "python paper_pepi/make_table4.py",
+ "params": {
+  "out": "results/regen"
+ },
+ "git": {
+  "commit": "c9a91c130c5b011d306d56000c9703c3b1f6e576",
+  "dirty": [
+   "paper_pepi/make_table4.py",
+   "paper_pepi/make_tables_viscous.py",
+   "paper_pepi/table_ddw.tex",
+   "paper_scripts/run_all.py",
+   "results/LEDGER.jsonl",
+   "results/paper1_table4_level.txt",
+   "results/paper1_table4_level.txt.meta.json",
+   "results/paper1_tables_viscous.txt",
+   "results/paper1_tables_viscous.txt.meta.json",
+   "results/regen/table4_level.tex.meta.json",
+   "results/regen/tableS_viscous_level.tex.meta.json",
+   "results/regen/table_ddw_viscous.tex.meta.json",
+   "results/regen/table_latitude_viscous.tex.meta.json"
+  ],
+  "script_untracked": false,
+  "script_dirty": true,
+  "script_sha256": "a80a3aafe52cc7c01139de63183f726a52bd70c6af6b83f7a253849dd1d18ff7"
+ },
+ "env": {
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "8816a5244429ba2d683440bf1a82ee7b8add42811693be5007a9b4afd298dfa0"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/regen/table4.tex",
+   "sha256": "d366517388057b0cefe34d9697e45f42d2d1879a1976dc06c94702d0887cbb56"
+  },
+  {
+   "path": "results/regen/tableS_viscous.tex",
+   "sha256": "f1a9121651ccf01342412e42b2f8a2aaf51a7e4b9bc8f09b99772c0a0955caf5"
+  },
+  {
+   "path": "results/paper1_table4.txt",
+   "sha256": "8696ec1e4200d569ab34a848ef46312a09036332d3f6b7c4171a0df9acd53183"
+  }
+ ],
+ "start": "2026-11-19T12:31:01",
+ "end": "2026-11-19T12:31:55",
+ "wall_s": 53.7,
+ "peak_rss_mb": {
+  "self": 1197.3,
+  "children_max": 9.1
+ },
+ "host": "Mac.lan",
+ "python": "3.14.6"
+}

@@ -1,0 +1,30 @@
+data/PREM.dat and data/PREMs.dat against Table I of Dziewonski & Anderson (1981)
+
+== PREM.dat: 12 layers, boundaries [np.float64(0.0), np.float64(1221.5), np.float64(3480.0), np.float64(3630.0), np.float64(5600.0), np.float64(5701.0), np.float64(5771.0), np.float64(5971.0), np.float64(6151.0), np.float64(6291.0), np.float64(6346.6), np.float64(6356.0), np.float64(6371.0)]
+      0.0- 1221.5: max |diff| > 5e-5: none; Q_mu 84.6 vs PREM 84.6
+   1221.5- 3480.0: max |diff| > 5e-5: none; Q_mu nan vs PREM inf
+   3480.0- 3630.0: max |diff| > 5e-5: Vs_v 5.94e-05, Vs_h 5.94e-05; Q_mu 312.0 vs PREM 312.0
+   3630.0- 5600.0: max |diff| > 5e-5: none; Q_mu 312.0 vs PREM 312.0
+   5600.0- 5701.0: max |diff| > 5e-5: none; Q_mu 312.0 vs PREM 312.0
+   5701.0- 5771.0: max |diff| > 5e-5: none; Q_mu 143.0 vs PREM 143.0
+   5771.0- 5971.0: max |diff| > 5e-5: none; Q_mu 143.0 vs PREM 143.0
+   5971.0- 6151.0: max |diff| > 5e-5: none; Q_mu 143.0 vs PREM 143.0
+   6151.0- 6291.0: max |diff| > 5e-5: Vp_v 1.89e-01, Vp_h 7.38e-02, Vs_v 6.17e-02, Vs_h 9.14e-02, eta 7.80e-02; Q_mu 80.0 vs PREM 80.0
+   6291.0- 6346.6: max |diff| > 5e-5: Vp_v 1.17e-01, Vp_h 7.97e-02, Vs_v 9.50e-02, Vs_h 1.21e-01, eta 9.96e-02; Q_mu 600.0 vs PREM 600.0
+   6346.6- 6356.0: max |diff| > 5e-5: none; Q_mu 600.0 vs PREM 600.0
+  top layer 6356.0-6371.0: rho 2.2840, Vp 6.1882, Vs 3.4142, Q_mu 600.0; mass / PREM upper crust + ocean = 1.000261; PREM upper crust rho 2.600 Vp 5.800 Vs 3.200 Q_mu 600
+
+== PREMs.dat: 12 layers, boundaries [np.float64(0.0), np.float64(1221.5), np.float64(3480.0), np.float64(3630.0), np.float64(5600.0), np.float64(5701.0), np.float64(5771.0), np.float64(5971.0), np.float64(6151.0), np.float64(6291.0), np.float64(6346.6), np.float64(6356.0), np.float64(6371.0)]
+      0.0- 1221.5: max |diff| > 5e-5: none; Q_mu 84.6 vs PREM 84.6
+   1221.5- 3480.0: max |diff| > 5e-5: Vs_v 1.00e-03, Vs_h 1.00e-03; Q_mu nan vs PREM inf
+   3480.0- 3630.0: max |diff| > 5e-5: Vs_v 5.94e-05, Vs_h 5.94e-05; Q_mu 312.0 vs PREM 312.0
+   3630.0- 5600.0: max |diff| > 5e-5: none; Q_mu 312.0 vs PREM 312.0
+   5600.0- 5701.0: max |diff| > 5e-5: none; Q_mu 312.0 vs PREM 312.0
+   5701.0- 5771.0: max |diff| > 5e-5: none; Q_mu 143.0 vs PREM 143.0
+   5771.0- 5971.0: max |diff| > 5e-5: none; Q_mu 143.0 vs PREM 143.0
+   5971.0- 6151.0: max |diff| > 5e-5: none; Q_mu 143.0 vs PREM 143.0
+   6151.0- 6291.0: max |diff| > 5e-5: Vp_v 1.89e-01, Vp_h 7.38e-02, Vs_v 6.17e-02, Vs_h 9.14e-02, eta 7.80e-02; Q_mu 80.0 vs PREM 80.0
+   6291.0- 6346.6: max |diff| > 5e-5: Vp_v 1.17e-01, Vp_h 7.97e-02, Vs_v 9.50e-02, Vs_h 1.21e-01, eta 9.96e-02; Q_mu 600.0 vs PREM 600.0
+   6346.6- 6356.0: max |diff| > 5e-5: none; Q_mu 600.0 vs PREM 600.0
+  top layer 6356.0-6371.0: rho 2.2840, Vp 6.1882, Vs 3.4142, Q_mu 600.0; mass / PREM upper crust + ocean = 1.000261; PREM upper crust rho 2.600 Vp 5.800 Vs 3.200 Q_mu 600
+

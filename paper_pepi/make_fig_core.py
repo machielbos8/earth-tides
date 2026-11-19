@@ -17,7 +17,7 @@
 
     .venv/bin/python paper_pepi/make_fig_core.py
 
-fig_core_sweep  h(2) of elastic hydrostatic PREM across the semidiurnal and diurnal bands, inviscid core
+fig_core_sweep  h(0) - 0.6 (a, b) and h(2) (c, d) of elastic hydrostatic PREM across the semidiurnal and diurnal bands, inviscid core
                 (core K 8, 16, 24) and viscous core (delta = 1 km, core K 96, banded coupling 12; 2026-11-03,
                 was delta 4 km K 24): mantle and inner core K 6 / N 24, core N 30, step 0.0005 cpsd
                 (results/convergence_viscous_coreK*_N30_d0_s0.0005.txt, ..._coreK96_N30_d1_s0.0005_b12.txt;
@@ -67,45 +67,58 @@ def sweep():
                                        Path(fc.tagged(RES / f'convergence_viscous_coreK{K}_N30_d{d}{b}.txt'))) if q.exists())
         return np.vstack([np.genfromtxt(f(K), skip_header=1, usecols=range(9)) for K in Ks])
     inv, vis = load(0, CORE_K), load(DELTA_SWEEP, CORE_K_VISC, BAND_VISC)
-    fig, axs = plt.subplots(1, 2, figsize=(W2COL, 2.6))
-    for ax, m, tide, ft, lim in ((axs[0], 2, 'M$_2$', 1.92700, (-5.6, -4.3)),
-                                 (axs[1], 1, 'O$_1$', 0.92700, (-5.6, -4.3))):
-        offs = []
-        for d, res, col, lw, lab in ((inv, tuple((K, 30) for K in CORE_K), C2, 0.8, 'inviscid'),
-                                     (vis, tuple((K, 30) for K in CORE_K_VISC), C1, 1.6, 'viscous')):
-            for st, (K, N) in zip(STYLES, res):
-                s = d[(d[:, 0] == m) & (d[:, 2] == K) & (d[:, 3] == N) & (d[:, 1] < 2.4)]
-                s = s[np.argsort(s[:, 1])]
-                txt = f'{lab}, core $K$={K}'
-                ax.plot(s[:, 1], s[:, 5] * 1e4, ls=st, color=col, lw=lw, label=txt)
-                off = s[(s[:, 5] * 1e4 < lim[0]) | (s[:, 5] * 1e4 > lim[1])]
-                offs += [(x, y * 1e4, col) for x, y in off[:, [1, 5]]]
-        # off-scale values: one label per cluster (points closer than GAP, pooled over the curves), the most
-        # extreme value, kept inside the axes (2026-11-15: labels overlapped and ran outside the panel)
-        x0, x1 = ax.get_xlim()
-        for top in (False, True):
-            pts = sorted(p for p in offs if (p[1] > lim[1]) == top)
-            groups = []
-            for p in pts:
-                if groups and p[0] - groups[-1][-1][0] < GAP:
-                    groups[-1].append(p)
-                else:
-                    groups.append([p])
-            for g in groups:
-                x, y, col = max(g, key=lambda q: abs(q[1]))
-                right = x > x0 + 0.85 * (x1 - x0)
-                ax.annotate(f'{y:.1f}', (x, lim[1] if top else lim[0]),
-                            xytext=(-3 if right else 3, -4 if top else 4), textcoords='offset points',
-                            ha='right' if right else 'left', va='top' if top else 'bottom', fontsize=6,
-                            color=col, annotation_clip=True)
-        ax.axvline(ft, color=MUTED, lw=0.6, ls=':')
-        ax.text(ft, lim[0] + 0.06, ' ' + tide, va='bottom', ha='left', fontsize=7, color=MUTED)
-        ax.set_ylim(*lim)
-        ax.set_xlabel('frequency (cycles per sidereal day)')
-        ax.set_ylabel(r'$h^{(2)}$ ($10^{-4}$)')
-    axs[0].set_title('(a) around M$_2$, $m=2$', loc='left', fontsize=8)
-    axs[1].set_title('(b) around O$_1$, $m=1$', loc='left', fontsize=8)
-    axs[1].legend(fontsize=6, loc='upper right', ncol=1, borderaxespad=0.8)
+    # 2026-11-18 (Machiel): h(0) - 0.6 above h(2): the spikes have the same absolute size in both; h(2) only
+    # looks so variable because it is a small number. h(0) axis = viscous range + 25 % (at O1 the FCN slope).
+    fig, axs = plt.subplots(2, 2, figsize=(W2COL, 4.8), sharex='col')
+    for j, (m, tide, ft) in enumerate(((2, 'M$_2$', 1.92700), (1, 'O$_1$', 0.92700))):
+        v = vis[vis[:, 0] == m]
+        for i, (col, off, ylab) in enumerate(((4, 0.6, r'$h^{(0)}-0.6$ ($10^{-4}$)'),
+                                              (5, 0.0, r'$h^{(2)}$ ($10^{-4}$)'))):
+            ax = axs[i, j]
+            if col == 5:
+                lim = (-5.6, -4.3)
+            else:
+                y = (v[:, col] - off) * 1e4
+                span = max(y.max() - y.min(), 1.3)
+                lim = (y.min() - 0.25 * span, y.max() + 0.25 * span)
+            offs = []
+            for d, Ks, c, lw, lab in ((inv, CORE_K, C2, 0.8, 'inviscid'), (vis, CORE_K_VISC, C1, 1.6, 'viscous')):
+                for st, K in zip(STYLES, Ks):
+                    s = d[(d[:, 0] == m) & (d[:, 2] == K) & (d[:, 3] == 30) & (d[:, 1] < 2.4)]
+                    s = s[np.argsort(s[:, 1])]
+                    y = (s[:, col] - off) * 1e4
+                    ax.plot(s[:, 1], y, ls=st, color=c, lw=lw, label=f'{lab}, core $K$={K}')
+                    o = (y < lim[0]) | (y > lim[1])
+                    offs += [(x, yy, c) for x, yy in zip(s[o, 1], y[o])]
+            # off-scale values: one label per cluster (points closer than GAP, pooled over the curves), the most
+            # extreme value, kept inside the axes (2026-11-15: labels overlapped and ran outside the panel)
+            x0, x1 = ax.get_xlim()
+            for top in (False, True):
+                pts, groups = sorted(p for p in offs if (p[1] > lim[1]) == top), []
+                for p in pts:
+                    if groups and p[0] - groups[-1][-1][0] < GAP:
+                        groups[-1].append(p)
+                    else:
+                        groups.append([p])
+                for g in groups:
+                    x, y, c = max(g, key=lambda q: abs(q[1]))
+                    right = x > x0 + 0.85 * (x1 - x0)
+                    ax.annotate(f'{y:.1f}', (x, lim[1] if top else lim[0]),
+                                xytext=(-3 if right else 3, -4 if top else 4), textcoords='offset points',
+                                ha='right' if right else 'left', va='top' if top else 'bottom', fontsize=6,
+                                color=c, annotation_clip=True)
+            ax.axvline(ft, color=MUTED, lw=0.6, ls=':')
+            ax.text(ft, lim[0] + 0.05 * (lim[1] - lim[0]), ' ' + tide, va='bottom', ha='left', fontsize=7,
+                    color=MUTED)
+            ax.set_ylim(*lim)
+            ax.set_ylabel(ylab)
+            if i == 1:
+                ax.set_xlabel('frequency (cycles per sidereal day)')
+    axs[0, 0].set_title('(a) $h^{(0)}$ around M$_2$, $m=2$', loc='left', fontsize=8)
+    axs[0, 1].set_title('(b) $h^{(0)}$ around O$_1$, $m=1$', loc='left', fontsize=8)
+    axs[1, 0].set_title('(c) $h^{(2)}$ around M$_2$, $m=2$', loc='left', fontsize=8)
+    axs[1, 1].set_title('(d) $h^{(2)}$ around O$_1$, $m=1$', loc='left', fontsize=8)
+    axs[1, 1].legend(fontsize=6, loc='upper right', ncol=1, borderaxespad=0.8)
     fig.tight_layout()
     fig.savefig(FIG / 'fig_core_sweep.pdf')
 

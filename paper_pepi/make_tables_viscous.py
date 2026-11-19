@@ -111,7 +111,7 @@ def _main(run):
     rows = []
     for name, (m, s, ref) in DDW.items():
         e, chk, v = value(m, s)
-        log.append('%-22s %-10s ' % (name, 'value') + ' '.join('%+10.6f' % e[k].real for k in KEYS))
+        log.append('%-22s %-10s ' % (name, 'value') + ' '.join('%+12.9f' % e[k].real for k in KEYS))
         log.append('%-22s %-10s ' % ('', 'Im') + ' '.join('%+10.1e' % e[k].imag for k in KEYS))
         log.append('%-22s %-10s ' % ('', 'chk') + ' '.join('%10.1e' % chk[k] for k in KEYS))
         for d in DELTAS:

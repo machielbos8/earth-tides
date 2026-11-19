@@ -1,5 +1,5 @@
 {
- "id": "20261114T131625-fcn_level_figure-1296",
+ "id": "20261119T114638-fcn_level_figure-9232",
  "status": "ok",
  "purpose": "FCN of hydrostatic PREM on the first-order figure, exact ellipses and true level surfaces",
  "script": "scripts/fcn_level_figure.py",
@@ -9,61 +9,56 @@
    4,
    6
   ],
-  "N": 24
+  "N": 24,
+  "figure": "level"
  },
  "git": {
-  "commit": "b23a0f226c0182cf9b8cfdf55ec9f02c07af9ba7",
+  "commit": "82e5a748f182205ce8b0320fac2acd389f6d8945",
   "dirty": [
-   "paper_pepi/figures/fig_core_ekman.pdf",
-   "paper_pepi/figures/fig_core_sweep.pdf",
-   "paper_pepi/main_v2.tex",
-   "paper_pepi/main_v2_2col.pdf",
-   "paper_pepi/make_fig_core.py",
-   "paper_pepi/make_table4.py",
-   "paper_pepi/make_table_latitude.py",
-   "paper_pepi/references.bib",
-   "paper_pepi/supplement_v2.pdf",
-   "paper_pepi/supplement_v2.tex",
+   "docs/TODO.md",
+   "docs/lab_notes/earthtides_lab_notes.md",
+   "docs/paper_v4_numbers_inventory.md",
+   "paper_pepi/main_v4.tex",
+   "paper_pepi/main_v4_2col.pdf",
+   "paper_pepi/supplement_v4.pdf",
+   "paper_pepi/supplement_v4.tex",
    "paper_pepi/table4.tex",
-   "paper_pepi/tableS_viscous.tex",
-   "results/LEDGER.jsonl",
-   "results/convention_table.txt.meta.json",
-   "results/nonhydro_diurnal.txt.meta.json",
-   "results/paper1_table4.txt",
-   "results/paper1_table4.txt.meta.json",
-   "results/regen/table4.tex",
-   "results/regen/table4.tex.meta.json",
-   "results/regen/tableS_viscous.tex.meta.json",
-   "scripts/convention_table.py",
+   "paper_scripts/README.md",
+   "paper_scripts/run_all.py",
+   "results/fcn_level_figure.txt",
+   "results/paper_numbers_v2.txt",
+   "results/validate_level_figure.txt",
    "scripts/fcn_level_figure.py",
-   "scripts/nonhydro_stress_split.py"
+   "scripts/paper_numbers_v2.py",
+   "scripts/validate_level_figure.py"
   ],
   "script_untracked": false,
   "script_dirty": true,
-  "script_sha256": "cf81905ab43646cefb8b15a80863997701abf56dcf1c8f16ea0dfdf944518892"
+  "script_sha256": "98cd04f03f67eb0ea7f6df20dfbe7f1bd3fec9be3c15fdc7b87282afd3521023"
  },
  "env": {
+  "EARTHTIDES_FIGURE": "level",
   "VECLIB_MAXIMUM_THREADS": "1"
  },
  "inputs": [
   {
    "path": "data/PREM.dat",
-   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+   "sha256": "8816a5244429ba2d683440bf1a82ee7b8add42811693be5007a9b4afd298dfa0"
   }
  ],
  "outputs": [
   {
    "path": "results/fcn_level_figure.txt",
-   "sha256": "2d7c214c473d39c9fb006ce352da8ea25bbc9d430a6f6d1413df3413d84cb4f1"
+   "sha256": "02ae8e4aa732b09c199d99eb4518368288731fa5c7dab98e61dc6132cb288a6c"
   }
  ],
- "start": "2026-11-14T13:16:25",
- "end": "2026-11-14T13:16:46",
- "wall_s": 21.0,
+ "start": "2026-11-19T11:46:38",
+ "end": "2026-11-19T11:46:59",
+ "wall_s": 20.8,
  "peak_rss_mb": {
-  "self": 305.0,
-  "children_max": 11.1
+  "self": 301.2,
+  "children_max": 9.1
  },
- "host": "Mac",
+ "host": "Mac.lan",
  "python": "3.14.6"
 }

@@ -1,11 +1,12 @@
 {
- "id": "20261115T114843-paper_numbers_v2-9075",
+ "id": "20261119T114741-paper_numbers_v2-9312",
  "status": "ok",
  "purpose": "numbers in the text of P1 v2 not printed by other scripts",
  "script": "scripts/paper_numbers_v2.py",
  "command": "python scripts/paper_numbers_v2.py",
  "params": {
   "sections": [
+   "wall",
    "analytic",
    "gravity",
    "refpot",
@@ -21,19 +22,37 @@
   ]
  },
  "git": {
-  "commit": "a9b26714b37783c0acd4ec6aa048f604c12a842a",
+  "commit": "82e5a748f182205ce8b0320fac2acd389f6d8945",
   "dirty": [
-   "scripts/paper_numbers_v2.py"
+   "docs/TODO.md",
+   "docs/lab_notes/earthtides_lab_notes.md",
+   "docs/paper_v4_numbers_inventory.md",
+   "paper_pepi/main_v4.tex",
+   "paper_pepi/main_v4_2col.pdf",
+   "paper_pepi/supplement_v4.pdf",
+   "paper_pepi/supplement_v4.tex",
+   "paper_pepi/table4.tex",
+   "paper_scripts/README.md",
+   "paper_scripts/run_all.py",
+   "results/LEDGER.jsonl",
+   "results/fcn_level_figure.txt",
+   "results/fcn_level_figure.txt.meta.json",
+   "results/paper_numbers_v2.txt",
+   "results/validate_level_figure.txt",
+   "results/validate_level_figure.txt.meta.json",
+   "scripts/fcn_level_figure.py",
+   "scripts/paper_numbers_v2.py",
+   "scripts/validate_level_figure.py"
   ],
   "script_untracked": false,
   "script_dirty": true,
-  "script_sha256": "4713f4da3d5980e81c198797d5fa5dcd5f707af662d5da31e918e711f56af189"
+  "script_sha256": "fa2d192c05abde4e0dca29b6cd4ac5b1cba73c399178c15b7c440ce8bd656419"
  },
  "env": {},
  "inputs": [
   {
    "path": "data/PREM.dat",
-   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+   "sha256": "8816a5244429ba2d683440bf1a82ee7b8add42811693be5007a9b4afd298dfa0"
   },
   {
    "path": "data/HOMOG.dat",
@@ -49,22 +68,22 @@
   },
   {
    "path": "results/frame_size.txt",
-   "sha256": "165ea6c892cf66c63cdc87311e9f31bac0a986ade02fe3aeb4ed08a2f7191e27"
+   "sha256": "e1e9b5355544b334a26d451e0b8383df76b3a3b90a9d857341ffaa9f9b67b0de"
   }
  ],
  "outputs": [
   {
    "path": "results/paper_numbers_v2.txt",
-   "sha256": "4a45d3af9662099dab6918dad89e80204be730930b3a856f5532377ff9ae67b4"
+   "sha256": "b4cf4a3013f15ed665b07ed69a6c19d2898963f05202f6ccd5633766b090249b"
   }
  ],
- "start": "2026-11-15T11:48:43",
- "end": "2026-11-15T11:49:18",
- "wall_s": 35.5,
+ "start": "2026-11-19T11:47:41",
+ "end": "2026-11-19T11:48:17",
+ "wall_s": 35.6,
  "peak_rss_mb": {
-  "self": 2275.4,
-  "children_max": 8.9
+  "self": 2288.5,
+  "children_max": 9.2
  },
- "host": "Mac",
+ "host": "Mac.lan",
  "python": "3.14.6"
 }

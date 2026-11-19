@@ -1,0 +1,65 @@
+{
+ "id": "20261119T123516-wall_pressure_check-1473",
+ "status": "ok",
+ "purpose": "spurious normal stress on the bumped wall of Hough's Earth: rho g x jump of u.grad Phi0",
+ "script": "scripts/wall_pressure_check.py",
+ "command": "python scripts/wall_pressure_check.py",
+ "params": {},
+ "git": {
+  "commit": "c9a91c130c5b011d306d56000c9703c3b1f6e576",
+  "dirty": [
+   "paper_pepi/main_v4.tex",
+   "paper_pepi/make_table4.py",
+   "paper_pepi/make_tables_viscous.py",
+   "paper_pepi/supplement_v4.tex",
+   "paper_pepi/table_ddw.tex",
+   "paper_scripts/run_all.py",
+   "results/LEDGER.jsonl",
+   "results/fig4_viscous_gap.txt",
+   "results/fig4_viscous_gap.txt.meta.json",
+   "results/paper1_table4.txt",
+   "results/paper1_table4.txt.meta.json",
+   "results/paper1_table4_level.txt",
+   "results/paper1_table4_level.txt.meta.json",
+   "results/paper1_tables_viscous.txt",
+   "results/paper1_tables_viscous.txt.meta.json",
+   "results/regen/table4.tex",
+   "results/regen/table4.tex.meta.json",
+   "results/regen/table4_level.tex.meta.json",
+   "results/regen/tableS_viscous.tex.meta.json",
+   "results/regen/tableS_viscous_level.tex.meta.json",
+   "results/regen/table_ddw_viscous.tex.meta.json",
+   "results/regen/table_latitude_viscous.tex.meta.json",
+   "scripts/fig4_viscous_gap.py"
+  ],
+  "script_untracked": true,
+  "script_dirty": false,
+  "script_sha256": "bd0473c4579577ceba234696d920a149a43b298a8d327af1da898bc8c7e9154b"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "results/wall_fields_bump_3_un_check.txt",
+   "sha256": "fd4112130aecc04ffe1990de388b95f6dfa03acda88e42a1161842b450fcb7c3"
+  },
+  {
+   "path": "results/wall_fields_soft_bump_3.txt",
+   "sha256": "5bae50ab3d02e5b7d024eb3fb836acf99788ddd46dfac2eab54f74435f813719"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/wall_pressure_check.txt",
+   "sha256": "3e895c80f85766ab9ee58b8ce71acfe0ca418ddaae8a4a80b3aac3c59462929c"
+  }
+ ],
+ "start": "2026-11-19T12:35:16",
+ "end": "2026-11-19T12:35:16",
+ "wall_s": 0.2,
+ "peak_rss_mb": {
+  "self": 70.8,
+  "children_max": 8.9
+ },
+ "host": "Mac.lan",
+ "python": "3.14.6"
+}

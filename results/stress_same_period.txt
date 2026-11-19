@@ -1,0 +1,14 @@
+B(441 m, with the stress) - D(410 m, without it), both at the FCN period 431.4 sd; level figure, elastic PREM; units 1e-5
+wave          h0        h2        l0        l1        l2         k
+Mf         +0.89     +1.80     -0.08     +0.00     -0.59     +0.86
+O1         +6.42     +1.80     +0.12     -0.06     -0.69     +3.55
+P1        +44.27     +1.81     -1.22     +0.00     -0.69    +22.56
+K1       +144.73     +1.91     -4.43     +0.20     -0.59    +73.25
+psi1     -788.01     +1.47    +25.39     -1.17     -0.64   -397.36
+OO1        -2.94     +1.80     +0.27     +0.03     -0.59     -1.22
+M2         -1.61     +1.81     -0.07     -0.04     -0.70     -0.87
+
+max |difference| over Mf, O1, OO1, M2, all parameters: 6.4e-05
+h0 at P1: 4.43e-04
+h0 at K1: 1.45e-03
+h0 at psi1: 7.88e-03

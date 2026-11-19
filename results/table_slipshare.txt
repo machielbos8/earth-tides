@@ -1,0 +1,122 @@
+Table S7 (tab:slipshare): resonant share of h(2), read from stored results (paper_pepi/make_table_slipshare.py)
+
+PREM | without | current table +0.0040
+    value   : +0.003953   (5 decimals +0.00395)
+    what    : full PREM, first-order figure, slipping core without the term, core K 6 (only K in file)
+    source  : results/fcn_share_inviscid.txt
+    line    : residue ratios: h2 +0.003953  l0 -0.031547  l1 +0.001874  l2 -0.000980  k0 +0.502080
+
+PREM | with | current table +0.0014
+    value   : +0.00145   (5 decimals +0.00145)
+    what    : full PREM (--model data/PREM.dat; the file's header line says 'without inner core', copied from the noIC script), first-order map, slip term, core K 10; one-pole fit without FICN, max |resid| h0 1.2e-2
+    source  : results/exact_levels_share_test_slipterm_fullPREM.txt
+    line    : clairaut     inviscid  10  30    457.3 20552657371739  +0.00145  -0.03155  +0.00157  -0.00016  +0.50187  1.2e-02
+
+PREM | viscous | current table +0.0015
+    value   : +0.00145   (5 decimals +0.00145)
+    what    : full PREM, first-order figure, viscous core, delta -> 0 (core K 12)
+    source  : results/fcn_resonance_extrapolation_v3_K12.txt
+    line    : delta -> 0 resonant parts / h0: h0 +1.00000 h2 +0.00145 l0 -0.03155 l1 +0.00157 l2 -0.00016 k0 +0.50187   check: h0 +1.00000 h2 +0.00145 l0 -0.03155 l1 +0.00157 l2 -0.00016 k0 +0.50187
+
+\quad level figure | without | current table +0.0014
+    value   : +0.001423   (5 decimals +0.00142)
+    what    : full PREM, level figure, slipping core without the term, core K 6
+    source  : results/fcn_share_inviscid_level.txt
+    line    : residue ratios: h2 +0.001423  l0 -0.031545  l1 +0.001565  l2 -0.000157  k0 +0.501901
+
+\quad level figure | with | current table +0.0014
+    value   : +0.001423   (5 decimals +0.00142)
+    what    : full PREM, level figure, slipping core with the term, core K 6
+    source  : results/fcn_share_inviscid_slipterm_level.txt
+    line    : residue ratios: h2 +0.001423  l0 -0.031545  l1 +0.001565  l2 -0.000157  k0 +0.501901
+
+\quad level figure | viscous | current table +0.0014
+    value   : +0.00142   (5 decimals +0.00142)
+    what    : full PREM, level figure, viscous core, delta -> 0 (core K 12)
+    source  : results/fcn_resonance_extrapolation_v3_K12_level.txt
+    line    : delta -> 0 resonant parts / h0: h0 +1.00000 h2 +0.00142 l0 -0.03154 l1 +0.00156 l2 -0.00016 k0 +0.50189   check: h0 +1.00000 h2 +0.00142 l0 -0.03155 l1 +0.00157 l2 -0.00016 k0 +0.50189
+
+\quad without inner core | without | current table +0.0040
+    value   : +0.00395   (5 decimals +0.00395)
+    what    : PREM_noIC, first-order figure, slipping core without the term, core K 10, N 30
+    source  : results/fcn_share_inviscid_noic.txt
+    line    : 10  30    456.1  +0.00395  -0.03143  +0.00187  -0.00098  +0.50242  2.3e-07
+
+\quad without inner core | with | current table +0.0014
+    value   : +0.00144   (5 decimals +0.00144)
+    what    : PREM_noIC, first-order map, slip term, core K 10
+    source  : results/exact_levels_share_test_slipterm.txt
+    line    : clairaut     inviscid  10  30    456.2 14022857131279674  +0.00144  -0.03143  +0.00157  -0.00016  +0.50221  9.8e-08
+
+\quad without inner core | viscous | current table +0.0015
+    value   : +0.00154   (5 decimals +0.00154)
+    what    : PREM_noIC, first-order figure, viscous core, delta -> 0, one pole (core K 12)
+    source  : results/fcn_resonance_noic_K12.txt
+    line    : delta -> 0 resonant parts / h0: h0 +1.00000 h2 +0.00154 l0 -0.03142 l1 +0.00158 l2 -0.00019 k0 +0.50223
+
+Hough's Earth, exact spheroid | without | current table +0.0020
+    value   : +0.00200   (5 decimals +0.00200)
+    what    : Hough's Earth, exact spheroid ('soft'), slipping core without the term, core K 10 (run 11-12, before slip_nonlevel)
+    source  : results/hough_share_test_bump_d250_K72.txt
+    line    : soft       inviscid  10  30  1.004156   240.6 2602961919231864  +0.00200  +0.03677  +0.00132  +0.00033  +0.54534  8.8e-08
+
+Hough's Earth, exact spheroid | with | current table +0.0020
+    value   : +0.00200   (5 decimals +0.00200)
+    what    : Hough's Earth, exact spheroid ('soft'), slip term, core K 10
+    source  : results/hough_share_test_slipterm.txt
+    line    : soft       inviscid  10  30  1.004156   240.6 2825588929236910  +0.00200  +0.03677  +0.00132  +0.00033  +0.54534  9.3e-08
+
+Hough's Earth, exact spheroid | viscous | current table +0.0020
+    value   : +0.00201   (5 decimals +0.00201)
+    what    : Hough's Earth, exact spheroid, viscous core, delta 250 m, core Vp 1000 (ladder), band 16, N 60, K 48 (step 4)
+    source  : results/converge_resolution_soft_d250_vp1000_mixed.txt
+    line    : 4     K   16  60  48   6  16   239.377    2522  +0.00201  +0.00131  +0.00033  3.3e-10   3.9e-08  -3.3e-08   +0.002  +0.02  2.7e-07  no change   1.5e-10   110.7  15.6 no
+
+\quad first-order map | without | current table +0.0060
+    value   : +0.00596   (5 decimals +0.00596)
+    what    : Hough's Earth, first-order map with the exact eps ('cl_exacteps'), slipping core without the term, core K 10
+    source  : results/hough_share_test.txt
+    line    : cl_exacteps inviscid  10  30  1.004146   241.2 -213002591161623  +0.00596  +0.03680  +0.00162  -0.00046  +0.54565  2.4e-04
+
+\quad first-order map | with | current table +0.0020
+    value   : +0.00201   (5 decimals +0.00201)
+    what    : Hough's Earth, first-order map with the exact eps ('cl_exacteps'), slip term, core K 10
+    source  : results/hough_share_test_slipterm.txt
+    line    : cl_exacteps inviscid  10  30  1.004146   241.2 412359367621790  +0.00201  +0.03677  +0.00132  +0.00033  +0.54534  4.2e-06
+
+\quad first-order map | viscous | current table +0.0020
+    value   : +0.00203   (5 decimals +0.00203)
+    what    : Hough's Earth, first-order map with the exact eps ('cl_exacteps'), viscous core, delta 250 m, K 48 (default core, not the Vp 1000 ladder)
+    source  : results/hough_share_test.txt
+    line    : cl_exacteps    250 m  48  30  1.004167   240.0    2519  +0.00203  +0.03676  +0.00132  +0.00032  +0.54534  1.5e-04
+
+\quad exact spheroid with bump | without | current table -0.0324
+    value   : -0.03242   (5 decimals -0.03242)
+    what    : Hough's Earth, exact spheroid + 3 eps^2 P4, slipping core without the term, core K 10
+    source  : results/hough_share_test_bump.txt
+    line    : bump+3     inviscid  10  30  1.004157   240.6 504696292634017  -0.03242  +0.03653  -0.00129  +0.00721  +0.54267  2.9e-04
+
+\quad exact spheroid with bump | with | current table +0.0019
+    value   : +0.00192   (5 decimals +0.00192)
+    what    : Hough's Earth, exact spheroid + 3 eps^2 P4, slip term, core K 10
+    source  : results/hough_share_test_slipterm.txt
+    line    : bump+3     inviscid  10  30  1.004157   240.6 -1909029029127489  +0.00192  +0.03676  +0.00127  +0.00034  +0.54531  1.6e-06
+
+\quad exact spheroid with bump | viscous | current table +0.0019
+    value   : +0.00192   (5 decimals +0.00192)
+    what    : Hough's Earth, exact spheroid + 3 eps^2 P4, viscous core, delta 250 m, core Vp 1000 (ladder), band 16, N 60, K 48 (step 4)
+    source  : results/converge_resolution_bump_3_d250_vp1000_mixed.txt
+    line    : 4     K   16  60  48   6  16   239.354    2520  +0.00192  +0.00127  +0.00034  6.2e-09   6.5e-08  -1.8e-08   +0.001  -0.00  3.1e-07  no change   2.1e-10   110.2  15.6 no
+
+Cells whose 5-decimal source value does not round unambiguously to the current table value, or that have no source:
+  PREM | with: source +0.00145 is a tie at 4 decimals (half-even +0.0014, half-up +0.0015); table shows +0.0014
+  PREM | viscous: source +0.00145 is a tie at 4 decimals (half-even +0.0014, half-up +0.0015); table shows +0.0015
+
+Notes:
+  - PREM, with / viscous: both sources print +0.00145 (printed 0.0014 and 0.0015 before 2026-11-19; the table now has 5 decimals).
+  - Level figure, slipping: scripts/fcn_share_inviscid.py --figure level [--slip-term] (2026-11-19): the term vanishes on a level wall, both +0.001423.
+  - Without inner core, viscous: fcn_share_inviscid_noic.txt prints "viscous limit (fcn_resonance_noic_K12.txt): h2 +0.00152", a literal hard-coded in scripts/fcn_share_inviscid_noic.py (line 74), not read from that file. The cited file prints +0.00154 (one-pole delta -> 0, residue h2 / residue h0 = 2.85194e-07 / 1.84732e-04 = 0.001544); 0.00152 is h2 over its "check h0" 1.83770e-04 (0.001552). Both round to 0.0015. The table uses the cited file. Note also that this cell (like PREM) is the limit delta -> 0, whereas the caption says delta 250 m for every row except full PREM.
+  - Hough's Earth, exact spheroid, viscous: hough_share_test.txt held 'soft' 250 m K 48 +0.00205 on 11-11 (git 9fa669b) but was overwritten by the cl_exacteps / ex_cleps run; in results/ now: K 72 +0.00204 (hough_share_test_bump_d250_K72.txt, default core) and the Vp 1000 ladder +0.00201 used here (the same ladder family as the bump viscous cell). All round to 0.0020.
+  - First-order map: the cells use variant cl_exacteps (first-order map, exact eps) throughout, the only variant with all three cells in results/. The Clairaut-eps variant (clairaut) gives with the term +0.00200 (hough_share_test_slipterm.txt); its no-term +0.00595 and viscous +0.00204 (250 m K 48) exist only in git (b4780dc:results/hough_share_test.txt). Its viscous cell is the default core, not the Vp 1000 ladder of the exact-spheroid and bump cells.
+  - Bump, viscous: the ladder's "final point" is band 16, N 60, K 36 (+0.00192); the K 48 row (step 4) used here gives the same printed value. The K 48 band-12 value +0.00175 of hough_share_test_bump.txt is under-resolved (band 16 needed) and is not used.
+  - Level figure, viscous: viscous_limit_thin_Kthin_level.txt (K 72 / 96, windows down to 250 m) gives 0.001418 - 0.001420, the same value at 4 decimals.

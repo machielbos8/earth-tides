@@ -63,6 +63,33 @@ def flattening(md, g, s):
     return (R[1] - R[0]) / R[1]
 
 
+def moments(md, geo, n_gl=48, n_th=64):
+    """A (Earth), A_f (fluid core), A_s (inner core) and e_f = (C_f - A_f)/A_f on any figure, integrated over the
+    mapped layers (R, R_s of the figure): C - A = int rho R^2 (sin^2/2 - cos^2) dV, A = int rho R^2 (sin^2/2 +
+    cos^2) dV, dV = R^2 R_s ds dmu dlambda. (2026-11-19: was computed inline for the paper, now under provenance.)"""
+    from earthtides.nonhydro import _bg_R
+    x, wg = np.polynomial.legendre.leggauss(n_gl)
+    mu, wq = np.polynomial.legendre.leggauss(n_th)
+    th = np.arccos(mu)
+    c2, sn2 = mu**2, 1 - mu**2
+    A = Af = As = CAf = 0.0
+    fl = [i for i in range(md.n_layers) if abs(float(md.mu[i](0.5 * (md.r0[i] + md.r1[i])))) < 1.0]
+    for i in range(md.n_layers):
+        r0, r1 = max(md.r0[i], 1.0), md.r1[i]
+        s = r0 + (x + 1) * (r1 - r0) / 2
+        R, R_s = _bg_R(geo, i, s, th)
+        dV = R**2 * R_s * (wg * (r1 - r0) / 2)[:, None] * wq[None, :] * 2 * np.pi
+        rho = md.rho[i](s)[:, None]
+        Ai = np.sum(rho * R**2 * (0.5 * sn2 + c2) * dV)
+        A += Ai
+        if i in fl:
+            Af += Ai
+            CAf += np.sum(rho * R**2 * (0.5 * sn2 - c2) * dV)
+        elif i < min(fl):
+            As += Ai
+    return A, Af, As, CAf / Af
+
+
 def main():
     Ks, N = [int(x) for x in _opt('--K', '4,6').split(',')], int(_opt('--N', 24))
     with Run('FCN of hydrostatic PREM on the first-order figure, exact ellipses and true level surfaces',
@@ -72,12 +99,21 @@ def main():
                  f'{"figure":18s} {"1/f surface":>12s} {"1/f CMB":>10s} ' + ' '.join(f'{"K " + str(K):>9s}' for K in Ks)]
         glev, hist = lg.build(md, OMEGA_EARTH, log=lambda t: None)
         lines.insert(1, f'level surfaces: {len(hist)} iterations, max height left {hist[-1][1]:.1e} m')
+        hough = []
         for name, g in (('first-order map', ClairautGeometry(md)), ('exact ellipses', els.ExactLevelsGeometry(md)),
                         ('level surfaces', glev)):
             P = [1 / (fcn(md, g, K, N) - 1) for K in Ks]
             lines.append(f'{name:18s} {1 / flattening(md, g, md.r1[-1]):12.3f} {1 / flattening(md, g, 3480e3):10.3f} '
                          + ' '.join(f'{p:9.2f}' for p in P))
             print(lines[-1], flush=True)
+            if name != 'exact ellipses':
+                A, Af, As, ef = moments(md, g)
+                Am = A - Af - As
+                beta = ef - Am / (A * P[-1])          # eq. (hough): sigma - 1 = (A / A_m)(e_f - beta), K largest
+                hough.append(f'{name:18s} e_f 1/{1 / ef:.2f}  A_m/A {Am / A:.4f}  rigid mantle (beta = 0) '
+                             f'{Am / (A * ef):.1f} sd  beta {beta:.2e} (beta/e_f {beta / ef:.2f})')
+        lines += ['', "eq. (hough), Hough's formula with the moments of the figure; beta from the FCN of the largest K:"]
+        lines += hough
         # mantle and inner core stiffened 1e4 times (the 'rigid mantle' row of Table 1 of paper 1), K 4
         stiff = EarthModel('data/PREM.dat')
         for i in range(stiff.n_layers):

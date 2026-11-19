@@ -1,0 +1,46 @@
+{
+ "id": "20261117T123305-check_prem_table1-4686",
+ "status": "ok",
+ "purpose": "data/PREM.dat and PREMs.dat against Table I of Dziewonski & Anderson (1981)",
+ "script": "scripts/check_prem_table1.py",
+ "command": "python scripts/check_prem_table1.py",
+ "params": {},
+ "git": {
+  "commit": "57d8d3eb0f86ae96bb38c9b9ac3c8788393c1b3f",
+  "dirty": [
+   "paper_scripts/run_all.py",
+   "pyproject.toml",
+   "scripts/check_prem_table1.py",
+   "src/earthtides/__init__.py"
+  ],
+  "script_untracked": false,
+  "script_dirty": true,
+  "script_sha256": "a4e8a85f613d23b16f01e2e129628dafbb727ef9a33e8ae33276960fa438b72b"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "src/earthtides/data/PREM.dat",
+   "sha256": "8816a5244429ba2d683440bf1a82ee7b8add42811693be5007a9b4afd298dfa0"
+  },
+  {
+   "path": "src/earthtides/data/PREMs.dat",
+   "sha256": "262d979b676bb0678cf72cb35b50c873e23d6f783e404e655298406f08584c14"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/check_prem_table1.txt",
+   "sha256": "72c5f3b5c75ed362423233506ba540da0d4aa55c63f2c6397427b8d01e903bd6"
+  }
+ ],
+ "start": "2026-11-17T12:33:05",
+ "end": "2026-11-17T12:33:05",
+ "wall_s": 0.0,
+ "peak_rss_mb": {
+  "self": 32.8,
+  "children_max": 8.9
+ },
+ "host": "Mac.lan",
+ "python": "3.14.6"
+}

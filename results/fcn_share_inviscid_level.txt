@@ -1,0 +1,3 @@
+figure level, slip term off
+inviscid K 6: FCN 1.0021918+3.7e-15i (456.2 sd), FICN 0.9978643+1.1e-12i (-468 sd), max |resid| [5.2e-05 1.6e-05 1.6e-06 2.3e-06 5.4e-06 2.7e-05]
+residue ratios: h2 +0.001423  l0 -0.031545  l1 +0.001565  l2 -0.000157  k0 +0.501901

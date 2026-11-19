@@ -5,6 +5,10 @@ first-order map         300.230    393.028    457.33    457.33
 exact ellipses          299.896    392.695    456.62    456.62
 level surfaces          299.720    392.417    456.24    456.24
 
+eq. (hough), Hough's formula with the moments of the figure; beta from the FCN of the largest K:
+first-order map    e_f 1/392.90  A_m/A 0.8862  rigid mantle (beta = 0) 348.2 sd  beta 6.07e-04 (beta/e_f 0.24)
+level surfaces     e_f 1/392.07  A_m/A 0.8862  rigid mantle (beta = 0) 347.4 sd  beta 6.08e-04 (beta/e_f 0.24)
+
 mantle and inner core stiffened 1e4 times, K 4:
 first-order           356.39
 level                 355.64

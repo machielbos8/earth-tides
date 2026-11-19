@@ -22,6 +22,8 @@
 (c) Chebyshev nodes per layer M 10 -> 14.
 (d) The offset of the FCN from 1 cpsd must grow as Omega^2 (both e_f and the compliance do): elastic PREM
     spun 0, 2 and 3.27 % faster, slipping core, K 4, N 24, period in days of that Earth times (1 + x)^2.
+(e) A homogeneous body (data/HOMOG.dat): the level figure against the Maclaurin spheroid (2026-11-19; was only
+    asserted in tests/test_level_geometry.py).
 Usage: python scripts/validate_level_figure.py  ->  results/validate_level_figure.txt"""
 import sys
 import warnings
@@ -98,6 +100,20 @@ def main():
             P = [fcn(md, figure(md, kind, omega=O), O) * (1 + x) ** 2 for kind in ('first-order', 'level')]
             lines.append(f'    {100 * x:10.2f} % {P[0]:12.3f} {P[1]:12.3f}')
             print(lines[-1], flush=True)
+        from scipy.optimize import brentq
+        hm = EarthModel('data/HOMOG.dat')
+        rho = float(hm.rho[0](hm.a / 2))
+        rhs = OMEGA_EARTH ** 2 / (2 * np.pi * G * rho)
+        e = brentq(lambda e: np.sqrt(1 - e * e) / e ** 3 * (3 - 2 * e * e) * np.arcsin(e)
+                   - 3 * (1 - e * e) / e ** 2 - rhs, 1e-3, 0.5)
+        f_mac = 1 - np.sqrt(1 - e * e)
+        gh = LevelGeometry(hm)
+        R = gh.map_derivs(hm.n_layers - 1, np.array([[hm.r1[-1]]]), np.array([1e-9, np.pi / 2]))[0][0]
+        f_lev = (R[1] - R[0]) / R[1]
+        lines += ['', '(e) homogeneous body (data/HOMOG.dat), Omega_Earth: flattening of the level figure against Maclaurin',
+                  f'    Maclaurin 1/{1 / f_mac:.6f}  level figure 1/{1 / f_lev:.6f}  relative difference {f_lev / f_mac - 1:+.1e}'
+                  f'  ({len(gh.history)} iterations, max height left {gh.history[-1][1]:.1e} m)']
+        print(lines[-1], flush=True)
         run.write_text('results/validate_level_figure.txt', '\n'.join(lines) + '\n')
 
 

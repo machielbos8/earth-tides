@@ -1,0 +1,58 @@
+{
+ "id": "20261119T123301-viscous_limit_uncertainty-1152",
+ "status": "ok",
+ "purpose": "uncertainty of the viscous limit delta -> 0 (windows and core K)",
+ "script": "scripts/viscous_limit_uncertainty.py",
+ "command": "python scripts/viscous_limit_uncertainty.py",
+ "params": {},
+ "git": {
+  "commit": "c9a91c130c5b011d306d56000c9703c3b1f6e576",
+  "dirty": [
+   "paper_pepi/main_v4.tex",
+   "paper_pepi/make_table4.py",
+   "paper_pepi/make_tables_viscous.py",
+   "paper_pepi/supplement_v4.tex",
+   "paper_pepi/table_ddw.tex",
+   "paper_scripts/run_all.py",
+   "results/LEDGER.jsonl",
+   "results/paper1_table4.txt",
+   "results/paper1_table4.txt.meta.json",
+   "results/paper1_table4_level.txt",
+   "results/paper1_table4_level.txt.meta.json",
+   "results/paper1_tables_viscous.txt",
+   "results/paper1_tables_viscous.txt.meta.json",
+   "results/regen/table4.tex",
+   "results/regen/table4.tex.meta.json",
+   "results/regen/table4_level.tex.meta.json",
+   "results/regen/tableS_viscous.tex.meta.json",
+   "results/regen/tableS_viscous_level.tex.meta.json",
+   "results/regen/table_ddw_viscous.tex.meta.json",
+   "results/regen/table_latitude_viscous.tex.meta.json"
+  ],
+  "script_untracked": true,
+  "script_dirty": false,
+  "script_sha256": "96c589bb2dd70240d635e39571d0b347fa37157f683c76d1c6d7f140758849d6"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "results/viscous_limit_thin_Kthin_level.txt",
+   "sha256": "228a7d3b32468f809a71a4e4f7d3ab7f81267213bb9f3c81c41f816f0218379a"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/viscous_limit_uncertainty.txt",
+   "sha256": "d2854d906be6f541b0086502d014d8275421bee2dee9b172e200f7d9d291bd8e"
+  }
+ ],
+ "start": "2026-11-19T12:33:01",
+ "end": "2026-11-19T12:33:01",
+ "wall_s": 0.0,
+ "peak_rss_mb": {
+  "self": 19.9,
+  "children_max": 8.9
+ },
+ "host": "Mac.lan",
+ "python": "3.14.6"
+}

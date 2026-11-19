@@ -1,0 +1,49 @@
+{
+ "id": "20261117T104456-displacement_scale-1473",
+ "status": "ok",
+ "purpose": "Love-number differences of Tables S2 and S4 as station displacement in mm",
+ "script": "scripts/displacement_scale.py",
+ "command": "python scripts/displacement_scale.py",
+ "params": {},
+ "git": {
+  "commit": "dcf93f06baef2075e267774237302ea9f8d266de",
+  "dirty": [
+   ".gitignore",
+   "CLAUDE.md",
+   "paper_pepi/build_2col.sh"
+  ],
+  "script_untracked": true,
+  "script_dirty": false,
+  "script_sha256": "6fe062c29510d0ead46046cd3a061815feb86abf74cee5bf8bc625f130b12415"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "paper_pepi/table_ddw.tex",
+   "sha256": "66fa83c28ef7d713547aecf59cf791e68e0273800a931b0224dce108a4964e0c"
+  },
+  {
+   "path": "paper_pepi/table_anelastic.tex",
+   "sha256": "363ab5d6fda626130c314b993481fefa6b4e535c2034e3a763193ab8179d9a4f"
+  },
+  {
+   "path": "src/earthtides/data/Tamura.dat",
+   "sha256": "0b3fe21db14409a708e12998d5f0204d3bddebc5c7d76464aaadf8dea463ae3d"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/displacement_scale.txt",
+   "sha256": "0640932ced65f1445449aa48ab53b8c7d5c3fee3a2574fa2909e4b60678a5a8b"
+  }
+ ],
+ "start": "2026-11-17T10:44:56",
+ "end": "2026-11-17T10:44:56",
+ "wall_s": 0.1,
+ "peak_rss_mb": {
+  "self": 33.9,
+  "children_max": 8.9
+ },
+ "host": "Mac.lan",
+ "python": "3.14.6"
+}

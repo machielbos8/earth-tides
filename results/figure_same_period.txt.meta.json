@@ -1,0 +1,60 @@
+{
+ "id": "20261119T123209-figure_same_period-1020",
+ "status": "ok",
+ "purpose": "level minus first-order figure at the same FCN period (431.4 sd)",
+ "script": "scripts/figure_same_period.py",
+ "command": "python scripts/figure_same_period.py",
+ "params": {},
+ "git": {
+  "commit": "c9a91c130c5b011d306d56000c9703c3b1f6e576",
+  "dirty": [
+   "paper_pepi/make_table4.py",
+   "paper_pepi/make_tables_viscous.py",
+   "paper_pepi/table_ddw.tex",
+   "paper_scripts/run_all.py",
+   "results/LEDGER.jsonl",
+   "results/paper1_table4.txt",
+   "results/paper1_table4.txt.meta.json",
+   "results/paper1_table4_level.txt",
+   "results/paper1_table4_level.txt.meta.json",
+   "results/paper1_tables_viscous.txt",
+   "results/paper1_tables_viscous.txt.meta.json",
+   "results/regen/table4.tex",
+   "results/regen/table4.tex.meta.json",
+   "results/regen/table4_level.tex.meta.json",
+   "results/regen/tableS_viscous.tex.meta.json",
+   "results/regen/tableS_viscous_level.tex.meta.json",
+   "results/regen/table_ddw_viscous.tex.meta.json",
+   "results/regen/table_latitude_viscous.tex.meta.json"
+  ],
+  "script_untracked": true,
+  "script_dirty": false,
+  "script_sha256": "9c3bdb7d10ab0fe208c6bb9c60a406358bd2117ffac5430cc3f5f297da43d0df"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "results/paper1_table4_level.txt",
+   "sha256": "1e3f3dd638928d7d6adfefc1a568b4cfdf6e11e588d9d8cafa5a9578c385ba5d"
+  },
+  {
+   "path": "results/paper1_table4.txt",
+   "sha256": "8696ec1e4200d569ab34a848ef46312a09036332d3f6b7c4171a0df9acd53183"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/figure_same_period.txt",
+   "sha256": "fc7ca216f6370d4d486f60a9e3d353642f06da256fc2d22e7af5fc3fffe49227"
+  }
+ ],
+ "start": "2026-11-19T12:32:09",
+ "end": "2026-11-19T12:32:09",
+ "wall_s": 0.0,
+ "peak_rss_mb": {
+  "self": 19.8,
+  "children_max": 9.1
+ },
+ "host": "Mac.lan",
+ "python": "3.14.6"
+}

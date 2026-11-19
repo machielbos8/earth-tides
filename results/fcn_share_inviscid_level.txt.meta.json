@@ -1,0 +1,77 @@
+{
+ "id": "20261119T124126-fcn_share_inviscid-2322",
+ "status": "ok",
+ "purpose": "inviscid FCN resonance strengths, core K 6 (Sect. 5.3)",
+ "script": "scripts/fcn_share_inviscid.py",
+ "command": "python scripts/fcn_share_inviscid.py --figure level",
+ "params": {
+  "argv": [
+   "--figure",
+   "level"
+  ]
+ },
+ "git": {
+  "commit": "c9a91c130c5b011d306d56000c9703c3b1f6e576",
+  "dirty": [
+   "examples/ex4/greff2005.out",
+   "examples/ex5/hough1895.out",
+   "paper_pepi/main_v4.tex",
+   "paper_pepi/main_v4_2col.pdf",
+   "paper_pepi/make_table4.py",
+   "paper_pepi/make_tables_viscous.py",
+   "paper_pepi/supplement_v4.pdf",
+   "paper_pepi/supplement_v4.tex",
+   "paper_pepi/table_ddw.tex",
+   "paper_scripts/run_all.py",
+   "results/LEDGER.jsonl",
+   "results/fig4_viscous_gap.txt",
+   "results/fig4_viscous_gap.txt.meta.json",
+   "results/paper1_table4.txt",
+   "results/paper1_table4.txt.meta.json",
+   "results/paper1_table4_level.txt",
+   "results/paper1_table4_level.txt.meta.json",
+   "results/paper1_tables_viscous.txt",
+   "results/paper1_tables_viscous.txt.meta.json",
+   "results/regen/table4.tex",
+   "results/regen/table4.tex.meta.json",
+   "results/regen/table4_level.tex.meta.json",
+   "results/regen/tableS_viscous.tex.meta.json",
+   "results/regen/tableS_viscous_level.tex.meta.json",
+   "results/regen/table_ddw_viscous.tex.meta.json",
+   "results/regen/table_latitude_viscous.tex.meta.json",
+   "scripts/fcn_share_inviscid.py",
+   "scripts/fig4_viscous_gap.py"
+  ],
+  "script_untracked": false,
+  "script_dirty": true,
+  "script_sha256": "f386584a66a83ad53d2f1eaebc990d32ffbce870de323cfd6b507892c6beecd5"
+ },
+ "env": {
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
+ "inputs": [
+  {
+   "path": "data/PREM.dat",
+   "sha256": "8816a5244429ba2d683440bf1a82ee7b8add42811693be5007a9b4afd298dfa0"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/fcn_share_inviscid_level.txt",
+   "sha256": "65bbaa2ca9213b47c3ef62d4f832a2bdd084c57d6c688e69695657ee7ab17054"
+  },
+  {
+   "path": "results/fcn_share_inviscid_level.npz",
+   "sha256": "60f0801daec38d00d4247479c39c8727ec5765a606c019ca1407c1a5a8e728af"
+  }
+ ],
+ "start": "2026-11-19T12:41:26",
+ "end": "2026-11-19T12:41:38",
+ "wall_s": 12.0,
+ "peak_rss_mb": {
+  "self": 72.8,
+  "children_max": 845.4
+ },
+ "host": "Mac.lan",
+ "python": "3.14.6"
+}

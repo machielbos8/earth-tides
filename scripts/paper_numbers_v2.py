@@ -424,7 +424,31 @@ def sec_nhamp():
          f'{big:.2%}; {0.5 * np.sum(w * 0.5 * (3 * x ** 2 - 1)):.0e}', 'at most 0.14 per cent; average to zero on every sphere')
 
 
-SECTIONS = dict(analytic=sec_analytic, gravity=sec_gravity, refpot=sec_refpot, angmom=sec_angmom, l1mm=sec_l1mm,
+# ------------------------------------------------------------------------------ wall (2026-11-19)
+def sec_wall():
+    """Main 5.3, S5.5: gravity against the centrifugal acceleration at the core-mantle boundary, and the factor
+    2 g / (Omega^2 r) of the slip term; S2: distance between the flattened surface and the mean radius."""
+    import importlib.util
+    import tempfile
+    from pathlib import Path
+    from earthtides.geometry import ClairautGeometry
+    spec = importlib.util.spec_from_file_location('hough1895', 'examples/ex5/hough1895.py')
+    H = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(H)
+    hough = H.make(vs_m=6.0, vp_c=1000.0, path=Path(tempfile.gettempdir()) / 'HOUGH_paper_numbers.dat',
+                   rho_c=H.RHO, rho_m=H.RHO)
+    prem = EarthModel('data/PREM.dat')
+    for name, md, paper in (('PREM', prem, '577; factor about 1150'), ("Hough's Earth", hough, '289; factor about 580')):
+        ic = [i for i in range(md.n_layers) if abs(float(md.mu[i](0.5 * (md.r0[i] + md.r1[i])))) < 1.0][-1]
+        rc = md.r1[ic]
+        ratio = float(md.gravity(ic, rc)) / (OMEGA_EARTH ** 2 * rc)
+        item('5.3/S5.5', f'{name}: g / (Omega^2 r) at the CMB; factor 2 g / (Omega^2 r)', f'{ratio:.1f}; {2 * ratio:.0f}', paper)
+    f = ClairautGeometry(prem).flattening_surface
+    item('S2', 'flattened surface to the mean radius: 2 f a / 3 (pole), f a / 3 (equator)',
+         f'{2 * f * prem.a / 3e3:.1f} / {f * prem.a / 3e3:.1f} km', '14 / 7 km')
+
+
+SECTIONS = dict(wall=sec_wall, analytic=sec_analytic, gravity=sec_gravity, refpot=sec_refpot, angmom=sec_angmom, l1mm=sec_l1mm,
                 voigt=sec_voigt, rock=sec_rock, poisson=sec_poisson, rosat=sec_rosat, latmm=sec_latmm, nutation=sec_nutation, nhamp=sec_nhamp)
 
 

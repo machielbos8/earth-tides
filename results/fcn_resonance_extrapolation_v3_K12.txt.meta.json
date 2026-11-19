@@ -1,0 +1,46 @@
+{
+ "id": "20261108T114032-fcn_resonance_extrapolation_v3-4278",
+ "status": "ok",
+ "purpose": "stdout of scripts/fcn_resonance_extrapolation_v3.py",
+ "script": "scripts/fcn_resonance_extrapolation_v3.py",
+ "command": "python scripts/traced.py fcn_resonance_extrapolation_v3_K12 --outputs results/fcn_resonance_extrapolation_v3_K12.txt results/fcn_resonance_extrapolation_v3_K12.npz -- scripts/fcn_resonance_extrapolation_v3.py 12 8 --fresh",
+ "params": {
+  "args": [
+   "12",
+   "8",
+   "--fresh"
+  ]
+ },
+ "git": {
+  "commit": "58931ef28c9cc92c661c7ac03da5580c9d24a7ad",
+  "dirty": [],
+  "script_untracked": false,
+  "script_dirty": false,
+  "script_sha256": "cc35c262e1fd9a0f37835eeb5946c115eadca746b3c3c67e927551fc5351a727"
+ },
+ "env": {},
+ "inputs": [],
+ "outputs": [
+  {
+   "path": "results/stdout/fcn_resonance_extrapolation_v3_K12.txt",
+   "sha256": "0cc8f73a8d9ce0b67b2e1e3eda8417f9d8560e7a93f4b93685cddc1551a9ccfe"
+  },
+  {
+   "path": "results/fcn_resonance_extrapolation_v3_K12.txt",
+   "sha256": "0fa33319890bb71b0c3f1686e2ca6c6ce15c1b4ff5506e4d70f34a553506a880"
+  },
+  {
+   "path": "results/fcn_resonance_extrapolation_v3_K12.npz",
+   "sha256": "ad8db7cc6d962f133dc63ad92a975db17909dc6b862aab1fa80720e840b8a443"
+  }
+ ],
+ "start": "2026-11-08T11:40:32",
+ "end": "2026-11-08T12:06:11",
+ "wall_s": 1539.0,
+ "peak_rss_mb": {
+  "self": 17.8,
+  "children_max": 75.2
+ },
+ "host": "Linux (28 GB)",
+ "python": "3.14.4"
+}

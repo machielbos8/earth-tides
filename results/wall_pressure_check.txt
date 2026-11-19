@@ -1,0 +1,5 @@
+Hough's Earth, bump +3, 0.96 cpsd, degree 4, per unit U2 on the mantle side of the wall
+rho 5500 kg/m3, g at the wall 5.350 m/s2, rho g 29425
+un4 fluid side -7.233e-03, mantle side -4.699e-03, jump -2.534e-03
+rho g x jump                                     -74.6
+trr4 mantle side: slipping -55.57, viscous +13.09; difference   -68.7

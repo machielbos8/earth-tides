@@ -1,5 +1,5 @@
 {
- "id": "20261115T114302-make_table4-8639",
+ "id": "20261119T122957-make_table4-0971",
  "status": "ok",
  "purpose": "Table of non-hydrostatic Love numbers (P1 v2 Table S12, S8)",
  "script": "paper_pepi/make_table4.py",
@@ -8,44 +8,52 @@
   "out": "results/regen"
  },
  "git": {
-  "commit": "074b5d2aa281eb82243b2e855f9ddecb4dd90bf3",
+  "commit": "c9a91c130c5b011d306d56000c9703c3b1f6e576",
   "dirty": [
-   "paper_pepi/main_v3.tex",
    "paper_pepi/make_table4.py",
-   "paper_pepi/supplement_v3.tex"
+   "paper_pepi/make_tables_viscous.py",
+   "paper_pepi/table_ddw.tex",
+   "paper_scripts/run_all.py",
+   "results/LEDGER.jsonl",
+   "results/paper1_tables_viscous.txt",
+   "results/paper1_tables_viscous.txt.meta.json",
+   "results/regen/table_ddw_viscous.tex.meta.json",
+   "results/regen/table_latitude_viscous.tex.meta.json"
   ],
   "script_untracked": false,
   "script_dirty": true,
-  "script_sha256": "8f3c6173872a74901fd4116a2f6a51cb9a27150e8a82392f1d51400bca61f5ab"
+  "script_sha256": "a80a3aafe52cc7c01139de63183f726a52bd70c6af6b83f7a253849dd1d18ff7"
  },
- "env": {},
+ "env": {
+  "VECLIB_MAXIMUM_THREADS": "1"
+ },
  "inputs": [
   {
    "path": "data/PREM.dat",
-   "sha256": "64aeca57b67613e104653369bb314832f16810b514fd33034b1817d930a05a43"
+   "sha256": "8816a5244429ba2d683440bf1a82ee7b8add42811693be5007a9b4afd298dfa0"
   }
  ],
  "outputs": [
   {
    "path": "results/regen/table4_level.tex",
-   "sha256": "53bced5d35a62b6eab249ee0201a028efc30f46621a066b1e9cfce7a76526b77"
+   "sha256": "f602680c9be03389bc4c3262b3effd92efc6a72bfcd1299f8528b34118d4705d"
   },
   {
    "path": "results/regen/tableS_viscous_level.tex",
-   "sha256": "ca3b6371a4f05cee45f79e95c7856858fd346a6ccffbff389d6f1f279b8aaac5"
+   "sha256": "33da40358ae7199303ca2caf48f49d8352be2d56d8990b92e16382485308421f"
   },
   {
    "path": "results/paper1_table4_level.txt",
-   "sha256": "4e6fbcfaabab19ebcfe727b307e54345cc42057d301577b598951247c8fe9ae0"
+   "sha256": "1e3f3dd638928d7d6adfefc1a568b4cfdf6e11e588d9d8cafa5a9578c385ba5d"
   }
  ],
- "start": "2026-11-15T11:43:02",
- "end": "2026-11-15T11:44:04",
- "wall_s": 62.0,
+ "start": "2026-11-19T12:29:57",
+ "end": "2026-11-19T12:31:01",
+ "wall_s": 64.3,
  "peak_rss_mb": {
-  "self": 1058.8,
-  "children_max": 8.8
+  "self": 1125.4,
+  "children_max": 8.9
  },
- "host": "Mac",
+ "host": "Mac.lan",
  "python": "3.14.6"
 }

@@ -1,0 +1,50 @@
+{
+ "id": "20261119T122906-stress_same_period-0884",
+ "status": "ok",
+ "purpose": "deviatoric stress at the same FCN period: B(441 m) - D(410 m)",
+ "script": "scripts/stress_same_period.py",
+ "command": "python scripts/stress_same_period.py",
+ "params": {},
+ "git": {
+  "commit": "c9a91c130c5b011d306d56000c9703c3b1f6e576",
+  "dirty": [
+   "paper_pepi/make_tables_viscous.py",
+   "paper_pepi/table_ddw.tex",
+   "paper_scripts/run_all.py",
+   "results/LEDGER.jsonl",
+   "results/paper1_tables_viscous.txt",
+   "results/paper1_tables_viscous.txt.meta.json",
+   "results/regen/table_ddw_viscous.tex.meta.json",
+   "results/regen/table_latitude_viscous.tex.meta.json"
+  ],
+  "script_untracked": true,
+  "script_dirty": false,
+  "script_sha256": "4a8fd71a20246b2193ee8073d8491d9e2fcbd6541ba0a56e21486f279bca7049"
+ },
+ "env": {},
+ "inputs": [
+  {
+   "path": "results/nonhydro_stress_split_441m_level.txt",
+   "sha256": "132f3db3a9d14b8aa85c2405a2df8eb5a919cfcf58359152fa8e762d1cb1ece6"
+  },
+  {
+   "path": "results/nonhydro_stress_split_410m_level.txt",
+   "sha256": "05d9af285586bc517a8a8f2c60ecf4620c6d43e3cecb7223c99f68a393d15057"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "results/stress_same_period.txt",
+   "sha256": "4cce85039bc549ae205b6a6de52074ba84e948e73f3bf480a233316530c8f95d"
+  }
+ ],
+ "start": "2026-11-19T12:29:06",
+ "end": "2026-11-19T12:29:06",
+ "wall_s": 0.0,
+ "peak_rss_mb": {
+  "self": 19.7,
+  "children_max": 8.9
+ },
+ "host": "Mac.lan",
+ "python": "3.14.6"
+}
